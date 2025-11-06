@@ -7,7 +7,7 @@ import com.panaderiamatemagica.core.controlador.RouterControlador;
 import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 /**
  *
- * @author User
+ * @author user
  */
 public class Main {
 
@@ -20,5 +20,4 @@ public class Main {
             new RouterControlador(); 
         });
     }
-    
 }
