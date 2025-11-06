@@ -11,7 +11,7 @@ import com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista;
 
 /**
  *
- * @author User
+ * @author user
  */
 public class RouterControlador {
     //Se crean instancias de las clases pantallas
