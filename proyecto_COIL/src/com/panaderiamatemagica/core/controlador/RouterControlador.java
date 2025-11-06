@@ -8,7 +8,7 @@ import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 import com.panaderiamatemagica.core.visual.PantallaInicioVista;
 import com.panaderiamatemagica.autenticacion.vista.PantallaAutenticacionVista;
 import com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista;
-
+//
 /**
  *
  * @author user

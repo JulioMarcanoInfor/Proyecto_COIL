@@ -7,18 +7,31 @@ import java.awt.CardLayout;
 import javax.swing.JPanel;
 /**
  *
- * @author User
+ * @author user
  */
 public class PantallaPrincipalVista extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PantallaPrincipalVista.class.getName());
-    private CardLayout cardLayout; // Aquí usas el tipo CardLayout de Java
-    private JPanel panelContenedor;
-    /**
-     * Creates new form InicioVista
-     */
+    private CardLayout listaPantallas;
+    
     public PantallaPrincipalVista() {
         initComponents();
+        configurarListaPantallas();
+    }
+    private void configurarListaPantallas(){
+        //Se crea una instancia de una lista de pantallas 
+        listaPantallas = new CardLayout();
+        
+        //Se le asigna la lista de pantallas a monitor que es el panel que ocupa toda la pantalla
+        //asi las pantallas que se guarden en listaPantallas se van a mostrar en ese panel del JFrame principal
+        monitor.setLayout(listaPantallas);
+        setLocationRelativeTo(null);
+    }
+     public void mostrarPanel(String nombrePanel) {
+        listaPantallas.show(monitor, nombrePanel);
+    }
+    
+    public void agregarPanel(JPanel panel, String nombre) {
+        monitor.add(panel, nombre);
     }
 
     /**
@@ -31,34 +44,20 @@ public class PantallaPrincipalVista extends javax.swing.JFrame {
     private void initComponents() {
 
         monitor = new javax.swing.JPanel();
-        boton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         monitor.setBackground(new java.awt.Color(255, 255, 255));
 
-        boton1.setText("PantallaSiguiente");
-        boton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout monitorLayout = new javax.swing.GroupLayout(monitor);
         monitor.setLayout(monitorLayout);
         monitorLayout.setHorizontalGroup(
             monitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, monitorLayout.createSequentialGroup()
-                .addContainerGap(369, Short.MAX_VALUE)
-                .addComponent(boton1)
-                .addGap(355, 355, 355))
+            .addGap(0, 845, Short.MAX_VALUE)
         );
         monitorLayout.setVerticalGroup(
             monitorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(monitorLayout.createSequentialGroup()
-                .addGap(284, 284, 284)
-                .addComponent(boton1)
-                .addContainerGap(320, Short.MAX_VALUE))
+            .addGap(0, 627, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -69,43 +68,17 @@ public class PantallaPrincipalVista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(monitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(monitor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_boton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new PantallaPrincipalVista().setVisible(true));
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton boton1;
     private javax.swing.JPanel monitor;
     // End of variables declaration//GEN-END:variables
 }
