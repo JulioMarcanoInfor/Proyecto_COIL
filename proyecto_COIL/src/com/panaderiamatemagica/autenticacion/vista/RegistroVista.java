@@ -4,6 +4,10 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
+import com.panaderiamatemagica.autenticacion.controlador.AlumnoControlador;
+import com.panaderiamatemagica.modelos.AlumnoModelo;
+import javax.swing.JLabel;
+
 /**
  *
  * @author user
@@ -17,6 +21,16 @@ public class RegistroVista extends javax.swing.JPanel {
         initComponents();
     }
 
+    //Alumno que se le colocaran los datos.(supongo que cada que se ponga esta
+    // pantalla se creara un nuevo alumno, no lo se)
+    AlumnoModelo nuevoAlumno = new AlumnoModelo();
+    
+    //controlador.
+    AlumnoControlador objetoControlador = new AlumnoControlador(nuevoAlumno,
+    this); // se pone this porque es la misam vita la que se pasa por parametro.
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,10 +40,10 @@ public class RegistroVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        txtnombre = new javax.swing.JLabel();
+        txtapellido = new javax.swing.JLabel();
+        txtapodo = new javax.swing.JLabel();
+        txtfechaNacimiento = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -41,13 +55,13 @@ public class RegistroVista extends javax.swing.JPanel {
         setBackground(new java.awt.Color(204, 255, 204));
         setPreferredSize(new java.awt.Dimension(596, 615));
 
-        jLabel1.setText("Nombre");
+        txtnombre.setText("Nombre");
 
-        jLabel2.setText("Apellido");
+        txtapellido.setText("Apellido");
 
-        jLabel3.setText("Apodo");
+        txtapodo.setText("Apodo");
 
-        jLabel4.setText("Fecha de nacimiento");
+        txtfechaNacimiento.setText("Fecha de nacimiento");
 
         jLabel5.setText("Chef");
 
@@ -79,6 +93,11 @@ public class RegistroVista extends javax.swing.JPanel {
 
         jButton1.setBackground(new java.awt.Color(0, 255, 0));
         jButton1.setText("REGISTRARSE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -86,15 +105,15 @@ public class RegistroVista extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(108, 108, 108)
-                .addComponent(jLabel1)
+                .addComponent(txtnombre)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
+                .addComponent(txtapellido)
                 .addGap(145, 145, 145))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
-                        .addComponent(jLabel4))
+                        .addComponent(txtfechaNacimiento))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(60, 60, 60)
                         .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -104,7 +123,7 @@ public class RegistroVista extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(txtapodo)
                         .addGap(145, 145, 145))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -130,16 +149,16 @@ public class RegistroVista extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(59, 59, 59)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(txtnombre)
+                    .addComponent(txtapellido))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextField1)
                     .addComponent(jTextField3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel3))
+                    .addComponent(txtfechaNacimiento)
+                    .addComponent(txtapodo))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -170,18 +189,34 @@ public class RegistroVista extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    // aqui se validan los datos pq le da a registrarse.
+    
+   
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
+    // get de: nombre y apellido. (para usar en el controlador). 
+    public String getTxtapellido() {
+        // lo volvemos a String (es txt por defecto creo)
+        return String.valueOf(txtapellido);
+    }
+    public String getTxtnombre() {
+        // lo volvemos a String (es txt por defecto creo)
+        return String.valueOf(txtnombre);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel txtapellido;
+    private javax.swing.JLabel txtapodo;
+    private javax.swing.JLabel txtfechaNacimiento;
+    private javax.swing.JLabel txtnombre;
     // End of variables declaration//GEN-END:variables
 }
