@@ -2,11 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.panaderiamatemagica.core.controlador;
+package com.panaderiamatemagica.comunes;
 import com.panaderiamatemagica.autenticacion.controlador.RouterRolControlador;
+import com.panaderiamatemagica.autenticacion.vista.InicioSesionAdminVista;
 import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 import com.panaderiamatemagica.core.visual.PantallaInicioVista;
 import com.panaderiamatemagica.autenticacion.vista.PantallaAutenticacionVista;
+import com.panaderiamatemagica.autenticacion.vista.SeleccionPanaderoVista;
 import com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista;
 //
 /**
@@ -20,7 +22,9 @@ public class RouterControlador {
     private PantallaAutenticacionVista pantallaAutenticacion;
     private SeleccionRolVista pantallaSeleccionRol;
     private RouterRolControlador routerRol;
-    
+    private InicioSesionAdminVista pantallaInicioSesionAdmin;
+    private SeleccionPanaderoVista pantallaSeleccionPanadero;
+            
     public RouterControlador(){
         pantallaPrincipal = new PantallaPrincipalVista();
         routerRol = new RouterRolControlador(this);
@@ -30,6 +34,8 @@ public class RouterControlador {
         pantallaInicio = new PantallaInicioVista(this);
         pantallaAutenticacion = routerRol.getPantallaAutenticacion();
         pantallaSeleccionRol = new SeleccionRolVista(this);
+        pantallaInicioSesionAdmin = new InicioSesionAdminVista(this);
+        pantallaSeleccionPanadero = new SeleccionPanaderoVista(this);
         inicializarPaneles();
         pantallaPrincipal.setVisible(true);
     }
@@ -37,6 +43,9 @@ public class RouterControlador {
         pantallaPrincipal.agregarPanel(pantallaInicio, "INICIO");
         pantallaPrincipal.agregarPanel(pantallaAutenticacion, "AUTENTICACION");
         pantallaPrincipal.agregarPanel(pantallaSeleccionRol, "ROL");
+        pantallaPrincipal.agregarPanel(pantallaInicioSesionAdmin, "SESION ADMIN");
+        pantallaPrincipal.agregarPanel(pantallaSeleccionPanadero, "PANADEROS");
+        
         
         pantallaPrincipal.mostrarPanel("INICIO");
     }
@@ -50,4 +59,10 @@ public class RouterControlador {
     public void mostrarSeleccionRolVista() {
         pantallaPrincipal.mostrarPanel("ROL");
 }
+    public void mostrarInicioSesionAdminVista(){
+        pantallaPrincipal.mostrarPanel("SESION ADMIN");
+    }
+    public void mostrarSeleccionPanadero(){
+        pantallaPrincipal.mostrarPanel("PANADEROS");
+    }
 }

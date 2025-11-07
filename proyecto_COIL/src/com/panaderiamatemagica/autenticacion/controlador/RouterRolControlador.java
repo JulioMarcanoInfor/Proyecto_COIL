@@ -7,7 +7,7 @@ package com.panaderiamatemagica.autenticacion.controlador;
 import com.panaderiamatemagica.autenticacion.vista.InicioSesionVista;
 import com.panaderiamatemagica.autenticacion.vista.PantallaAutenticacionVista;
 import com.panaderiamatemagica.autenticacion.vista.RegistroVista;
-import com.panaderiamatemagica.core.controlador.RouterControlador;
+import com.panaderiamatemagica.comunes.RouterControlador;
 
 /**
  *
@@ -22,7 +22,7 @@ public class RouterRolControlador {
     public RouterRolControlador(RouterControlador router){
         this.router = router;
         pantallaAutenticacion = new PantallaAutenticacionVista(router, this);
-        registro = new RegistroVista();
+        registro = new RegistroVista(router);
         inicioSesion = new InicioSesionVista();
         inicializarPaneles();
         

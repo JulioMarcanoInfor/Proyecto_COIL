@@ -5,8 +5,8 @@
 package com.panaderiamatemagica.autenticacion.controlador;
 
 import com.panaderiamatemagica.autenticacion.vista.RegistroVista;
-import com.panaderiamatemagica.modelos.AlumnoModelo;
-import com.panaderiamatemagica.modelos.ValidacionesGenericas;
+import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
+import com.panaderiamatemagica.comunes.Validacion;
 
 /**
  *
@@ -27,7 +27,7 @@ public class AlumnoControlador {
     
     
     //para realizar las validaciones
-    ValidacionesGenericas validar = new ValidacionesGenericas();
+    Validacion validar = new Validacion();
     
     public void validarDatos(){
         if (validar.validarCadena(vistaResgistro.getName(),"^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s.-]{3,100}$", 3, 12) == 0) {

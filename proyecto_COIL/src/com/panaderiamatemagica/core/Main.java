@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package com.panaderiamatemagica.core;
-import com.panaderiamatemagica.core.controlador.RouterControlador;
+import com.panaderiamatemagica.comunes.RouterControlador;
 import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 /**
  *

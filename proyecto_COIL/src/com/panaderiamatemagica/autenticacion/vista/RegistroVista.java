@@ -5,7 +5,8 @@
 package com.panaderiamatemagica.autenticacion.vista;
 
 import com.panaderiamatemagica.autenticacion.controlador.AlumnoControlador;
-import com.panaderiamatemagica.modelos.AlumnoModelo;
+import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
+import com.panaderiamatemagica.comunes.RouterControlador;
 import javax.swing.JLabel;
 
 /**
@@ -13,11 +14,12 @@ import javax.swing.JLabel;
  * @author user
  */
 public class RegistroVista extends javax.swing.JPanel {
-
+    private RouterControlador router;
     /**
      * Creates new form RegistroVista
      */
-    public RegistroVista() {
+    public RegistroVista(RouterControlador router) {
+        this.router = router;
         initComponents();
     }
 
@@ -190,7 +192,7 @@ public class RegistroVista extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    // aqui se validan los datos pq le da a registrarse.
+    router.mostrarSeleccionPanadero();
     
    
     }//GEN-LAST:event_jButton1ActionPerformed
