@@ -59,25 +59,31 @@ public class Validacion {
     //para que no tenga caracteres raros uasar:"^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\\s.-]{3,100}$"
     // para que sea cualquier caracter: "."
     public int validarCadena(String entrada, String patron, int longMin, int longMax) {
-        // Verificacion de contenido minimo: si la cadena limpia esta vacia, es solo espacios.
+        if (validarVacio(entrada) == 0) {
+            return 0; // Se podría usar un código de error específico para 'null', pero '0' funciona para 'vacío/solo espacios'
+        }
+        
         String entradaLimpia = entrada.trim();
+        
+        // 1. Verificación de contenido mínimo: si la cadena limpia esta vacia, es solo espacios
         if (entradaLimpia.isEmpty()) {
-            return 0; // Error: Solo contenia espacios en blanco.
+            return 0; // vacio o solo contenia espacios en blanco
         }
 
-        int longitud = entrada.length(); // Tomamos la longitud de la cadena original
-
-        // 1. Validacion de Longitud (usando la longitud de la cadena ORIGINAL)
-        if (longitud < longMin || longitud > longMax) {
-            return -2; // Error: La longitud esta fuera de los limites.
+        int longitudLimpia = entradaLimpia.length(); // Usamos la longitud de la cadena LIMPIA
+        
+        // 2. Validacion de Longitud (usando la longitud de la cadena LIMPIA)
+        if (longitudLimpia < longMin || longitudLimpia > longMax) {
+            return -2; // La longitud de la cadena LIMPIA está fuera de los límites
         }
 
-        // 2. Validacion de Patron (usando la cadena ORIGINAL)
-        if (!entrada.matches(patron)) {
-            return -1; // Error: No cumple con el patron (formato).
+        // 3. Validacion de Patron usando cadena limpia y regex
+        // Es mejor validar el contenido limpio contra el patrón
+        if (!entradaLimpia.matches(patron)) {
+            return -1; // no cumple con el patrón, o sea el formato
         }
 
-        // 3. Exito: La cadena es valida en formato, longitud y contenido.
+        // 4. Exito: La cadena es valida en formato, longitud y contenido
         return 1; 
     }
      public int validarFechaDeNacimiento(String entrada, String formatoEsperado){
@@ -115,4 +121,9 @@ public class Validacion {
         }
            
 }
+    public int validarVacio(Object objeto) {
+        if (objeto == null) {
+            return 0; // el objeto esta vacio
+        }
+        return 1; // el objeto no esta vacio
 }
