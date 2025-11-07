@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.autenticacion.vista;
-import com.panaderiamatemagica.core.controlador.RouterControlador;
+import com.panaderiamatemagica.comunes.RouterControlador;
 /**
  *
  * @author user
@@ -39,6 +39,11 @@ public class SeleccionRolVista extends javax.swing.JPanel {
 
         jToggleButton1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         jToggleButton1.setText("PROFESOR");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jToggleButton2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
         jToggleButton2.setText("ALUMNO");
@@ -97,6 +102,10 @@ public class SeleccionRolVista extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         router.mostrarInicioVista();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        router.mostrarInicioSesionAdminVista();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
