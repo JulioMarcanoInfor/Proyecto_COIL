@@ -6,8 +6,10 @@ package com.panaderiamatemagica.admin.controlador;
 
 import com.panaderiamatemagica.admin.vista.AdminVista;
 import com.panaderiamatemagica.admin.vista.AdministracionCuentasVista;
-import com.panaderiamatemagica.admin.vista.CrearNuevoAdminVIsta;
+import com.panaderiamatemagica.admin.vista.CrearNuevoAdminVista;
 import com.panaderiamatemagica.admin.vista.CrearNuevoNivelVista;
+import com.panaderiamatemagica.admin.vista.InformeRapidoVista;
+import com.panaderiamatemagica.admin.vista.ModificarNivelVista;
 import com.panaderiamatemagica.comunes.RouterControlador;
 
 /**
@@ -17,29 +19,52 @@ import com.panaderiamatemagica.comunes.RouterControlador;
 public class RouterAdminControlador {
     private AdminVista pantallaAdmin;
     private AdministracionCuentasVista pantallaAdministracionCuentas;
-    private CrearNuevoAdminVIsta pantallaCrearNuevoAdmin;
+    private CrearNuevoAdminVista pantallaCrearNuevoAdmin;
     private CrearNuevoNivelVista pantallaCrearNuevoNivel;
+    private InformeRapidoVista pantallaInformeRapido;
+    private ModificarNivelVista pantallaModificarNivel;
     private RouterControlador router;
     
     public RouterAdminControlador(RouterControlador router){
+        
         this.router = router;
+        
         pantallaAdmin = new AdminVista(router, this);
-        registro = new RegistroVista(router);
-        inicioSesion = new InicioSesionVista();
+        pantallaAdministracionCuentas = new AdministracionCuentasVista(this);
+        pantallaCrearNuevoAdmin = new CrearNuevoAdminVista();
+        pantallaCrearNuevoNivel = new CrearNuevoNivelVista();
+        pantallaInformeRapido = new InformeRapidoVista();
+        pantallaModificarNivel = new ModificarNivelVista();
         inicializarPaneles();
         
     }
     private void inicializarPaneles(){
-        pantallaAutenticacion.agregarPanel(registro, "REGISTRO");
-        pantallaAutenticacion.agregarPanel(inicioSesion, "INICIAR SESION");
+        pantallaAdmin.agregarPanel(pantallaAdministracionCuentas, "ADMINISTRACION");
+        pantallaAdmin.agregarPanel(pantallaCrearNuevoAdmin, "NUEVO ADMIN");
+        pantallaAdmin.agregarPanel(pantallaCrearNuevoNivel, "NUEVO NIVEL");
+        pantallaAdmin.agregarPanel(pantallaModificarNivel, "MODIFICAR NIVEL");
+        pantallaAdmin.agregarPanel(pantallaInformeRapido, "INFORME RAPIDO");
     }
-    public void mostrarRegistrarseVista(){
-        pantallaAutenticacion.mostrarPanel("REGISTRO");
+    public void mostrarAdministracionCuentasVista(){
+        pantallaAdmin.mostrarPanel("ADMINISTRACION");
     }
-    public void mostrarIniciarSesionVista(){
-        pantallaAutenticacion.mostrarPanel("INICIAR SESION");
+    public void mostrarCrearNuevoAdminVista(){
+        pantallaAdmin.mostrarPanel("NUEVO ADMIN");
+        
     }
-    public PantallaAutenticacionVista getPantallaAutenticacion() {
-        return pantallaAutenticacion;
+    public void mostrarCrearNuevoNivelVista(){
+        pantallaAdmin.mostrarPanel("NUEVO NIVEL");
+        
+    }
+    public void mostrarModificarNivelVista(){
+        pantallaAdmin.mostrarPanel("MODIFICAR NIVEL");
+    }
+    public void mostrarInformeRapidoVista(){
+       pantallaAdmin.mostrarPanel("INFORME RAPIDO");
+    }
+    
+    
+    public AdminVista getPantallaAdmin(){
+        return pantallaAdmin;
     }
 }

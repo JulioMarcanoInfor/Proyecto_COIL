@@ -192,7 +192,7 @@ public class RegistroVista extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    router.mostrarSeleccionPanadero();
+    router.mostrarSeleccionPanaderoVista();
     
    
     }//GEN-LAST:event_jButton1ActionPerformed

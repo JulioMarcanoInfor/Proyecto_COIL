@@ -4,16 +4,19 @@
  */
 package com.panaderiamatemagica.admin.vista;
 
+import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
+
 /**
  *
  * @author User
  */
 public class AdministracionCuentasVista extends javax.swing.JPanel {
-
+    private RouterAdminControlador routerAdmin;
     /**
      * Creates new form AdministracionCuentasVista
      */
-    public AdministracionCuentasVista() {
+    public AdministracionCuentasVista(RouterAdminControlador routerAdmin) {
+        this.routerAdmin = routerAdmin;
         initComponents();
     }
 

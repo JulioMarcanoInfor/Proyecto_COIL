@@ -8,12 +8,12 @@ package com.panaderiamatemagica.admin.vista;
  *
  * @author User
  */
-public class CrearNuevoAdminVIsta extends javax.swing.JPanel {
+public class CrearNuevoAdminVista extends javax.swing.JPanel {
 
     /**
      * Creates new form CrearNuevoAdminVIsta
      */
-    public CrearNuevoAdminVIsta() {
+    public CrearNuevoAdminVista() {
         initComponents();
     }
 
