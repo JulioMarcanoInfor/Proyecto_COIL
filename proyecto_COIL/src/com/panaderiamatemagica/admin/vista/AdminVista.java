@@ -4,16 +4,21 @@
  */
 package com.panaderiamatemagica.admin.vista;
 
+import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
+import com.panaderiamatemagica.comunes.RouterControlador;
+
 /**
  *
  * @author User
  */
 public class AdminVista extends javax.swing.JPanel {
-
+    private RouterControlador router;
+    private RouterAdminControlador routerAdmin;
     /**
      * Creates new form AdminVista
      */
-    public AdminVista() {
+    public AdminVista(RouterControlador router, RouterAdminControlador routerAdmin) {
+        
         initComponents();
     }
 
