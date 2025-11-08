@@ -14,23 +14,30 @@ import javax.swing.JLabel;
  * @author user
  */
 public class RegistroVista extends javax.swing.JPanel {
+    // para acceder a las cosas globales.
     private RouterControlador router;
+    
+    private AlumnoModelo nuevoAlumno;
+    private AlumnoControlador objetoControlador;
+    
     /**
      * Creates new form RegistroVista
      */
     public RegistroVista(RouterControlador router) {
         this.router = router;
+        
+        // creamos el alumno
+        nuevoAlumno = new AlumnoModelo(); 
+
+        // creamos el contrlador
+        objetoControlador = new AlumnoControlador(
+            nuevoAlumno,
+            this, 
+            this.router.getListaAlumnos() // 'this.router' está inicializado
+        ); 
+        //ni idea de eso amigos (pero si lo quito no sale el panel de reguistro jajajaj).
         initComponents();
     }
-
-    //Alumno que se le colocaran los datos.(supongo que cada que se ponga esta
-    // pantalla se creara un nuevo alumno, no lo se)
-    AlumnoModelo nuevoAlumno = new AlumnoModelo();
-    
-    //controlador.
-    AlumnoControlador objetoControlador = new AlumnoControlador(nuevoAlumno,
-    this); // se pone this porque es la misam vita la que se pasa por parametro.
-    
     
     
     /**
@@ -192,22 +199,27 @@ public class RegistroVista extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    router.mostrarSeleccionPanaderoVista();
-    
+        if (objetoControlador.validarDatos()) {
+                router.mostrarSeleccionPanaderoVista(); // esto es paa pasar a la siguente pantalla
+        }   
    
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
-    // get de: nombre y apellido. (para usar en el controlador). 
+    // get de los paramentros.
     public String getTxtapellido() {
-        // lo volvemos a String (es txt por defecto creo)
-        return String.valueOf(txtapellido);
+        return jTextField3.getText();
     }
     public String getTxtnombre() {
-        // lo volvemos a String (es txt por defecto creo)
-        return String.valueOf(txtnombre);
+        return jTextField1.getText();
     }
-
+    public String getTxtapodo() {
+        return jTextField5.getText();
+    }
+    public String getTxtfechaNacimiento() {
+        return jTextField4.getText(); 
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;

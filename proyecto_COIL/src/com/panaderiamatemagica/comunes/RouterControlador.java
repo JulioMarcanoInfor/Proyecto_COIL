@@ -6,6 +6,7 @@ package com.panaderiamatemagica.comunes;
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.admin.vista.AdminVista;
 import com.panaderiamatemagica.autenticacion.controlador.RouterRolControlador;
+import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
 import com.panaderiamatemagica.autenticacion.vista.InicioSesionAdminVista;
 import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 import com.panaderiamatemagica.core.visual.PantallaInicioVista;
@@ -16,12 +17,19 @@ import com.panaderiamatemagica.juego.controlador.RouterDimensionControlador;
 import com.panaderiamatemagica.juego.vista.EjercicioVista;
 import com.panaderiamatemagica.juego.vista.ResultadoVista;
 import com.panaderiamatemagica.juego.vista.SeleccionDimensionVista;
+import java.util.ArrayList;
 //
 /**
  *
  * @author user
  */
 public class RouterControlador {
+    
+    // LISTAS GLOBALES.
+    private ArrayList<AlumnoModelo> listaAlumnos = new ArrayList<>();
+    //private ArrayList<ProfesorModelo> listaProfesores = new ArrayList<>();
+    
+    
     //Se crean instancias de las clases pantallas
     private PantallaPrincipalVista pantallaPrincipal;
     private PantallaInicioVista pantallaInicio;
@@ -100,4 +108,10 @@ public class RouterControlador {
     public void mostrarResultadoVista(){
         pantallaPrincipal.mostrarPanel("RESULTADO");
     }
+    
+    // get de las listas globales
+    public ArrayList<AlumnoModelo> getListaAlumnos() {
+        return listaAlumnos;
+    }
+    
 }
