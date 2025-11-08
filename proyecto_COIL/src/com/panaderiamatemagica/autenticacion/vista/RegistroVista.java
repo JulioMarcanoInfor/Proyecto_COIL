@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
-import com.panaderiamatemagica.autenticacion.controlador.AlumnoControlador;
+import com.panaderiamatemagica.autenticacion.controlador.AlumnoControladorRegistro;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
 import com.panaderiamatemagica.comunes.RouterControlador;
 import javax.swing.JLabel;
@@ -18,7 +18,7 @@ public class RegistroVista extends javax.swing.JPanel {
     private RouterControlador router;
     
     private AlumnoModelo nuevoAlumno;
-    private AlumnoControlador objetoControlador;
+    private AlumnoControladorRegistro objetoControlador;
     
     /**
      * Creates new form RegistroVista
@@ -30,10 +30,10 @@ public class RegistroVista extends javax.swing.JPanel {
         nuevoAlumno = new AlumnoModelo(); 
 
         // creamos el contrlador
-        objetoControlador = new AlumnoControlador(
+        objetoControlador = new AlumnoControladorRegistro(
             nuevoAlumno,
             this, 
-            this.router.getListaAlumnos() // 'this.router' está inicializado
+            this.router.getListaAlumnos() // esta inicializado
         ); 
         //ni idea de eso amigos (pero si lo quito no sale el panel de reguistro jajajaj).
         initComponents();

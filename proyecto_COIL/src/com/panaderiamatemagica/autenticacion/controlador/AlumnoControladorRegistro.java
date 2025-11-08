@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 
 
 
-public class AlumnoControlador {
+public class AlumnoControladorRegistro {
     private AlumnoModelo modeloAlumno;
     private RegistroVista vistaResgistro;
                        
@@ -25,7 +25,7 @@ public class AlumnoControlador {
     private ArrayList<AlumnoModelo> listaAlumnos;
     
     //constructor1.
-    public AlumnoControlador(AlumnoModelo modeloAlumno, RegistroVista vistaResgistro,
+    public AlumnoControladorRegistro(AlumnoModelo modeloAlumno, RegistroVista vistaResgistro,
             ArrayList<AlumnoModelo> listaGlobal) {//le pasamos la lista global
         this.modeloAlumno = modeloAlumno;
         this.vistaResgistro = vistaResgistro;
@@ -39,7 +39,7 @@ public class AlumnoControlador {
     
     
     //para ver si hay un apodo igual
-    private boolean verificarUnicidadApodo(String apodo) {
+    public boolean verificarUnicidadApodo(String apodo) {
         // Recorre todos los alumnos registrados
         for (AlumnoModelo alumno : listaAlumnos) {
             // Compara el apodo ingresado (ignorando mayúsculas/minúsculas)
@@ -48,6 +48,25 @@ public class AlumnoControlador {
             }
         }
         return false; // El apodo es único
+    }
+    
+    //para validar el inicio de sesion.
+    public boolean verificarInicioSesion(){
+        //utilizamos la funcio verificarUnicidadApodo()
+        // ya que si el apodo existe tiene que estar en la lista.
+        if (verificarUnicidadApodo(vistaResgistro.getTxtapodo())) {
+            // si esta el nombre de usuario
+            JOptionPane.showMessageDialog(vistaResgistro, 
+                "BIENVENIDO.",
+                "INICIO: DISFRUTA>>>", JOptionPane.ERROR_MESSAGE);
+            return true;
+        }else{
+            // Error de contenido minimo (solo espacios o vacio)
+            JOptionPane.showMessageDialog(vistaResgistro, 
+                    "El Apodo no existe.",
+                    "MENSAJE DE ERROR: APODO INEXISTENTE", JOptionPane.ERROR_MESSAGE);
+            return false;                    
+        }
     }
     
     //validar todos los datos.
