@@ -4,7 +4,9 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
+import com.panaderiamatemagica.autenticacion.controlador.AlumnoControadorInicioSesion;
 import com.panaderiamatemagica.comunes.RouterControlador;
+import javax.swing.JTextField;
 
 /**
  *
@@ -13,12 +15,21 @@ import com.panaderiamatemagica.comunes.RouterControlador;
 public class InicioSesionVista extends javax.swing.JPanel {
 
     private RouterControlador router;
+ 
+    private AlumnoControadorInicioSesion objetoControlador;
     
     public InicioSesionVista(RouterControlador router) {
         this.router = router;
+        
+        // 2. INICIALIZAR EL CAMPO (objetoControlador)
+        // Usamos el nombre del campo que declaramos arriba.
+        objetoControlador = new AlumnoControadorInicioSesion(this, router.getListaAlumnos());
+        
         initComponents();
     }
-
+    
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,7 +40,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtapodo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 255, 153));
@@ -57,7 +68,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(171, 171, 171)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtapodo, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -69,7 +80,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtapodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 286, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(102, 102, 102))
@@ -78,14 +89,22 @@ public class InicioSesionVista extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // condicion para el inicio de sesion
+        if (objetoControlador.validarUsuario()) {
+            router.mostrarSeleccionDimensionVista();
+        }
+                
         
-        router.mostrarSeleccionDimensionVista();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    //get
+    
+    public String getTxtapodo(){
+        return txtapodo.getText(); 
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtapodo;
     // End of variables declaration//GEN-END:variables
 }

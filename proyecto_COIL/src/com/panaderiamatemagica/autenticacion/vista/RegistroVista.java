@@ -29,7 +29,7 @@ public class RegistroVista extends javax.swing.JPanel {
         // creamos el alumno
         nuevoAlumno = new AlumnoModelo(); 
 
-        // creamos el contrlador
+        // creamos el contrlador       
         objetoControlador = new AlumnoControladorRegistro(
             nuevoAlumno,
             this, 

@@ -63,7 +63,6 @@ public class RouterAdminControlador {
        pantallaAdmin.mostrarPanel("INFORME RAPIDO");
     }
     
-    
     public AdminVista getPantallaAdmin(){
         return pantallaAdmin;
     }
