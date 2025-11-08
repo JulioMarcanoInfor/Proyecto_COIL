@@ -4,19 +4,42 @@
  */
 package com.panaderiamatemagica.juego.vista;
 
+import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatemagica.juego.controlador.RouterDimensionControlador;
+import java.awt.CardLayout;
+import java.awt.Color;
+import javax.swing.JPanel;
+
 /**
  *
  * @author User
  */
 public class SeleccionDimensionVista extends javax.swing.JPanel {
-
+    private CardLayout pantallasDimensiones;
+    private RouterDimensionControlador routerDimension;
+    private RouterControlador router;
     /**
      * Creates new form SeleccionDimensionVista
      */
-    public SeleccionDimensionVista() {
+    public SeleccionDimensionVista(RouterControlador router, RouterDimensionControlador routerDimension) {
         initComponents();
+        this.router = router;
+        this.routerDimension = routerDimension;
+        inicializarPantallas();
     }
+    
+    private void inicializarPantallas(){
+    pantallasDimensiones = new CardLayout();
+    monitorDimensiones.setLayout(pantallasDimensiones);
+}
 
+    public void mostrarPanel(String nombrePanel) {
+        pantallasDimensiones.show(monitorDimensiones, nombrePanel);
+    }
+    
+    public void agregarPanel(JPanel panel, String nombre) {
+        monitorDimensiones.add(panel, nombre);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,14 +56,24 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        monitorDimensiones = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(204, 153, 255));
         setPreferredSize(new java.awt.Dimension(833, 615));
 
         jButton1.setText("2° DIMENSION");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("1° DIMENSION");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("3° DIMENSION");
 
@@ -49,18 +82,31 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
         jButton5.setText("5° DIMENSION");
 
         jButton6.setText("PRUEBA DIAGNOSTICA");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(255, 0, 0));
         jButton7.setText("VOLVER");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        monitorDimensiones.setBackground(new java.awt.Color(255, 153, 255));
+        monitorDimensiones.setPreferredSize(new java.awt.Dimension(612, 615));
+
+        javax.swing.GroupLayout monitorDimensionesLayout = new javax.swing.GroupLayout(monitorDimensiones);
+        monitorDimensiones.setLayout(monitorDimensionesLayout);
+        monitorDimensionesLayout.setHorizontalGroup(
+            monitorDimensionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 612, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        monitorDimensionesLayout.setVerticalGroup(
+            monitorDimensionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -84,7 +130,7 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
                         .addContainerGap()
                         .addComponent(jButton7)))
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(monitorDimensiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,9 +150,25 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
                 .addGap(29, 29, 29)
                 .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                 .addContainerGap())
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(monitorDimensiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        routerDimension.mostrarDimension1Vista();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        routerDimension.mostrarDimension2Vista();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        router.mostrarAutenticacionVista();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        router.mostrarEjercicioVista();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -117,6 +179,6 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel monitorDimensiones;
     // End of variables declaration//GEN-END:variables
 }

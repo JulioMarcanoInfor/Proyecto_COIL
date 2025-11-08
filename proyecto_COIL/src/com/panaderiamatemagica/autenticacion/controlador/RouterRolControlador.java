@@ -23,7 +23,7 @@ public class RouterRolControlador {
         this.router = router;
         pantallaAutenticacion = new PantallaAutenticacionVista(router, this);
         registro = new RegistroVista(router);
-        inicioSesion = new InicioSesionVista();
+        inicioSesion = new InicioSesionVista(router);
         inicializarPaneles();
         
     }

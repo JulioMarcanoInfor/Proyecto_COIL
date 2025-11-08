@@ -4,16 +4,18 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
+import com.panaderiamatemagica.comunes.RouterControlador;
+
 /**
  *
  * @author User
  */
 public class InicioSesionVista extends javax.swing.JPanel {
 
-    /**
-     * Creates new form InicioSesionVista
-     */
-    public InicioSesionVista() {
+    private RouterControlador router;
+    
+    public InicioSesionVista(RouterControlador router) {
+        this.router = router;
         initComponents();
     }
 
@@ -38,6 +40,11 @@ public class InicioSesionVista extends javax.swing.JPanel {
         jButton1.setBackground(new java.awt.Color(51, 255, 51));
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jButton1.setText("INICIAR SESION");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -68,6 +75,10 @@ public class InicioSesionVista extends javax.swing.JPanel {
                 .addGap(102, 102, 102))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        router.mostrarSeleccionDimensionVista();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

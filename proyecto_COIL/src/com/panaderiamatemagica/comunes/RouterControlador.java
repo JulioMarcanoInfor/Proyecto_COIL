@@ -12,6 +12,10 @@ import com.panaderiamatemagica.core.visual.PantallaInicioVista;
 import com.panaderiamatemagica.autenticacion.vista.PantallaAutenticacionVista;
 import com.panaderiamatemagica.autenticacion.vista.SeleccionPanaderoVista;
 import com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista;
+import com.panaderiamatemagica.juego.controlador.RouterDimensionControlador;
+import com.panaderiamatemagica.juego.vista.EjercicioVista;
+import com.panaderiamatemagica.juego.vista.ResultadoVista;
+import com.panaderiamatemagica.juego.vista.SeleccionDimensionVista;
 //
 /**
  *
@@ -27,12 +31,18 @@ public class RouterControlador {
     private InicioSesionAdminVista pantallaInicioSesionAdmin;
     private SeleccionPanaderoVista pantallaSeleccionPanadero;
     private AdminVista pantallaAdmin;
+    private SeleccionDimensionVista pantallaSeleccionDimension;
+    private EjercicioVista pantallaEjercicio;
+    private ResultadoVista pantallaResultado;
     private RouterAdminControlador routerAdmin;
+    private RouterDimensionControlador routerDimension;
             
     public RouterControlador(){
         pantallaPrincipal = new PantallaPrincipalVista();
         routerRol = new RouterRolControlador(this);
         routerAdmin = new RouterAdminControlador(this);
+        routerDimension = new RouterDimensionControlador(this);
+        
         //Se crean instancias de diferentes JPanel, y se pasa de argumento 'this' 
         //porque eso pasa como argumento la clase actual(RouterControlador).
         pantallaInicio = new PantallaInicioVista(this);
@@ -41,6 +51,9 @@ public class RouterControlador {
         pantallaInicioSesionAdmin = new InicioSesionAdminVista(this);
         pantallaSeleccionPanadero = new SeleccionPanaderoVista(this);
         pantallaAdmin = routerAdmin.getPantallaAdmin();
+        pantallaSeleccionDimension = routerDimension.getSeleccionDimensionViste();
+        pantallaEjercicio = new EjercicioVista(this);
+        pantallaResultado = new ResultadoVista(this);
         inicializarPaneles();
         pantallaPrincipal.setVisible(true);
     }
@@ -51,6 +64,10 @@ public class RouterControlador {
         pantallaPrincipal.agregarPanel(pantallaInicioSesionAdmin, "SESION ADMIN");
         pantallaPrincipal.agregarPanel(pantallaSeleccionPanadero, "PANADEROS");
         pantallaPrincipal.agregarPanel(pantallaAdmin, "ADMIN");
+        pantallaPrincipal.agregarPanel(pantallaSeleccionDimension, "SELECCION DIMENSION");
+        pantallaPrincipal.agregarPanel(pantallaEjercicio, "EJERCICIO");
+        pantallaPrincipal.agregarPanel(pantallaResultado, "RESULTADO");
+        
         
         
         pantallaPrincipal.mostrarPanel("INICIO");
@@ -73,5 +90,14 @@ public class RouterControlador {
     }
     public void mostrarAdminVista(){
         pantallaPrincipal.mostrarPanel("ADMIN");
+    }
+    public void mostrarSeleccionDimensionVista(){
+        pantallaPrincipal.mostrarPanel("SELECCION DIMENSION");
+    }
+    public void mostrarEjercicioVista(){
+        pantallaPrincipal.mostrarPanel("EJERCICIO");
+    }
+    public void mostrarResultadoVista(){
+        pantallaPrincipal.mostrarPanel("RESULTADO");
     }
 }
