@@ -49,42 +49,57 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        dimencion2 = new javax.swing.JButton();
+        dimencion1 = new javax.swing.JButton();
+        dimencion3 = new javax.swing.JButton();
+        dimencio4 = new javax.swing.JButton();
+        dimencion5 = new javax.swing.JButton();
+        pruebaDiagnostica = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         monitorDimensiones = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(204, 153, 255));
         setPreferredSize(new java.awt.Dimension(833, 615));
 
-        jButton1.setText("2° DIMENSION");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        dimencion2.setText("2° DIMENSION");
+        dimencion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                dimencion2ActionPerformed(evt);
             }
         });
 
-        jButton2.setText("1° DIMENSION");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        dimencion1.setText("1° DIMENSION");
+        dimencion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                dimencion1ActionPerformed(evt);
             }
         });
 
-        jButton3.setText("3° DIMENSION");
-
-        jButton4.setText("4° DIMENSION");
-
-        jButton5.setText("5° DIMENSION");
-
-        jButton6.setText("PRUEBA DIAGNOSTICA");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        dimencion3.setText("3° DIMENSION");
+        dimencion3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                dimencion3ActionPerformed(evt);
+            }
+        });
+
+        dimencio4.setText("4° DIMENSION");
+        dimencio4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dimencio4ActionPerformed(evt);
+            }
+        });
+
+        dimencion5.setText("5° DIMENSION");
+        dimencion5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dimencion5ActionPerformed(evt);
+            }
+        });
+
+        pruebaDiagnostica.setText("PRUEBA DIAGNOSTICA");
+        pruebaDiagnostica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pruebaDiagnosticaActionPerformed(evt);
             }
         });
 
@@ -103,7 +118,7 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
         monitorDimensiones.setLayout(monitorDimensionesLayout);
         monitorDimensionesLayout.setHorizontalGroup(
             monitorDimensionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 612, Short.MAX_VALUE)
+            .addGap(0, 611, Short.MAX_VALUE)
         );
         monitorDimensionesLayout.setVerticalGroup(
             monitorDimensionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,67 +133,80 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pruebaDiagnostica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dimencio4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dimencion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dimencion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dimencion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dimencion5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton7)))
                 .addGap(18, 18, 18)
-                .addComponent(monitorDimensiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(monitorDimensiones, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
+                .addComponent(dimencion1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(dimencion2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dimencion3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(dimencio4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(dimencion5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(pruebaDiagnostica, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(monitorDimensiones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        routerDimension.mostrarDimension1Vista();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void dimencion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dimencion1ActionPerformed
+        // Llama al RouterControlador principal para que él se encargue de la inicialización
+        // y luego muestre la vista. Esto previene la NullPointerException.
+        router.iniciarDimension1();
+    }//GEN-LAST:event_dimencion1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void dimencion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dimencion2ActionPerformed
         routerDimension.mostrarDimension2Vista();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_dimencion2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         router.mostrarAutenticacionVista();
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void pruebaDiagnosticaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pruebaDiagnosticaActionPerformed
         router.mostrarEjercicioVista();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_pruebaDiagnosticaActionPerformed
+
+    private void dimencion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dimencion3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dimencion3ActionPerformed
+
+    private void dimencio4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dimencio4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dimencio4ActionPerformed
+
+    private void dimencion5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dimencion5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dimencion5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton dimencio4;
+    private javax.swing.JButton dimencion1;
+    private javax.swing.JButton dimencion2;
+    private javax.swing.JButton dimencion3;
+    private javax.swing.JButton dimencion5;
     private javax.swing.JButton jButton7;
     private javax.swing.JPanel monitorDimensiones;
+    private javax.swing.JButton pruebaDiagnostica;
     // End of variables declaration//GEN-END:variables
 }

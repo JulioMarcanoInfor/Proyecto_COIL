@@ -31,7 +31,7 @@ public class RouterAdminControlador {
         
         pantallaAdmin = new AdminVista(router, this);
         pantallaAdministracionCuentas = new AdministracionCuentasVista(this);
-        pantallaCrearNuevoAdmin = new CrearNuevoAdminVista();
+        pantallaCrearNuevoAdmin = new CrearNuevoAdminVista(this.router);
         pantallaCrearNuevoNivel = new CrearNuevoNivelVista();
         pantallaInformeRapido = new InformeRapidoVista();
         pantallaModificarNivel = new ModificarNivelVista();

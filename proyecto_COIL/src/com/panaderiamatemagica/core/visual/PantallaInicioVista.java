@@ -4,6 +4,8 @@
  */
 package com.panaderiamatemagica.core.visual;
 import com.panaderiamatemagica.comunes.RouterControlador;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author user
@@ -16,8 +18,28 @@ public class PantallaInicioVista extends javax.swing.JPanel {
     public PantallaInicioVista(RouterControlador router) {
         this.router = router;
         initComponents();
+        configurarComponentes();
     }
+    
+    private void configurarComponentes() {
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        try {
+            String rutaImagen = "/images/1.jpg";
+            ImageIcon logo = new ImageIcon(getClass().getResource(rutaImagen));
+            
+            
+            jLabel1.setIcon(logo);
+            jLabel1.setText(""); 
+            
+            jLabel1.setPreferredSize(new java.awt.Dimension(logo.getIconWidth(), logo.getIconHeight()));
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar la imagen " + e.getMessage());
+            jLabel1.setText("Bienvenidos a MateMagica");
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +50,7 @@ public class PantallaInicioVista extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 255, 204));
         setPreferredSize(new java.awt.Dimension(833, 615));
@@ -41,19 +64,25 @@ public class PantallaInicioVista extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setText("Bienvenidos a MateMagica");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(321, 321, 321)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(287, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(276, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(401, Short.MAX_VALUE)
+                .addContainerGap(154, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(147, 147, 147)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
         );
@@ -66,5 +95,6 @@ public class PantallaInicioVista extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

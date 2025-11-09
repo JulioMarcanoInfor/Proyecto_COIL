@@ -3,17 +3,26 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.autenticacion.vista;
+import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorInicioSesion;
 import com.panaderiamatemagica.comunes.RouterControlador;
+import javax.swing.JTextField;
 /**
  *
  * @author User
  */
 public class InicioSesionAdminVista extends javax.swing.JPanel {
     private RouterControlador router;
+    private AdministradorControladorInicioSesion controlador;
+    
+    
     /**
      * Creates new form InicioSesionAdminVista
      */
     public InicioSesionAdminVista(RouterControlador router) {
+        // inicializamos el controlador
+        controlador = new AdministradorControladorInicioSesion(this
+                ,router.getListaProfesores());
+        
         this.router = router;
         initComponents();
     }
@@ -29,8 +38,8 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtcontrasenna = new javax.swing.JTextField();
+        txtusuarioProfesor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
@@ -42,6 +51,12 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setText("CONTRASEÑA");
+
+        txtcontrasenna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcontrasennaActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
         jButton1.setText("VOLVER");
@@ -73,7 +88,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(183, 183, 183)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcontrasenna, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -83,7 +98,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(182, 182, 182)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtusuarioProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 453, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(198, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
@@ -94,7 +109,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
                 .addGap(164, 164, 164)
                 .addComponent(jLabel2)
                 .addGap(35, 35, 35)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtcontrasenna, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
@@ -106,7 +121,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(183, 183, 183)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtusuarioProfesor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(395, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -116,16 +131,32 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        router.mostrarAdminVista();
+        // aqui va la loguica del inicio del profe.
+        if (controlador.validarInicioSesion()) {
+            router.mostrarAdminVista();
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void txtcontrasennaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontrasennaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcontrasennaActionPerformed
+
+    
+    // get
+    public String getTxtcontrasenna() {
+        return txtcontrasenna.getText();
+    }
+    public String getTxtusuarioProfesor() {
+        return txtusuarioProfesor.getText();
+    }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtcontrasenna;
+    private javax.swing.JTextField txtusuarioProfesor;
     // End of variables declaration//GEN-END:variables
 }

@@ -53,6 +53,17 @@ public class RouterDimensionControlador {
     public SeleccionDimensionVista getSeleccionDimensionViste(){
         return pantallaSeleccionDimension;
     }
+    
+    //ver
+
+    /**
+     *
+     * @return
+     */
+    public Dimension1Vista getPantallaDimension1(){
+        return pantallaDimension1;
+    }
+
 }
 
 

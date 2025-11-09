@@ -4,16 +4,31 @@
  */
 package com.panaderiamatemagica.admin.vista;
 
+import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorCrearAdmin;
+import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorInicioSesion;
+import com.panaderiamatemagica.comunes.RouterControlador;
+import javax.swing.JTextField;
+
 /**
  *
  * @author User
  */
 public class CrearNuevoAdminVista extends javax.swing.JPanel {
-
+    
+    private RouterControlador router;
+    private AdministradorControladorCrearAdmin controlador;
+    
     /**
      * Creates new form CrearNuevoAdminVIsta
      */
-    public CrearNuevoAdminVista() {
+    public CrearNuevoAdminVista(RouterControlador router) {
+        
+        this.router = router;
+        // inicializamos el controlador
+        controlador = new AdministradorControladorCrearAdmin(this
+                ,router.getListaProfesores());
+        
+        this.router = router;
         initComponents();
     }
 
@@ -28,8 +43,8 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        txtusuario = new javax.swing.JTextField();
+        txtcontrasenna = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(102, 102, 255));
@@ -42,9 +57,9 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setText("CONTRASEÑA");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtusuarioActionPerformed(evt);
             }
         });
 
@@ -64,7 +79,7 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcontrasenna, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
                         .addComponent(jLabel2))
@@ -72,7 +87,7 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
                         .addGap(180, 180, 180)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(119, 119, 119)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -84,31 +99,40 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
                 .addGap(90, 90, 90)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtusuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtcontrasenna, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(81, 81, 81))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtusuarioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // bonto de registro de nuevo admin
+        controlador.crearAdministrador();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    //get usuario y contraseña
+    public String getTxtcontrasenna() {
+        return txtcontrasenna.getText();
+    }
+    public String getTxtusuario() {
+        return txtusuario.getText();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField txtcontrasenna;
+    private javax.swing.JTextField txtusuario;
     // End of variables declaration//GEN-END:variables
 }

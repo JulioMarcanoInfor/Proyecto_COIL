@@ -13,19 +13,19 @@ import java.util.ArrayList;
 public class AdministradorModelo {
     ArrayList <AlumnoModelo> listaAlumnos; // coleccion de alumnos
     String contraseña;
-    String correoElectronico;
+    String nombreUsuario;
     
     //constructor1.
-    public AdministradorModelo(ArrayList<AlumnoModelo> listaAlumnos, String contraseña, String correoElectronico) {
+    public AdministradorModelo(ArrayList<AlumnoModelo> listaAlumnos, String contraseña, String nombreUsuario) {
         this.listaAlumnos = listaAlumnos;
         this.contraseña = contraseña;
-        this.correoElectronico = correoElectronico;
+        this.nombreUsuario = nombreUsuario;
     }
     //constructor2.
     public AdministradorModelo() {
         this.listaAlumnos = null;
         this.contraseña = "";
-        this.correoElectronico = "";
+        this.nombreUsuario = "";
     }
     
     //get y set
@@ -42,11 +42,11 @@ public class AdministradorModelo {
     public void setContraseña(String contraseña) {
         this.contraseña = contraseña;
     }
-    public String getCorreoElectronico() {
-        return correoElectronico;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
-    public void setCorreoElectronico(String correoElectronico) {
-        this.correoElectronico = correoElectronico;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
     
 }

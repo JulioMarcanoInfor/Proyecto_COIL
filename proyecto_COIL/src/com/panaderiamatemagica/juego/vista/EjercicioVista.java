@@ -5,6 +5,10 @@
 package com.panaderiamatemagica.juego.vista;
 
 import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatemagica.ejercicios.EjercicioControladorVista;
+import com.panaderiamatemagica.ejercicios.EjercicioModelo;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -12,12 +16,44 @@ import com.panaderiamatemagica.comunes.RouterControlador;
  */
 public class EjercicioVista extends javax.swing.JPanel {
     private RouterControlador router;
-    /**
-     * Creates new form PruebaDiagnosticaVista
-     */
+    private EjercicioControladorVista controlador;
+    
+    
     public EjercicioVista(RouterControlador router) {
         this.router = router;
+        // El controlador de ejercicios se inicializa con el router y una referencia a esta vista.
+        this.controlador = new EjercicioControladorVista(router, this); 
         initComponents();
+    }
+    
+    // segun la metodoligia mvc esta bien colocar la funcion aqui.(tengo entendido).
+    public void cargarEjercicio(EjercicioModelo ejercicio) {
+
+        // 1. Actualizar el texto de la pregunta y descripción
+        txtpregunta.setText(ejercicio.getPregunta());
+        txtdescripcion.setText(ejercicio.getDescripcion());
+
+        // 2. Actualizar el texto de los botones de respuesta
+        ArrayList<String> opciones = ejercicio.getOpcionesRespuestas();
+
+        if (opciones != null && opciones.size() >= 4) {
+              txtrespuesta1.setText(opciones.get(0));
+              txtrespuesta2.setText(opciones.get(1));
+              txtrespuesta3.setText(opciones.get(2));
+              txtxrespuesta4.setText(opciones.get(3));
+        } else {
+            JOptionPane.showMessageDialog(this,
+                        "El ejercico esta loco. Revisar la carga",
+                        "ver: bien..", JOptionPane.ERROR_MESSAGE);
+        }
+    } 
+    
+    //METODO AGREGADO: Implementacion correcta de la interfaz con el Router
+    public void iniciarNuevoNivel() {
+      // Llama al método clave en tu controlador.
+      if (controlador != null) {
+          controlador.iniciarNuevoNivel();
+      }
     }
 
     /**
@@ -29,47 +65,62 @@ public class EjercicioVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        txtpregunta = new javax.swing.JLabel();
+        txtrespuesta3 = new javax.swing.JButton();
+        txtrespuesta2 = new javax.swing.JButton();
+        txtxrespuesta4 = new javax.swing.JButton();
+        txtrespuesta1 = new javax.swing.JButton();
+        txtdescripcion = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
 
         setBackground(new java.awt.Color(153, 255, 204));
         setPreferredSize(new java.awt.Dimension(833, 615));
 
-        jLabel1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PREGUNTA");
+        txtpregunta.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtpregunta.setForeground(new java.awt.Color(0, 0, 0));
+        txtpregunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtpregunta.setText("PREGUNTA");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 0));
-        jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        jButton1.setText("3");
-
-        jButton2.setBackground(new java.awt.Color(255, 102, 102));
-        jButton2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        jButton2.setText("2");
-
-        jButton3.setBackground(new java.awt.Color(204, 0, 204));
-        jButton3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        jButton3.setText("4");
-
-        jButton4.setBackground(new java.awt.Color(102, 102, 255));
-        jButton4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
-        jButton4.setText("1");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        txtrespuesta3.setBackground(new java.awt.Color(0, 204, 0));
+        txtrespuesta3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtrespuesta3.setText("3");
+        txtrespuesta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                txtrespuesta3ActionPerformed(evt);
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Descripción");
+        txtrespuesta2.setBackground(new java.awt.Color(255, 102, 102));
+        txtrespuesta2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtrespuesta2.setText("2");
+        txtrespuesta2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrespuesta2ActionPerformed(evt);
+            }
+        });
+
+        txtxrespuesta4.setBackground(new java.awt.Color(204, 0, 204));
+        txtxrespuesta4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtxrespuesta4.setText("4");
+        txtxrespuesta4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtxrespuesta4ActionPerformed(evt);
+            }
+        });
+
+        txtrespuesta1.setBackground(new java.awt.Color(102, 102, 255));
+        txtrespuesta1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtrespuesta1.setText("1");
+        txtrespuesta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrespuesta1ActionPerformed(evt);
+            }
+        });
+
+        txtdescripcion.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        txtdescripcion.setForeground(new java.awt.Color(102, 102, 102));
+        txtdescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtdescripcion.setText("Descripción");
 
         jProgressBar1.setBackground(new java.awt.Color(0, 204, 0));
 
@@ -77,29 +128,30 @@ public class EjercicioVista extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(73, 73, 73))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(219, 219, 219)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(237, 237, 237)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtdescripcion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(35, 35, 35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtpregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtrespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                                        .addComponent(txtxrespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtrespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtrespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(73, 73, 73))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,33 +159,58 @@ public class EjercicioVista extends javax.swing.JPanel {
                 .addGap(12, 12, 12)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtpregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtrespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtrespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtrespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtxrespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        router.mostrarResultadoVista();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void txtrespuesta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrespuesta1ActionPerformed
+        String respuestaElegida = txtrespuesta1.getText(); // Obtener el texto del botón
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida); 
+        }
+    }//GEN-LAST:event_txtrespuesta1ActionPerformed
+
+    private void txtrespuesta2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrespuesta2ActionPerformed
+        String respuestaElegida = txtrespuesta2.getText(); 
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida); 
+        }
+    }//GEN-LAST:event_txtrespuesta2ActionPerformed
+
+    private void txtrespuesta3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrespuesta3ActionPerformed
+        String respuestaElegida = txtrespuesta3.getText(); 
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida);
+        }
+    }//GEN-LAST:event_txtrespuesta3ActionPerformed
+
+    private void txtxrespuesta4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtxrespuesta4ActionPerformed
+        String respuestaElegida = txtxrespuesta4.getText(); 
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida); 
+        }
+    }//GEN-LAST:event_txtxrespuesta4ActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel txtdescripcion;
+    private javax.swing.JLabel txtpregunta;
+    private javax.swing.JButton txtrespuesta1;
+    private javax.swing.JButton txtrespuesta2;
+    private javax.swing.JButton txtrespuesta3;
+    private javax.swing.JButton txtxrespuesta4;
     // End of variables declaration//GEN-END:variables
 }
