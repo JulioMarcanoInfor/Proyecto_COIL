@@ -31,6 +31,7 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
     private void inicializarPantallas(){
     pantallasDimensiones = new CardLayout();
     monitorDimensiones.setLayout(pantallasDimensiones);
+    monitorDimensiones.setVisible(false);
 }
 
     public void mostrarPanel(String nombrePanel) {
@@ -172,10 +173,12 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
         // Llama al RouterControlador principal para que él se encargue de la inicialización
         // y luego muestre la vista. Esto previene la NullPointerException.
         router.iniciarDimension1();
+        monitorDimensiones.setVisible(true);
     }//GEN-LAST:event_dimencion1ActionPerformed
 
     private void dimencion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dimencion2ActionPerformed
         routerDimension.mostrarDimension2Vista();
+        monitorDimensiones.setVisible(true);
     }//GEN-LAST:event_dimencion2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
