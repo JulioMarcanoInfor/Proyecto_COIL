@@ -119,7 +119,7 @@ public class AdministradorControladorCrearAdmin {
         listaAdministradores.add(nuevo);
         JOptionPane.showMessageDialog(vista, 
                         "EL NUEVO ADMIN SE AGREGO CORRECTAMENTE.",
-                        "EXITOS:>>", JOptionPane.ERROR_MESSAGE);
+                        "EXITOS:>>", JOptionPane.INFORMATION_MESSAGE);
         return;
     
     }

@@ -31,7 +31,7 @@ public class AdministradorControladorInicioSesion {
                 // Si el usuario y la contraseña coinsiden pasa..
                 JOptionPane.showMessageDialog(vista, 
                     "que disfrutes>>.",
-                    "Bienvenido: ..", JOptionPane.ERROR_MESSAGE);
+                    "Bienvenido: ..", JOptionPane.INFORMATION_MESSAGE);
                 return true; 
             }
         }
@@ -61,7 +61,7 @@ public class AdministradorControladorInicioSesion {
         listaAdministradores.add(nuevo);
         JOptionPane.showMessageDialog(vista, 
                         "EL NUEVO ADMIN SE AGREGO CORRECTAMENTE.",
-                        "EXITOS:>>", JOptionPane.ERROR_MESSAGE);
+                        "EXITOS:>>", JOptionPane.INFORMATION_MESSAGE);
         return;
     
     }

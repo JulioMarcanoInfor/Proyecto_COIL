@@ -31,7 +31,7 @@ public class AlumnoControadorInicioSesion {
                 // Si el apodo coincide con uno registrado, la validación pasa.
                 JOptionPane.showMessageDialog(vista, 
                     "que disfrutes>>.",
-                    "Bienvenido: ..", JOptionPane.ERROR_MESSAGE);
+                    "Bienvenido: ..", JOptionPane.INFORMATION_MESSAGE);
                 return true; 
             }
         }
