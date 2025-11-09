@@ -37,6 +37,9 @@ public class AlumnoControladorRegistro {
     //para realizar las validaciones
     Validacion validar = new Validacion();
     
+    private bool verificarFechaValida(String fecha){
+        
+    }
     
     //para ver si hay un apodo igual
     public boolean verificarUnicidadApodo(String apodo) {
@@ -193,7 +196,7 @@ public class AlumnoControladorRegistro {
                     break;
                 }
         }
-        
+
         // --- 4. Validacion de Fecha de Nacimiento. ---
         // Se asume un patron de fecha dd/MM/yyyy.
         int resultadoFechaNacimiento = validar.validarCadena(vistaResgistro.getTxtfechaNacimiento(),
@@ -203,7 +206,7 @@ public class AlumnoControladorRegistro {
             case 0:
                 // Error de contenido minimo (solo espacios o vacio)
                 JOptionPane.showMessageDialog(vistaResgistro, 
-                        "La Fecha de Nacimiento no puede estar vacia.",
+                        "La Fecha de Nacimiento no puede estar vacia(dia/mes/año, ejemplo: 01/11/2020).",
                         "MENSAJE DE ERROR: CAMPO VACIO", JOptionPane.ERROR_MESSAGE);
                 boolFechaNacimiento = false;
                 return false;
@@ -211,7 +214,7 @@ public class AlumnoControladorRegistro {
             case -2:
                 // Error de longitud
                 JOptionPane.showMessageDialog(vistaResgistro, 
-                        "La longitud de la Fecha de Nacimiento no es valida. Use el formato dd/MM/yyyy.",
+                        "La longitud de la Fecha de Nacimiento no es valida (dia/mes/año, ejemplo: 01/11/2020).",
                         "MENSAJE DE ERROR: LONGITUD", JOptionPane.ERROR_MESSAGE);
                 boolFechaNacimiento = false;
                 return false;
@@ -219,7 +222,7 @@ public class AlumnoControladorRegistro {
             case -1:
                 // Error de patron/formato
                 JOptionPane.showMessageDialog(vistaResgistro, 
-                        "El formato de la Fecha de Nacimiento no es válido. Use el formato dd/MM/yyyy.",
+                        "El formato de la Fecha de Nacimiento no es válido (dia/mes/año, ejemplo: 01/11/2020).",
                         "MENSAJE DE ERROR: FORMATO", JOptionPane.ERROR_MESSAGE);
                 boolFechaNacimiento = false;
                 return false;
