@@ -39,6 +39,7 @@ public class PantallaInicioVista extends PanelConFondoVista {
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(0, 255, 204));
+        setMinimumSize(new java.awt.Dimension(845, 627));
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new java.awt.GridBagLayout());
 
@@ -56,7 +57,7 @@ public class PantallaInicioVista extends PanelConFondoVista {
         gridBagConstraints.ipadx = 87;
         gridBagConstraints.ipady = 55;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(455, 310, 50, 298);
+        gridBagConstraints.insets = new java.awt.Insets(384, 327, 133, 293);
         add(jButton1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 

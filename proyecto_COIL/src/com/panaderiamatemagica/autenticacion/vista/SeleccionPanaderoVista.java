@@ -3,19 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.autenticacion.vista;
+import com.panaderiamatemagica.comunes.PanelConFondoVista;
 import com.panaderiamatemagica.comunes.RouterControlador;
 /**
  *
  * @author User
  */
-public class SeleccionPanaderoVista extends javax.swing.JPanel {
+public class SeleccionPanaderoVista extends PanelConFondoVista {
     private RouterControlador router;
     /**
      * Creates new form SeleccionPanaderoVista
      */
     public SeleccionPanaderoVista(RouterControlador router) {
+        super();
         this.router = router;
         initComponents();
+        cargarImagenDesdeResources("SELECCION PANADERO.png");
     }
 
     /**
@@ -26,19 +29,37 @@ public class SeleccionPanaderoVista extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(153, 102, 0));
         setPreferredSize(new java.awt.Dimension(833, 615));
+        setLayout(new java.awt.GridBagLayout());
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("GATO");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(409, 63, 0, 0);
+        add(jRadioButton1, gridBagConstraints);
+
+        buttonGroup1.add(jRadioButton3);
+        jRadioButton3.setText("OSO");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 3;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(409, 176, 0, 0);
+        add(jRadioButton3, gridBagConstraints);
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("PERRO");
@@ -47,12 +68,21 @@ public class SeleccionPanaderoVista extends javax.swing.JPanel {
                 jRadioButton2ActionPerformed(evt);
             }
         });
-
-        buttonGroup1.add(jRadioButton3);
-        jRadioButton3.setText("OSO");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(409, 152, 0, 0);
+        add(jRadioButton2, gridBagConstraints);
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setText("COCODRILO");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 5;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(409, 162, 0, 30);
+        add(jRadioButton4, gridBagConstraints);
 
         jButton1.setBackground(new java.awt.Color(51, 255, 51));
         jButton1.setText("CREAR CUENTA");
@@ -61,39 +91,15 @@ public class SeleccionPanaderoVista extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(98, 98, 98)
-                .addComponent(jRadioButton1)
-                .addGap(106, 106, 106)
-                .addComponent(jRadioButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
-                .addComponent(jRadioButton3)
-                .addGap(91, 91, 91)
-                .addComponent(jRadioButton4)
-                .addGap(103, 103, 103))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(278, 278, 278)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(343, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton4))
-                .addGap(95, 95, 95)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.gridwidth = 2;
+        gridBagConstraints.ipadx = 120;
+        gridBagConstraints.ipady = 63;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(29, 161, 70, 0);
+        add(jButton1, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
