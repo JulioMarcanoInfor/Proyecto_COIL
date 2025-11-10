@@ -30,7 +30,7 @@ public class Dimension2Vista extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(253, 188, 167));
+        setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(612, 615));
 
         jButton1.setBackground(new java.awt.Color(133, 47, 27));

@@ -34,7 +34,7 @@ public class InformeRapidoVista extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("INFORME RAPIDO");
+        jLabel1.setText("INFORME RÁPIDO");
 
         jButton1.setBackground(new java.awt.Color(84, 180, 183));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
