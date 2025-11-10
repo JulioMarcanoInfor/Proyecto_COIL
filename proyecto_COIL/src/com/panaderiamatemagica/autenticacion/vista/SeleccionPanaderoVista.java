@@ -18,7 +18,6 @@ public class SeleccionPanaderoVista extends PanelConFondoVista {
         super();
         this.router = router;
         initComponents();
-        cargarImagenDesdeResources("SELECCION PANADERO.png");
     }
 
     /**
