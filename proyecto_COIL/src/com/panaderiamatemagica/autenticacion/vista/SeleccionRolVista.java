@@ -39,7 +39,9 @@ public class SeleccionRolVista extends PanelConFondoVista {
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("¿Qué eres?");
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -48,7 +50,9 @@ public class SeleccionRolVista extends PanelConFondoVista {
         gridBagConstraints.insets = new java.awt.Insets(43, 224, 0, 0);
         add(jLabel1, gridBagConstraints);
 
+        jToggleButton1.setBackground(new java.awt.Color(84, 180, 183));
         jToggleButton1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
         jToggleButton1.setText("PROFESOR");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,7 +69,9 @@ public class SeleccionRolVista extends PanelConFondoVista {
         gridBagConstraints.insets = new java.awt.Insets(105, 108, 0, 190);
         add(jToggleButton1, gridBagConstraints);
 
+        jToggleButton2.setBackground(new java.awt.Color(84, 180, 183));
         jToggleButton2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jToggleButton2.setForeground(new java.awt.Color(0, 0, 0));
         jToggleButton2.setText("ALUMNO");
         jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +89,8 @@ public class SeleccionRolVista extends PanelConFondoVista {
         add(jToggleButton2, gridBagConstraints);
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

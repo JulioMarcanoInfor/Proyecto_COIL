@@ -59,45 +59,63 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
         jButton7 = new javax.swing.JButton();
         monitorDimensiones = new javax.swing.JPanel();
 
-        setBackground(new java.awt.Color(204, 153, 255));
+        setBackground(new java.awt.Color(253, 188, 167));
         setPreferredSize(new java.awt.Dimension(833, 615));
 
-        dimencion2.setText("2° DIMENSION");
+        dimencion2.setBackground(new java.awt.Color(84, 180, 183));
+        dimencion2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dimencion2.setForeground(new java.awt.Color(0, 0, 0));
+        dimencion2.setText("2° DIMENSIÓN");
         dimencion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dimencion2ActionPerformed(evt);
             }
         });
 
-        dimencion1.setText("1° DIMENSION");
+        dimencion1.setBackground(new java.awt.Color(84, 180, 183));
+        dimencion1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dimencion1.setForeground(new java.awt.Color(0, 0, 0));
+        dimencion1.setText("1° DIMENSIÓN");
         dimencion1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dimencion1ActionPerformed(evt);
             }
         });
 
-        dimencion3.setText("3° DIMENSION");
+        dimencion3.setBackground(new java.awt.Color(84, 180, 183));
+        dimencion3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dimencion3.setForeground(new java.awt.Color(0, 0, 0));
+        dimencion3.setText("3° DIMENSIÓN");
         dimencion3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dimencion3ActionPerformed(evt);
             }
         });
 
-        dimencio4.setText("4° DIMENSION");
+        dimencio4.setBackground(new java.awt.Color(84, 180, 183));
+        dimencio4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dimencio4.setForeground(new java.awt.Color(0, 0, 0));
+        dimencio4.setText("4° DIMENSIÓN");
         dimencio4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dimencio4ActionPerformed(evt);
             }
         });
 
-        dimencion5.setText("5° DIMENSION");
+        dimencion5.setBackground(new java.awt.Color(84, 180, 183));
+        dimencion5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        dimencion5.setForeground(new java.awt.Color(0, 0, 0));
+        dimencion5.setText("5° DIMENSIÓN");
         dimencion5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dimencion5ActionPerformed(evt);
             }
         });
 
-        pruebaDiagnostica.setText("PRUEBA DIAGNOSTICA");
+        pruebaDiagnostica.setBackground(new java.awt.Color(84, 180, 183));
+        pruebaDiagnostica.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        pruebaDiagnostica.setForeground(new java.awt.Color(0, 0, 0));
+        pruebaDiagnostica.setText("PRUEBA DIAGNÓSTICA");
         pruebaDiagnostica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pruebaDiagnosticaActionPerformed(evt);
@@ -105,6 +123,8 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
         });
 
         jButton7.setBackground(new java.awt.Color(255, 0, 0));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(0, 0, 0));
         jButton7.setText("VOLVER");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,14 +132,14 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
             }
         });
 
-        monitorDimensiones.setBackground(new java.awt.Color(255, 153, 255));
+        monitorDimensiones.setBackground(new java.awt.Color(253, 188, 167));
         monitorDimensiones.setPreferredSize(new java.awt.Dimension(612, 615));
 
         javax.swing.GroupLayout monitorDimensionesLayout = new javax.swing.GroupLayout(monitorDimensiones);
         monitorDimensiones.setLayout(monitorDimensionesLayout);
         monitorDimensionesLayout.setHorizontalGroup(
             monitorDimensionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 611, Short.MAX_VALUE)
+            .addGap(0, 570, Short.MAX_VALUE)
         );
         monitorDimensionesLayout.setVerticalGroup(
             monitorDimensionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,23 +158,26 @@ public class SeleccionDimensionVista extends javax.swing.JPanel {
                             .addComponent(pruebaDiagnostica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dimencio4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dimencion3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dimencion2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dimencion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dimencion5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton7)))
+                        .addComponent(jButton7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dimencion2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(dimencion1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(monitorDimensiones, javax.swing.GroupLayout.DEFAULT_SIZE, 611, Short.MAX_VALUE))
+                .addComponent(monitorDimensiones, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(84, 84, 84)
+                .addGap(78, 78, 78)
                 .addComponent(dimencion1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(dimencion2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(dimencion3, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(dimencio4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)

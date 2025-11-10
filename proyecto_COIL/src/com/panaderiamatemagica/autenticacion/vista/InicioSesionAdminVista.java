@@ -43,13 +43,15 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(153, 255, 204));
+        setBackground(new java.awt.Color(253, 188, 167));
         setPreferredSize(new java.awt.Dimension(833, 615));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("USUARIO");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CONTRASEÑA");
 
         txtcontrasenna.addActionListener(new java.awt.event.ActionListener() {
@@ -59,6 +61,8 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         });
 
         jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("VOLVER");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +70,9 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(51, 255, 51));
+        jButton2.setBackground(new java.awt.Color(84, 180, 183));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("INGRESAR");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

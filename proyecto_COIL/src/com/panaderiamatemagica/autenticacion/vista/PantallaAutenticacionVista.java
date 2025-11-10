@@ -57,9 +57,13 @@ public class PantallaAutenticacionVista extends PanelConFondoVista {
         monitorAutenticacion = new javax.swing.JPanel();
         botonVolver = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(253, 188, 167));
+        setForeground(new java.awt.Color(253, 188, 167));
         setPreferredSize(new java.awt.Dimension(833, 615));
 
+        botonRegistrarse.setBackground(new java.awt.Color(84, 180, 183));
+        botonRegistrarse.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonRegistrarse.setForeground(new java.awt.Color(0, 0, 0));
         botonRegistrarse.setText("Registrarse");
         botonRegistrarse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,6 +71,9 @@ public class PantallaAutenticacionVista extends PanelConFondoVista {
             }
         });
 
+        botonIniciarSesion.setBackground(new java.awt.Color(84, 180, 183));
+        botonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         botonIniciarSesion.setText("Iniciar Sesión");
         botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -74,7 +81,7 @@ public class PantallaAutenticacionVista extends PanelConFondoVista {
             }
         });
 
-        monitorAutenticacion.setBackground(new java.awt.Color(102, 255, 255));
+        monitorAutenticacion.setBackground(new java.awt.Color(253, 188, 167));
         monitorAutenticacion.setPreferredSize(new java.awt.Dimension(596, 615));
 
         javax.swing.GroupLayout monitorAutenticacionLayout = new javax.swing.GroupLayout(monitorAutenticacion);
@@ -89,6 +96,8 @@ public class PantallaAutenticacionVista extends PanelConFondoVista {
         );
 
         botonVolver.setBackground(new java.awt.Color(255, 51, 51));
+        botonVolver.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonVolver.setForeground(new java.awt.Color(0, 0, 0));
         botonVolver.setText("Volver");
         botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
