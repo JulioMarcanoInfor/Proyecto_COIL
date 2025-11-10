@@ -73,16 +73,17 @@ public class EjercicioVista extends javax.swing.JPanel {
         txtdescripcion = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
 
-        setBackground(new java.awt.Color(153, 255, 204));
+        setBackground(new java.awt.Color(253, 188, 167));
         setPreferredSize(new java.awt.Dimension(833, 615));
 
-        txtpregunta.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtpregunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         txtpregunta.setForeground(new java.awt.Color(0, 0, 0));
         txtpregunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtpregunta.setText("PREGUNTA");
 
         txtrespuesta3.setBackground(new java.awt.Color(0, 204, 0));
-        txtrespuesta3.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtrespuesta3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtrespuesta3.setForeground(new java.awt.Color(0, 0, 0));
         txtrespuesta3.setText("3");
         txtrespuesta3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,8 +91,9 @@ public class EjercicioVista extends javax.swing.JPanel {
             }
         });
 
-        txtrespuesta2.setBackground(new java.awt.Color(255, 102, 102));
-        txtrespuesta2.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtrespuesta2.setBackground(new java.awt.Color(255, 64, 163));
+        txtrespuesta2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtrespuesta2.setForeground(new java.awt.Color(0, 0, 0));
         txtrespuesta2.setText("2");
         txtrespuesta2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,7 +102,8 @@ public class EjercicioVista extends javax.swing.JPanel {
         });
 
         txtxrespuesta4.setBackground(new java.awt.Color(204, 0, 204));
-        txtxrespuesta4.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtxrespuesta4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtxrespuesta4.setForeground(new java.awt.Color(0, 0, 0));
         txtxrespuesta4.setText("4");
         txtxrespuesta4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,7 +112,8 @@ public class EjercicioVista extends javax.swing.JPanel {
         });
 
         txtrespuesta1.setBackground(new java.awt.Color(102, 102, 255));
-        txtrespuesta1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 24)); // NOI18N
+        txtrespuesta1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtrespuesta1.setForeground(new java.awt.Color(0, 0, 0));
         txtrespuesta1.setText("1");
         txtrespuesta1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,50 +121,50 @@ public class EjercicioVista extends javax.swing.JPanel {
             }
         });
 
-        txtdescripcion.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
-        txtdescripcion.setForeground(new java.awt.Color(102, 102, 102));
+        txtdescripcion.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txtdescripcion.setForeground(new java.awt.Color(0, 0, 0));
         txtdescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtdescripcion.setText("Descripción");
 
-        jProgressBar1.setBackground(new java.awt.Color(0, 204, 0));
+        jProgressBar1.setBackground(new java.awt.Color(84, 180, 183));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtpregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtrespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtxrespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtrespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtrespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(73, 73, 73))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(236, 236, 236)
-                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtpregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtdescripcion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
+                .addGap(37, 37, 37)
                 .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtpregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtrespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtrespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
