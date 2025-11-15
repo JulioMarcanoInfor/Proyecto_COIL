@@ -95,7 +95,7 @@ public class RouterControlador {
         // --- EJERCICIO 3: Multiplicación (3 x 6 = 18) ---
         EjercicioModelo ejercicio3 = new EjercicioModelo();
         ejercicio3.setDescripcion("Produccion diaria");
-        ejercicio3.setPregunta("Cada bandeja lleva 6 galletas. Si llenas 3 bandejas, ¿cusntas galletas haces?");
+        ejercicio3.setPregunta("Cada bandeja lleva 6 galletas. Si llenas 3 bandejas, ¿cuantas galletas haces?");
         ejercicio3.setOpcionesRespuestas(new ArrayList<>(Arrays.asList("12", "18", "24", "15")));
         ejercicio3.setNumRespuesta(1); 
         listaejercicios_1.add(ejercicio3);

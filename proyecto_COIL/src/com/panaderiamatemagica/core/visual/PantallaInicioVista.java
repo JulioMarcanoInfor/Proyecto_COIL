@@ -3,9 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.core.visual;
+
 import com.panaderiamatemagica.comunes.PanelConFondoVista;
 import com.panaderiamatemagica.comunes.RouterControlador;
-import javax.swing.ImageIcon;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -14,6 +23,12 @@ import javax.swing.ImageIcon;
 public class PantallaInicioVista extends PanelConFondoVista {
     private RouterControlador router;
     private PanelConFondoVista fondo;
+
+    // Imagen original y versión escalada para el fondo
+    private BufferedImage backgroundOriginal;
+    private Image backgroundScaled;
+    private Dimension lastScaledSize;
+
     /**
      * Creates new form InicioVista
      */
@@ -21,11 +36,92 @@ public class PantallaInicioVista extends PanelConFondoVista {
         super();
         this.router = router;
         initComponents();
-        
+
+        // Conservamos llamada a método existente por compatibilidad
         cargarImagenDesdeResources("gemini1.png");
+
+        // Cargar la imagen original desde el classpath
+        loadBackgroundImage("gemini1.png");
+
+        // Hacemos el panel no opaco para que el paintComponent no sea sobreescrito por el fondo por defecto
+        setOpaque(false);
+
+        // Escuchar cambios de tamaño y reajustar el fondo cuando corresponda
+        addComponentListener(new ComponentAdapter() {
+            @Override
+            public void componentResized(ComponentEvent e) {
+                reajustarFondo();
+            }
+        });
     }
-    
-    
+
+    /**
+     * Intenta cargar la imagen original desde varias rutas posibles en el classpath.
+     * Ajusta 'backgroundOriginal' si se encuentra la imagen.
+     */
+    private void loadBackgroundImage(String resourceName) {
+        String[] attempts = new String[] {
+            resourceName,
+            "/" + resourceName,
+            "/resources/" + resourceName,
+            "/com/panaderiamatemagica/resources/" + resourceName,
+            "/com/panaderiamatemagica/core/visual/" + resourceName
+        };
+
+        for (String path : attempts) {
+            InputStream is = getClass().getResourceAsStream(path);
+            if (is != null) {
+                try {
+                    backgroundOriginal = ImageIO.read(is);
+                    is.close();
+                    // Creamos la versión escalada inicial con el tamaño actual
+                    reajustarFondo();
+                    return;
+                } catch (IOException ex) {
+                    try { is.close(); } catch (IOException ex2) {}
+                }
+            }
+        }
+        // Si no se encontró imagen, backgroundOriginal queda en null.
+    }
+
+    /**
+     * Recalcula la imagen escalada de acuerdo al tamaño actual del panel.
+     * Evita reescalar si el tamaño no cambió.
+     */
+    private void reajustarFondo() {
+        if (backgroundOriginal == null) return;
+
+        int w = getWidth();
+        int h = getHeight();
+        if (w <= 0 || h <= 0) return;
+
+        if (lastScaledSize != null && lastScaledSize.width == w && lastScaledSize.height == h) {
+            // ya está escalado a este tamaño
+            return;
+        }
+
+        // Escalado con suavizado
+        backgroundScaled = backgroundOriginal.getScaledInstance(w, h, Image.SCALE_SMOOTH);
+        lastScaledSize = new Dimension(w, h);
+
+        // Fuerza repintado para que se vea la nueva versión
+        repaint();
+    }
+
+    /**
+     * Dibujamos el fondo escalado antes de pintar los hijos.
+     */
+    @Override
+    protected void paintComponent(Graphics g) {
+        // si tenemos fondo escalado, lo dibujamos ocupando todo el panel
+        if (backgroundScaled != null) {
+            g.drawImage(backgroundScaled, 0, 0, this);
+        }
+        // luego dejamos que Swing dibuje los componentes (botones, etc.)
+        super.paintComponent(g);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
