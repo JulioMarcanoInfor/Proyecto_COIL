@@ -79,7 +79,7 @@ public class RouterControlador {
         // --- EJERCICIO 1: Suma Básica (5 + 3 = 8) ---
         EjercicioModelo ejercicio1 = new EjercicioModelo();
         ejercicio1.setDescripcion("Suma de ingredientes");
-        ejercicio1.setPregunta("Tienes 5 huevos y compras 3 mas, ¿cuantos tienes?");
+        ejercicio1.setPregunta("Tienes 5 huevos y compras 3 más, ¿cuántos tienes?");
         ejercicio1.setOpcionesRespuestas(new ArrayList<>(Arrays.asList("7", "8", "10", "5")));
         ejercicio1.setNumRespuesta(1); 
         listaejercicios_1.add(ejercicio1);
@@ -175,6 +175,11 @@ public class RouterControlador {
         pantallaPrincipal.setVisible(true);
     }
     private void inicializarPaneles(){
+        /*---------------------------------------
+        Se inicializan todos los paneles dentro del JFrame principal para que
+        actúe como un monitor
+        */
+        
         pantallaPrincipal.agregarPanel(pantallaInicio, "INICIO");
         pantallaPrincipal.agregarPanel(pantallaAutenticacion, "AUTENTICACION");
         pantallaPrincipal.agregarPanel(pantallaSeleccionRol, "ROL");
@@ -184,9 +189,6 @@ public class RouterControlador {
         pantallaPrincipal.agregarPanel(pantallaSeleccionDimension, "SELECCION DIMENSION");
         pantallaPrincipal.agregarPanel(pantallaEjercicio, "EJERCICIO");
         pantallaPrincipal.agregarPanel(pantallaResultado, "RESULTADO");
-        
-        
-        
         pantallaPrincipal.mostrarPanel("INICIO");
     }
      public void mostrarInicioVista() {
