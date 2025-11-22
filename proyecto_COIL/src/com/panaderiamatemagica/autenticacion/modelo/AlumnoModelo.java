@@ -10,6 +10,12 @@ package com.panaderiamatemagica.autenticacion.modelo;
  */
 public class AlumnoModelo extends UsuarioModelo{
     private int id_Alumno;
+    // para guardar por que nivel estan.
+    private int idNivelD1;
+    private int idNivelD2;
+    private int idNivelD3;
+    private int idNivelD4;
+    private int idNivelD5;
     String apodo;
     double promedioAciertos;
     double promedioDesaciertos; 
@@ -92,6 +98,46 @@ public class AlumnoModelo extends UsuarioModelo{
 
     public void setPromedioDesaciertos(double promedioDesaciertos) {
         this.promedioDesaciertos = promedioDesaciertos;
+    }
+
+    public int getIdNivelD1() {
+        return idNivelD1;
+    }
+
+    public void setIdNivelD1(int idNivelD1) {
+        this.idNivelD1 = idNivelD1;
+    }
+
+    public int getIdNivelD2() {
+        return idNivelD2;
+    }
+
+    public void setIdNivelD2(int idNivelD2) {
+        this.idNivelD2 = idNivelD2;
+    }
+
+    public int getIdNivelD3() {
+        return idNivelD3;
+    }
+
+    public void setIdNivelD3(int idNivelD3) {
+        this.idNivelD3 = idNivelD3;
+    }
+
+    public int getIdNivelD4() {
+        return idNivelD4;
+    }
+
+    public void setIdNivelD4(int idNivelD4) {
+        this.idNivelD4 = idNivelD4;
+    }
+
+    public int getIdNivelD5() {
+        return idNivelD5;
+    }
+
+    public void setIdNivelD5(int idNivelD5) {
+        this.idNivelD5 = idNivelD5;
     }
     
 }
