@@ -10,4 +10,5 @@ package com.panaderiamatemagica.core;
  */
 public class ConexionBDT {
     
+    
 }
