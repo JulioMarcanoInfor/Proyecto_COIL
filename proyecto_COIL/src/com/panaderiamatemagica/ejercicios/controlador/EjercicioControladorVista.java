@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.panaderiamatemagica.ejercicios;
+package com.panaderiamatemagica.ejercicios.controlador;
 
-import com.panaderiamatemagica.comunes.RouterControlador;
-import com.panaderiamatemagica.comunes.Validacion;
+import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
+import com.panaderiamatema.core.controlador.RouterControlador;
+import Utilidades.Validacion;
 import com.panaderiamatemagica.juego.vista.EjercicioVista;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;

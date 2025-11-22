@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.core.visual;
 
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatema.core.controlador.RouterControlador;
 import java.awt.Color;
 
 
@@ -41,7 +41,7 @@ public class PantallaInicioVista extends javax.swing.JPanel {
     private void initComponents() {
 
         botonJugar = new javax.swing.JButton();
-        jLabelReescalable1 = new com.panaderiamatemagica.comunes.JLabelReescalable();
+        jLabelReescalable1 = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setBackground(new java.awt.Color(0, 255, 204));
         setMaximumSize(new java.awt.Dimension(833, 615));
@@ -91,6 +91,6 @@ public class PantallaInicioVista extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonJugar;
-    private com.panaderiamatemagica.comunes.JLabelReescalable jLabelReescalable1;
+    private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable jLabelReescalable1;
     // End of variables declaration//GEN-END:variables
 }

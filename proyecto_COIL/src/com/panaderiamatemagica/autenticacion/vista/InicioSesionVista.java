@@ -5,7 +5,7 @@
 package com.panaderiamatemagica.autenticacion.vista;
 
 import com.panaderiamatemagica.autenticacion.controlador.AlumnoControadorInicioSesion;
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatema.core.controlador.RouterControlador;
 import javax.swing.JTextField;
 
 /**

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.panaderiamatemagica.ejercicios;
+package com.panaderiamatemagica.ejercicios.modelo;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author Equipo Dell
  */
 public class EjercicioModelo {
+    private  int id_Ejercicio;
     private String pregunta;
     private int dificultad;
     private int grado;
@@ -19,7 +20,7 @@ public class EjercicioModelo {
     //private String recompensa;
     private String tutorial;
     private ArrayList<String> opcionesRespuestas; //tendra 4 preguntas
-    private int numRespuesta; 
+    private int numRespuesta; //el indice de la pregunta correcta
     private String descripcion;
 
     
@@ -121,6 +122,14 @@ public class EjercicioModelo {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public int getId_Ejercicio() {
+        return id_Ejercicio;
+    }
+
+    public void setId_Ejercicio(int id_Ejercicio) {
+        this.id_Ejercicio = id_Ejercicio;
     }
     
  

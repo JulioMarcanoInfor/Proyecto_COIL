@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.panaderiamatemagica.comunes;
-import com.panaderiamatemagica.Dimension.DimensionModelo;
+package com.panaderiamatema.core.controlador;
+import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.admin.vista.AdminVista;
+import com.panaderiamatemagica.autenticacion.controlador.RouterRolControlador;
 import com.panaderiamatemagica.autenticacion.controlador.RouterRolControlador;
 import com.panaderiamatemagica.autenticacion.modelo.AdministradorModelo;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
@@ -15,7 +16,7 @@ import com.panaderiamatemagica.core.visual.PantallaInicioVista;
 import com.panaderiamatemagica.autenticacion.vista.PantallaAutenticacionVista;
 import com.panaderiamatemagica.autenticacion.vista.SeleccionPanaderoVista;
 import com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista;
-import com.panaderiamatemagica.ejercicios.EjercicioModelo;
+import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import com.panaderiamatemagica.juego.controlador.RouterDimensionControlador;
 import com.panaderiamatemagica.juego.vista.Dimension1Vista;
 import com.panaderiamatemagica.juego.vista.EjercicioVista;
@@ -61,9 +62,8 @@ public class RouterControlador {
         
         // --- NUEVA CARGA: ALUMNO POR DEFECTO ---
         AlumnoModelo alumnoDefecto = new AlumnoModelo();
-        alumnoDefecto.setNombre("loco"); // Puedes usar el método que corresponda en tu AlumnoModelo
+        alumnoDefecto.setNombre("loco"); //nombre
         alumnoDefecto.setApodo("12345"); // Identificador o nombre de usuario
-        // Nota: Asumo que AlumnoModelo tiene los setters necesarios (como setNombre e setIdentificador)
         listaAlumnos.add(alumnoDefecto);
         
         // --- 1. CARGA DEL ADMINISTRADOR POR DEFECTO ---

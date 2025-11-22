@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * @author Equipo Dell
  */
 public class AdministradorModelo {
+    private int id_Administrador;
     ArrayList <AlumnoModelo> listaAlumnos; // coleccion de alumnos
     String contraseña;
     String nombreUsuario;
@@ -47,6 +48,12 @@ public class AdministradorModelo {
     }
     public void setNombreUsuario(String nombreUsuario) {
         this.nombreUsuario = nombreUsuario;
+    }
+    public int getId_Administrador() {
+        return id_Administrador;
+    }
+    public void setId_Administrador(int id_Administrador) {
+        this.id_Administrador = id_Administrador;
     }
     
 }

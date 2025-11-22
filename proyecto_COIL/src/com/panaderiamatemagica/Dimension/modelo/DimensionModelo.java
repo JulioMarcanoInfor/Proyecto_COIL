@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.panaderiamatemagica.Dimension;
+package com.panaderiamatemagica.Dimension.modelo;
 
-import com.panaderiamatemagica.ejercicios.EjercicioModelo;
+import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 
 /**
