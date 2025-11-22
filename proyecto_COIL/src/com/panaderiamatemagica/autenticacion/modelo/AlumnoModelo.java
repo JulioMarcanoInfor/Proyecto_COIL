@@ -9,6 +9,7 @@ package com.panaderiamatemagica.autenticacion.modelo;
  * @author Equipo Dell
  */
 public class AlumnoModelo extends UsuarioModelo{
+    private int id_Alumno;
     String apodo;
     double promedioAciertos;
     double promedioDesaciertos; 
@@ -75,5 +76,22 @@ public class AlumnoModelo extends UsuarioModelo{
     }
     public void setNumeroEstrella(int numeroEstrella) {
         this.numeroEstrella = numeroEstrella;
-    }   
+    }  
+
+    public int getId_Alumno() {
+        return id_Alumno;
+    }
+
+    public void setId_Alumno(int id_Alumno) {
+        this.id_Alumno = id_Alumno;
+    }
+
+    public double getPromedioDesaciertos() {
+        return promedioDesaciertos;
+    }
+
+    public void setPromedioDesaciertos(double promedioDesaciertos) {
+        this.promedioDesaciertos = promedioDesaciertos;
+    }
+    
 }
