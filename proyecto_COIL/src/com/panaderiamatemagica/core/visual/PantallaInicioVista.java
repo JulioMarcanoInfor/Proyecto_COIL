@@ -44,7 +44,8 @@ public class PantallaInicioVista extends javax.swing.JPanel {
         jLabelReescalable1 = new com.panaderiamatemagica.comunes.JLabelReescalable();
 
         setBackground(new java.awt.Color(0, 255, 204));
-        setMinimumSize(new java.awt.Dimension(845, 627));
+        setMaximumSize(new java.awt.Dimension(833, 615));
+        setMinimumSize(new java.awt.Dimension(833, 615));
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
