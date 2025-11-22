@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.juego.vista;
 
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatema.core.controlador.RouterControlador;
 
 /**
  *

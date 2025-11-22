@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.juego.controlador;
 
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatema.core.controlador.RouterControlador;
 import com.panaderiamatemagica.juego.vista.Dimension1Vista;
 import com.panaderiamatemagica.juego.vista.Dimension2Vista;
 import com.panaderiamatemagica.juego.vista.Dimension3Vista;

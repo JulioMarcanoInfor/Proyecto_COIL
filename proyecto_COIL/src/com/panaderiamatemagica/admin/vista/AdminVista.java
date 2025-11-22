@@ -5,7 +5,7 @@
 package com.panaderiamatemagica.admin.vista;
 
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatema.core.controlador.RouterControlador;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 

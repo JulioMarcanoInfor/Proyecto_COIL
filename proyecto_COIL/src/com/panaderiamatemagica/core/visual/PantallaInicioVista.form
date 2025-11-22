@@ -55,7 +55,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="com.panaderiamatemagica.comunes.JLabelReescalable" name="jLabelReescalable1">
+    <Component class="com.panaderiamatemagica.core.visual.componentes.JLabelReescalable" name="jLabelReescalable1">
       <Properties>
         <Property name="horizontalAlignment" type="int" value="4"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">

@@ -4,8 +4,8 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 import com.panaderiamatemagica.autenticacion.controlador.RouterRolControlador;
-import com.panaderiamatemagica.comunes.PanelConFondoVista;
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.PanelConFondoVista;
+import com.panaderiamatema.core.controlador.RouterControlador;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 /**

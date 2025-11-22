@@ -6,7 +6,7 @@ package com.panaderiamatemagica.admin.vista;
 
 import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorCrearAdmin;
 import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorInicioSesion;
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatema.core.controlador.RouterControlador;
 import javax.swing.JTextField;
 
 /**

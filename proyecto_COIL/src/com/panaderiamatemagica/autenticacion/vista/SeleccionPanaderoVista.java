@@ -3,8 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.autenticacion.vista;
-import com.panaderiamatemagica.comunes.PanelConFondoVista;
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.PanelConFondoVista;
+import com.panaderiamatema.core.controlador.RouterControlador;
 /**
  *
  * @author User
