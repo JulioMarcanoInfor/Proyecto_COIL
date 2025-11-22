@@ -6,7 +6,7 @@ package com.panaderiamatemagica.autenticacion.controlador;
 
 import com.panaderiamatemagica.admin.vista.CrearNuevoAdminVista;
 import com.panaderiamatemagica.autenticacion.modelo.AdministradorModelo;
-import com.panaderiamatemagica.comunes.Validacion;
+import Utilidades.Validacion;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.xml.validation.Validator;

@@ -10,7 +10,7 @@ import com.panaderiamatemagica.admin.vista.CrearNuevoAdminVista;
 import com.panaderiamatemagica.admin.vista.CrearNuevoNivelVista;
 import com.panaderiamatemagica.admin.vista.InformeRapidoVista;
 import com.panaderiamatemagica.admin.vista.ModificarNivelVista;
-import com.panaderiamatemagica.comunes.RouterControlador;
+import com.panaderiamatema.core.controlador.RouterControlador;
 
 /**
  *

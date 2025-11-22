@@ -4,123 +4,32 @@
  */
 package com.panaderiamatemagica.core.visual;
 
-import com.panaderiamatemagica.comunes.PanelConFondoVista;
-import com.panaderiamatemagica.comunes.RouterControlador;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStream;
-import javax.imageio.ImageIO;
+import com.panaderiamatema.core.controlador.RouterControlador;
+import java.awt.Color;
+
 
 /**
  *
  * @author user
  */
-public class PantallaInicioVista extends PanelConFondoVista {
+public class PantallaInicioVista extends javax.swing.JPanel {
     private RouterControlador router;
-    private PanelConFondoVista fondo;
 
-    // Imagen original y versión escalada para el fondo
-    private BufferedImage backgroundOriginal;
-    private Image backgroundScaled;
-    private Dimension lastScaledSize;
 
     /**
      * Creates new form InicioVista
      */
     public PantallaInicioVista(RouterControlador router) {
-        super();
         this.router = router;
         initComponents();
 
-        // Conservamos llamada a método existente por compatibilidad
-        cargarImagenDesdeResources("gemini1.png");
-
-        // Cargar la imagen original desde el classpath
-        loadBackgroundImage("gemini1.png");
-
-        // Hacemos el panel no opaco para que el paintComponent no sea sobreescrito por el fondo por defecto
-        setOpaque(false);
-
-        // Escuchar cambios de tamaño y reajustar el fondo cuando corresponda
-        addComponentListener(new ComponentAdapter() {
-            @Override
-            public void componentResized(ComponentEvent e) {
-                reajustarFondo();
-            }
-        });
+        
     }
 
     /**
      * Intenta cargar la imagen original desde varias rutas posibles en el classpath.
      * Ajusta 'backgroundOriginal' si se encuentra la imagen.
      */
-    private void loadBackgroundImage(String resourceName) {
-        String[] attempts = new String[] {
-            resourceName,
-            "/" + resourceName,
-            "/resources/" + resourceName,
-            "/com/panaderiamatemagica/resources/" + resourceName,
-            "/com/panaderiamatemagica/core/visual/" + resourceName
-        };
-
-        for (String path : attempts) {
-            InputStream is = getClass().getResourceAsStream(path);
-            if (is != null) {
-                try {
-                    backgroundOriginal = ImageIO.read(is);
-                    is.close();
-                    // Creamos la versión escalada inicial con el tamaño actual
-                    reajustarFondo();
-                    return;
-                } catch (IOException ex) {
-                    try { is.close(); } catch (IOException ex2) {}
-                }
-            }
-        }
-        // Si no se encontró imagen, backgroundOriginal queda en null.
-    }
-
-    /**
-     * Recalcula la imagen escalada de acuerdo al tamaño actual del panel.
-     * Evita reescalar si el tamaño no cambió.
-     */
-    private void reajustarFondo() {
-        if (backgroundOriginal == null) return;
-
-        int w = getWidth();
-        int h = getHeight();
-        if (w <= 0 || h <= 0) return;
-
-        if (lastScaledSize != null && lastScaledSize.width == w && lastScaledSize.height == h) {
-            // ya está escalado a este tamaño
-            return;
-        }
-
-        // Escalado con suavizado
-        backgroundScaled = backgroundOriginal.getScaledInstance(w, h, Image.SCALE_SMOOTH);
-        lastScaledSize = new Dimension(w, h);
-
-        // Fuerza repintado para que se vea la nueva versión
-        repaint();
-    }
-
-    /**
-     * Dibujamos el fondo escalado antes de pintar los hijos.
-     */
-    @Override
-    protected void paintComponent(Graphics g) {
-        // si tenemos fondo escalado, lo dibujamos ocupando todo el panel
-        if (backgroundScaled != null) {
-            g.drawImage(backgroundScaled, 0, 0, this);
-        }
-        // luego dejamos que Swing dibuje los componentes (botones, etc.)
-        super.paintComponent(g);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,40 +39,57 @@ public class PantallaInicioVista extends PanelConFondoVista {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        jButton1 = new javax.swing.JButton();
+        botonJugar = new javax.swing.JButton();
+        jLabelReescalable1 = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setBackground(new java.awt.Color(0, 255, 204));
         setMinimumSize(new java.awt.Dimension(845, 627));
         setPreferredSize(new java.awt.Dimension(833, 615));
-        setLayout(new java.awt.GridBagLayout());
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(84, 180, 183));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("JUGAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        botonJugar.setBackground(new java.awt.Color(117, 183, 168));
+        botonJugar.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        botonJugar.setForeground(new java.awt.Color(0, 0, 0));
+        botonJugar.setText("JUGAR");
+        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonJugar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonJugarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonJugarMouseExited(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 87;
-        gridBagConstraints.ipady = 55;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(384, 327, 133, 293);
-        add(jButton1, gridBagConstraints);
+        botonJugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonJugarActionPerformed(evt);
+            }
+        });
+        add(botonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 234, 110));
+
+        jLabelReescalable1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelReescalable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gemini1.png"))); // NOI18N
+        jLabelReescalable1.setText("jLabelReescalable1");
+        jLabelReescalable1.setPreferredSize(new java.awt.Dimension(833, 615));
+        add(jLabelReescalable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 630));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarActionPerformed
         router.mostrarSeleccionRolVista();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonJugarActionPerformed
+
+    private void botonJugarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseEntered
+        botonJugar.setBackground(new Color(85, 208, 82));
+    }//GEN-LAST:event_botonJugarMouseEntered
+
+    private void botonJugarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseExited
+        botonJugar.setBackground(new Color (117,183,168));
+    }//GEN-LAST:event_botonJugarMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonJugar;
+    private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable jLabelReescalable1;
     // End of variables declaration//GEN-END:variables
 }

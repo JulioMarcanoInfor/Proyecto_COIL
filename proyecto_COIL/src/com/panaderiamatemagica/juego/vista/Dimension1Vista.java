@@ -4,10 +4,10 @@
  */
 package com.panaderiamatemagica.juego.vista;
 
-import com.panaderiamatemagica.Dimension.DimensionControlador;
-import com.panaderiamatemagica.Dimension.DimensionModelo;
-import com.panaderiamatemagica.comunes.RouterControlador;
-import com.panaderiamatemagica.ejercicios.EjercicioModelo;
+import com.panaderiamatemagica.Dimension.controlador.DimensionControlador;
+import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
+import com.panaderiamatema.core.controlador.RouterControlador;
+import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 
 /**

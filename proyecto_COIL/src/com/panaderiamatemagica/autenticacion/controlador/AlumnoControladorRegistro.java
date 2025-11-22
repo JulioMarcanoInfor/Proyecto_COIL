@@ -6,7 +6,7 @@ package com.panaderiamatemagica.autenticacion.controlador;
 
 import com.panaderiamatemagica.autenticacion.vista.RegistroVista;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
-import com.panaderiamatemagica.comunes.Validacion;
+import Utilidades.Validacion;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 

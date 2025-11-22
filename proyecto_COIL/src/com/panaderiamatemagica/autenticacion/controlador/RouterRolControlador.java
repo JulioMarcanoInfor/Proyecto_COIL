@@ -4,10 +4,10 @@
  */
 package com.panaderiamatemagica.autenticacion.controlador;
 
+import com.panaderiamatema.core.controlador.RouterControlador;
 import com.panaderiamatemagica.autenticacion.vista.InicioSesionVista;
 import com.panaderiamatemagica.autenticacion.vista.PantallaAutenticacionVista;
 import com.panaderiamatemagica.autenticacion.vista.RegistroVista;
-import com.panaderiamatemagica.comunes.RouterControlador;
 
 /**
  *
