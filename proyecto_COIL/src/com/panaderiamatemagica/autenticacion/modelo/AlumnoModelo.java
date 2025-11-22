@@ -11,17 +11,17 @@ package com.panaderiamatemagica.autenticacion.modelo;
 public class AlumnoModelo extends UsuarioModelo{
     String apodo;
     double promedioAciertos;
-    double printomedioDesaciertos; 
+    double promedioDesaciertos; 
     String profesor;
     int numeroGalletas;
     int numeroEstrella;
     
     //contructor1.
-    public AlumnoModelo(String apodo, double promedioAciertos, double printomedioDesaciertos, String profesor, int numeroGalletas, int numeroEstrella, String nombre, String apellido, int genero, String fechaNacimiento) {
+    public AlumnoModelo(String apodo, double promedioAciertos, double promedioDesaciertos, String profesor, int numeroGalletas, int numeroEstrella, String nombre, String apellido, int genero, String fechaNacimiento) {
         super(nombre, apellido, genero, fechaNacimiento);
         this.apodo = apodo;
         this.promedioAciertos = promedioAciertos;
-        this.printomedioDesaciertos = printomedioDesaciertos;
+        this.promedioDesaciertos = promedioDesaciertos;
         this.profesor = profesor;
         this.numeroGalletas = numeroGalletas;
         this.numeroEstrella = numeroEstrella;
@@ -32,7 +32,7 @@ public class AlumnoModelo extends UsuarioModelo{
         super();
         this.apodo = "";
         this.promedioAciertos = 0.0;
-        this.printomedioDesaciertos = 0.0;
+        this.promedioDesaciertos = 0.0;
         this.profesor = "";
         this.numeroGalletas = 0;
         this.numeroEstrella = 0;   
@@ -52,11 +52,11 @@ public class AlumnoModelo extends UsuarioModelo{
     public void setPromedioAciertos(double promedioAciertos) {
         this.promedioAciertos = promedioAciertos;
     }
-    public double getPrintomedioDesaciertos() {
-        return printomedioDesaciertos;
+    public double getpromedioDesaciertos() {
+        return promedioDesaciertos;
     }
-    public void setPrintomedioDesaciertos(double printomedioDesaciertos) {
-        this.printomedioDesaciertos = printomedioDesaciertos;
+    public void setpromedioDesaciertos(double promedioDesaciertos) {
+        this.promedioDesaciertos = promedioDesaciertos;
     }
     public String getProfesor() {
         return profesor;
