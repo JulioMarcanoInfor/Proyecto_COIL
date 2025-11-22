@@ -45,7 +45,7 @@ public class AlumnoModelo extends UsuarioModelo{
         this.numeroEstrella = 0;   
     }
     
-    //grt y set 
+    //get y set 
 
     public String getApodo() {
         return apodo;

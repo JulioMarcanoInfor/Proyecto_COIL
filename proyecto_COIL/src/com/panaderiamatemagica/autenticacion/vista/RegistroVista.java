@@ -25,17 +25,17 @@ public class RegistroVista extends javax.swing.JPanel {
      */
     public RegistroVista(RouterControlador router) {
         this.router = router;
-        
+
         // creamos el alumno
         nuevoAlumno = new AlumnoModelo(); 
 
-        // creamos el contrlador       
+        // creamos el controlador (CON DOS PARÁMETROS)
+        // El controlador ahora es responsable de inicializar el DAO
         objetoControlador = new AlumnoControladorRegistro(
             nuevoAlumno,
-            this, 
-            this.router.getListaAlumnos() // esta inicializado
-        ); 
-        //ni idea de eso amigos (pero si lo quito no sale el panel de reguistro jajajaj).
+            this
+            
+        );
         initComponents();
     }
     
@@ -188,10 +188,18 @@ public class RegistroVista extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (objetoControlador.validarDatos()) {
-                router.mostrarSeleccionPanaderoVista(); // esto es paa pasar a la siguente pantalla
-        }   
-   
+    try {
+            if (objetoControlador.validarDatos()) {
+                // Solo si la validacion es exitosa y el registro fue guardado:
+                router.mostrarSeleccionPanaderoVista(); 
+            }
+        } catch (java.sql.SQLException e) {
+            // muy loco.
+            System.err.println("ERROR: Fallo de base de datos durante el registro: " + e.getMessage());
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "Error de conexión o consulta a la Base de Datos. Verifique su coneccion wifi .",
+                ">>", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

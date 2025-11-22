@@ -9,6 +9,8 @@ import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
 import Utilidades.Validacion;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import com.panaderiamatemagica.core.dao.AlumnoDAO;
+import java.sql.SQLException;
 
 /**
  *
@@ -20,17 +22,18 @@ import javax.swing.JOptionPane;
 public class AlumnoControladorRegistro {
     private AlumnoModelo modeloAlumno;
     private RegistroVista vistaResgistro;
+    private AlumnoDAO alumnoDAO;
                                 
     //PARA ALMACENAR LA LISTA GLOBAL RECIBIDA
-    private ArrayList<AlumnoModelo> listaAlumnos;
+    //private ArrayList<AlumnoModelo> listaAlumnos;
+    // eliminamos esta vaina jaja.
     
     //constructor1.
-    public AlumnoControladorRegistro(AlumnoModelo modeloAlumno, RegistroVista vistaResgistro,
-            ArrayList<AlumnoModelo> listaGlobal) {//le pasamos la lista global
-        this.modeloAlumno = modeloAlumno;
-        this.vistaResgistro = vistaResgistro;
-        this.listaAlumnos = listaGlobal;
-    }
+    public AlumnoControladorRegistro(AlumnoModelo modeloAlumno, RegistroVista vistaResgistro) {
+            this.modeloAlumno = modeloAlumno;
+            this.vistaResgistro = vistaResgistro;
+            this.alumnoDAO = new AlumnoDAO();
+        }
     
     
     
@@ -38,39 +41,49 @@ public class AlumnoControladorRegistro {
     Validacion validar = new Validacion();
     
     
-    //para ver si hay un apodo igual
-    public boolean verificarUnicidadApodo(String apodo) {
-        // Recorre todos los alumnos registrados
-        for (AlumnoModelo alumno : listaAlumnos) {
-            // Compara el apodo ingresado (ignorando mayúsculas/minúsculas)
-            if (alumno.getApodo().equalsIgnoreCase(apodo)) {
-                return true; // El apodo ya existe
-            }
-        }
-        return false; // El apodo es único
+    //para ver si hay un apodo igual.
+    public boolean verificarUnicidadApodo(String apodo) throws SQLException {
+        // Llama al nuevo método DAO
+        return alumnoDAO.verificarUnicidadApodoBD(apodo);
     }
     
     //para validar el inicio de sesion.
     public boolean verificarInicioSesion(){
-        //utilizamos la funcio verificarUnicidadApodo()
-        // ya que si el apodo existe tiene que estar en la lista.
-        if (verificarUnicidadApodo(vistaResgistro.getTxtapodo())) {
-            // si esta el nombre de usuario
-            JOptionPane.showMessageDialog(vistaResgistro, 
+    String apodoIngresado = vistaResgistro.getTxtapodo();
+
+    try {
+        //devuelve TRUE si el apodo ya existe en la bdt.
+        boolean apodoEncontrado = verificarUnicidadApodo(apodoIngresado);
+
+        if (apodoEncontrado) {
+            // El apodo existe, el inicio de sesion es exitoso.
+            JOptionPane.showMessageDialog(vistaResgistro,  
                 "BIENVENIDO.",
-                "INICIO: DISFRUTA>>>", JOptionPane.INFORMATION_MESSAGE); // Cambiado a INFORMATION para no usar ERROR
+                "INICIO: DISFRUTA>>>", JOptionPane.INFORMATION_MESSAGE); 
             return true;
-        }else{
-            // Mensaje de error ajustado.
-            JOptionPane.showMessageDialog(vistaResgistro, 
-                    "Ups El Apodo no existe.",
-                    "MENSAJE DE ERROR: APODO INEXISTENTE", JOptionPane.ERROR_MESSAGE);
+        } else {
+            // El apodo NO existe.
+            JOptionPane.showMessageDialog(vistaResgistro,  
+                "Ups El Apodo no existe.",
+                "MENSAJE DE ERROR: APODO INEXISTENTE", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+        } catch (java.sql.SQLException e) { 
+            // 🚨 CAPTURA ERRORES ESPECÍFICOS DE LA BASE DE DATOS (Conexion, consulta, etc.)
+            System.err.println("Error de BD durante el inicio de sesión: " + e.getMessage());
+            JOptionPane.showMessageDialog(vistaResgistro,  
+                "Error al verificar la base de datos. Verifique su conexion wifi.",
+                "ERROR DE CONEXIÓN BDT", JOptionPane.ERROR_MESSAGE);
+            return false;
+        } catch (Exception e) {
+            // Capturamos cualquier otra excepción
+            System.err.println("Error inesperado durante el inicio de sesion: " + e.getMessage());
             return false;
         }
     }
     
     //validar todos los datos.
-    public boolean validarDatos(){
+    public boolean validarDatos() throws SQLException{
     // String que acumulará todos los mensajes de error.
     String mensajesError = "";
     
@@ -175,32 +188,38 @@ public class AlumnoControladorRegistro {
     // -----------------------------------------------------------------
     
     if (mensajesError.isEmpty()) {
-        // Todos los campos son válidos. Aquí iría la logica para guardar el Alumno
-        JOptionPane.showMessageDialog(vistaResgistro, 
-                    "¡Registro exitoso! Todos los datos son válidos.",
-                    "REGISTRO COMPLETADO", JOptionPane.INFORMATION_MESSAGE);
-        
+
         // 1. Crear la instancia del nuevo objeto Alumno
         AlumnoModelo nuevoAlumno = new AlumnoModelo();
+
         // 2. Obtener los datos validados de la vista y asignarlos al objeto
         nuevoAlumno.setNombre(vistaResgistro.getTxtnombre());
         nuevoAlumno.setApellido(vistaResgistro.getTxtapellido());
-        nuevoAlumno.setApodo(vistaResgistro.getTxtapodo()); 
+        nuevoAlumno.setApodo(vistaResgistro.getTxtapodo());  
         nuevoAlumno.setFechaNacimiento(vistaResgistro.getTxtfechaNacimiento());
-        // 3. Guardar el objeto en la lista
-        listaAlumnos.add(nuevoAlumno);
-        
-        return true;
-    } else {
-        // Se encontraron errores. Mostrar el mensaje acumulado en rojo (ERROR_MESSAGE).
-        // Se utiliza HTML básico para un formato mejor, pero el color rojo del icono
-        // ya lo da el JOptionPane.ERROR_MESSAGE.
-        JOptionPane.showMessageDialog(vistaResgistro, 
-                    "<html><body style='width: 300px;'><b>Se encontraron los siguientes errores:</b><br>"
-                    + "<span style='color:red;'>" + mensajesError.replaceAll("\n", "<br>") + "</span>"
-                    + "</body></html>", 
-                    "️ ERRORES EN EL REGISTRO", JOptionPane.ERROR_MESSAGE);
-        return false;
+        // nuevoAlumno.setGenero("O"); // hay que ponerlo.
+        // lo demos...
+
+        // 3. GUARDAMOs EL OBJETO EN LA BDT
+        if (alumnoDAO.insertarAlumno(nuevoAlumno)) {
+            JOptionPane.showMessageDialog(vistaResgistro,  
+                            "¡Registro exitoso! El alumno fue guardado en la Base de Datos.",
+                            "REGISTRO COMPLETADO", JOptionPane.INFORMATION_MESSAGE);
+            return true;
+        } else {
+             JOptionPane.showMessageDialog(vistaResgistro,  
+                            "ERROR al guardar sus datos. Revise su coneccion wifi.",
+                            "FALLO DE BD", JOptionPane.ERROR_MESSAGE);
+             return false;
+        }
+        } else {
+            // ... (Mensaje de errores de validación)
+            JOptionPane.showMessageDialog(vistaResgistro,  
+                            "<html><body style='width: 300px;'><b>Se encontraron los siguientes errores:</b><br>"
+                            + "<span style='color:red;'>" + mensajesError.replaceAll("\n", "<br>") + "</span>"
+                            + "</body></html>", 
+                            "️ ERRORES EN EL REGISTRO", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
     }
-}
 }
