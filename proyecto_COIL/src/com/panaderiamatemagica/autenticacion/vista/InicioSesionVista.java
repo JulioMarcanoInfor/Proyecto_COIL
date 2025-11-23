@@ -18,16 +18,15 @@ public class InicioSesionVista extends javax.swing.JPanel {
  
     private AlumnoControadorInicioSesion objetoControlador;
     
-    public InicioSesionVista(RouterControlador router) {
-        this.router = router;
-        
-        // inicializamos el objeto controlador.
-        objetoControlador = new AlumnoControadorInicioSesion(this, router.getListaAlumnos());
-        
-        initComponents();
-    }
-    
-    
+public InicioSesionVista(RouterControlador router) {
+    this.router = router;
+
+    // Llamamos al constructor del controlador que ahora SOLO espera la vista (this)
+    objetoControlador = new AlumnoControadorInicioSesion(this);
+
+    initComponents();
+}
+
     
     /**
      * This method is called from within the constructor to initialize the form.
