@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.core.visual;
 
-import com.panaderiamatema.core.controlador.RouterControlador;
+import com.panaderiamatemagica.core.RouterControlador;
 import java.awt.Color;
 
 

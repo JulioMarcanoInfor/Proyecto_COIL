@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 import com.panaderiamatemagica.core.visual.componentes.PanelConFondoVista;
-import com.panaderiamatema.core.controlador.RouterControlador;
+import com.panaderiamatemagica.core.RouterControlador;
 /**
  *
  * @author User

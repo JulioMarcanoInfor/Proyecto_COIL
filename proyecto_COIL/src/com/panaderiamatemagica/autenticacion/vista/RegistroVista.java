@@ -6,7 +6,7 @@ package com.panaderiamatemagica.autenticacion.vista;
 
 import com.panaderiamatemagica.autenticacion.controlador.AlumnoControladorRegistro;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
-import com.panaderiamatema.core.controlador.RouterControlador;
+import com.panaderiamatemagica.core.RouterControlador;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;

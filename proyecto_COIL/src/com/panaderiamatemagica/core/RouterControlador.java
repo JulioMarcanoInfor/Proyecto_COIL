@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.panaderiamatema.core.controlador;
+package com.panaderiamatemagica.core;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.admin.vista.AdminVista;

@@ -6,7 +6,7 @@ package com.panaderiamatemagica.juego.vista;
 
 import com.panaderiamatemagica.Dimension.controlador.DimensionControlador;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
-import com.panaderiamatema.core.controlador.RouterControlador;
+import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 

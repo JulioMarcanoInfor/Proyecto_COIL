@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorInicioSesion;
-import com.panaderiamatema.core.controlador.RouterControlador;
+import com.panaderiamatemagica.core.RouterControlador;
 import javax.swing.JTextField;
 /**
  *

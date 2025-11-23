@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.juego.vista;
 
-import com.panaderiamatema.core.controlador.RouterControlador;
+import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.ejercicios.controlador.EjercicioControladorVista;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
