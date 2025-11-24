@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class ConexionBDT {
     // **********************************************
     // 1. CREDENCIALES DE CONEXION
-    // **********************************************--
+    // **********************************************
   
     // HOST: labs-dbservices01.ucab.edu.ve
     // PORT: 5432

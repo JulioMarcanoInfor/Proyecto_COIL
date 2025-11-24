@@ -22,67 +22,106 @@ import javax.swing.JOptionPane;
  * @author Equipo Dell
  */
 public class AlumnoDAO {
+
     
-    
-    
-    //mostrar.
-    public void MostrarAlumnos(JTable vista, String nombreAdministrador){
+    // ver esto para implentar en la vista.
+    // mostra alumnos. 
+        //muestra simplemente los que tine el profesor.
+    public void EjecutarYMostrarAlumnos(JTable vista, String nombreAdministrador, String filtroAdicional) {
         System.out.println("Intentando obtener la conexión...");
         try (Connection conn = ConexionBDT.obtenerConexion() ) {
             if (conn != null) {
                 System.out.println("CONEXION ESTABLECIDA.");
             }
-                    
-        //tabla donde parecen los alumnos.
-        DefaultTableModel modelo = new DefaultTableModel();
-        
-        //para realizar la consulta a la bdt 
-        // manda a los estudiantes que sean administrados por el profesor.
-        String sql = "SELECT * FROM alumnos WHERE profesor = '" + nombreAdministrador + "'";
-        
-        modelo.addColumn("ID: ");
-        modelo.addColumn("Nombre: ");
-        modelo.addColumn("Apodo: ");
-        modelo.addColumn("Apellido: ");
-        modelo.addColumn("Genero: ");
-        modelo.addColumn("Fecha de nacimiento: ");
-        modelo.addColumn("Promedio aciertos: ");
-        modelo.addColumn("Promedio desaciertos: ");
-        modelo.addColumn("Numero de galletas: ");
-        modelo.addColumn("Numero de estellas: ");
-        
-        String datos[] = new String[9];
-        
-        Statement st = conn.createStatement();
-        
-        ResultSet rs = st.executeQuery(sql);
-        
-        while (rs.next()){
-            datos[0] = rs.getString(1); // recorremos la tabla como si fie un arreglo que parte de 1.
-            datos[0] = rs.getString(2);
-            datos[0] = rs.getString(3);
-            datos[0] = rs.getString(4);
-            datos[0] = rs.getString(5);
-            datos[0] = rs.getString(6);
-            datos[0] = rs.getString(7);
-            datos[0] = rs.getString(8);
-            datos[0] = rs.getString(9);
-            datos[0] = rs.getString(10);
-            
-            modelo.addRow(datos); // agrega una nueva fila de datos.        
-            
-        }
-        
-        //le asignaos la tabla creada a la vista actual.
-        vista.setModel(modelo);
-        
+
+            DefaultTableModel modelo = new DefaultTableModel();
+
+            // La consulta base siempre filtra por profesor.
+            String sql = "SELECT * FROM alumnos WHERE profesor = '" + nombreAdministrador + "'";
+
+            // Concatenamos el filtro adicional (ORDER BY o más condiciones WHERE)// para mostra en un orden determinado.
+            sql += filtroAdicional; 
+
+            System.out.println("SQL: " + sql);
+
+            // Definición de las 10 columnas
+            modelo.addColumn("ID: ");
+            modelo.addColumn("Nombre: ");
+            modelo.addColumn("Apodo: ");
+            modelo.addColumn("Apellido: ");
+            modelo.addColumn("Genero: ");
+            modelo.addColumn("Fecha de nacimiento: ");
+            modelo.addColumn("Promedio aciertos: ");
+            modelo.addColumn("Promedio desaciertos: ");
+            modelo.addColumn("Numero de galletas: ");
+            modelo.addColumn("Numero de estellas: ");
+
+            // contendra los datos.
+            String datos[] = new String[10];
+
+            // obtenemo los datos de la BDT.
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()){
+                // Asignacion de las 10 columnas.
+                datos[0] = rs.getString(1);
+                datos[1] = rs.getString(2);
+                datos[2] = rs.getString(3);
+                datos[3] = rs.getString(4);
+                datos[4] = rs.getString(5);
+                datos[5] = rs.getString(6);
+                datos[6] = rs.getString(7);
+                datos[7] = rs.getString(8);
+                datos[8] = rs.getString(9);
+                datos[9] = rs.getString(10);
+
+                modelo.addRow(datos); 
+            }
+
+            vista.setModel(modelo);
+
         } catch (SQLException e) {
-            System.err.println("ERROR: La conexión fallo.");
+            System.err.println("ERROR: La conexión o la consulta falló.");
             System.err.println("Detalles: " + e.getMessage());
-            return; 
-        }        
+        } 
     }
     
+        //Muestra a TODOS los alumnos del profesor (sin filtro adicional ni orden).
+   public void MostrarAlumnos(JTable vista, String nombreAdministrador){
+       // Al pasar una cadena vacía "" como filtro adicional, solo se aplica el WHERE profesor = '...'
+       EjecutarYMostrarAlumnos(vista, nombreAdministrador, ""); 
+   }
+    
+        //Muestra todos los alumnos del profesor ordenados por número de estrellas (Mayor a Menor)
+   public void MostrarAlumnosPorMayorEstrellas(JTable vista, String nombreAdministrador) {
+       // Definimos el filtro SQL para ordenar por estrellas de forma descendente (DESC)
+       String filtro = " ORDER BY numero_estrellas DESC";
+
+       // Llamamos a la funcion central
+       EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+   }
+    
+        //Muestra los alumnos que coinciden con un nombre y apellido especificos.
+   public void MostrarAlumnosPorNombreCompleto(JTable vista, String nombreAdministrador, String nombre, String apellido) {
+       // Definimos el filtro SQL usando AND para nombre y apellido
+       String filtro = " AND nombre = '" + nombre + "' AND apellido = '" + apellido + "'";
+
+       // Llamamos a la función central
+       EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+   }
+   
+        //Muestra el alumno que coincide con un apodo especifico.
+   public void MostrarAlumnoPorApodo(JTable vista, String nombreAdministrador, String apodo) {
+       // Definimos el filtro SQL usando AND para el apodo
+       String filtro = " AND apodo = '" + apodo + "'";
+
+       // Llamamos a la funcion central
+       EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+   }
+   
+   
+   
     // true si el apodo ya existe.
     public boolean verificarUnicidadApodoBD(String apodo) throws SQLException {
         String sql = "SELECT COUNT(*) FROM alumnos WHERE apodo = ?"; 
@@ -135,5 +174,11 @@ public class AlumnoDAO {
             System.err.println("ERROR al insertar alumno: " + e.getMessage());
             return false;
         }
+    }
+    
+    // seleccionar alumno.
+    public void seleccionarAlumno(){
+        
+    
     }
 }
