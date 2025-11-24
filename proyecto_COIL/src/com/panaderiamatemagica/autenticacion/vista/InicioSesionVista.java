@@ -4,7 +4,7 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
-import com.panaderiamatemagica.autenticacion.controlador.AlumnoControadorInicioSesion;
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.AlumnoControadorInicioSesion;
 import com.panaderiamatemagica.core.RouterControlador;
 import javax.swing.JTextField;
 
@@ -20,7 +20,6 @@ public class InicioSesionVista extends javax.swing.JPanel {
     
 public InicioSesionVista(RouterControlador router) {
     this.router = router;
-
     // Llamamos al constructor del controlador que ahora SOLO espera la vista (this)
     objetoControlador = new AlumnoControadorInicioSesion(this);
 
@@ -103,8 +102,8 @@ public InicioSesionVista(RouterControlador router) {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     //get
-
     public String getTxtapodo(){
         return txtapodo.getText(); 
     }

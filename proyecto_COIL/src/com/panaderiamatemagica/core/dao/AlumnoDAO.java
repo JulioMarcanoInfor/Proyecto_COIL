@@ -26,14 +26,15 @@ public class AlumnoDAO {
     
     // ver esto para implentar en la vista.
     // mostra alumnos. 
-        //muestra simplemente los que tine el profesor.
+        //funcion central.
     public void EjecutarYMostrarAlumnos(JTable vista, String nombreAdministrador, String filtroAdicional) {
         System.out.println("Intentando obtener la conexión...");
         try (Connection conn = ConexionBDT.obtenerConexion() ) {
             if (conn != null) {
                 System.out.println("CONEXION ESTABLECIDA.");
             }
-
+            
+            //tabla donde se mostraran los datos.
             DefaultTableModel modelo = new DefaultTableModel();
 
             // La consulta base siempre filtra por profesor.
@@ -42,6 +43,7 @@ public class AlumnoDAO {
             // Concatenamos el filtro adicional (ORDER BY o más condiciones WHERE)// para mostra en un orden determinado.
             sql += filtroAdicional; 
 
+            // para ver lo que se le paso a la BDT
             System.out.println("SQL: " + sql);
 
             // Definición de las 10 columnas
@@ -78,7 +80,7 @@ public class AlumnoDAO {
 
                 modelo.addRow(datos); 
             }
-
+            // lo colocamos en la vista.
             vista.setModel(modelo);
 
         } catch (SQLException e) {
@@ -152,6 +154,7 @@ public class AlumnoDAO {
         String sql = "INSERT INTO alumnos (nombre, apellido, apodo, fecha_nacimiento, genero) "
                    + "VALUES (?, ?, ?, ?, ?)";
         
+        // mandamos la consuta a la BDT.
         try (Connection conn = ConexionBDT.obtenerConexion();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 

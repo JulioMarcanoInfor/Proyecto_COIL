@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.autenticacion.vista;
-import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorInicioSesion;
+import com.panaderiamatemagica.autenticacion.controladores.administradores.AdministradorControladorInicioSesion;
 import com.panaderiamatemagica.core.RouterControlador;
 import javax.swing.JTextField;
 /**
@@ -153,6 +153,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
     public String getTxtcontrasenna() {
         return txtcontrasenna.getText();
     }
+    
     public String getTxtusuarioProfesor() {
         return txtusuarioProfesor.getText();
     }    

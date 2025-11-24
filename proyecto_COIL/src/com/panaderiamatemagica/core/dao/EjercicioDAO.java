@@ -10,4 +10,6 @@ package com.panaderiamatemagica.core.dao;
  */
 public class EjercicioDAO {
     
+    
+    
 }

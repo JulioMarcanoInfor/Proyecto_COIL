@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.autenticacion.vista;
-import com.panaderiamatemagica.autenticacion.controlador.RouterRolControlador;
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterRolControlador;
 import com.panaderiamatemagica.core.visual.componentes.PanelConFondoVista;
 import com.panaderiamatemagica.core.RouterControlador;
 import java.awt.CardLayout;
