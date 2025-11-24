@@ -286,17 +286,17 @@ public class AlumnoDAO {
     
     // eliminar.
     public boolean eliminarAlumnoPorApodo(String apodo) {
-        // La sentencia DELETE elimina filas basadas en una condición WHERE.
+        // La sentencia DELETE elimina filas basadas en una condicion WHERE que en este caso sera el apodo .
         String sql = "DELETE FROM alumnos WHERE apodo = ?";
 
         try (Connection conn = ConexionBDT.obtenerConexion();
              PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            // 1. Asignamos el apodo para la cláusula WHERE.
+            //Asignamos el apodo para la clausula WHERE.
             // Esto asegura que solo se elimine el alumno con ese apodo.
             ps.setString(1, apodo);
 
-            // 2. Ejecutamos la eliminación.
+            //Ejecutamos la eliminacion.
             int filasAfectadas = ps.executeUpdate();
 
             // Retorna true si se eliminó exactamente una fila (que es lo esperado).
@@ -304,7 +304,7 @@ public class AlumnoDAO {
 
         } catch (SQLException e) {
             System.err.println("ERROR al eliminar alumno con apodo '" + apodo + "': " + e.getMessage());
-            // En caso de error de conexión o SQL, retorna false.
+            // En caso de error de conexion.
             return false;
         }
     }

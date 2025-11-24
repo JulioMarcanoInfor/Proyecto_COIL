@@ -181,11 +181,97 @@ public class AdministradorDAO {
             // la presnetacion porcia jajaj.
             System.err.println("ERROR al insertar el admin: " + e.getMessage());
             return false;
-        }
-        
-        
-        
+        }        
     }
     
+     //se le pasa el campo que se decea modificar.
+    // todo se puede modificar exepto el id.
+    private boolean modificarCampoAdministrador(String campo, String nuevoValor, String usuarioActual) {
+        // Construccion de la sentencia UPDATE
+        String sql = "UPDATE administradores SET " + campo + " = ? WHERE usuario = ?";
+
+        // Bloque try-with-resources para asegurar el cierre de recursos (Connection, PreparedStatement)
+        try (Connection conn = ConexionBDT.obtenerConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            // 1. Establecer el nuevo valor
+            ps.setString(1, nuevoValor); 
+            // 2. Establecer el filtro (el usuario actual)
+            ps.setString(2, usuarioActual);     
+
+            int filasAfectadas = ps.executeUpdate();
+            
+            // si la fila se modificó es true
+            return filasAfectadas > 0;
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al modificar el campo '" + campo + "' del administrador: " + e.getMessage());
+            return false;
+        }
+    }
+
+    // modificar nombre.
+    public boolean modificarNombre(String nuevoNombre, String usuarioActual) {
+        return modificarCampoAdministrador("nombre", nuevoNombre, usuarioActual);
+    }
+
+    // modificar apelido 
+    public boolean modificarApellido(String nuevoApellido, String usuarioActual) {
+        return modificarCampoAdministrador("apellido", nuevoApellido, usuarioActual);
+    }
+
+    // modificar genero
+    public boolean modificarGenero(String nuevoGenero, String usuarioActual) {
+        // Pasa el String correcto ("M", "F", o "O")
+        return modificarCampoAdministrador("genero", nuevoGenero, usuarioActual); 
+    }
     
+    // modificar contraceña.
+    public boolean modificarContrasena(String nuevaContrasena, String usuarioActual) {
+        return modificarCampoAdministrador("contrasena", nuevaContrasena, usuarioActual);
+    }
+    
+    // modificar usuario.
+    public boolean modificarUsuario(String nuevoUsuario, String usuarioActual) {    
+        try {
+            //Verificar si el nuevo usuario ya existe (unicidad).
+            if (verificarUnicidadUsuarioBD(nuevoUsuario)) {
+                // Si devuelve TRUE, significa que el usuario ya existe.
+                System.err.println("El usuario '" + nuevoUsuario + "' ya esta en uso. Modificación cancelada.");
+                return false;
+            }
+        } catch (SQLException e) {
+            System.err.println("Error de BDT durante la verificación de unicidad: " + e.getMessage());
+            return false;
+        }
+
+        //Si llegamos aquí, el nuevo usuario es unico y procedemos a la modificacion.
+        // Usamos el metodo generico que ya maneja la conexión.
+        return modificarCampoAdministrador("usuario", nuevoUsuario, usuarioActual);
+    }
+    
+    //eiminar.
+    public boolean eliminarAdministradorPorUsuario(String usuario) {
+        // La sentencia DELETE elimina filas basadas en una condicion WHERE que en este caso sera el usuario .
+        String sql = "DELETE FROM administradores WHERE usuario = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            //Asignamos el usuario para la clausula WHERE.
+            // Esto asegura que solo se elimine el alumno con ese apodo.
+            ps.setString(1, usuario);
+
+            //Ejecutamos la eliminacion.
+            int filasAfectadas = ps.executeUpdate();
+
+            // Retorna true si se elimino exactamente una fila (que es lo esperado).
+            return filasAfectadas > 0; 
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al eliminar administrador con apodo '" + usuario + "': " + e.getMessage());
+            // En caso de error de conexion.
+            return false;
+        }
+    }
 }
