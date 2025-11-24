@@ -34,12 +34,12 @@ public class ModificarNivelVista extends javax.swing.JPanel {
         jComboBox3 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(253, 188, 167));
+        setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(555, 615));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("¿Qué nivel quiere modficar?");
+        jLabel1.setText("¿Qué nivel quiere modificar?");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));

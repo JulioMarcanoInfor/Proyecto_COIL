@@ -36,6 +36,7 @@ public class SeleccionPanaderoVista extends PanelConFondoVista {
         jRadioButton2 = new javax.swing.JRadioButton();
         jRadioButton4 = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(153, 102, 0));
         setPreferredSize(new java.awt.Dimension(833, 615));
@@ -114,6 +115,9 @@ public class SeleccionPanaderoVista extends PanelConFondoVista {
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(29, 161, 70, 0);
         add(jButton1, gridBagConstraints);
+
+        jLabel1.setText("jLabel1");
+        add(jLabel1, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -133,6 +137,7 @@ public class SeleccionPanaderoVista extends PanelConFondoVista {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
