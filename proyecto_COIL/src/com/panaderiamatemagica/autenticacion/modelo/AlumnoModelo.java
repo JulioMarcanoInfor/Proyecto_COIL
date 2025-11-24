@@ -24,7 +24,7 @@ public class AlumnoModelo extends UsuarioModelo{
     int numeroEstrella;
     
     //contructor1.
-    public AlumnoModelo(String apodo, double promedioAciertos, double promedioDesaciertos, String profesor, int numeroGalletas, int numeroEstrella, String nombre, String apellido, int genero, String fechaNacimiento) {
+    public AlumnoModelo(String apodo, double promedioAciertos, double promedioDesaciertos, String profesor, int numeroGalletas, int numeroEstrella, String nombre, String apellido, String genero, String fechaNacimiento) {
         super(nombre, apellido, genero, fechaNacimiento);
         this.apodo = apodo;
         this.promedioAciertos = promedioAciertos;
@@ -47,57 +47,12 @@ public class AlumnoModelo extends UsuarioModelo{
     
     //get y set 
 
-    public String getApodo() {
-        return apodo;
-    }
-    public void setApodo(String apodo) {
-        this.apodo = apodo;
-    }
-    public double getPromedioAciertos() {
-        return promedioAciertos;
-    }
-    public void setPromedioAciertos(double promedioAciertos) {
-        this.promedioAciertos = promedioAciertos;
-    }
-    public double getpromedioDesaciertos() {
-        return promedioDesaciertos;
-    }
-    public void setpromedioDesaciertos(double promedioDesaciertos) {
-        this.promedioDesaciertos = promedioDesaciertos;
-    }
-    public String getProfesor() {
-        return profesor;
-    }
-    public void setProfesor(String profesor) {
-        this.profesor = profesor;
-    }
-    public int getNumeroGalletas() {
-        return numeroGalletas;
-    }
-    public void setNumeroGalletas(int numeroGalletas) {
-        this.numeroGalletas = numeroGalletas;
-    }
-    public int getNumeroEstrella() {
-        return numeroEstrella;
-    }
-    public void setNumeroEstrella(int numeroEstrella) {
-        this.numeroEstrella = numeroEstrella;
-    }  
-
     public int getId_Alumno() {
         return id_Alumno;
     }
 
     public void setId_Alumno(int id_Alumno) {
         this.id_Alumno = id_Alumno;
-    }
-
-    public double getPromedioDesaciertos() {
-        return promedioDesaciertos;
-    }
-
-    public void setPromedioDesaciertos(double promedioDesaciertos) {
-        this.promedioDesaciertos = promedioDesaciertos;
     }
 
     public int getIdNivelD1() {
@@ -139,5 +94,54 @@ public class AlumnoModelo extends UsuarioModelo{
     public void setIdNivelD5(int idNivelD5) {
         this.idNivelD5 = idNivelD5;
     }
+
+    public String getApodo() {
+        return apodo;
+    }
+
+    public void setApodo(String apodo) {
+        this.apodo = apodo;
+    }
+
+    public double getPromedioAciertos() {
+        return promedioAciertos;
+    }
+
+    public void setPromedioAciertos(double promedioAciertos) {
+        this.promedioAciertos = promedioAciertos;
+    }
+
+    public double getPromedioDesaciertos() {
+        return promedioDesaciertos;
+    }
+
+    public void setPromedioDesaciertos(double promedioDesaciertos) {
+        this.promedioDesaciertos = promedioDesaciertos;
+    }
+
+    public String getProfesor() {
+        return profesor;
+    }
+
+    public void setProfesor(String profesor) {
+        this.profesor = profesor;
+    }
+
+    public int getNumeroGalletas() {
+        return numeroGalletas;
+    }
+
+    public void setNumeroGalletas(int numeroGalletas) {
+        this.numeroGalletas = numeroGalletas;
+    }
+
+    public int getNumeroEstrella() {
+        return numeroEstrella;
+    }
+
+    public void setNumeroEstrella(int numeroEstrella) {
+        this.numeroEstrella = numeroEstrella;
+    }
+
     
 }

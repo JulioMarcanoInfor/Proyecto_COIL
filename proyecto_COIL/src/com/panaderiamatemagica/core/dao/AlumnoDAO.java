@@ -176,9 +176,133 @@ public class AlumnoDAO {
         }
     }
     
-    // seleccionar alumno.
-    public void seleccionarAlumno(){
-        
+    // obtener un alumno.
+    public AlumnoModelo obtenerAlumnoPorApodo(String apodo) {
+        AlumnoModelo alumno = null;
+        String sql = "SELECT id, nombre, apellido, apodo, fecha_nacimiento, genero, "
+                   + "promedio_aciertos, promedio_desaciertos, numero_galletas, numero_estrellas, profesor "
+                   + "FROM alumnos WHERE apodo = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, apodo);
+
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    alumno = new AlumnoModelo();
+
+                    // NOTA: Asegúrate de que tu AlumnoModelo tiene los setters correctos para INT y DOUBLE
+                    alumno.setId_Alumno(rs.getInt("id"));
+                    alumno.setNombre(rs.getString("nombre"));
+                    alumno.setApellido(rs.getString("apellido"));
+                    alumno.setApodo(rs.getString("apodo"));
+                    alumno.setFechaNacimiento(rs.getString("fecha_nacimiento"));
+                    alumno.setGenero(rs.getString("genero")); // ✅ Usa String aquí
+                    alumno.setPromedioAciertos(rs.getDouble("promedio_aciertos")); // Usa double
+                    alumno.setPromedioDesaciertos(rs.getDouble("promedio_desaciertos")); // Usa double
+                    alumno.setNumeroGalletas(rs.getInt("numero_galletas")); // Usa int
+                    alumno.setNumeroEstrella(rs.getInt("numero_estrellas")); // Usa int
+                    alumno.setProfesor(rs.getString("profesor"));
+                }
+            }
+        } catch (SQLException e) {
+            System.err.println("ERROR al obtener alumno por apodo: " + e.getMessage());
+        }
+        return alumno;
+    }
     
+    //se le pasa el campo que se decea modificar.
+    // todo se puede modificar exepto el id.
+    private boolean modificarCampoAlumno(String campo, String nuevoValor, String apodo) {
+        // Construccion de la sentencia UPDATE
+        String sql = "UPDATE alumnos SET " + campo + " = ? WHERE apodo = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, nuevoValor); 
+            ps.setString(2, apodo);      
+
+            int filasAfectadas = ps.executeUpdate();
+            // si la fila se modifico es true 
+            return filasAfectadas > 0;
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al modificar el campo '" + campo + "': " + e.getMessage());
+            return false;
+        }
+    }
+    
+    public boolean modificarNombre(String nuevoNombre, String apodo) {
+        return modificarCampoAlumno("nombre", nuevoNombre, apodo);
+    }
+
+    public boolean modificarApellido(String nuevoApellido, String apodo) {
+        return modificarCampoAlumno("apellido", nuevoApellido, apodo);
+    }
+
+    public boolean modificarGenero(String nuevoGenero, String apodo) {
+        // Pasa el String correcto ("M", "F", o "O")
+        return modificarCampoAlumno("genero", nuevoGenero, apodo); 
+    }
+    
+    // hay que probar esto bien.
+    public boolean modificarApodo(String nuevoApodo, String apodoActual) {    
+        try {
+            //verificamos si el apodo existe.
+            if (verificarUnicidadApodoBD(nuevoApodo)) {
+                // Si devuelve TRUE, significa que el apodo ya existe.
+                System.err.println("El apodo '" + nuevoApodo + "' ya esta en uso. Modificación cancelada.");
+                return false;
+            }
+        } catch (SQLException e) {
+            // Si hay un error de conexión o SQL durante la verificación.
+            System.err.println("Error de BDT durante la verificación de unicidad: " + e.getMessage());
+            return false;
+        }
+
+        // 2. Si llegamos aquí, el nuevo apodo es ÚNICO y procedemos a la modificación (UPDATE).
+        String sql = "UPDATE alumnos SET apodo = ? WHERE apodo = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, nuevoApodo);  // El nuevo valor a guardar
+            ps.setString(2, apodoActual); // El filtro para saber que alumno cambiar
+
+            int filasAfectadas = ps.executeUpdate();
+            return filasAfectadas > 0;
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al modificar el apodo: " + e.getMessage());
+            return false;
+        }
+    }
+
+    
+    // eliminar.
+    public boolean eliminarAlumnoPorApodo(String apodo) {
+        // La sentencia DELETE elimina filas basadas en una condición WHERE.
+        String sql = "DELETE FROM alumnos WHERE apodo = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            // 1. Asignamos el apodo para la cláusula WHERE.
+            // Esto asegura que solo se elimine el alumno con ese apodo.
+            ps.setString(1, apodo);
+
+            // 2. Ejecutamos la eliminación.
+            int filasAfectadas = ps.executeUpdate();
+
+            // Retorna true si se eliminó exactamente una fila (que es lo esperado).
+            return filasAfectadas > 0; 
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al eliminar alumno con apodo '" + apodo + "': " + e.getMessage());
+            // En caso de error de conexión o SQL, retorna false.
+            return false;
+        }
     }
 }
