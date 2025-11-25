@@ -4,8 +4,8 @@
  */
 package com.panaderiamatemagica.admin.vista;
 
-import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorCrearAdmin;
-import com.panaderiamatemagica.autenticacion.controlador.AdministradorControladorInicioSesion;
+
+import com.panaderiamatemagica.autenticacion.controladores.administradores.AdministradorControladorCrearAdmin;
 import com.panaderiamatemagica.core.RouterControlador;
 import javax.swing.JTextField;
 
@@ -15,20 +15,18 @@ import javax.swing.JTextField;
  */
 public class CrearNuevoAdminVista extends javax.swing.JPanel {
     
-    private RouterControlador router;
     private AdministradorControladorCrearAdmin controlador;
     
     /**
      * Creates new form CrearNuevoAdminVIsta
+     * @param router
      */
     public CrearNuevoAdminVista(RouterControlador router) {
         
-        this.router = router;
         // inicializamos el controlador
         controlador = new AdministradorControladorCrearAdmin(this
                 ,router.getListaProfesores());
         
-        this.router = router;
         initComponents();
     }
 

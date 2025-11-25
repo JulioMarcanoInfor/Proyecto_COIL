@@ -21,7 +21,7 @@ public class AdministradorControladorCrearAdmin {
     //private ArrayList<AdministradorModelo> listaAdministradores; 
 
     // Constructor.
-    public AdministradorControladorCrearAdmin(CrearNuevoAdminVista vista) {
+    public AdministradorControladorCrearAdmin(CrearNuevoAdminVista vista, ArrayList<AdministradorModelo> listaProfesores) {
         this.vista = vista;
         //this.listaAdministradores = listaAdministradores;
         this.adminDAO = new AdministradorDAO(); // Inicializar el DAO
