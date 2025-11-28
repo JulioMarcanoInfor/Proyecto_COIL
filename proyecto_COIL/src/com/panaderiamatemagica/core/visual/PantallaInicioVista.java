@@ -25,7 +25,7 @@ public class PantallaInicioVista extends javax.swing.JPanel {
         this.router = router;
         initComponents();
  
-        FondoPanel fondoPanel = new FondoPanel("gemini1.png");
+        FondoPanel fondoPanel = new FondoPanel("FondoInicial.png");
         fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
         
         // ✅ Configurar MigLayout en este panel principal
@@ -84,14 +84,14 @@ public class PantallaInicioVista extends javax.swing.JPanel {
         add(botonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 234, 110));
 
         jLabelReescalable1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabelReescalable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gemini1.png"))); // NOI18N
+        jLabelReescalable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoInicial.png"))); // NOI18N
         jLabelReescalable1.setText("jLabelReescalable1");
         jLabelReescalable1.setPreferredSize(new java.awt.Dimension(833, 615));
         add(jLabelReescalable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 630));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonJugarActionPerformed
-        router.mostrarSeleccionRolVista();
+        router.mostrarFondoAutenticacionVista();
     }//GEN-LAST:event_botonJugarActionPerformed
 
     private void botonJugarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonJugarMouseEntered

@@ -6,10 +6,12 @@ package com.panaderiamatemagica.core;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.admin.vista.AdminVista;
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterRolControlador;
 import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterRolControlador;
 import com.panaderiamatemagica.autenticacion.modelo.AdministradorModelo;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
+import com.panaderiamatemagica.autenticacion.vista.FondoAutenticacionVista;
 import com.panaderiamatemagica.autenticacion.vista.InicioSesionAdminVista;
 import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 import com.panaderiamatemagica.core.visual.PantallaInicioVista;
@@ -56,6 +58,8 @@ public class RouterControlador {
     private ResultadoVista pantallaResultado;
     private RouterAdminControlador routerAdmin;
     private RouterDimensionControlador routerDimension;
+    private FondoAutenticacionVista fondoAutenticacion;
+    private RouterAutenticacionControlador routerAuth;
             
     public RouterControlador(){
 
@@ -159,18 +163,20 @@ public class RouterControlador {
         routerRol = new RouterRolControlador(this);
         routerAdmin = new RouterAdminControlador(this);
         routerDimension = new RouterDimensionControlador(this);
+        routerAuth = new RouterAutenticacionControlador(this);
         
         //Se crean instancias de diferentes JPanel, y se pasa de argumento 'this' 
         //porque eso pasa como argumento la clase actual(RouterControlador).
+        
         pantallaInicio = new PantallaInicioVista(this);
         pantallaAutenticacion = routerRol.getPantallaAutenticacion();
-        pantallaSeleccionRol = new SeleccionRolVista(this);
         pantallaInicioSesionAdmin = new InicioSesionAdminVista(this);
         pantallaSeleccionPanadero = new SeleccionPanaderoVista(this);
         pantallaAdmin = routerAdmin.getPantallaAdmin();
         pantallaSeleccionDimension = routerDimension.getSeleccionDimensionViste();
         pantallaEjercicio = new EjercicioVista(this);
         pantallaResultado = new ResultadoVista(this);
+        fondoAutenticacion = routerAuth.getFondoAutenticacion();
         inicializarPaneles();
         pantallaPrincipal.setVisible(true);
         pantallaPrincipal.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
@@ -183,13 +189,13 @@ public class RouterControlador {
         
         pantallaPrincipal.agregarPanel(pantallaInicio, "INICIO");
         pantallaPrincipal.agregarPanel(pantallaAutenticacion, "AUTENTICACION");
-        pantallaPrincipal.agregarPanel(pantallaSeleccionRol, "ROL");
         pantallaPrincipal.agregarPanel(pantallaInicioSesionAdmin, "SESION ADMIN");
         pantallaPrincipal.agregarPanel(pantallaSeleccionPanadero, "PANADEROS");
         pantallaPrincipal.agregarPanel(pantallaAdmin, "ADMIN");
         pantallaPrincipal.agregarPanel(pantallaSeleccionDimension, "SELECCION DIMENSION");
         pantallaPrincipal.agregarPanel(pantallaEjercicio, "EJERCICIO");
         pantallaPrincipal.agregarPanel(pantallaResultado, "RESULTADO");
+        pantallaPrincipal.agregarPanel(fondoAutenticacion, "FONDO AUTH");
         pantallaPrincipal.mostrarPanel("INICIO");
     }
      public void mostrarInicioVista() {
@@ -221,6 +227,9 @@ public class RouterControlador {
         pantallaPrincipal.mostrarPanel("RESULTADO");
     }
     
+    public void mostrarFondoAutenticacionVista(){
+        pantallaPrincipal.mostrarPanel("FONDO AUTH");
+    }
     // get de las listas globales
     public ArrayList<AlumnoModelo> getListaAlumnos() {
         return listaAlumnos;

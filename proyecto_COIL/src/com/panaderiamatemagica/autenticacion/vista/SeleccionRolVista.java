@@ -3,21 +3,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.panaderiamatemagica.autenticacion.vista;
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.core.visual.componentes.PanelConFondoVista;
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import javax.swing.JPanel;
+import net.miginfocom.swing.MigLayout;
 /**
  *
  * @author user
  */
-public class SeleccionRolVista extends PanelConFondoVista {
-    private RouterControlador router;
-
+public class SeleccionRolVista extends JPanel {
+    private RouterControlador routerP;
+    private RouterAutenticacionControlador routerA;
     
-    public SeleccionRolVista(RouterControlador router) {
+    public SeleccionRolVista(RouterControlador routerP, RouterAutenticacionControlador routerA) {
         super();
         initComponents();
-        this.router = router;
-        cargarImagenDesdeResources("7.jpg");
+        this.routerP = routerP;
+        this.routerA = routerA;
+        
+        FondoPanel fondoPanel = new FondoPanel("Panel Ovalado.jpg");
+        fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    
+
+    
+    // Remover componentes del diseño original
+    remove(botonProfesor);
+    remove(botonEstudiante);
+    remove(titulo);
+    // Agregar componentes al fondoPanel con posiciones específicas
+    fondoPanel.add(botonProfesor, "pos 20% 20%, w 370:370:370, h 220:220:220");
+    fondoPanel.add(botonEstudiante, "pos 20% 60%, w 370:370:370, h 220:220:220");
+    fondoPanel.add(titulo, "pos 20% 5%, w 360:360:360, h 100:100:100");
     }
 
     /**
@@ -28,101 +52,39 @@ public class SeleccionRolVista extends PanelConFondoVista {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        jLabel1 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
-        jButton1 = new javax.swing.JButton();
+        titulo = new javax.swing.JLabel();
+        botonProfesor = new javax.swing.JButton();
+        botonEstudiante = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 255, 255));
-        setPreferredSize(new java.awt.Dimension(833, 615));
-        setLayout(new java.awt.GridBagLayout());
+        setBackground(new java.awt.Color(213, 178, 137));
+        setForeground(new java.awt.Color(255, 228, 171));
+        setMinimumSize(new java.awt.Dimension(320, 440));
+        setOpaque(true);
+        setPreferredSize(new java.awt.Dimension(640, 660));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("¿Quién eres?");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(43, 224, 0, 0);
-        add(jLabel1, gridBagConstraints);
+        titulo.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
+        titulo.setForeground(new java.awt.Color(0, 0, 0));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("¿QUIEN ERES?");
+        add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 360, 60));
 
-        jToggleButton1.setBackground(new java.awt.Color(84, 180, 183));
-        jToggleButton1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jToggleButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton1.setText("PROFESOR");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 297;
-        gridBagConstraints.ipady = 89;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(105, 108, 0, 190);
-        add(jToggleButton1, gridBagConstraints);
+        botonProfesor.setBackground(new java.awt.Color(117, 183, 168));
+        botonProfesor.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
+        botonProfesor.setText("PROFESOR");
+        add(botonProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 370, 220));
 
-        jToggleButton2.setBackground(new java.awt.Color(84, 180, 183));
-        jToggleButton2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jToggleButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jToggleButton2.setText("ALUMNO");
-        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton2ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 1;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.ipadx = 312;
-        gridBagConstraints.ipady = 89;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(57, 108, 0, 190);
-        add(jToggleButton2, gridBagConstraints);
-
-        jButton1.setBackground(new java.awt.Color(255, 51, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.ipady = 43;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(18, 6, 18, 0);
-        add(jButton1, gridBagConstraints);
+        botonEstudiante.setBackground(new java.awt.Color(117, 183, 168));
+        botonEstudiante.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
+        botonEstudiante.setText("ESTUDIANTE");
+        add(botonEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 370, 220));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        router.mostrarAutenticacionVista();
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        router.mostrarInicioVista();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        router.mostrarInicioSesionAdminVista();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JButton botonEstudiante;
+    private javax.swing.JButton botonProfesor;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
