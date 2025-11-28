@@ -28,10 +28,10 @@ import com.panaderiamatemagica.juego.vista.Dimension5Vista;
 import com.panaderiamatemagica.juego.vista.EjercicioVista;
 import com.panaderiamatemagica.juego.vista.ResultadoVista;
 import com.panaderiamatemagica.juego.vista.SeleccionDimensionVista;
-import com.panaderiamatemagica.core.dao.EjercicioDAO;
-import com.panaderiamatemagica.core.dao.NivelDAO;
 import java.util.ArrayList;
+import java.util.Arrays;
 
+//
 /**
  *
  * @author user
@@ -42,18 +42,11 @@ public class RouterControlador {
     private ArrayList<AlumnoModelo> listaAlumnos = new ArrayList<>();
     private ArrayList<AdministradorModelo> listaProfesores = new ArrayList<>();
 
-    // ALUMNO ACTUAL (LOGUEADO)
-    private AlumnoModelo alumnoActual;
-
     // LISTAS DE EJERCICIOS.
     private ArrayList<EjercicioModelo> listaejercicios_1 = new ArrayList<>();
 
     // LISTA DE NIVELES
     private ArrayList<ArrayList<EjercicioModelo>> niveles = new ArrayList<>();
-
-    // DAOs
-    private EjercicioDAO ejercicioDAO = new EjercicioDAO();
-    private NivelDAO nivelDAO = new NivelDAO();
 
     // Se crean instancias de las clases pantallas
     private PantallaPrincipalVista pantallaPrincipal;
@@ -72,6 +65,9 @@ public class RouterControlador {
     private FondoAutenticacionVista fondoAutenticacion;
     private RouterAutenticacionControlador routerAuth;
 
+    // Alumno actualmente autenticado
+    private AlumnoModelo alumnoActual;
+
     public RouterControlador() {
 
         // --- NUEVA CARGA: ALUMNO POR DEFECTO ---
@@ -87,8 +83,45 @@ public class RouterControlador {
         listaProfesores.add(adminDefecto);
 
         // ------------------------------------------------------------------
-        // --- 3. INICIALIZACIoN DE VISTAS Y CONTROLADORES ---
+        // --- 2. CARGA DE 3 EJERCICIOS DE PRUEBA MANUALES ---
         // ------------------------------------------------------------------
+
+        // --- EJERCICIO 1: Suma Básica (5 + 3 = 8) ---
+        EjercicioModelo ejercicio1 = new EjercicioModelo();
+        ejercicio1.setDescripcion("Suma de ingredientes");
+        ejercicio1.setPregunta("Tienes 5 huevos y compras 3 más, ¿cuántos tienes?");
+        ejercicio1.setOpcionesRespuestas(new ArrayList<>(Arrays.asList("7", "8", "10", "5")));
+        ejercicio1.setNumRespuesta(1);
+        listaejercicios_1.add(ejercicio1);
+
+        // --- EJERCICIO 2: Resta Básica (12 - 4 = 8) ---
+        EjercicioModelo ejercicio2 = new EjercicioModelo();
+        ejercicio2.setDescripcion("Control de inventario");
+        ejercicio2.setPregunta("Horneaste 12 panecillos y vendiste 4. ¿Cuantos te quedan?");
+        ejercicio2.setOpcionesRespuestas(new ArrayList<>(Arrays.asList("9", "6", "8", "4")));
+        ejercicio2.setNumRespuesta(2);
+        listaejercicios_1.add(ejercicio2);
+
+        // --- EJERCICIO 3: Multiplicación (3 x 6 = 18) ---
+        EjercicioModelo ejercicio3 = new EjercicioModelo();
+        ejercicio3.setDescripcion("Produccion diaria");
+        ejercicio3.setPregunta("Cada bandeja lleva 6 galletas. Si llenas 3 bandejas, ¿cuantas galletas haces?");
+        ejercicio3.setOpcionesRespuestas(new ArrayList<>(Arrays.asList("12", "18", "24", "15")));
+        ejercicio3.setNumRespuesta(1);
+        listaejercicios_1.add(ejercicio3);
+
+        // ------------------------------------------------------------------
+        // --- CARGA DE EJERCICIOS Y ORGANIZACIÓN EN NIVELES ---
+        // ------------------------------------------------------------------
+
+        // Nivel 1: Contiene los 3 ejercicios de prueba
+        ArrayList<EjercicioModelo> nivel1 = new ArrayList<>();
+        nivel1.add(ejercicio1);
+        nivel1.add(ejercicio2);
+        nivel1.add(ejercicio3);
+
+        // Añadimos el Nivel 1 a la lista principal de niveles (niveles)
+        this.niveles.add(nivel1);
 
         pantallaPrincipal = new PantallaPrincipalVista();
         routerAutenticacion = new RouterAutenticacionControlador(this);
@@ -96,9 +129,7 @@ public class RouterControlador {
         routerDimension = new RouterDimensionControlador(this);
         routerAuth = new RouterAutenticacionControlador(this);
 
-        // Se crean instancias de diferentes JPanel, y se pasa de argumento 'this'
-        // porque eso pasa como argumento la clase actual(RouterControlador).
-
+        // Se crean instancias de las clases pantallas
         pantallaInicio = new PantallaInicioVista(this);
         pantallaInicioSesionAdmin = new InicioSesionAdminVista(this);
         pantallaSeleccionPanadero = new SeleccionPanaderoVista(this);
@@ -107,18 +138,12 @@ public class RouterControlador {
         pantallaEjercicio = new EjercicioVista(this);
         pantallaResultado = new ResultadoVista(this);
         fondoAutenticacion = routerAuth.getFondoAutenticacion();
-
         inicializarPaneles();
         pantallaPrincipal.setVisible(true);
         pantallaPrincipal.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
     }
 
     private void inicializarPaneles() {
-        /*---------------------------------------
-        Se inicializan todos los paneles dentro del JFrame principal para que
-        actúe como un monitor
-        */
-
         pantallaPrincipal.agregarPanel(pantallaInicio, "INICIO");
         pantallaPrincipal.agregarPanel(pantallaInicioSesionAdmin, "SESION ADMIN");
         pantallaPrincipal.agregarPanel(pantallaSeleccionPanadero, "PANADEROS");
@@ -188,83 +213,52 @@ public class RouterControlador {
         return niveles;
     }
 
+    // Getter y setter para alumno actual
     public AlumnoModelo getAlumnoActual() {
         return alumnoActual;
     }
 
-    public void setAlumnoActual(AlumnoModelo alumnoActual) {
-        this.alumnoActual = alumnoActual;
-    }
-
-    public void cargarNivelesDimension(int idDimension) {
-        this.niveles.clear();
-        ArrayList<Integer> idsNiveles = nivelDAO.obtenerIdsNivelesPorDimension(idDimension);
-
-        System.out.println("IDs de niveles obtenidos: " + idsNiveles);
-
-        for (int idNivel : idsNiveles) {
-            ArrayList<EjercicioModelo> ejercicios = ejercicioDAO.obtenerEjerciciosPorNivel(idNivel);
-            System.out.println("Nivel " + idNivel + ": " + ejercicios.size() + " ejercicios");
-            this.niveles.add(ejercicios);
-        }
-        System.out.println("Cargados " + this.niveles.size() + " niveles para la dimension " + idDimension);
+    public void setAlumnoActual(AlumnoModelo alumno) {
+        this.alumnoActual = alumno;
     }
 
     public void iniciarDimension1() {
-        cargarNivelesDimension(1);
-        DimensionModelo modelo = new DimensionModelo();
-        modelo.setNiveles(this.niveles);
-        Dimension1Vista vista = routerDimension.getPantallaDimension1();
-        vista.inicializarDimension(this, modelo, this.getNiveles());
+        DimensionModelo modeloDimen1 = new DimensionModelo();
+        Dimension1Vista vistaDimension1 = routerDimension.getPantallaDimension1();
+        vistaDimension1.inicializarDimension(this, modeloDimen1, this.getNiveles());
         routerDimension.mostrarDimension1Vista();
     }
 
     public void iniciarDimension2() {
-        cargarNivelesDimension(2);
-        DimensionModelo modelo = new DimensionModelo();
-        modelo.setNiveles(this.niveles);
-        Dimension2Vista vista = routerDimension.getPantallaDimension2();
-        vista.inicializarDimension(this, modelo, this.getNiveles());
+        DimensionModelo modeloDimen2 = new DimensionModelo();
+        Dimension2Vista vistaDimension2 = routerDimension.getPantallaDimension2();
+        vistaDimension2.inicializarDimension(this, modeloDimen2, this.getNiveles());
         routerDimension.mostrarDimension2Vista();
     }
 
     public void iniciarDimension3() {
-        cargarNivelesDimension(3);
-        DimensionModelo modelo = new DimensionModelo();
-        modelo.setNiveles(this.niveles);
-        Dimension3Vista vista = routerDimension.getPantallaDimension3();
-        vista.inicializarDimension(this, modelo, this.getNiveles());
+        DimensionModelo modeloDimen3 = new DimensionModelo();
+        Dimension3Vista vistaDimension3 = routerDimension.getPantallaDimension3();
+        vistaDimension3.inicializarDimension(this, modeloDimen3, this.getNiveles());
         routerDimension.mostrarDimension3Vista();
     }
 
     public void iniciarDimension4() {
-        cargarNivelesDimension(4);
-        DimensionModelo modelo = new DimensionModelo();
-        modelo.setNiveles(this.niveles);
-        Dimension4Vista vista = routerDimension.getPantallaDimension4();
-        vista.inicializarDimension(this, modelo, this.getNiveles());
+        DimensionModelo modeloDimen4 = new DimensionModelo();
+        Dimension4Vista vistaDimension4 = routerDimension.getPantallaDimension4();
+        vistaDimension4.inicializarDimension(this, modeloDimen4, this.getNiveles());
         routerDimension.mostrarDimension4Vista();
     }
 
     public void iniciarDimension5() {
-        cargarNivelesDimension(5);
-        DimensionModelo modelo = new DimensionModelo();
-        modelo.setNiveles(this.niveles);
-        Dimension5Vista vista = routerDimension.getPantallaDimension5();
-        vista.inicializarDimension(this, modelo, this.getNiveles());
+        DimensionModelo modeloDimen5 = new DimensionModelo();
+        Dimension5Vista vistaDimension5 = routerDimension.getPantallaDimension5();
+        vistaDimension5.inicializarDimension(this, modeloDimen5, this.getNiveles());
         routerDimension.mostrarDimension5Vista();
     }
 
-    /**
-     * Recibe una lista de ejercicios (un Nivel) y prepara el entorno de juego.
-     */
     public void iniciarJuegoConEjercicios(ArrayList<EjercicioModelo> ejercicios) {
-        // 1. Carga la lista en la variable global para que el controlador pueda acceder
-        // a ella.
         this.listaejercicios_1 = ejercicios;
-
-        // 2. Llama al método de la vista, que a su vez llama al controlador para
-        // iniciar el juego.
         pantallaEjercicio.iniciarNuevoNivel();
     }
 }

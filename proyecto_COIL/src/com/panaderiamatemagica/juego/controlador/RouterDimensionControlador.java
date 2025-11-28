@@ -32,6 +32,9 @@ public class RouterDimensionControlador {
         pantallaSeleccionDimension = new SeleccionDimensionVista(router, this);
         pantallaDimension1 = new Dimension1Vista();
         pantallaDimension2 = new Dimension2Vista();
+
+        // pantallas a eliminar en siguiente version, es mejor implementar una sola
+        // interfaz que cambie de fondo
         pantallaDimension3 = new Dimension3Vista();
         pantallaDimension4 = new Dimension4Vista();
         pantallaDimension5 = new Dimension5Vista();

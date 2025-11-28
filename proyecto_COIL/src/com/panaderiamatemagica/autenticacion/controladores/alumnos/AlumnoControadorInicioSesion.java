@@ -7,6 +7,7 @@ package com.panaderiamatemagica.autenticacion.controladores.alumnos;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
 import com.panaderiamatemagica.autenticacion.vista.InicioSesionVista;
 import com.panaderiamatemagica.autenticacion.vista.RegistroVista;
+import com.panaderiamatemagica.core.RouterControlador;
 import java.util.ArrayList;
 import javax.imageio.spi.RegisterableService;
 import javax.swing.JOptionPane;
@@ -19,13 +20,10 @@ import java.sql.SQLException;
  */
 public class AlumnoControadorInicioSesion {
     private InicioSesionVista vista;
-    private com.panaderiamatemagica.core.RouterControlador router;
-    // ya no se usa.
-    // private ArrayList<AlumnoModelo> listaAlumnos; // lita de alumns registrados.
+    private RouterControlador router;
     private AlumnoDAO alumnoDAO;
 
-    public AlumnoControadorInicioSesion(InicioSesionVista vista,
-            com.panaderiamatemagica.core.RouterControlador router) {
+    public AlumnoControadorInicioSesion(InicioSesionVista vista, RouterControlador router) {
         this.vista = vista;
         this.router = router;
         this.alumnoDAO = new AlumnoDAO();
@@ -46,24 +44,8 @@ public class AlumnoControadorInicioSesion {
             boolean apodoEncontrado = alumnoDAO.verificarUnicidadApodoBD(apodoIngresado);
 
             if (apodoEncontrado) {
-                // Obtener el alumno completo de la BD
-                AlumnoModelo alumno = alumnoDAO.obtenerAlumnoPorApodo(apodoIngresado);
-
-                if (alumno != null) {
-                    // Guardar el alumno en el router para tracking de progreso
-                    router.setAlumnoActual(alumno);
-
-                    // Inicio de sesión exitoso
-                    JOptionPane.showMessageDialog(vista,
-                            "Que disfrutes>>.",
-                            "Bienvenido: " + alumno.getNombre(), JOptionPane.INFORMATION_MESSAGE);
-                    return true;
-                } else {
-                    JOptionPane.showMessageDialog(vista,
-                            "Error al cargar datos del alumno.",
-                            "ERROR", JOptionPane.ERROR_MESSAGE);
-                    return false;
-                }
+                // Inicio de sesión exitoso
+                return true;
             } else {
                 // Apodo no encontrado en la BD
                 JOptionPane.showMessageDialog(vista,

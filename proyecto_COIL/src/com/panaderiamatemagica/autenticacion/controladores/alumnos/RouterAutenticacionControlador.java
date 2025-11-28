@@ -14,44 +14,37 @@ import com.panaderiamatemagica.core.RouterControlador;
  * @author User
  */
 public class RouterAutenticacionControlador {
-    
-    
+
     private SeleccionRolVista pantallaSeleccionRol;
     private RouterControlador router;
     private FondoAutenticacionVista fondoAutenticacion;
     private InicioSesionVista pantallaInicioSesion;
-    
-    
-    public RouterAutenticacionControlador(RouterControlador router){
-        
+
+    public RouterAutenticacionControlador(RouterControlador router) {
         this.router = router;
-        
+
         pantallaSeleccionRol = new SeleccionRolVista(router, this);
         fondoAutenticacion = new FondoAutenticacionVista(router, this);
         pantallaInicioSesion = new InicioSesionVista(router, this);
-        inicializarPaneles();
-        
     }
-    
-    
-    private void inicializarPaneles(){
-        fondoAutenticacion.agregarPanel(pantallaSeleccionRol, "SELECCION ROL");
-        fondoAutenticacion.agregarPanel(pantallaInicioSesion, "INICIAR SESION");
-        fondoAutenticacion.mostrarPanel("SELECCION ROL");
+
+    public void mostrarSeleccionRol() {
+        fondoAutenticacion.mostrarSeleccionRol();
     }
-    public void mostrarSeleccionRol(){
-        fondoAutenticacion.mostrarPanel("SELECCION ROL");
+
+    public void mostrarIniciarSesion() {
+        fondoAutenticacion.mostrarIniciarSesion();
     }
-    public void mostrarIniciarSesion(){
-        fondoAutenticacion.mostrarPanel("INICIAR SESION");
-    }
-    public FondoAutenticacionVista getFondoAutenticacion(){
+
+    public FondoAutenticacionVista getFondoAutenticacion() {
         return fondoAutenticacion;
     }
-    public InicioSesionVista getInicioSesion(){
+
+    public InicioSesionVista getInicioSesion() {
         return pantallaInicioSesion;
     }
-    public void limpiarTextFieldInicioSesion(){
+
+    public void limpiarTextFieldInicioSesion() {
         pantallaInicioSesion.vaciarTextField();
     }
 }
