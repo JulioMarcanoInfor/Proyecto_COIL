@@ -14,6 +14,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.JPanel;
 import javax.imageio.ImageIO;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
@@ -30,40 +31,23 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         initComponents();
         inicializarPantallas();
 
-        // Crear panel responsivo con dimensiones de diseño original
-        ResponsivePanel responsivePanel = new ResponsivePanel(1920, 1080) {
-            private Image backgroundImage;
-
-            {
-                try {
-                    backgroundImage = ImageIO
-                            .read(getClass().getClassLoader().getResource("images/fondoAutenticacion.jpg"));
-                } catch (Exception e) {
-                    System.err.println("Error cargando imagen de fondo: " + e.getMessage());
-                }
-            }
-
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-                if (backgroundImage != null) {
-                    g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
-                }
-            }
-        };
-
-        // Configurar layout principal
-        setLayout(new java.awt.BorderLayout());
-        add(responsivePanel, java.awt.BorderLayout.CENTER);
-
-        // Remover componentes del diseño original
-        remove(monitor);
-        remove(botonVolver);
-
-        // Agregar componentes al panel responsivo
-        responsivePanel.addScalable(monitor, 416, 92, 640, 660);
-        responsivePanel.addScalable(botonVolver, 688, 770, 96, 57);
-    }
+    FondoPanel fondoPanel = new FondoPanel("fondoAutenticacion.jpg");
+    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    
+    // Remover componentes del diseño original
+    remove(monitor);
+    remove(botonVolver);
+    
+    // Agregar componentes al fondoPanel con posiciones específicas
+    fondoPanel.add(monitor, "pos 50% 15%, w 640:640:640, h 660:660:660");
+    fondoPanel.add(botonVolver,"pos 93% 90%, w 96:96:96, h 57:57:57");
+}
 
     private void inicializarPantallas() {
         pantallasAutenticacion = (CardLayout) monitor.getLayout();
