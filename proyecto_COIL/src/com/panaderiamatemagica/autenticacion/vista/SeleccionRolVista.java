@@ -74,6 +74,7 @@ public class SeleccionRolVista extends JPanel {
         botonProfesor.setBackground(new java.awt.Color(117, 183, 168));
         botonProfesor.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         botonProfesor.setText("PROFESOR");
+        botonProfesor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonProfesor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonProfesorMouseEntered(evt);
@@ -87,12 +88,18 @@ public class SeleccionRolVista extends JPanel {
         botonEstudiante.setBackground(new java.awt.Color(117, 183, 168));
         botonEstudiante.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         botonEstudiante.setText("ESTUDIANTE");
+        botonEstudiante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonEstudianteMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonEstudianteMouseExited(evt);
+            }
+        });
+        botonEstudiante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonEstudianteActionPerformed(evt);
             }
         });
         add(botonEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 370, 220));
@@ -112,6 +119,10 @@ public class SeleccionRolVista extends JPanel {
     private void botonProfesorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonProfesorMouseExited
         botonProfesor.setBackground(new Color (117,183,168));
     }//GEN-LAST:event_botonProfesorMouseExited
+
+    private void botonEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEstudianteActionPerformed
+        routerA.mostrarIniciarSesion();
+    }//GEN-LAST:event_botonEstudianteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

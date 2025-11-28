@@ -5,8 +5,11 @@
 package com.panaderiamatemagica.autenticacion.vista;
 
 import com.panaderiamatemagica.autenticacion.controladores.alumnos.AlumnoControadorInicioSesion;
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import javax.swing.JTextField;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
@@ -14,16 +17,42 @@ import javax.swing.JTextField;
  */
 public class InicioSesionVista extends javax.swing.JPanel {
 
-    private RouterControlador router;
- 
+    private RouterControlador routerP;
+    private RouterAutenticacionControlador routerA;
     private AlumnoControadorInicioSesion objetoControlador;
     
-public InicioSesionVista(RouterControlador router) {
-    this.router = router;
+public InicioSesionVista(RouterControlador routerP, RouterAutenticacionControlador routerA) {
+    this.routerP = routerP;
+    this.routerA = routerA;
     // Llamamos al constructor del controlador que ahora SOLO espera la vista (this)
     objetoControlador = new AlumnoControadorInicioSesion(this);
 
     initComponents();
+    
+    FondoPanel fondoPanel = new FondoPanel("Panel Ovalado.jpg");
+        fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    remove(titulo);
+    remove(apodo);
+    remove(cajaTexto);
+    remove(botonIniciarSesion);
+    remove(label1);
+    remove(label2);
+    remove(label3);
+    
+    fondoPanel.add( titulo, "pos 14% 3%, w 450:450:450 , h 60:60:60");
+    fondoPanel.add(apodo , "pos 12.5% 18.18%, w 230:230:230, h 50:50:50");
+    fondoPanel.add(cajaTexto , "pos 15.63% 25.76%,w 450:450:450, h 80:80:80");
+    fondoPanel.add(botonIniciarSesion , "pos 20.31% 48.48%, w 370:370:370, h 150:150:150");
+    fondoPanel.add(label1 , "pos 28.13% 75.76%, w 280:280:280, h 30:30:30");
+    fondoPanel.add(label2 , "pos 34.38% 80.30%, w 230:230:230, h 30:30:30");
+    fondoPanel.add(label3 , "pos 28.13% 83.33%, w 280:280:280 , h 30:30:30");
+            
 }
 
     
@@ -40,95 +69,88 @@ public InicioSesionVista(RouterControlador router) {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelRound1 = new com.panaderiamatemagica.autenticacion.vista.Clases.PanelRound();
-        jLabel1 = new javax.swing.JLabel();
-        txtapodo = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        botonIniciarSesion = new javax.swing.JButton();
+        titulo = new javax.swing.JLabel();
+        cajaTexto = new javax.swing.JTextField();
+        apodo = new javax.swing.JLabel();
+        label3 = new javax.swing.JLabel();
+        label2 = new javax.swing.JLabel();
+        label1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(253, 188, 167));
-        setPreferredSize(new java.awt.Dimension(596, 615));
+        setBackground(new java.awt.Color(255, 228, 171));
+        setPreferredSize(new java.awt.Dimension(640, 660));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Apodo");
-
-        jButton1.setBackground(new java.awt.Color(84, 180, 183));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("INICIAR SESIÓN");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonIniciarSesion.setBackground(new java.awt.Color(84, 180, 183));
+        botonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        botonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        botonIniciarSesion.setText("INICIAR SESIÓN");
+        botonIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonIniciarSesionActionPerformed(evt);
             }
         });
+        add(botonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 370, 150));
 
-        javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
-        panelRound1.setLayout(panelRound1Layout);
-        panelRound1Layout.setHorizontalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtapodo, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1)))
-                    .addGroup(panelRound1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-        panelRound1Layout.setVerticalGroup(
-            panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(txtapodo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        titulo.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
+        titulo.setForeground(new java.awt.Color(0, 0, 0));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("INICIAR SESION");
+        add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 450, 60));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(297, Short.MAX_VALUE)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(356, Short.MAX_VALUE))
-        );
+        cajaTexto.setBackground(new java.awt.Color(255, 255, 255));
+        add(cajaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 450, 80));
+
+        apodo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
+        apodo.setForeground(new java.awt.Color(0, 0, 0));
+        apodo.setText("APODO");
+        add(apodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 230, 50));
+
+        label3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        label3.setForeground(new java.awt.Color(133, 47, 27));
+        label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label3.setText("<html><u>Regístrate</u></html>");
+        label3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 280, 30));
+
+        label2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        label2.setForeground(new java.awt.Color(0, 0, 0));
+        label2.setText("¿No tienes una cuenta?");
+        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 530, 230, -1));
+
+        label1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        label1.setForeground(new java.awt.Color(133, 47, 27));
+        label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label1.setText("<html><u>¿Olvidaste tu contraseña?</u></html>");
+        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 280, 30));
     }// </editor-fold>//GEN-END:initComponents
 
  //-----------------------------------------------------------------------
     
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonIniciarSesionActionPerformed
         // condicion para el inicio de sesion
         if (objetoControlador.validarUsuario()) {
-            router.mostrarSeleccionDimensionVista();
+            routerP.mostrarSeleccionDimensionVista();
         }
                 
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     
     //get
     public String getTxtapodo(){
-        return txtapodo.getText(); 
+        return cajaTexto.getText(); 
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private com.panaderiamatemagica.autenticacion.vista.Clases.PanelRound panelRound1;
-    private javax.swing.JTextField txtapodo;
+    private javax.swing.JLabel apodo;
+    private javax.swing.JButton botonIniciarSesion;
+    private javax.swing.JTextField cajaTexto;
+    private javax.swing.JLabel label1;
+    private javax.swing.JLabel label2;
+    private javax.swing.JLabel label3;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }
