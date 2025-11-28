@@ -7,6 +7,7 @@ import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenti
 import com.panaderiamatemagica.core.visual.componentes.PanelConFondoVista;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import java.awt.Color;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 /**
@@ -73,13 +74,44 @@ public class SeleccionRolVista extends JPanel {
         botonProfesor.setBackground(new java.awt.Color(117, 183, 168));
         botonProfesor.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         botonProfesor.setText("PROFESOR");
+        botonProfesor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonProfesorMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonProfesorMouseExited(evt);
+            }
+        });
         add(botonProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 370, 220));
 
         botonEstudiante.setBackground(new java.awt.Color(117, 183, 168));
         botonEstudiante.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
         botonEstudiante.setText("ESTUDIANTE");
+        botonEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonEstudianteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonEstudianteMouseExited(evt);
+            }
+        });
         add(botonEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 370, 220));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonEstudianteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonEstudianteMouseEntered
+        botonEstudiante.setBackground(new Color(85, 208, 82));    }//GEN-LAST:event_botonEstudianteMouseEntered
+
+    private void botonEstudianteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonEstudianteMouseExited
+        botonEstudiante.setBackground(new Color (117,183,168));
+    }//GEN-LAST:event_botonEstudianteMouseExited
+
+    private void botonProfesorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonProfesorMouseEntered
+        botonProfesor.setBackground(new Color(85, 208, 82));                                                
+    }//GEN-LAST:event_botonProfesorMouseEntered
+
+    private void botonProfesorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonProfesorMouseExited
+        botonProfesor.setBackground(new Color (117,183,168));
+    }//GEN-LAST:event_botonProfesorMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -7,6 +7,7 @@ package com.panaderiamatemagica.autenticacion.vista;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 import net.miginfocom.swing.MigLayout;
 
@@ -36,11 +37,11 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     
     // Remover componentes del diseño original
     remove(monitor);
-    remove(jButton1);
+    remove(botonVolver);
     
     // Agregar componentes al fondoPanel con posiciones específicas
     fondoPanel.add(monitor, "pos 50% 15%, w 640:640:640, h 660:660:660");
-    fondoPanel.add(jButton1, "pos 93% 90%, w 96:96:96, h 57:57:57");
+    fondoPanel.add(botonVolver, "pos 93% 90%, w 96:96:96, h 57:57:57");
 }
     private void inicializarPantallas(){
         pantallasAutenticacion = new CardLayout();
@@ -62,7 +63,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     private void initComponents() {
 
         monitor = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        botonVolver = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(833, 615));
 
@@ -79,10 +80,19 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
             .addGap(0, 440, Short.MAX_VALUE)
         );
 
-        jButton1.setText("VOLVER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonVolver.setBackground(new java.awt.Color(255, 0, 0));
+        botonVolver.setText("VOLVER");
+        botonVolver.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonVolverMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonVolverMouseExited(evt);
+            }
+        });
+        botonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonVolverActionPerformed(evt);
             }
         });
 
@@ -96,7 +106,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
                 .addContainerGap(73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -105,18 +115,27 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
                 .addGap(80, 80, 80)
                 .addComponent(monitor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
         router.mostrarInicioVista();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonVolverActionPerformed
+
+    private void botonVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVolverMouseEntered
+
+        botonVolver.setBackground(new Color (255,138,183));
+    }//GEN-LAST:event_botonVolverMouseEntered
+
+    private void botonVolverMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVolverMouseExited
+        botonVolver.setBackground(new Color (255,0,0));
+    }//GEN-LAST:event_botonVolverMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton botonVolver;
     private javax.swing.JPanel monitor;
     // End of variables declaration//GEN-END:variables
 }
