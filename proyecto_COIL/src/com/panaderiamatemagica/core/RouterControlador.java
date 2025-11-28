@@ -57,7 +57,7 @@ public class RouterControlador {
     private PantallaInicioVista pantallaInicio;
     private PantallaAutenticacionVista pantallaAutenticacion;
     private SeleccionRolVista pantallaSeleccionRol;
-    private RouterRolControlador routerRol;
+    private RouterAutenticacionControlador routerAutenticacion;
     private InicioSesionAdminVista pantallaInicioSesionAdmin;
     private SeleccionPanaderoVista pantallaSeleccionPanadero;
     private AdminVista pantallaAdmin;
@@ -88,7 +88,7 @@ public class RouterControlador {
         // ------------------------------------------------------------------
 
         pantallaPrincipal = new PantallaPrincipalVista();
-        routerRol = new RouterRolControlador(this);
+        routerAutenticacion = new RouterAutenticacionControlador(this);
         routerAdmin = new RouterAdminControlador(this);
         routerDimension = new RouterDimensionControlador(this);
         routerAuth = new RouterAutenticacionControlador(this);
@@ -97,7 +97,6 @@ public class RouterControlador {
         // porque eso pasa como argumento la clase actual(RouterControlador).
 
         pantallaInicio = new PantallaInicioVista(this);
-        pantallaAutenticacion = routerRol.getPantallaAutenticacion();
         pantallaInicioSesionAdmin = new InicioSesionAdminVista(this);
         pantallaSeleccionPanadero = new SeleccionPanaderoVista(this);
         pantallaAdmin = routerAdmin.getPantallaAdmin();
@@ -118,7 +117,6 @@ public class RouterControlador {
         */
 
         pantallaPrincipal.agregarPanel(pantallaInicio, "INICIO");
-        pantallaPrincipal.agregarPanel(pantallaAutenticacion, "AUTENTICACION");
         pantallaPrincipal.agregarPanel(pantallaInicioSesionAdmin, "SESION ADMIN");
         pantallaPrincipal.agregarPanel(pantallaSeleccionPanadero, "PANADEROS");
         pantallaPrincipal.agregarPanel(pantallaAdmin, "ADMIN");

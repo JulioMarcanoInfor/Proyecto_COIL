@@ -74,6 +74,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
 
         botonVolver.setBackground(new java.awt.Color(255, 0, 0));
         botonVolver.setText("VOLVER");
+        botonVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonVolver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonVolverMouseEntered(evt);
