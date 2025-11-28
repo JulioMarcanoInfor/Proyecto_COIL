@@ -7,10 +7,11 @@ package com.panaderiamatemagica.core;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.admin.vista.AdminVista;
-import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterRolControlador;
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterRolControlador;
 import com.panaderiamatemagica.autenticacion.modelo.AdministradorModelo;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
+import com.panaderiamatemagica.autenticacion.vista.FondoAutenticacionVista;
 import com.panaderiamatemagica.autenticacion.vista.InicioSesionAdminVista;
 import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 import com.panaderiamatemagica.core.visual.PantallaInicioVista;
@@ -31,7 +32,6 @@ import com.panaderiamatemagica.core.dao.EjercicioDAO;
 import com.panaderiamatemagica.core.dao.NivelDAO;
 import java.util.ArrayList;
 
-//
 /**
  *
  * @author user
@@ -41,7 +41,6 @@ public class RouterControlador {
     // LISTAS GLOBALES.
     private ArrayList<AlumnoModelo> listaAlumnos = new ArrayList<>();
     private ArrayList<AdministradorModelo> listaProfesores = new ArrayList<>();
-    // RouterControlador.java
 
     // LISTAS DE EJERCICIOS.
     private ArrayList<EjercicioModelo> listaejercicios_1 = new ArrayList<>();
@@ -67,6 +66,8 @@ public class RouterControlador {
     private ResultadoVista pantallaResultado;
     private RouterAdminControlador routerAdmin;
     private RouterDimensionControlador routerDimension;
+    private FondoAutenticacionVista fondoAutenticacion;
+    private RouterAutenticacionControlador routerAuth;
 
     public RouterControlador() {
 
@@ -83,7 +84,6 @@ public class RouterControlador {
         listaProfesores.add(adminDefecto);
 
         // ------------------------------------------------------------------
-        // ------------------------------------------------------------------
         // --- 3. INICIALIZACIoN DE VISTAS Y CONTROLADORES ---
         // ------------------------------------------------------------------
 
@@ -91,18 +91,21 @@ public class RouterControlador {
         routerRol = new RouterRolControlador(this);
         routerAdmin = new RouterAdminControlador(this);
         routerDimension = new RouterDimensionControlador(this);
+        routerAuth = new RouterAutenticacionControlador(this);
 
         // Se crean instancias de diferentes JPanel, y se pasa de argumento 'this'
         // porque eso pasa como argumento la clase actual(RouterControlador).
+
         pantallaInicio = new PantallaInicioVista(this);
         pantallaAutenticacion = routerRol.getPantallaAutenticacion();
-        pantallaSeleccionRol = new SeleccionRolVista(this);
         pantallaInicioSesionAdmin = new InicioSesionAdminVista(this);
         pantallaSeleccionPanadero = new SeleccionPanaderoVista(this);
         pantallaAdmin = routerAdmin.getPantallaAdmin();
         pantallaSeleccionDimension = routerDimension.getSeleccionDimensionViste();
         pantallaEjercicio = new EjercicioVista(this);
         pantallaResultado = new ResultadoVista(this);
+        fondoAutenticacion = routerAuth.getFondoAutenticacion();
+
         inicializarPaneles();
         pantallaPrincipal.setVisible(true);
         pantallaPrincipal.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
@@ -116,13 +119,13 @@ public class RouterControlador {
 
         pantallaPrincipal.agregarPanel(pantallaInicio, "INICIO");
         pantallaPrincipal.agregarPanel(pantallaAutenticacion, "AUTENTICACION");
-        pantallaPrincipal.agregarPanel(pantallaSeleccionRol, "ROL");
         pantallaPrincipal.agregarPanel(pantallaInicioSesionAdmin, "SESION ADMIN");
         pantallaPrincipal.agregarPanel(pantallaSeleccionPanadero, "PANADEROS");
         pantallaPrincipal.agregarPanel(pantallaAdmin, "ADMIN");
         pantallaPrincipal.agregarPanel(pantallaSeleccionDimension, "SELECCION DIMENSION");
         pantallaPrincipal.agregarPanel(pantallaEjercicio, "EJERCICIO");
         pantallaPrincipal.agregarPanel(pantallaResultado, "RESULTADO");
+        pantallaPrincipal.agregarPanel(fondoAutenticacion, "FONDO AUTH");
         pantallaPrincipal.mostrarPanel("INICIO");
     }
 
@@ -162,6 +165,10 @@ public class RouterControlador {
         pantallaPrincipal.mostrarPanel("RESULTADO");
     }
 
+    public void mostrarFondoAutenticacionVista() {
+        pantallaPrincipal.mostrarPanel("FONDO AUTH");
+    }
+
     // get de las listas globales
     public ArrayList<AlumnoModelo> getListaAlumnos() {
         return listaAlumnos;
@@ -192,10 +199,6 @@ public class RouterControlador {
             this.niveles.add(ejercicios);
         }
         System.out.println("Cargados " + this.niveles.size() + " niveles para la dimension " + idDimension);
-        System.out.println("Contenido de niveles: ");
-        for (int i = 0; i < this.niveles.size(); i++) {
-            System.out.println("  Índice " + i + ": " + this.niveles.get(i).size() + " ejercicios");
-        }
     }
 
     public void iniciarDimension1() {

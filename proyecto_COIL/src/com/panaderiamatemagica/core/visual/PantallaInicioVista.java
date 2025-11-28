@@ -5,11 +5,8 @@
 package com.panaderiamatemagica.core.visual;
 
 import com.panaderiamatemagica.core.RouterControlador;
-import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import java.awt.Color;
-// import net.miginfocom.swing.MigLayout; // COMENTADO: Librería no disponible
 
-//
 /**
  *
  * @author user
@@ -23,30 +20,7 @@ public class PantallaInicioVista extends javax.swing.JPanel {
     public PantallaInicioVista(RouterControlador router) {
         this.router = router;
         initComponents();
-
-        /*
-         * COMENTADO: Código que requiere MigLayout
-         * FondoPanel fondoPanel = new FondoPanel("gemini1.png");
-         * fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
-         * 
-         * // ✅ Configurar MigLayout en este panel principal
-         * setLayout(new java.awt.BorderLayout());
-         * 
-         * // ✅ Agregar el fondo primero
-         * add(fondoPanel, java.awt.BorderLayout.CENTER);
-         * remove(jLabelReescalable1);
-         * remove(botonJugar);
-         * 
-         * fondoPanel.add(botonJugar,
-         * "pos 44.25% 66.67%, w 234:234:234, h 110:110:110");
-         */
     }
-
-    /**
-     * Intenta cargar la imagen original desde varias rutas posibles en el
-     * classpath.
-     * Ajusta 'backgroundOriginal' si se encuentra la imagen.
-     */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,6 +33,7 @@ public class PantallaInicioVista extends javax.swing.JPanel {
     private void initComponents() {
 
         botonJugar = new javax.swing.JButton();
+        jLabelReescalable1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 255, 204));
         setMaximumSize(new java.awt.Dimension(833, 615));
@@ -86,10 +61,17 @@ public class PantallaInicioVista extends javax.swing.JPanel {
             }
         });
         add(botonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 410, 234, 110));
+
+        jLabelReescalable1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        // jLabelReescalable1.setIcon(new
+        // javax.swing.ImageIcon(getClass().getResource("/images/FondoInicial.png")));
+        // // Asegúrate de que la imagen exista
+        jLabelReescalable1.setText(""); // Texto vacío si hay imagen
+        add(jLabelReescalable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 833, 615));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonJugarActionPerformed
-        router.mostrarSeleccionRolVista();
+        router.mostrarFondoAutenticacionVista();
     }// GEN-LAST:event_botonJugarActionPerformed
 
     private void botonJugarMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonJugarMouseEntered
@@ -102,5 +84,6 @@ public class PantallaInicioVista extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonJugar;
+    private javax.swing.JLabel jLabelReescalable1;
     // End of variables declaration//GEN-END:variables
 }
