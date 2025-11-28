@@ -27,7 +27,7 @@ public class RouterAutenticacionControlador {
         this.router = router;
         
         pantallaSeleccionRol = new SeleccionRolVista(router, this);
-        fondoAutenticacion = new FondoAutenticacionVista(router);
+        fondoAutenticacion = new FondoAutenticacionVista(router, this);
         pantallaInicioSesion = new InicioSesionVista(router, this);
         inicializarPaneles();
         
@@ -50,5 +50,8 @@ public class RouterAutenticacionControlador {
     }
     public InicioSesionVista getInicioSesion(){
         return pantallaInicioSesion;
+    }
+    public void limpiarTextFieldInicioSesion(){
+        pantallaInicioSesion.vaciarTextField();
     }
 }

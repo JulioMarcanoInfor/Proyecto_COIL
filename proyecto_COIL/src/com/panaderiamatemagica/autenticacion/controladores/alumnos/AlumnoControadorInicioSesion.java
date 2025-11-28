@@ -46,9 +46,6 @@ public class AlumnoControadorInicioSesion {
 
             if (apodoEncontrado) {
                 // Inicio de sesión exitoso
-                JOptionPane.showMessageDialog(vista, 
-                    "Que disfrutes>>.",
-                    "Bienvenido: ..", JOptionPane.INFORMATION_MESSAGE);
                 return true; 
             } else {
                 // Apodo no encontrado en la BD

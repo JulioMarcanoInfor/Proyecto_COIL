@@ -4,6 +4,7 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import java.awt.CardLayout;
@@ -15,21 +16,21 @@ import javax.swing.JPanel;
  * @author User
  */
 public class FondoAutenticacionVista extends javax.swing.JPanel {
-    private RouterControlador router;
+    private RouterControlador routerP;
+    private RouterAutenticacionControlador routerA;
     private CardLayout pantallasAutenticacion;
 
     /**
      * Creates new form FondoAutenticacionVista
      */
-    public FondoAutenticacionVista(RouterControlador router) {
-        this.router = router;
+    public FondoAutenticacionVista(RouterControlador routerP, RouterAutenticacionControlador routerA) {
+        this.routerP = routerP;
+        this.routerA = routerA;
         initComponents();
         inicializarPantallas();
 
-        // Configuración básica sin MigLayout para evitar errores
-        // Si tienes la imagen, descomenta la siguiente línea y ajusta si es necesario
-        // FondoPanel fondoPanel = new FondoPanel("fondoAutenticacion.jpg");
-        // this.add(fondoPanel); // O configurar como background si es posible
+        // Configuración visual sin MigLayout para compatibilidad
+        // Se mantiene el GroupLayout generado por NetBeans en initComponents
     }
 
     private void inicializarPantallas() {
@@ -118,7 +119,9 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonVolverActionPerformed
-        router.mostrarInicioVista();
+        routerP.mostrarInicioVista();
+        routerA.mostrarSeleccionRol();
+        routerA.limpiarTextFieldInicioSesion();
     }// GEN-LAST:event_botonVolverActionPerformed
 
     private void botonVolverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonVolverMouseEntered
