@@ -36,6 +36,10 @@ public class RouterAutenticacionControlador {
         fondoAutenticacion.mostrarIniciarSesion();
     }
 
+    public void mostrarRegistro() {
+        fondoAutenticacion.mostrarRegistro();
+    }
+
     public FondoAutenticacionVista getFondoAutenticacion() {
         return fondoAutenticacion;
     }

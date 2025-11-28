@@ -187,6 +187,13 @@ public class RouterControlador {
         pantallaPrincipal.mostrarPanel("FONDO AUTH");
     }
 
+    public void mostrarLoginEnFondoAutenticacion() {
+        pantallaPrincipal.mostrarPanel("FONDO AUTH");
+        if (fondoAutenticacion != null) {
+            fondoAutenticacion.mostrarIniciarSesion();
+        }
+    }
+
     // Getters de listas globales
     public ArrayList<AlumnoModelo> getListaAlumnos() {
         return listaAlumnos;

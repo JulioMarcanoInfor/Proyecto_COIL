@@ -75,9 +75,17 @@ public class InicioSesionVista extends javax.swing.JPanel {
         responsivePanel.addScalable(label1, 180, 500, 280, 30);
         responsivePanel.addScalable(label2, 220, 530, 230, 30);
         responsivePanel.addScalable(label3, 180, 550, 280, 30);
+
+        // Agregar listener para registro
+        label3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                routerA.mostrarRegistro();
+            }
+        });
     }
 
     @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -136,6 +144,11 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setText("<html><u>Regístrate</u></html>");
         label3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                routerA.mostrarRegistro();
+            }
+        });
         add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 280, 30));
 
         label2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N

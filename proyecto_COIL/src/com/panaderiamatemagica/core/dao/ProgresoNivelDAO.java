@@ -14,6 +14,9 @@ public class ProgresoNivelDAO {
     /**
      * Obtiene el progreso de un alumno en un nivel específico
      */
+    /**
+     * Obtiene el progreso de un alumno en un nivel específico
+     */
     public ProgresoNivelModelo obtenerProgreso(int alumnoId, int dimensionId, int nivelId) throws SQLException {
         String sql = "SELECT * FROM progreso_niveles WHERE alumno_id = ? AND dimension_id = ? AND nivel_id = ?";
 

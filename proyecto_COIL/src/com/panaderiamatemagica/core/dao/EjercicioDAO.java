@@ -24,7 +24,9 @@ public class EjercicioDAO {
      */
     public ArrayList<EjercicioModelo> cargarEjerciciosPorDimensionYNivel(int dimensionId, int nivelId) {
         ArrayList<EjercicioModelo> ejercicios = new ArrayList<>();
-        String sql = "SELECT * FROM ejercicios WHERE dimension_id = ? AND nivel_id = ? ORDER BY ejercicio_id";
+        // CORREGIDO: Nombres de columnas según esquema de base de datos (verificado en
+        // pgAdmin)
+        String sql = "SELECT * FROM ejercicios WHERE id_dimension = ? AND id_nivel = ? ORDER BY ejercicio_id";
 
         try (Connection conn = ConexionBDT.obtenerConexion();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
@@ -43,19 +45,23 @@ public class EjercicioDAO {
                 ejercicio.setDescripcion(rs.getString("descripcion"));
 
                 // Opciones de respuesta
+                // CORREGIDO: Separador es punto y coma (;)
+                String opcionesStr = rs.getString("opciones_respuestas");
                 ArrayList<String> opciones = new ArrayList<>();
-                opciones.add(rs.getString("opcion_1"));
-                opciones.add(rs.getString("opcion_2"));
-                opciones.add(rs.getString("opcion_3"));
-                opciones.add(rs.getString("opcion_4"));
+                if (opcionesStr != null && !opcionesStr.isEmpty()) {
+                    String[] partes = opcionesStr.split(";");
+                    for (String parte : partes) {
+                        opciones.add(parte.trim());
+                    }
+                }
                 ejercicio.setOpcionesRespuestas(opciones);
 
                 // Respuesta correcta (0-index)
-                ejercicio.setNumRespuesta(rs.getInt("respuesta_correcta"));
+                ejercicio.setNumRespuesta(rs.getInt("num_respuesta"));
 
                 // Metadatos
-                ejercicio.setNivelId(rs.getInt("nivel_id"));
-                ejercicio.setDimensionId(rs.getInt("dimension_id"));
+                ejercicio.setNivelId(rs.getInt("id_nivel"));
+                ejercicio.setDimensionId(rs.getInt("id_dimension"));
                 ejercicio.setDificultad(rs.getInt("dificultad"));
 
                 ejercicios.add(ejercicio);

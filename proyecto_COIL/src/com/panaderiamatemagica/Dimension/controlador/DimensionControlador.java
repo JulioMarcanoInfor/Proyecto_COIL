@@ -8,6 +8,7 @@ import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import com.panaderiamatemagica.core.dao.EjercicioDAO;
+import com.panaderiamatemagica.core.dao.ProgresoNivelDAO;
 import com.panaderiamatemagica.ejercicios.controlador.EjercicioControladorVista;
 import javax.swing.JPanel;
 import java.util.ArrayList;
@@ -51,6 +52,20 @@ public class DimensionControlador {
         int nivelId = nivelNumero + 1; // Convertir a 1-indexed para BD
 
         try {
+            // Verificar prerrequisitos
+            if (router.getAlumnoActual() != null) {
+                int alumnoId = router.getAlumnoActual().getId_Alumno();
+                ProgresoNivelDAO progresoDAO = new ProgresoNivelDAO();
+
+                if (!progresoDAO.puedeAccederNivel(alumnoId, dimensionId, nivelId)) {
+                    JOptionPane.showMessageDialog(vista,
+                            "Debes completar el nivel anterior para acceder a este nivel.",
+                            "Nivel Bloqueado",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
+            }
+
             // Cargar ejercicios desde la base de datos
             EjercicioDAO ejercicioDAO = new EjercicioDAO();
             ArrayList<EjercicioModelo> ejerciciosDelNivel = ejercicioDAO.cargarEjerciciosPorDimensionYNivel(

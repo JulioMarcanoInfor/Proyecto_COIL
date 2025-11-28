@@ -62,7 +62,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
 
         // Agregar componentes al panel responsivo
         responsivePanel.addScalable(monitor, 416, 92, 640, 660);
-        responsivePanel.addScalable(botonVolver, 774, 553, 96, 57);
+        responsivePanel.addScalable(botonVolver, 688, 770, 96, 57);
     }
 
     private void inicializarPantallas() {
@@ -77,6 +77,10 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         pantallasAutenticacion.show(monitor, "INICIO SESION");
     }
 
+    public void mostrarRegistro() {
+        pantallasAutenticacion.show(monitor, "REGISTRO");
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
@@ -85,6 +89,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         monitor = new javax.swing.JPanel();
         pantallaSeleccionRol = new com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista(routerP, routerA);
         pantallaInicioSesion = new com.panaderiamatemagica.autenticacion.vista.InicioSesionVista(routerP, routerA);
+        pantallaRegistro = new com.panaderiamatemagica.autenticacion.vista.RegistroVista(routerP);
         botonVolver = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 228, 171));
@@ -93,6 +98,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         monitor.setLayout(new java.awt.CardLayout());
         monitor.add(pantallaSeleccionRol, "ROL");
         monitor.add(pantallaInicioSesion, "INICIO SESION");
+        monitor.add(pantallaRegistro, "REGISTRO");
 
         botonVolver.setBackground(new java.awt.Color(117, 183, 168));
         botonVolver.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
@@ -142,9 +148,15 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
                                 .addGap(470, 470, 470)));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonVolverActionPerformed
-        routerP.mostrarInicioVista();
-    }// GEN-LAST:event_botonVolverActionPerformed
+    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {
+        if (pantallaRegistro.isVisible()) {
+            mostrarIniciarSesion();
+        } else if (pantallaInicioSesion.isVisible()) {
+            mostrarSeleccionRol();
+        } else {
+            routerP.mostrarInicioVista();
+        }
+    }
 
     private void botonVolverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonVolverMouseEntered
         botonVolver.setBackground(new Color(85, 208, 82));
@@ -159,5 +171,6 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     private javax.swing.JPanel monitor;
     private com.panaderiamatemagica.autenticacion.vista.InicioSesionVista pantallaInicioSesion;
     private com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista pantallaSeleccionRol;
+    private com.panaderiamatemagica.autenticacion.vista.RegistroVista pantallaRegistro;
     // End of variables declaration//GEN-END:variables
 }
