@@ -5,7 +5,9 @@
 package com.panaderiamatemagica.core.visual;
 
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import java.awt.Color;
+import net.miginfocom.swing.MigLayout;
 
 
 /**
@@ -22,7 +24,19 @@ public class PantallaInicioVista extends javax.swing.JPanel {
     public PantallaInicioVista(RouterControlador router) {
         this.router = router;
         initComponents();
-
+ 
+        FondoPanel fondoPanel = new FondoPanel("gemini1.png");
+        fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+        
+        // ✅ Configurar MigLayout en este panel principal
+        setLayout(new java.awt.BorderLayout());
+        
+        // ✅ Agregar el fondo primero
+        add(fondoPanel, java.awt.BorderLayout.CENTER);
+        remove(jLabelReescalable1);
+        remove(botonJugar);
+        
+        fondoPanel.add(botonJugar, "pos 44.25% 66.67%, w 234:234:234, h 110:110:110");
         
     }
 
