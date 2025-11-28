@@ -9,7 +9,7 @@ import java.awt.Color;
 
 /**
  *
- * @author user
+ * @author userr
  */
 public class PantallaInicioVista extends javax.swing.JPanel {
     private RouterControlador router;
