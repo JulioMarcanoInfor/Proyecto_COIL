@@ -113,17 +113,20 @@ public class Dimension2Vista extends javax.swing.JPanel {
                                 .addContainerGap(517, Short.MAX_VALUE)));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
-        controlador.iniciarNivel(2);
-    }// GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+        // Nivel 1 corresponde al índice 0
         controlador.iniciarNivel(0);
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
+        // Nivel 2 corresponde al índice 1
         controlador.iniciarNivel(1);
     }// GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
+        // Nivel 3 corresponde al índice 2
+        controlador.iniciarNivel(2);
+    }// GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
