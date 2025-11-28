@@ -18,14 +18,17 @@ public class ProgresoNivelDAO {
      * Obtiene el progreso de un alumno en un nivel específico
      */
     public ProgresoNivelModelo obtenerProgreso(int alumnoId, int dimensionId, int nivelId) throws SQLException {
-        String sql = "SELECT * FROM progreso_niveles WHERE alumno_id = ? AND dimension_id = ? AND nivel_id = ?";
+        // CORREGIDO: Buscar solo por nivel_id ya que es único globalmente, ignorando
+        // dimension_id
+        // Esto permite verificar prerrequisitos entre dimensiones (ej. Nivel 4 requiere
+        // Nivel 3 de otra dimensión)
+        String sql = "SELECT * FROM progreso_niveles WHERE alumno_id = ? AND nivel_id = ?";
 
         try (Connection conn = ConexionBDT.obtenerConexion();
                 PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setInt(1, alumnoId);
-            stmt.setInt(2, dimensionId);
-            stmt.setInt(3, nivelId);
+            stmt.setInt(2, nivelId); // Solo usamos nivelId
 
             ResultSet rs = stmt.executeQuery();
 
