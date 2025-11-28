@@ -23,25 +23,25 @@ import javax.swing.JOptionPane;
  */
 public class AlumnoDAO {
 
-    
     // ver esto para implentar en la vista.
-    // mostra alumnos. 
-        //funcion central.
+    // mostra alumnos.
+    // funcion central.
     public void EjecutarYMostrarAlumnos(JTable vista, String nombreAdministrador, String filtroAdicional) {
         System.out.println("Intentando obtener la conexión...");
-        try (Connection conn = ConexionBDT.obtenerConexion() ) {
+        try (Connection conn = ConexionBDT.obtenerConexion()) {
             if (conn != null) {
                 System.out.println("CONEXION ESTABLECIDA.");
             }
-            
-            //tabla donde se mostraran los datos.
+
+            // tabla donde se mostraran los datos.
             DefaultTableModel modelo = new DefaultTableModel();
 
             // La consulta base siempre filtra por profesor.
             String sql = "SELECT * FROM alumnos WHERE profesor = '" + nombreAdministrador + "'";
 
-            // Concatenamos el filtro adicional (ORDER BY o más condiciones WHERE)// para mostra en un orden determinado.
-            sql += filtroAdicional; 
+            // Concatenamos el filtro adicional (ORDER BY o más condiciones WHERE)// para
+            // mostra en un orden determinado.
+            sql += filtroAdicional;
 
             // para ver lo que se le paso a la BDT
             System.out.println("SQL: " + sql);
@@ -65,7 +65,7 @@ public class AlumnoDAO {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(sql);
 
-            while (rs.next()){
+            while (rs.next()) {
                 // Asignacion de las 10 columnas.
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
@@ -78,7 +78,7 @@ public class AlumnoDAO {
                 datos[8] = rs.getString(9);
                 datos[9] = rs.getString(10);
 
-                modelo.addRow(datos); 
+                modelo.addRow(datos);
             }
             // lo colocamos en la vista.
             vista.setModel(modelo);
@@ -86,54 +86,56 @@ public class AlumnoDAO {
         } catch (SQLException e) {
             System.err.println("ERROR: La conexión o la consulta falló.");
             System.err.println("Detalles: " + e.getMessage());
-        } 
+        }
     }
-    
-        //Muestra a TODOS los alumnos del profesor (sin filtro adicional ni orden).
-   public void MostrarAlumnos(JTable vista, String nombreAdministrador){
-       // Al pasar una cadena vacía "" como filtro adicional, solo se aplica el WHERE profesor = '...'
-       EjecutarYMostrarAlumnos(vista, nombreAdministrador, ""); 
-   }
-    
-        //Muestra todos los alumnos del profesor ordenados por número de estrellas (Mayor a Menor)
-   public void MostrarAlumnosPorMayorEstrellas(JTable vista, String nombreAdministrador) {
-       // Definimos el filtro SQL para ordenar por estrellas de forma descendente (DESC)
-       String filtro = " ORDER BY numero_estrellas DESC";
 
-       // Llamamos a la funcion central
-       EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
-   }
-    
-        //Muestra los alumnos que coinciden con un nombre y apellido especificos.
-   public void MostrarAlumnosPorNombreCompleto(JTable vista, String nombreAdministrador, String nombre, String apellido) {
-       // Definimos el filtro SQL usando AND para nombre y apellido
-       String filtro = " AND nombre = '" + nombre + "' AND apellido = '" + apellido + "'";
+    // Muestra a TODOS los alumnos del profesor (sin filtro adicional ni orden).
+    public void MostrarAlumnos(JTable vista, String nombreAdministrador) {
+        // Al pasar una cadena vacía "" como filtro adicional, solo se aplica el WHERE
+        // profesor = '...'
+        EjecutarYMostrarAlumnos(vista, nombreAdministrador, "");
+    }
 
-       // Llamamos a la función central
-       EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
-   }
-   
-        //Muestra el alumno que coincide con un apodo especifico.
-   public void MostrarAlumnoPorApodo(JTable vista, String nombreAdministrador, String apodo) {
-       // Definimos el filtro SQL usando AND para el apodo
-       String filtro = " AND apodo = '" + apodo + "'";
+    // Muestra todos los alumnos del profesor ordenados por número de estrellas
+    // (Mayor a Menor)
+    public void MostrarAlumnosPorMayorEstrellas(JTable vista, String nombreAdministrador) {
+        // Definimos el filtro SQL para ordenar por estrellas de forma descendente
+        // (DESC)
+        String filtro = " ORDER BY numero_estrellas DESC";
 
-       // Llamamos a la funcion central
-       EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
-   }
-   
-   
-   
+        // Llamamos a la funcion central
+        EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+    }
+
+    // Muestra los alumnos que coinciden con un nombre y apellido especificos.
+    public void MostrarAlumnosPorNombreCompleto(JTable vista, String nombreAdministrador, String nombre,
+            String apellido) {
+        // Definimos el filtro SQL usando AND para nombre y apellido
+        String filtro = " AND nombre = '" + nombre + "' AND apellido = '" + apellido + "'";
+
+        // Llamamos a la función central
+        EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+    }
+
+    // Muestra el alumno que coincide con un apodo especifico.
+    public void MostrarAlumnoPorApodo(JTable vista, String nombreAdministrador, String apodo) {
+        // Definimos el filtro SQL usando AND para el apodo
+        String filtro = " AND apodo = '" + apodo + "'";
+
+        // Llamamos a la funcion central
+        EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+    }
+
     // true si el apodo ya existe.
     public boolean verificarUnicidadApodoBD(String apodo) throws SQLException {
-        String sql = "SELECT COUNT(*) FROM alumnos WHERE apodo = ?"; 
+        String sql = "SELECT COUNT(*) FROM alumnos WHERE apodo = ?";
 
-        try (Connection conn = ConexionBDT.obtenerConexion(); // <--- Aqui puede fallar no se muy bien pq 
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = ConexionBDT.obtenerConexion(); // <--- Aqui puede fallar no se muy bien pq
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             if (conn == null) {
                 System.err.println("!!! Fallo: La conexion a la BDT es nula. !!!");
-                throw new SQLException("Conexión nula."); 
+                throw new SQLException("Conexión nula.");
             }
 
             ps.setString(1, apodo);
@@ -146,17 +148,19 @@ public class AlumnoDAO {
         return false;
     }
 
-    //incertar
+    // incertar
     // Recibe el objeto AlumnoModelo con los datos validados.
     public boolean insertarAlumno(AlumnoModelo alumno) {
-        // nos aseguramos de que las columnas coincidan con el esquema de la tabla alumnos.
-        // Incluye solo los campos que se a llenar ahorita (excluyendo IDs autonumericos, promedios por defecto,etc.)
+        // nos aseguramos de que las columnas coincidan con el esquema de la tabla
+        // alumnos.
+        // Incluye solo los campos que se a llenar ahorita (excluyendo IDs
+        // autonumericos, promedios por defecto,etc.)
         String sql = "INSERT INTO alumnos (nombre, apellido, apodo, fecha_nacimiento, genero) "
-                   + "VALUES (?, ?, ?, ?, ?)";
-        
+                + "VALUES (?, ?, ?, ?, ?)";
+
         // mandamos la consuta a la BDT.
         try (Connection conn = ConexionBDT.obtenerConexion();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             // 1. Asignar los valores del objeto AlumnoModelo a los marcadores (?)
             ps.setString(1, alumno.getNombre());
@@ -165,29 +169,29 @@ public class AlumnoDAO {
             ps.setString(4, alumno.getFechaNacimiento());
             // le pongo esto al genere pq es obligatorio en la bdt
             ps.setString(5, "O");
-            
+
             // 3. Ejecutamos la insercion en la bdt
             int filasAfectadas = ps.executeUpdate();
-            
+
             return filasAfectadas > 0; // Retorna true si se insertó al menos una fila.
-            
+
         } catch (SQLException e) {
-            // no se como poner este tipo de mensajes si en patanlla o solo en terminal para 
+            // no se como poner este tipo de mensajes si en patanlla o solo en terminal para
             // la presnetacion porcia jajaj.
             System.err.println("ERROR al insertar alumno: " + e.getMessage());
             return false;
         }
     }
-    
+
     // obtener un alumno.
     public AlumnoModelo obtenerAlumnoPorApodo(String apodo) {
         AlumnoModelo alumno = null;
         String sql = "SELECT id, nombre, apellido, apodo, fecha_nacimiento, genero, "
-                   + "promedio_aciertos, promedio_desaciertos, numero_galletas, numero_estrellas, profesor "
-                   + "FROM alumnos WHERE apodo = ?";
+                + "promedio_aciertos, promedio_desaciertos, numero_galletas, numero_estrellas, profesor "
+                + "FROM alumnos WHERE apodo = ?";
 
         try (Connection conn = ConexionBDT.obtenerConexion();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setString(1, apodo);
 
@@ -195,8 +199,9 @@ public class AlumnoDAO {
                 if (rs.next()) {
                     alumno = new AlumnoModelo();
 
-                    // NOTA: Asegúrate de que tu AlumnoModelo tiene los setters correctos para INT y DOUBLE
-                    alumno.setId_Alumno(rs.getInt("id"));
+                    // NOTA: Asegúrate de que tu AlumnoModelo tiene los setters correctos para INT y
+                    // DOUBLE
+                    alumno.setId_Alumno(rs.getInt("id_alumno"));
                     alumno.setNombre(rs.getString("nombre"));
                     alumno.setApellido(rs.getString("apellido"));
                     alumno.setApodo(rs.getString("apodo"));
@@ -214,21 +219,21 @@ public class AlumnoDAO {
         }
         return alumno;
     }
-    
-    //se le pasa el campo que se decea modificar.
+
+    // se le pasa el campo que se decea modificar.
     // todo se puede modificar exepto el id.
     private boolean modificarCampoAlumno(String campo, String nuevoValor, String apodo) {
         // Construccion de la sentencia UPDATE
         String sql = "UPDATE alumnos SET " + campo + " = ? WHERE apodo = ?";
 
         try (Connection conn = ConexionBDT.obtenerConexion();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, nuevoValor); 
-            ps.setString(2, apodo);      
+            ps.setString(1, nuevoValor);
+            ps.setString(2, apodo);
 
             int filasAfectadas = ps.executeUpdate();
-            // si la fila se modifico es true 
+            // si la fila se modifico es true
             return filasAfectadas > 0;
 
         } catch (SQLException e) {
@@ -236,7 +241,7 @@ public class AlumnoDAO {
             return false;
         }
     }
-    
+
     public boolean modificarNombre(String nuevoNombre, String apodo) {
         return modificarCampoAlumno("nombre", nuevoNombre, apodo);
     }
@@ -247,13 +252,13 @@ public class AlumnoDAO {
 
     public boolean modificarGenero(String nuevoGenero, String apodo) {
         // Pasa el String correcto ("M", "F", o "O")
-        return modificarCampoAlumno("genero", nuevoGenero, apodo); 
+        return modificarCampoAlumno("genero", nuevoGenero, apodo);
     }
-    
+
     // hay que probar esto bien.
-    public boolean modificarApodo(String nuevoApodo, String apodoActual) {    
+    public boolean modificarApodo(String nuevoApodo, String apodoActual) {
         try {
-            //verificamos si el apodo existe.
+            // verificamos si el apodo existe.
             if (verificarUnicidadApodoBD(nuevoApodo)) {
                 // Si devuelve TRUE, significa que el apodo ya existe.
                 System.err.println("El apodo '" + nuevoApodo + "' ya esta en uso. Modificación cancelada.");
@@ -265,13 +270,14 @@ public class AlumnoDAO {
             return false;
         }
 
-        // 2. Si llegamos aquí, el nuevo apodo es ÚNICO y procedemos a la modificación (UPDATE).
+        // 2. Si llegamos aquí, el nuevo apodo es ÚNICO y procedemos a la modificación
+        // (UPDATE).
         String sql = "UPDATE alumnos SET apodo = ? WHERE apodo = ?";
 
         try (Connection conn = ConexionBDT.obtenerConexion();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            ps.setString(1, nuevoApodo);  // El nuevo valor a guardar
+            ps.setString(1, nuevoApodo); // El nuevo valor a guardar
             ps.setString(2, apodoActual); // El filtro para saber que alumno cambiar
 
             int filasAfectadas = ps.executeUpdate();
@@ -283,28 +289,51 @@ public class AlumnoDAO {
         }
     }
 
-    
     // eliminar.
     public boolean eliminarAlumnoPorApodo(String apodo) {
-        // La sentencia DELETE elimina filas basadas en una condicion WHERE que en este caso sera el apodo .
+        // La sentencia DELETE elimina filas basadas en una condicion WHERE que en este
+        // caso sera el apodo .
         String sql = "DELETE FROM alumnos WHERE apodo = ?";
 
         try (Connection conn = ConexionBDT.obtenerConexion();
-             PreparedStatement ps = conn.prepareStatement(sql)) {
+                PreparedStatement ps = conn.prepareStatement(sql)) {
 
-            //Asignamos el apodo para la clausula WHERE.
+            // Asignamos el apodo para la clausula WHERE.
             // Esto asegura que solo se elimine el alumno con ese apodo.
             ps.setString(1, apodo);
 
-            //Ejecutamos la eliminacion.
+            // Ejecutamos la eliminacion.
             int filasAfectadas = ps.executeUpdate();
 
             // Retorna true si se eliminó exactamente una fila (que es lo esperado).
-            return filasAfectadas > 0; 
+            return filasAfectadas > 0;
 
         } catch (SQLException e) {
             System.err.println("ERROR al eliminar alumno con apodo '" + apodo + "': " + e.getMessage());
             // En caso de error de conexion.
+            return false;
+        }
+    }
+
+    // Actualizar progreso del alumno (galletas, estrellas, promedios)
+    public boolean actualizarProgreso(String apodo, int nuevasGalletas, int nuevasEstrellas,
+            double nuevoPromedioAciertos, double nuevoPromedioDesaciertos) {
+        String sql = "UPDATE alumnos SET numero_galletas = ?, numero_estrellas = ?, promedio_aciertos = ?, promedio_desaciertos = ? WHERE apodo = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, nuevasGalletas);
+            ps.setInt(2, nuevasEstrellas);
+            ps.setDouble(3, nuevoPromedioAciertos);
+            ps.setDouble(4, nuevoPromedioDesaciertos);
+            ps.setString(5, apodo);
+
+            int filasAfectadas = ps.executeUpdate();
+            return filasAfectadas > 0;
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al actualizar progreso: " + e.getMessage());
             return false;
         }
     }

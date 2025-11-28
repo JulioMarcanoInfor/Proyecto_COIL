@@ -94,8 +94,8 @@ public class SeleccionRolVista extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonEstudianteActionPerformed(java.awt.event.ActionEvent evt) {
-        // Navegar a la vista de autenticación (Login/Registro)
-        routerP.mostrarAutenticacionVista();
+        // Navegar a la vista de inicio de sesión para estudiantes
+        routerA.mostrarIniciarSesion();
     }
 
     private void botonProfesorActionPerformed(java.awt.event.ActionEvent evt) {

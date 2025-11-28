@@ -42,6 +42,9 @@ public class RouterControlador {
     private ArrayList<AlumnoModelo> listaAlumnos = new ArrayList<>();
     private ArrayList<AdministradorModelo> listaProfesores = new ArrayList<>();
 
+    // ALUMNO ACTUAL (LOGUEADO)
+    private AlumnoModelo alumnoActual;
+
     // LISTAS DE EJERCICIOS.
     private ArrayList<EjercicioModelo> listaejercicios_1 = new ArrayList<>();
 
@@ -183,6 +186,14 @@ public class RouterControlador {
     // lista de niveles.
     public ArrayList<ArrayList<EjercicioModelo>> getNiveles() {
         return niveles;
+    }
+
+    public AlumnoModelo getAlumnoActual() {
+        return alumnoActual;
+    }
+
+    public void setAlumnoActual(AlumnoModelo alumnoActual) {
+        this.alumnoActual = alumnoActual;
     }
 
     public void cargarNivelesDimension(int idDimension) {
