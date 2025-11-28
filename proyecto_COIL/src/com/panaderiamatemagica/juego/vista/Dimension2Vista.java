@@ -44,6 +44,7 @@ public class Dimension2Vista extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -114,19 +115,20 @@ public class Dimension2Vista extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-        // Nivel 1 corresponde al índice 0
         controlador.iniciarNivel(0);
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
-        // Nivel 2 corresponde al índice 1
         controlador.iniciarNivel(1);
     }// GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
-        // Nivel 3 corresponde al índice 2
         controlador.iniciarNivel(2);
     }// GEN-LAST:event_jButton3ActionPerformed
+
+    public DimensionControlador getControlador() {
+        return controlador;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

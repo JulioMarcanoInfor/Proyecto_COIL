@@ -7,6 +7,8 @@ package com.panaderiamatemagica.Dimension.controlador;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
+import com.panaderiamatemagica.core.dao.EjercicioDAO;
+import com.panaderiamatemagica.ejercicios.controlador.EjercicioControladorVista;
 import javax.swing.JPanel;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -18,9 +20,10 @@ import javax.swing.JOptionPane;
 public class DimensionControlador {
     private RouterControlador router;
     private DimensionModelo modelo;
-    private JPanel vista; // Cambiado a JPanel para ser generico
+    private JPanel vista;
     private ArrayList<ArrayList<EjercicioModelo>> niveles;
     private int indiceNivel;
+    private int dimensionId; // ID de la dimensión actual
 
     // constructor
     public DimensionControlador(RouterControlador router, DimensionModelo modelo, JPanel vista,
@@ -29,31 +32,60 @@ public class DimensionControlador {
         this.modelo = modelo;
         this.vista = vista;
         this.niveles = niveles;
-        this.indiceNivel = 0; // Inicializar indice (para saber por donde va)
+        this.indiceNivel = 0;
+        this.dimensionId = 1; // Por defecto dimensión 1
     }
 
-    public void iniciarNivel(int indiceNivel) {
-        // Validacion de la lista de niveles y el indice
-        if (niveles == null || indiceNivel < 0 || indiceNivel >= niveles.size()) {
-            // Manejo de error si el indice esta fuera de rango
-            JOptionPane.showMessageDialog(vista, "Error: Nivel no disponible o fuera de rango.", "Error",
+    /**
+     * Establece la dimensión actual
+     */
+    public void setDimensionId(int dimensionId) {
+        this.dimensionId = dimensionId;
+    }
+
+    /**
+     * Inicia un nivel cargando ejercicios desde la base de datos
+     */
+    public void iniciarNivel(int nivelNumero) {
+        // nivelNumero es 0-indexed (0=Nivel 1, 1=Nivel 2, 2=Nivel 3)
+        int nivelId = nivelNumero + 1; // Convertir a 1-indexed para BD
+
+        try {
+            // Cargar ejercicios desde la base de datos
+            EjercicioDAO ejercicioDAO = new EjercicioDAO();
+            ArrayList<EjercicioModelo> ejerciciosDelNivel = ejercicioDAO.cargarEjerciciosPorDimensionYNivel(
+                    dimensionId,
+                    nivelId);
+
+            if (ejerciciosDelNivel == null || ejerciciosDelNivel.isEmpty()) {
+                JOptionPane.showMessageDialog(vista,
+                        "Este nivel aún no tiene ejercicios.\nDimensión: " + dimensionId + ", Nivel: " + nivelId,
+                        "Nivel Vacío",
+                        JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            System.out.println("✓ Cargados " + ejerciciosDelNivel.size() +
+                    " ejercicios - Dimensión " + dimensionId + ", Nivel " + nivelId);
+
+            // Establecer contexto en EjercicioControladorVista
+            EjercicioControladorVista ejercicioControlador = router.getPantallaEjercicio().getControlador();
+            if (ejercicioControlador != null) {
+                // Obtener dificultad del primer ejercicio (o parametrizado)
+                int dificultad = ejerciciosDelNivel.get(0).getDificultad();
+                ejercicioControlador.setContextoNivel(dimensionId, nivelId, dificultad);
+            }
+
+            // Iniciar el juego con esta lista de ejercicios
+            router.iniciarJuegoConEjercicios(ejerciciosDelNivel);
+
+        } catch (Exception e) {
+            System.err.println("Error al cargar ejercicios: " + e.getMessage());
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(vista,
+                    "Error al cargar los ejercicios del nivel.\n" + e.getMessage(),
+                    "Error de Base de Datos",
                     JOptionPane.ERROR_MESSAGE);
-            return;
         }
-
-        // 1. Obtener la lista específica de ejercicios para el nivel seleccionado
-        ArrayList<EjercicioModelo> ejerciciosDelNivel = niveles.get(indiceNivel);
-
-        if (ejerciciosDelNivel.isEmpty()) {
-            // Manejo si el nivel no contiene ejercicios
-            JOptionPane.showMessageDialog(vista, "Este nivel aun no tiene ejercicios.", "Nivel Vacío",
-                    JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-
-        // 2. Usar el RouterControlador para iniciar el juego con esta lista de
-        // ejercicios.
-        router.iniciarJuegoConEjercicios(ejerciciosDelNivel);
     }
-
 }

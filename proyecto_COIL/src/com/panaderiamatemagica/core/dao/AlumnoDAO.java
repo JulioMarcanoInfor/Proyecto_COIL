@@ -117,37 +117,7 @@ public class AlumnoDAO {
         }
     }
 
-    public AlumnoModelo obtenerAlumnoPorApodo(String apodo) {
-        AlumnoModelo alumno = null;
-        // CORREGIDO: alumno_id y sin numero_estrellas
-        String sql = "SELECT alumno_id, nombre, apellido, apodo, fecha_nacimiento, genero, "
-                + "promedio_aciertos, promedio_desaciertos, numero_galletas, profesor "
-                + "FROM alumnos WHERE apodo = ?";
-
-        try (Connection conn = ConexionBDT.obtenerConexion();
-                PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, apodo);
-            try (ResultSet rs = ps.executeQuery()) {
-                if (rs.next()) {
-                    alumno = new AlumnoModelo();
-                    alumno.setId_Alumno(rs.getInt("alumno_id")); // CORREGIDO
-                    alumno.setNombre(rs.getString("nombre"));
-                    alumno.setApellido(rs.getString("apellido"));
-                    alumno.setApodo(rs.getString("apodo"));
-                    alumno.setFechaNacimiento(rs.getString("fecha_nacimiento"));
-                    alumno.setGenero(rs.getString("genero"));
-                    alumno.setPromedioAciertos(rs.getDouble("promedio_aciertos"));
-                    alumno.setPromedioDesaciertos(rs.getDouble("promedio_desaciertos"));
-                    alumno.setNumeroGalletas(rs.getInt("numero_galletas"));
-                    alumno.setNumeroEstrella(0); // Default 0
-                    alumno.setProfesor(rs.getString("profesor"));
-                }
-            }
-        } catch (SQLException e) {
-            System.err.println("ERROR al obtener alumno por apodo: " + e.getMessage());
-        }
-        return alumno;
-    }
+    // Método duplicado eliminado
 
     private boolean modificarCampoAlumno(String campo, String nuevoValor, String apodo) {
         String sql = "UPDATE alumnos SET " + campo + " = ? WHERE apodo = ?";
@@ -226,5 +196,81 @@ public class AlumnoDAO {
             System.err.println("ERROR al actualizar progreso: " + e.getMessage());
             return false;
         }
+    }
+
+    /**
+     * Suma galletas al total del alumno
+     * 
+     * @param alumnoId        ID del alumno
+     * @param galletasGanadas Cantidad de galletas a sumar
+     * @return true si se actualizó correctamente
+     */
+    public boolean sumarGalletas(int alumnoId, int galletasGanadas) {
+        String sql = "UPDATE alumnos SET numero_galletas = numero_galletas + ? WHERE alumno_id = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, galletasGanadas);
+            ps.setInt(2, alumnoId);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al sumar galletas: " + e.getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * Actualiza las estadísticas (promedios) del alumno
+     * 
+     * @param alumnoId              ID del alumno
+     * @param porcentajeAciertos    Nuevo porcentaje de aciertos
+     * @param porcentajeDesaciertos Nuevo porcentaje de desaciertos
+     * @return true si se actualizó correctamente
+     */
+    public boolean actualizarEstadisticas(int alumnoId, double porcentajeAciertos, double porcentajeDesaciertos) {
+        String sql = "UPDATE alumnos SET promedio_aciertos = ?, promedio_desaciertos = ? WHERE alumno_id = ?";
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setDouble(1, porcentajeAciertos);
+            ps.setDouble(2, porcentajeDesaciertos);
+            ps.setInt(3, alumnoId);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            System.err.println("ERROR al actualizar estadísticas: " + e.getMessage());
+            return false;
+        }
+    }
+
+    public AlumnoModelo obtenerAlumnoPorApodo(String apodo) {
+        String sql = "SELECT * FROM alumnos WHERE apodo = ?";
+        AlumnoModelo alumno = null;
+        try (Connection conn = ConexionBDT.obtenerConexion();
+                PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, apodo);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                alumno = new AlumnoModelo();
+                alumno.setId_Alumno(rs.getInt("alumno_id"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setGenero(rs.getString("genero"));
+                alumno.setFechaNacimiento(rs.getString("fecha_nacimiento"));
+                alumno.setApodo(rs.getString("apodo"));
+                alumno.setPromedioAciertos(rs.getDouble("promedio_aciertos"));
+                alumno.setPromedioDesaciertos(rs.getDouble("promedio_desaciertos"));
+                alumno.setNumeroGalletas(rs.getInt("numero_galletas"));
+                alumno.setProfesor(rs.getString("profesor"));
+            }
+        } catch (Exception e) {
+            System.err.println("Error obteniendo alumno: " + e.getMessage());
+        }
+        return alumno;
     }
 }

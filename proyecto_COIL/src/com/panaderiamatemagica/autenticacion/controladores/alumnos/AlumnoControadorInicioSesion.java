@@ -32,29 +32,35 @@ public class AlumnoControadorInicioSesion {
     public boolean validarUsuario() {
         String apodoIngresado = vista.getTxtapodo();
 
-        // asegurar que el campo no esté vacio porcia
         if (apodoIngresado == null || apodoIngresado.trim().isEmpty()) {
             JOptionPane.showMessageDialog(vista, "El apodo no puede estar vacío.", "ERROR", JOptionPane.ERROR_MESSAGE);
             return false;
         }
 
         try {
-            // 1.verificamos la existencia del apodo en la bdt.
-            // Devuelve TRUE si el apodo ya existe.
             boolean apodoEncontrado = alumnoDAO.verificarUnicidadApodoBD(apodoIngresado);
 
             if (apodoEncontrado) {
-                // Inicio de sesión exitoso
-                return true;
+                AlumnoModelo alumno = alumnoDAO.obtenerAlumnoPorApodo(apodoIngresado);
+
+                if (alumno != null) {
+                    router.setAlumnoActual(alumno);
+                    System.out.println(
+                            "✓ Alumno autenticado: " + alumno.getApodo() + " (ID: " + alumno.getId_Alumno() + ")");
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(vista,
+                            "Error al cargar los datos del alumno.",
+                            "ERROR", JOptionPane.ERROR_MESSAGE);
+                    return false;
+                }
             } else {
-                // Apodo no encontrado en la BD
                 JOptionPane.showMessageDialog(vista,
                         "El apodo no existe en la Base de Datos.",
                         "MENSAJE DE ERROR: APODO INEXISTENTE", JOptionPane.ERROR_MESSAGE);
                 return false;
             }
         } catch (SQLException e) {
-            // Error de conexion o consulta de BD
             System.err.println("Error de BDT durante el inicio de sesión: " + e.getMessage());
             JOptionPane.showMessageDialog(vista,
                     "Error al verificar la base de datos. Verifique su conexion wifi.",
@@ -62,5 +68,4 @@ public class AlumnoControadorInicioSesion {
             return false;
         }
     }
-
 }
