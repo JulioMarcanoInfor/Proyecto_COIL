@@ -8,6 +8,7 @@ import com.panaderiamatemagica.autenticacion.controladores.alumnos.AlumnoControa
 import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import java.awt.Color;
 import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
@@ -86,6 +87,14 @@ public InicioSesionVista(RouterControlador routerP, RouterAutenticacionControlad
         botonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         botonIniciarSesion.setText("INICIAR SESIÓN");
         botonIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botonIniciarSesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botonIniciarSesionMouseExited(evt);
+            }
+        });
         botonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonIniciarSesionActionPerformed(evt);
@@ -100,6 +109,8 @@ public InicioSesionVista(RouterControlador routerP, RouterAutenticacionControlad
         add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 450, 60));
 
         cajaTexto.setBackground(new java.awt.Color(255, 255, 255));
+        cajaTexto.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
+        cajaTexto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 51, 0), 3));
         add(cajaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 450, 80));
 
         apodo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
@@ -138,7 +149,14 @@ public InicioSesionVista(RouterControlador routerP, RouterAutenticacionControlad
         
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
-    
+    private void botonIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseEntered
+        botonIniciarSesion.setBackground(new Color(85, 208, 82));         
+    }//GEN-LAST:event_botonIniciarSesionMouseEntered
+
+    private void botonIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseExited
+        botonIniciarSesion.setBackground(new Color (117,183,168));
+    }//GEN-LAST:event_botonIniciarSesionMouseExited
+
     //get
     public String getTxtapodo(){
         return cajaTexto.getText(); 
