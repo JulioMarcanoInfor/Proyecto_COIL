@@ -30,10 +30,8 @@ public class EjercicioControladorVista {
     
     Validacion validar = new Validacion();
     
-    // El método mostrarEjercicio() ya no es necesario, el flujo lo maneja iniciarNuevoNivel()
-    /* public void mostrarEjercicio(EjercicioModelo ejercicio) { ... } */
     
-    // 💡 Implementación del método de inicio de nivel
+    // Implementacion del metodo de inicio de nivel
     public void iniciarNuevoNivel() {
         // 1. Obtener la lista cargada por RouterControlador.iniciarJuegoConEjercicios()
         ArrayList<EjercicioModelo> ejercicios = router.getListaejercicios_1();
@@ -69,7 +67,7 @@ public class EjercicioControladorVista {
             vista.cargarEjercicio(siguienteEjercicio);
             router.mostrarEjercicioVista();
 
-            // 3. Incrementamos el indice para la próxima vez.
+            // 3. Incrementamos el indice para la proxima vez.
             indice++; 
 
         } else {
@@ -83,8 +81,6 @@ public class EjercicioControladorVista {
             router.mostrarSeleccionDimensionVista(); // Regresa a la selección de dimensión
         }
     }
-
-    // ELIMINADO: mostrarListaEjercicios() ya no es necesario, lo reemplaza iniciarNuevoNivel()
 
     public void validarRespuesta(String respuestaUsuario) {
         
@@ -104,7 +100,7 @@ public class EjercicioControladorVista {
         } else {
             
             JOptionPane.showMessageDialog(null, "Respuesta Incorrecta. Intenta de nuevo.", "Respuesta", JOptionPane.ERROR_MESSAGE);
-            // Lógica de penalización (aquí puedes añadir un contador de vidas)
+            // Logica de penalizacion ()
         }
     }
 }
