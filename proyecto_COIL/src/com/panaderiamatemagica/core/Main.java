@@ -3,10 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package com.panaderiamatemagica.core;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.panaderiamatemagica.core.visual.PantallaPrincipalVista;
 
 import java.sql.Connection; 
 import java.sql.SQLException; // También es necesaria para el try-catch
+import javax.swing.UIManager;
 /**
  *
  * @author user
@@ -17,6 +19,8 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        FlatLightLaf.setup();
+        UIManager.put("Button.arc", 100); 
         // para ver si no tienen problemas con la coneccion a la bdt
         ConexionBDT c = new ConexionBDT();
         System.out.println("Intentando obtener la conexión...");
