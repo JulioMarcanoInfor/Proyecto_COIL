@@ -144,9 +144,12 @@ public InicioSesionVista(RouterControlador routerP, RouterAutenticacionControlad
         // condicion para el inicio de sesion
         if (objetoControlador.validarUsuario()) {
             routerP.mostrarSeleccionDimensionVista();
+            vaciarTextField();
         }
+    }
                 
-        
+    public void vaciarTextField(){
+        cajaTexto.setText("");
     }//GEN-LAST:event_botonIniciarSesionActionPerformed
 
     private void botonIniciarSesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonIniciarSesionMouseEntered

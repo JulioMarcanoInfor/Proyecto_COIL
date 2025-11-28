@@ -4,6 +4,7 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import java.awt.CardLayout;
@@ -16,13 +17,15 @@ import net.miginfocom.swing.MigLayout;
  * @author User
  */
 public class FondoAutenticacionVista extends javax.swing.JPanel {
-    private RouterControlador router;
+    private RouterControlador routerP;
+    private RouterAutenticacionControlador routerA;
     private CardLayout pantallasAutenticacion;
     /**
      * Creates new form FondoAutenticacionVista
      */
-    public FondoAutenticacionVista(RouterControlador router) {
-    this.router = router;
+    public FondoAutenticacionVista(RouterControlador routerP, RouterAutenticacionControlador routerA) {
+    this.routerP = routerP;
+    this.routerA = routerA;
     initComponents();
     inicializarPantallas();
     
@@ -122,7 +125,9 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVolverActionPerformed
-        router.mostrarInicioVista();
+        routerP.mostrarInicioVista();
+        routerA.mostrarSeleccionRol();
+        routerA.limpiarTextFieldInicioSesion();
     }//GEN-LAST:event_botonVolverActionPerformed
 
     private void botonVolverMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonVolverMouseEntered
