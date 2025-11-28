@@ -173,6 +173,7 @@ public class RouterControlador {
         pantallaResultado = new ResultadoVista(this);
         inicializarPaneles();
         pantallaPrincipal.setVisible(true);
+        pantallaPrincipal.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
     }
     private void inicializarPaneles(){
         /*---------------------------------------
