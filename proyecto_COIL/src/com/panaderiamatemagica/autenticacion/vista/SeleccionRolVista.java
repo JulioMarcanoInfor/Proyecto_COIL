@@ -86,16 +86,17 @@ public class SeleccionRolVista extends JPanel {
         setPreferredSize(new java.awt.Dimension(640, 660));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        titulo.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
+        titulo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 48)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 0, 0));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo.setText("¿QUIEN ERES?");
+        titulo.setText("¿QUIÉN ERES?");
         add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 360, 60));
 
         botonProfesor.setBackground(new java.awt.Color(117, 183, 168));
-        botonProfesor.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
+        botonProfesor.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        botonProfesor.setForeground(new java.awt.Color(255, 255, 255));
         botonProfesor.setText("PROFESOR");
-        botonProfesor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonProfesor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonProfesor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonProfesorMouseEntered(evt);
@@ -104,12 +105,18 @@ public class SeleccionRolVista extends JPanel {
                 botonProfesorMouseExited(evt);
             }
         });
+        botonProfesor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonProfesorActionPerformed(evt);
+            }
+        });
         add(botonProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, 370, 220));
 
         botonEstudiante.setBackground(new java.awt.Color(117, 183, 168));
-        botonEstudiante.setFont(new java.awt.Font("Showcard Gothic", 0, 24)); // NOI18N
+        botonEstudiante.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
+        botonEstudiante.setForeground(new java.awt.Color(255, 255, 255));
         botonEstudiante.setText("ESTUDIANTE");
-        botonEstudiante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonEstudiante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonEstudianteMouseEntered(evt);
@@ -125,6 +132,10 @@ public class SeleccionRolVista extends JPanel {
         });
         add(botonEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 370, 220));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonProfesorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonProfesorActionPerformed
 
     private void botonEstudianteMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonEstudianteMouseEntered
         botonEstudiante.setBackground(new Color(85, 208, 82));
