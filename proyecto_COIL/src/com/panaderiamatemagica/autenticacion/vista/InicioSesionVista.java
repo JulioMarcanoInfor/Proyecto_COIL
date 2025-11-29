@@ -87,7 +87,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         botonIniciarSesion = new javax.swing.JButton();
@@ -98,20 +98,19 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label2 = new javax.swing.JLabel();
         label1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 228, 171));
+        setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(640, 660));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         botonIniciarSesion.setBackground(new java.awt.Color(84, 180, 183));
         botonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        botonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        botonIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         botonIniciarSesion.setText("INICIAR SESIÓN");
-        botonIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonIniciarSesionMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonIniciarSesionMouseExited(evt);
             }
@@ -121,48 +120,52 @@ public class InicioSesionVista extends javax.swing.JPanel {
                 botonIniciarSesionActionPerformed(evt);
             }
         });
-        add(botonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 370, 150));
+        add(botonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 420, 70));
 
-        titulo.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
+        titulo.setFont(new java.awt.Font("Segoe UI Semibold", 1, 48)); // NOI18N
         titulo.setForeground(new java.awt.Color(0, 0, 0));
         titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        titulo.setText("INICIAR SESION");
-        add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 450, 60));
+        titulo.setText("INICIAR SESIÓN");
+        add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 450, 60));
 
         cajaTexto.setBackground(new java.awt.Color(255, 255, 255));
         cajaTexto.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
         cajaTexto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 51, 0), 3));
-        add(cajaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 450, 80));
+        cajaTexto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cajaTextoActionPerformed(evt);
+            }
+        });
+        add(cajaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 450, 60));
 
         apodo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
         apodo.setForeground(new java.awt.Color(0, 0, 0));
         apodo.setText("APODO");
-        add(apodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 230, 50));
+        add(apodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 230, 50));
 
-        label3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        label3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         label3.setForeground(new java.awt.Color(133, 47, 27));
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setText("<html><u>Regístrate</u></html>");
-        label3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        label3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                routerA.mostrarRegistro();
-            }
-        });
-        add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 550, 280, 30));
+        label3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 280, 30));
 
-        label2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        label2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setText("¿No tienes una cuenta?");
-        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 530, 230, -1));
+        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 270, -1));
 
-        label1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        label1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         label1.setForeground(new java.awt.Color(133, 47, 27));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setText("<html><u>¿Olvidaste tu contraseña?</u></html>");
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 280, 30));
+        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 300, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cajaTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaTextoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cajaTextoActionPerformed
 
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonIniciarSesionActionPerformed
         if (objetoControlador.validarUsuario()) {
