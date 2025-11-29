@@ -151,6 +151,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
             mostrarSeleccionRol();
         } else {
             routerP.mostrarInicioVista();
+            routerA.mostrarSeleccionRol();
         }
     }
 
