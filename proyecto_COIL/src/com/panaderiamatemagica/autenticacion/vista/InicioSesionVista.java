@@ -169,7 +169,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
 
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonIniciarSesionActionPerformed
         if (objetoControlador.validarUsuario()) {
-            routerP.mostrarSeleccionDimensionVista();
+            routerP.mostrarSeleccionDimension1();
             vaciarTextField();
         }
     }

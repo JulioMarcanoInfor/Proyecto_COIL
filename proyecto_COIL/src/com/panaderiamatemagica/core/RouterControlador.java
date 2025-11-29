@@ -28,6 +28,7 @@ import com.panaderiamatemagica.juego.vista.Dimension5Vista;
 import com.panaderiamatemagica.juego.vista.EjercicioVista;
 import com.panaderiamatemagica.juego.vista.ResultadoVista;
 import com.panaderiamatemagica.juego.vista.SeleccionDimensionVista;
+import com.panaderiamatemagica.juego.vista.SeleccionDimensionVista1;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -60,6 +61,7 @@ public class RouterControlador {
     private RouterAdminControlador routerAdmin;
     private RouterDimensionControlador routerDimension;
     private FondoAutenticacionVista fondoAutenticacion;
+    private SeleccionDimensionVista1 seleccionDimension;
     private RouterAutenticacionControlador routerAuth;
 
     // Alumno actualmente autenticado
@@ -127,6 +129,7 @@ public class RouterControlador {
         pantallaSeleccionDimension = routerDimension.getSeleccionDimensionViste();
         pantallaEjercicio = new EjercicioVista(this);
         pantallaResultado = new ResultadoVista(this);
+        seleccionDimension = new SeleccionDimensionVista1(this);
         fondoAutenticacion = routerAuth.getFondoAutenticacion();
 
         inicializarPaneles();
@@ -143,6 +146,7 @@ public class RouterControlador {
         pantallaPrincipal.agregarPanel(pantallaEjercicio, "EJERCICIO");
         pantallaPrincipal.agregarPanel(pantallaResultado, "RESULTADO");
         pantallaPrincipal.agregarPanel(fondoAutenticacion, "FONDO AUTH");
+        pantallaPrincipal.agregarPanel(seleccionDimension, "SELECCION DIMENSION1");
         pantallaPrincipal.mostrarPanel("INICIO");
     }
 
@@ -178,7 +182,10 @@ public class RouterControlador {
     public void mostrarEjercicioVista() {
         pantallaPrincipal.mostrarPanel("EJERCICIO");
     }
-
+    
+    public void mostrarSeleccionDimension1(){
+        pantallaPrincipal.mostrarPanel("SELECCION DIMENSION1");
+    }
     public void mostrarResultadoVista() {
         pantallaPrincipal.mostrarPanel("RESULTADO");
     }

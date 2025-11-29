@@ -4,19 +4,47 @@
  */
 package com.panaderiamatemagica.juego.vista;
 
+import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import net.miginfocom.swing.MigLayout;
+
 /**
  *
  * @author User
  */
 public class SeleccionDimensionVista1 extends javax.swing.JPanel {
-
+    private RouterControlador router;
     /**
      * Creates new form SeleccionDimensionVista1
      */
-    public SeleccionDimensionVista1() {
+    public SeleccionDimensionVista1(RouterControlador router) {
+        this.router = router;
         initComponents();
+    FondoPanel fondoPanel = new FondoPanel("fondoSeleccionDimension.png");
+    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+        
+    remove(d1);
+    remove(d2);
+    remove(d3);
+    remove(d4);
+    remove(d5);
+    remove(boton);
+    remove(fondo);
+    
+    fondoPanel.add(d1, "pos 25% 67.80% , w 20:20:20 , h 30:30:30");
+    fondoPanel.add(d2, "pos 39% 68.29% , w 20:20:20 , h 30:30:30");
+    fondoPanel.add(d3, "pos 50% 68.29% , w 20:20:20 , h 30:30:30");
+    fondoPanel.add(d4, "pos 61% 68.29% , w 20:20:20 , h 30:30:30");
+    fondoPanel.add(d5, "pos 71% 68.29% , w 20:20:20 , h 30:30:30");
+    fondoPanel.add(boton, "pos 40% 82.93%, w 290:290:290 , h 70:70:70");
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,38 +55,48 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        d1 = new javax.swing.JRadioButton();
+        d3 = new javax.swing.JRadioButton();
+        d2 = new javax.swing.JRadioButton();
+        d4 = new javax.swing.JRadioButton();
+        d5 = new javax.swing.JRadioButton();
+        boton = new javax.swing.JButton();
+        fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        buttonGroup1.add(jRadioButton1);
-        add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 427, -1, -1));
+        buttonGroup1.add(d1);
+        add(d1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 20, 30));
 
-        buttonGroup1.add(jRadioButton2);
-        add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 430, -1, -1));
+        buttonGroup1.add(d3);
+        add(d3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 20, 30));
 
-        buttonGroup1.add(jRadioButton3);
-        add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 430, -1, -1));
+        buttonGroup1.add(d2);
+        add(d2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 20, 30));
 
-        buttonGroup1.add(jRadioButton4);
-        add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 430, -1, -1));
+        buttonGroup1.add(d4);
+        add(d4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 20, 30));
 
-        buttonGroup1.add(jRadioButton5);
-        add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 430, -1, -1));
+        buttonGroup1.add(d5);
+        add(d5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 30, 30));
+
+        boton.setText("CONTINUAR");
+        add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 290, 70));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoSeleccionDimension.png"))); // NOI18N
+        add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton boton;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JRadioButton d1;
+    private javax.swing.JRadioButton d2;
+    private javax.swing.JRadioButton d3;
+    private javax.swing.JRadioButton d4;
+    private javax.swing.JRadioButton d5;
+    private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
     // End of variables declaration//GEN-END:variables
 }
