@@ -58,6 +58,16 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        jTextField8 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField7 = new javax.swing.JTextField();
         d1 = new javax.swing.JRadioButton();
         d3 = new javax.swing.JRadioButton();
         d2 = new javax.swing.JRadioButton();
@@ -69,6 +79,116 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField2.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField2.setText("Arena ");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
+
+        jTextField1.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField1.setText("Torbellino");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 110, 40));
+
+        jTextField9.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField9.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField9.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField9.setText("Palmera");
+        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField9ActionPerformed(evt);
+            }
+        });
+        add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 90, 40));
+
+        jTextField4.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField4.setText("Rocosa");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, 40));
+
+        jTextField3.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField3.setText("Rosca ");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 70, 40));
+
+        jTextField6.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField6.setText("Cancha");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 90, 40));
+
+        jTextField8.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField8.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField8.setText("Concha");
+        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField8ActionPerformed(evt);
+            }
+        });
+        add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 90, 40));
+
+        jTextField5.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField5.setText("Arepa");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
+
+        jTextField10.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField10.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField10.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField10.setText("Pradera");
+        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField10ActionPerformed(evt);
+            }
+        });
+        add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 90, 40));
+
+        jTextField7.setBackground(new java.awt.Color(255, 228, 196));
+        jTextField7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
+        jTextField7.setForeground(new java.awt.Color(0, 0, 0));
+        jTextField7.setText("Tequeño  ");
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 110, 40));
 
         buttonGroup1.add(d1);
         d1.setActionCommand("d1");
@@ -91,7 +211,7 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
         add(d5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 30, 30));
 
         boton.setText("CONTINUAR");
-        boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonActionPerformed(evt);
@@ -155,6 +275,46 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
 
     }//GEN-LAST:event_botonActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField8ActionPerformed
+
+    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField9ActionPerformed
+
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton;
@@ -165,6 +325,16 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     private javax.swing.JRadioButton d4;
     private javax.swing.JRadioButton d5;
     private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }
