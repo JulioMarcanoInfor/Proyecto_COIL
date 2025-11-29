@@ -5,10 +5,12 @@
 package com.panaderiamatemagica.juego.vista;
 
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.ejercicios.controlador.EjercicioControladorVista;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
@@ -24,23 +26,49 @@ public class EjercicioVista extends javax.swing.JPanel {
         // esta vista.
         this.controlador = new EjercicioControladorVista(router, this);
         initComponents();
+        
+        FondoPanel fondoPanel = new FondoPanel("fondoAzulProfundo.png");
+    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    
+    // Remover componentes del diseño original
+    remove(fondo);
+    remove(b1);
+    remove(b2);
+    remove(b3);
+    remove(b4);
+    remove(label1);
+    remove(label2);
+    
+    // Agregar componentes al fondoPanel con posiciones específicas
+    fondoPanel.add(b1, "pos 4.8% 56.91%, w 773:773:773, h 100:100:100");
+    fondoPanel.add(b2,"pos 4.8% 78%, w 773:773:773, h 100:100:100");
+    fondoPanel.add(b3,"pos 75% 57%, w 773:773:773, h 100:100:100");
+    fondoPanel.add(b4,"pos 75% 78%, w 773:773:773, h 100:100:100");
+    fondoPanel.add(label1,"pos 25% 12.68%, w 773:773:773, h 38:38:38");
+    fondoPanel.add(label2,"pos 25% 19.84%, w 773:773:773, h 38:38:38");
     }
 
     // segun la metodoligia mvc esta bien colocar la funcion aqui.(tengo entendido).
     public void cargarEjercicio(EjercicioModelo ejercicio) {
 
         // 1. Actualizar el texto de la pregunta y descripción
-        txtpregunta.setText(ejercicio.getPregunta());
-        txtdescripcion.setText(ejercicio.getDescripcion());
+        label1.setText(ejercicio.getPregunta());
+        label2.setText(ejercicio.getDescripcion());
 
         // 2. Actualizar el texto de los botones de respuesta
         ArrayList<String> opciones = ejercicio.getOpcionesRespuestas();
 
         if (opciones != null && opciones.size() >= 4) {
-            txtrespuesta1.setText(opciones.get(0));
-            txtrespuesta2.setText(opciones.get(1));
-            txtrespuesta3.setText(opciones.get(2));
-            txtxrespuesta4.setText(opciones.get(3));
+            b1.setText(opciones.get(0));
+            b2.setText(opciones.get(1));
+            b3.setText(opciones.get(2));
+            b4.setText(opciones.get(3));
         } else {
             JOptionPane.showMessageDialog(this,
                     "El ejercico esta loco. Revisar la carga",
@@ -98,152 +126,148 @@ public class EjercicioVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtpregunta = new javax.swing.JLabel();
-        txtrespuesta3 = new javax.swing.JButton();
-        txtrespuesta2 = new javax.swing.JButton();
-        txtxrespuesta4 = new javax.swing.JButton();
-        txtrespuesta1 = new javax.swing.JButton();
-        txtdescripcion = new javax.swing.JLabel();
+        label1 = new javax.swing.JLabel();
+        b3 = new javax.swing.JButton();
+        b2 = new javax.swing.JButton();
+        b4 = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        label2 = new javax.swing.JLabel();
+        fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
         jProgressBar1 = new javax.swing.JProgressBar();
 
         setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(833, 615));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtpregunta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        txtpregunta.setForeground(new java.awt.Color(0, 0, 0));
-        txtpregunta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtpregunta.setText("PREGUNTA");
+        label1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label1.setForeground(new java.awt.Color(255, 255, 255));
+        label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label1.setText("PREGUNTA");
+        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 78, 773, 38));
 
-        txtrespuesta3.setBackground(new java.awt.Color(0, 204, 0));
-        txtrespuesta3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        txtrespuesta3.setForeground(new java.awt.Color(0, 0, 0));
-        txtrespuesta3.setText("3");
-        txtrespuesta3.addActionListener(new java.awt.event.ActionListener() {
+        b3.setBackground(new java.awt.Color(0, 204, 0));
+        b3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        b3.setForeground(new java.awt.Color(0, 0, 0));
+        b3.setText("3");
+        b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtrespuesta3ActionPerformed(evt);
+                b3ActionPerformed(evt);
             }
         });
+        add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 301, 100));
 
-        txtrespuesta2.setBackground(new java.awt.Color(255, 64, 163));
-        txtrespuesta2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        txtrespuesta2.setForeground(new java.awt.Color(0, 0, 0));
-        txtrespuesta2.setText("2");
-        txtrespuesta2.addActionListener(new java.awt.event.ActionListener() {
+        b2.setBackground(new java.awt.Color(255, 64, 163));
+        b2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        b2.setForeground(new java.awt.Color(0, 0, 0));
+        b2.setText("2");
+        b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtrespuesta2ActionPerformed(evt);
+                b2ActionPerformed(evt);
             }
         });
+        add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 301, 100));
 
-        txtxrespuesta4.setBackground(new java.awt.Color(204, 0, 204));
-        txtxrespuesta4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        txtxrespuesta4.setForeground(new java.awt.Color(0, 0, 0));
-        txtxrespuesta4.setText("4");
-        txtxrespuesta4.addActionListener(new java.awt.event.ActionListener() {
+        b4.setBackground(new java.awt.Color(204, 0, 204));
+        b4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        b4.setForeground(new java.awt.Color(0, 0, 0));
+        b4.setText("4");
+        b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtxrespuesta4ActionPerformed(evt);
+                b4ActionPerformed(evt);
             }
         });
+        add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 480, 301, 100));
 
-        txtrespuesta1.setBackground(new java.awt.Color(73, 73, 230));
-        txtrespuesta1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        txtrespuesta1.setForeground(new java.awt.Color(0, 0, 0));
-        txtrespuesta1.setText("1");
-        txtrespuesta1.addActionListener(new java.awt.event.ActionListener() {
+        b1.setBackground(new java.awt.Color(73, 73, 230));
+        b1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        b1.setForeground(new java.awt.Color(0, 0, 0));
+        b1.setText("1");
+        b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtrespuesta1ActionPerformed(evt);
+                b1ActionPerformed(evt);
             }
         });
+        add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 301, 100));
 
-        txtdescripcion.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        txtdescripcion.setForeground(new java.awt.Color(0, 0, 0));
-        txtdescripcion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtdescripcion.setText("Descripción");
+        label2.setBackground(new java.awt.Color(255, 255, 255));
+        label2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label2.setForeground(new java.awt.Color(255, 255, 255));
+        label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        label2.setText("Descripción");
+        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 122, 773, 28));
 
-        jProgressBar1.setBackground(new java.awt.Color(84, 180, 183));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtrespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtxrespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txtrespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtrespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtpregunta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtdescripcion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtpregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtdescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 201, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtrespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtrespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtrespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtxrespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
-        );
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoAzulProfundo.png"))); // NOI18N
+        add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 670));
+        add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 580, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtrespuesta1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtrespuesta1ActionPerformed
-        String respuestaElegida = txtrespuesta1.getText(); // Obtener el texto del botón
+        String respuestaElegida = b1.getText(); // Obtener el texto del botón
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
         }
     }// GEN-LAST:event_txtrespuesta1ActionPerformed
 
     private void txtrespuesta2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtrespuesta2ActionPerformed
-        String respuestaElegida = txtrespuesta2.getText();
+        String respuestaElegida = b2.getText();
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
         }
     }// GEN-LAST:event_txtrespuesta2ActionPerformed
 
     private void txtrespuesta3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtrespuesta3ActionPerformed
-        String respuestaElegida = txtrespuesta3.getText();
+        String respuestaElegida = b3.getText();
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
         }
     }// GEN-LAST:event_txtrespuesta3ActionPerformed
 
     private void txtxrespuesta4ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtxrespuesta4ActionPerformed
-        String respuestaElegida = txtxrespuesta4.getText();
+        String respuestaElegida = b4.getText();
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
         }
     }// GEN-LAST:event_txtxrespuesta4ActionPerformed
+    
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+// Nivel 1 corresponde al indice 0 de la lista de niveles
+    String respuestaElegida = b1.getText(); // Obtener el texto del botón
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida);
+    }
+    }
 
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+    // nivel 2
+        String respuestaElegida = b2.getText();
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida);
+        }
+    }                                  
+
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        // nivel 3
+        String respuestaElegida = b3.getText();
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida);
+        }
+         
+    }           
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        // nivel 3
+        String respuestaElegida = b4.getText();
+        if (controlador != null) {
+            controlador.validarRespuesta(respuestaElegida);
+        }
+    }         
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b1;
+    private javax.swing.JButton b2;
+    private javax.swing.JButton b3;
+    private javax.swing.JButton b4;
+    private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
     private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JLabel txtdescripcion;
-    private javax.swing.JLabel txtpregunta;
-    private javax.swing.JButton txtrespuesta1;
-    private javax.swing.JButton txtrespuesta2;
-    private javax.swing.JButton txtrespuesta3;
-    private javax.swing.JButton txtxrespuesta4;
+    private javax.swing.JLabel label1;
+    private javax.swing.JLabel label2;
     // End of variables declaration//GEN-END:variables
 }

@@ -140,7 +140,7 @@ public class Dimension1Vista extends javax.swing.JPanel {
     public DimensionControlador getControlador() {
         return controlador;
     }
-    private void iniciarNivelSeguro(int nivelIndex) {
+    private void iniciarNivelSguro(int nivelIndex) {
         if (controlador == null) {
             // Esto fuerza la re-ejecución del flujo de inicialización 
             // (RouterControlador.iniciarDimension1()), que establece 'this.controlador'.
@@ -551,7 +551,7 @@ public class Dimension1Vista extends javax.swing.JPanel {
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
 // Nivel 1 corresponde al indice 0 de la lista de niveles
-    iniciarNivelSeguro(0);
+    iniciarNivelSguro(0);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
