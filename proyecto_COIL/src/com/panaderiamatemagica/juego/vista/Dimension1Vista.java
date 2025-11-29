@@ -119,7 +119,21 @@ public class Dimension1Vista extends javax.swing.JPanel {
         this.controlador = new DimensionControlador(router, modelo, this, niveles);
         this.controlador.setDimensionId(1); // Configurar como Dimensión 1
     }
+    private void iniciarNivelSeguro(int nivelIndex) {
+    if (controlador == null) {
+        System.err.println("Advertencia: DimensionControlador es nulo. Forzando re-inicialización.");
+        router.iniciarDimension1(); 
+    }
+    if (controlador != null) {
+        controlador.iniciarNivel(nivelIndex);
+    } else {
 
+        javax.swing.JOptionPane.showMessageDialog(this,
+                "Error fatal: El controlador de dimensión no pudo ser inicializado. Reinicie la aplicación.",
+                "Error de Inicialización",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+    }
+}
     /**
      * Obtiene el controlador de dimension
      */
@@ -645,6 +659,8 @@ public class Dimension1Vista extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_b8ActionPerformed
 
+    
+    
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
