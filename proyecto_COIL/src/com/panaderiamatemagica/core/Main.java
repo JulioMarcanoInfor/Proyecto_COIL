@@ -21,7 +21,7 @@ public class Main {
     public static void main(String[] args) {
         FlatLightLaf.setup();
         UIManager.put("Button.arc", 100); 
-        UIManager.put("Panel.arc", 20);
+        UIManager.put("Panel.arc", 100);
         
         // para ver si no tienen problemas con la coneccion a la bdt
         ConexionBDT c = new ConexionBDT();
