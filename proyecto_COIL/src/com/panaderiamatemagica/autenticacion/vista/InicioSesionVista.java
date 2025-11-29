@@ -136,7 +136,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
                 cajaTextoActionPerformed(evt);
             }
         });
-        add(cajaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 450, 60));
+        add(cajaTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 279, 440, 50));
 
         apodo.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
         apodo.setForeground(new java.awt.Color(0, 0, 0));
@@ -153,7 +153,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setText("¿No tienes una cuenta?");
-        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 270, -1));
+        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 540, 310, -1));
 
         label1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         label1.setForeground(new java.awt.Color(133, 47, 27));
