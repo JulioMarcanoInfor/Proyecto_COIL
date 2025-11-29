@@ -126,7 +126,25 @@ public class Dimension1Vista extends javax.swing.JPanel {
     public DimensionControlador getControlador() {
         return controlador;
     }
+    private void iniciarNivelSeguro(int nivelIndex) {
+        if (controlador == null) {
+            // Esto fuerza la re-ejecución del flujo de inicialización 
+            // (RouterControlador.iniciarDimension1()), que establece 'this.controlador'.
+            System.err.println("Advertencia: DimensionControlador es nulo. Forzando re-inicialización.");
+            router.iniciarDimension1(); 
+        }
 
+        // Una vez inicializado (o si ya lo estaba), se llama al método real
+        if (controlador != null) {
+            controlador.iniciarNivel(nivelIndex);
+        } else {
+            // En caso de fallo de inicialización
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error fatal: El controlador de dimensión no pudo ser inicializado. Reinicie la aplicación.",
+                    "Error de Inicialización",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -518,8 +536,8 @@ public class Dimension1Vista extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-        // Nivel 1 corresponde al indice 0 de la lista de nivees
-        controlador.iniciarNivel(0);
+// Nivel 1 corresponde al indice 0 de la lista de niveles
+    iniciarNivelSeguro(0);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
