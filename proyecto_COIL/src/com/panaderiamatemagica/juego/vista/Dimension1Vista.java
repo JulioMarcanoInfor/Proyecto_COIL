@@ -35,6 +35,7 @@ public class Dimension1Vista extends javax.swing.JPanel {
             ArrayList<ArrayList<EjercicioModelo>> niveles) {
 
         this.controlador = new DimensionControlador(router, modelo, this, niveles);
+        this.controlador.setDimensionId(1); // Configurar como Dimensión 1
     }
 
     /**

@@ -35,6 +35,7 @@ public class Dimension5Vista extends javax.swing.JPanel {
     public void inicializarDimension(RouterControlador router, DimensionModelo modelo,
             ArrayList<ArrayList<EjercicioModelo>> niveles) {
         this.controlador = new DimensionControlador(router, modelo, this, niveles);
+        this.controlador.setDimensionId(5); // Configurar como Dimensión 5
     }
 
     /**

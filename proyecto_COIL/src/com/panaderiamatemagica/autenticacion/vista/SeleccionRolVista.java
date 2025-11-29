@@ -73,7 +73,7 @@ public class SeleccionRolVista extends JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         titulo = new javax.swing.JLabel();
@@ -83,7 +83,6 @@ public class SeleccionRolVista extends JPanel {
         setBackground(new java.awt.Color(213, 178, 137));
         setForeground(new java.awt.Color(255, 228, 171));
         setMinimumSize(new java.awt.Dimension(320, 440));
-        setOpaque(true);
         setPreferredSize(new java.awt.Dimension(640, 660));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -101,7 +100,6 @@ public class SeleccionRolVista extends JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonProfesorMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonProfesorMouseExited(evt);
             }
@@ -116,7 +114,6 @@ public class SeleccionRolVista extends JPanel {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonEstudianteMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonEstudianteMouseExited(evt);
             }

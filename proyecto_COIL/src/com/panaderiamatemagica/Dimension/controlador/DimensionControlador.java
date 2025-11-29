@@ -49,9 +49,9 @@ public class DimensionControlador {
      */
     public void iniciarNivel(int nivelNumero) {
         // nivelNumero es 0-indexed (0=Nivel 1, 1=Nivel 2, 2=Nivel 3)
-        // CORREGIDO: Calcular ID global del nivel basado en la dimensión (3 niveles por
-        // dimensión)
-        int nivelId = (this.dimensionId - 1) * 3 + (nivelNumero + 1);
+        // CORREGIDO: nivelId es local a cada dimensión, no global
+        // En la BD, cada dimensión tiene sus niveles numerados desde 1
+        int nivelId = nivelNumero + 1; // Convertir de 0-indexed a 1-indexed
 
         try {
             // Verificar prerrequisitos
