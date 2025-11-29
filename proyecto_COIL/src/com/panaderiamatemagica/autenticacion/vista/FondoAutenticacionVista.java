@@ -51,6 +51,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
 
     private void inicializarPantallas() {
         pantallasAutenticacion = (CardLayout) monitor.getLayout();
+        
     }
 
     public void mostrarSeleccionRol() {
@@ -64,6 +65,17 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     public void mostrarRegistro() {
         pantallasAutenticacion.show(monitor, "REGISTRO");
     }
+    public void mostrarIniciarSesionAdmin(){
+        pantallasAutenticacion.show(monitor, "INICIAR ADMIN");
+    }
+    public void agregarPanel(JPanel panel, String nombre){
+        monitor.add(panel, nombre);
+    }
+    public void mostrarPanel(String nombre) {
+    // Esto es el método que cambia entre las tarjetas
+    pantallasAutenticacion.show(monitor, nombre); 
+}
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated

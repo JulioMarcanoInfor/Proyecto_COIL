@@ -134,7 +134,7 @@ public class SeleccionRolVista extends JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonProfesorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonProfesorActionPerformed
-        // TODO add your handling code here:
+        routerA.mostrarInicioSesionAdminVista();
     }//GEN-LAST:event_botonProfesorActionPerformed
 
     private void botonEstudianteMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonEstudianteMouseEntered

@@ -5,6 +5,7 @@
 package com.panaderiamatemagica.autenticacion.controladores.alumnos;
 
 import com.panaderiamatemagica.autenticacion.vista.FondoAutenticacionVista;
+import com.panaderiamatemagica.autenticacion.vista.InicioSesionAdminVista;
 import com.panaderiamatemagica.autenticacion.vista.InicioSesionVista;
 import com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista;
 import com.panaderiamatemagica.core.RouterControlador;
@@ -19,6 +20,7 @@ public class RouterAutenticacionControlador {
     private RouterControlador router;
     private FondoAutenticacionVista fondoAutenticacion;
     private InicioSesionVista pantallaInicioSesion;
+    private InicioSesionAdminVista pantallaInicioAdmin;
 
     public RouterAutenticacionControlador(RouterControlador router) {
         this.router = router;
@@ -26,10 +28,16 @@ public class RouterAutenticacionControlador {
         pantallaSeleccionRol = new SeleccionRolVista(router, this);
         fondoAutenticacion = new FondoAutenticacionVista(router, this);
         pantallaInicioSesion = new InicioSesionVista(router, this);
+        pantallaInicioAdmin = new InicioSesionAdminVista(router);
+        
+        fondoAutenticacion.agregarPanel(pantallaInicioAdmin, "INICIO ADMIN");
     }
 
     public void mostrarSeleccionRol() {
         fondoAutenticacion.mostrarSeleccionRol();
+    }
+    public void mostrarInicioSesionAdminVista(){
+        fondoAutenticacion.mostrarPanel("INICIO ADMIN");
     }
 
     public void mostrarIniciarSesion() {
