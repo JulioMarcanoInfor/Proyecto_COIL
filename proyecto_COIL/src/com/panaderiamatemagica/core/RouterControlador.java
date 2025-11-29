@@ -61,8 +61,14 @@ public class RouterControlador {
     private RouterAdminControlador routerAdmin;
     private RouterDimensionControlador routerDimension;
     private FondoAutenticacionVista fondoAutenticacion;
-    private Dimension1Vista Dimension1;
+    private Dimension1Vista dimension1;
+    private Dimension2Vista dimension2;
+    private Dimension3Vista dimension3;
+    private Dimension4Vista dimension4;
+    private Dimension5Vista dimension5;
     private RouterAutenticacionControlador routerAuth;
+    
+    
 
     // Alumno actualmente autenticado
     private AlumnoModelo alumnoActual;
@@ -129,7 +135,11 @@ public class RouterControlador {
         pantallaSeleccionDimension1 = new SeleccionDimensionVista1(this);
         pantallaEjercicio = new EjercicioVista(this);
         pantallaResultado = new ResultadoVista(this);
-        Dimension1 = routerDimension.getPantallaDimension1();
+        dimension1 = routerDimension.getPantallaDimension1();
+        dimension2 = routerDimension.getPantallaDimension2();
+        dimension3 = routerDimension.getPantallaDimension3();
+        dimension4 = routerDimension.getPantallaDimension4();
+        dimension5 = routerDimension.getPantallaDimension5();
         fondoAutenticacion = routerAuth.getFondoAutenticacion();
 
         inicializarPaneles();
@@ -146,7 +156,11 @@ public class RouterControlador {
         pantallaPrincipal.agregarPanel(pantallaEjercicio, "EJERCICIO");
         pantallaPrincipal.agregarPanel(pantallaResultado, "RESULTADO");
         pantallaPrincipal.agregarPanel(fondoAutenticacion, "FONDO AUTH");
-        pantallaPrincipal.agregarPanel(Dimension1, "DIMENSION1");
+        pantallaPrincipal.agregarPanel(dimension1, "DIMENSION1");
+        pantallaPrincipal.agregarPanel(dimension2, "DIMENSION 2");
+        pantallaPrincipal.agregarPanel(dimension3, "DIMENSION 3");
+        pantallaPrincipal.agregarPanel(dimension4, "DIMENSION 4");
+        pantallaPrincipal.agregarPanel(dimension5, "DIMENSION 5");
         pantallaPrincipal.mostrarPanel("INICIO");
     }
 
@@ -192,6 +206,18 @@ public class RouterControlador {
 
     public void mostrarFondoAutenticacionVista() {
         pantallaPrincipal.mostrarPanel("FONDO AUTH");
+    }
+    public void mostrarDimension2Vista(){
+        pantallaPrincipal.mostrarPanel("DIMENSION 2");
+    }
+    public void mostrarDimension3Vista(){
+        pantallaPrincipal.mostrarPanel("DIMENSION 3");
+    }
+    public void mostrarDimension4Vista(){
+        pantallaPrincipal.mostrarPanel("DIMENSION 4");
+    }
+    public void mostrarDimension5Vista(){
+        pantallaPrincipal.mostrarPanel("DIMENSION 5");
     }
 
     public void mostrarLoginEnFondoAutenticacion() {

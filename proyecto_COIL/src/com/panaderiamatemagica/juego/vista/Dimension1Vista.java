@@ -7,8 +7,10 @@ package com.panaderiamatemagica.juego.vista;
 import com.panaderiamatemagica.Dimension.controlador.DimensionControlador;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
@@ -26,6 +28,19 @@ public class Dimension1Vista extends javax.swing.JPanel {
     public Dimension1Vista(RouterControlador router) {
         initComponents();
         this.router = router;
+        
+        FondoPanel fondoPanel = new FondoPanel("fondoD1.jpg");
+    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    
+    remove(fondo);
+    remove(volver);
+    fondoPanel.add(volver, "pos 86% 84%, w 80:80:80, h 60:60:60");
     }
 
     /**
@@ -64,6 +79,8 @@ public class Dimension1Vista extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
+        fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setBackground(new java.awt.Color(253, 188, 167));
         setPreferredSize(new java.awt.Dimension(833, 615));
@@ -156,6 +173,18 @@ public class Dimension1Vista extends javax.swing.JPanel {
             }
         });
         add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 160, 65, 55));
+
+        volver.setBackground(new java.awt.Color(255, 0, 0));
+        volver.setText("VOLVER");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+        add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, 80, 60));
+
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoD1.jpg"))); // NOI18N
+        add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 620));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -194,9 +223,14 @@ public class Dimension1Vista extends javax.swing.JPanel {
         // nivel8
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        router.mostrarSeleccionDimension1();
+    }//GEN-LAST:event_volverActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -205,5 +239,6 @@ public class Dimension1Vista extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

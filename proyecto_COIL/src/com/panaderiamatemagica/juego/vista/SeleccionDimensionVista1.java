@@ -132,19 +132,19 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
                 router.mostrarDimension1Vista();
                 break;
             case "d2":
-                // Lógica o llamada a método para Opción B
+                router.mostrarDimension2Vista();
                 
                 break;
             case "d3":
-                // Lógica o llamada a método para Opción C
+                router.mostrarDimension3Vista();
                 
                 break;
             case "d4":
-                // Lógica o llamada a método para Opción C
+                router.mostrarDimension4Vista();
                 
                 break;
             case "d5":
-                // Lógica o llamada a método para Opción C
+                router.mostrarDimension5Vista();
                 
                 break;
             default:
