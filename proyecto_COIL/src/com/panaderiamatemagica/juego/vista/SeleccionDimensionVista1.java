@@ -6,6 +6,7 @@ package com.panaderiamatemagica.juego.vista;
 
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import javax.swing.ButtonModel;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -36,6 +37,7 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     remove(d5);
     remove(boton);
     remove(fondo);
+    remove(volver);
     
     fondoPanel.add(d1, "pos 25% 67.80% , w 20:20:20 , h 30:30:30");
     fondoPanel.add(d2, "pos 39% 68.29% , w 20:20:20 , h 30:30:30");
@@ -43,6 +45,7 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     fondoPanel.add(d4, "pos 61% 68.29% , w 20:20:20 , h 30:30:30");
     fondoPanel.add(d5, "pos 71% 68.29% , w 20:20:20 , h 30:30:30");
     fondoPanel.add(boton, "pos 40% 82.93%, w 290:290:290 , h 70:70:70");
+    fondoPanel.add(volver, "pos 86% 84%, w 80:80:80, h 60:60:60");
     }
     
     /**
@@ -61,33 +64,96 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
         d4 = new javax.swing.JRadioButton();
         d5 = new javax.swing.JRadioButton();
         boton = new javax.swing.JButton();
+        volver = new javax.swing.JButton();
         fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         buttonGroup1.add(d1);
+        d1.setActionCommand("d1");
         add(d1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 20, 30));
 
         buttonGroup1.add(d3);
+        d3.setActionCommand("d3");
         add(d3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 20, 30));
 
         buttonGroup1.add(d2);
+        d2.setActionCommand("d2");
         add(d2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 20, 30));
 
         buttonGroup1.add(d4);
+        d4.setActionCommand("d4");
         add(d4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 20, 30));
 
         buttonGroup1.add(d5);
+        d5.setActionCommand("d5");
         add(d5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 30, 30));
 
         boton.setText("CONTINUAR");
         boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        boton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActionPerformed(evt);
+            }
+        });
         add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 290, 70));
+
+        volver.setBackground(new java.awt.Color(255, 0, 0));
+        volver.setText("VOLVER");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
+        add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, 80, 60));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoSeleccionDimension.png"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        router.mostrarFondoAutenticacionVista();
+    }//GEN-LAST:event_volverActionPerformed
+
+    private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
+        // 1. Obtener el modelo de selección
+    ButtonModel modeloSeleccionado = buttonGroup1.getSelection();
+
+    if (modeloSeleccionado != null) {
+        
+        // 2. Obtener el comando de acción (el String que configuraste en las propiedades)
+        String comando = modeloSeleccionado.getActionCommand();
+
+        // 3. Usar un Switch para ejecutar la lógica correspondiente
+        switch (comando) {
+            case "d1":
+                // Lógica o llamada a método para Opción A
+                router.mostrarDimension1Vista();
+                break;
+            case "d2":
+                // Lógica o llamada a método para Opción B
+                
+                break;
+            case "d3":
+                // Lógica o llamada a método para Opción C
+                
+                break;
+            case "d4":
+                // Lógica o llamada a método para Opción C
+                
+                break;
+            case "d5":
+                // Lógica o llamada a método para Opción C
+                
+                break;
+            default:
+                
+                break;
+        }
+    } 
+
+    }//GEN-LAST:event_botonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -99,5 +165,6 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     private javax.swing.JRadioButton d4;
     private javax.swing.JRadioButton d5;
     private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
+    private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

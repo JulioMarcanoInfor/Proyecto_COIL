@@ -30,7 +30,7 @@ public class RouterDimensionControlador {
         this.router = router;
 
         pantallaSeleccionDimension = new SeleccionDimensionVista(router, this);
-        pantallaDimension1 = new Dimension1Vista();
+        pantallaDimension1 = new Dimension1Vista(router);
         pantallaDimension2 = new Dimension2Vista();
 
         // pantallas a eliminar en siguiente version, es mejor implementar una sola

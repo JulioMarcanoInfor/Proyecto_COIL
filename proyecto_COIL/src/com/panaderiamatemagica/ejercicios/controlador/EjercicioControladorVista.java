@@ -64,7 +64,7 @@ public class EjercicioControladorVista {
             JOptionPane.showMessageDialog(vista,
                     "Error: El nivel está vacío. Regresando a la selección.",
                     "Error", JOptionPane.ERROR_MESSAGE);
-            router.mostrarSeleccionDimensionVista();
+            router.mostrarSeleccionDimension1();
             return;
         }
 

@@ -127,7 +127,7 @@ public class ResultadoVista extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
-        router.mostrarSeleccionDimensionVista();
+        router.mostrarSeleccionDimension1();
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
@@ -142,7 +142,7 @@ public class ResultadoVista extends javax.swing.JPanel {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
         // Siguiente nivel - por ahora regresa a selección de dimensión
         // TODO: Implementar lógica para cargar el siguiente nivel automáticamente
-        router.mostrarSeleccionDimensionVista();
+        router.mostrarSeleccionDimension1();
     }// GEN-LAST:event_jButton3ActionPerformed
 
     /**
