@@ -40,6 +40,41 @@ public class Dimension5Vista extends javax.swing.JPanel {
         remove(fondo);
     remove(volver);
     fondoPanel.add(volver, "pos 86% 84%, w 80:80:80, h 60:60:60");
+    
+    fondoPanel.add(b1, "pos 19% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b2, "pos 30% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b3, "pos 40% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b4, "pos 51% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b5, "pos 62% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b6, "pos 72% 26%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b7, "pos 19% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b8, "pos 30% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b9, "pos 40% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b10, "pos 51% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b11, "pos 62% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b12, "pos 72% 39%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b13, "pos 19% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b14, "pos 30% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b15, "pos 40% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b16, "pos 51% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b17, "pos 62% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b18, "pos 72% 52%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b19, "pos 19% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b20, "pos 30% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b21, "pos 40% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b22, "pos 51% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b23, "pos 62% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b24, "pos 72% 65%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b25, "pos 19% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b26, "pos 30% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b27, "pos 40% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b28, "pos 51% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b29, "pos 62% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b30, "pos 72% 78%, w 100:100:100, h 80:80:80");
     }
 
     /**
@@ -63,49 +98,66 @@ public class Dimension5Vista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        b2 = new javax.swing.JButton();
+        b3 = new javax.swing.JButton();
         volver = new javax.swing.JButton();
         fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
+        b4 = new javax.swing.JButton();
+        b5 = new javax.swing.JButton();
+        b6 = new javax.swing.JButton();
+        b7 = new javax.swing.JButton();
+        b8 = new javax.swing.JButton();
+        b9 = new javax.swing.JButton();
+        b10 = new javax.swing.JButton();
+        b11 = new javax.swing.JButton();
+        b12 = new javax.swing.JButton();
+        b13 = new javax.swing.JButton();
+        b14 = new javax.swing.JButton();
+        b15 = new javax.swing.JButton();
+        b16 = new javax.swing.JButton();
+        b17 = new javax.swing.JButton();
+        b18 = new javax.swing.JButton();
+        b19 = new javax.swing.JButton();
+        b20 = new javax.swing.JButton();
+        b21 = new javax.swing.JButton();
+        b22 = new javax.swing.JButton();
+        b23 = new javax.swing.JButton();
+        b24 = new javax.swing.JButton();
+        b25 = new javax.swing.JButton();
+        b26 = new javax.swing.JButton();
+        b27 = new javax.swing.JButton();
+        b28 = new javax.swing.JButton();
+        b29 = new javax.swing.JButton();
+        b30 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 255, 51));
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        b1.setText("1");
+        b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                b1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 58, -1));
+        add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 58, -1));
 
-        jButton2.setText("2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        b2.setText("2");
+        b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                b2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 57, -1));
+        add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 57, -1));
 
-        jButton3.setText("3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        b3.setText("3");
+        b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                b3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
-
-        jButton5.setBackground(new java.awt.Color(0, 255, 0));
-        jButton5.setText("JUGAR");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 108, 78));
+        add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
         volver.setBackground(new java.awt.Color(255, 0, 0));
         volver.setText("VOLVER");
@@ -118,11 +170,335 @@ public class Dimension5Vista extends javax.swing.JPanel {
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoD5.jpg"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 620));
+
+        b4.setText("3");
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b4ActionPerformed(evt);
+            }
+        });
+        add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b5.setText("3");
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
+        add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b6.setText("3");
+        b6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b6ActionPerformed(evt);
+            }
+        });
+        add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b7.setText("3");
+        b7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b7ActionPerformed(evt);
+            }
+        });
+        add(b7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b8.setText("3");
+        b8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b8ActionPerformed(evt);
+            }
+        });
+        add(b8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b9.setText("3");
+        b9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b9ActionPerformed(evt);
+            }
+        });
+        add(b9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b10.setText("3");
+        b10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b10ActionPerformed(evt);
+            }
+        });
+        add(b10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b11.setText("3");
+        b11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b11ActionPerformed(evt);
+            }
+        });
+        add(b11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b12.setText("3");
+        b12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b12ActionPerformed(evt);
+            }
+        });
+        add(b12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b13.setText("3");
+        b13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b13ActionPerformed(evt);
+            }
+        });
+        add(b13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b14.setText("3");
+        b14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b14ActionPerformed(evt);
+            }
+        });
+        add(b14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b15.setText("3");
+        b15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b15ActionPerformed(evt);
+            }
+        });
+        add(b15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b16.setText("3");
+        b16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b16ActionPerformed(evt);
+            }
+        });
+        add(b16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b17.setText("3");
+        b17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b17ActionPerformed(evt);
+            }
+        });
+        add(b17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b18.setText("3");
+        b18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b18ActionPerformed(evt);
+            }
+        });
+        add(b18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b19.setText("3");
+        b19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b19ActionPerformed(evt);
+            }
+        });
+        add(b19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b20.setText("3");
+        b20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b20ActionPerformed(evt);
+            }
+        });
+        add(b20, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b21.setText("3");
+        b21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b21ActionPerformed(evt);
+            }
+        });
+        add(b21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b22.setText("3");
+        b22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b22ActionPerformed(evt);
+            }
+        });
+        add(b22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b23.setText("3");
+        b23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b23ActionPerformed(evt);
+            }
+        });
+        add(b23, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b24.setText("3");
+        b24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b24ActionPerformed(evt);
+            }
+        });
+        add(b24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b25.setText("3");
+        b25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b25ActionPerformed(evt);
+            }
+        });
+        add(b25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b26.setText("3");
+        b26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b26ActionPerformed(evt);
+            }
+        });
+        add(b26, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b27.setText("3");
+        b27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b27ActionPerformed(evt);
+            }
+        });
+        add(b27, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b28.setText("3");
+        b28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b28ActionPerformed(evt);
+            }
+        });
+        add(b28, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b29.setText("3");
+        b29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b29ActionPerformed(evt);
+            }
+        });
+        add(b29, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
+
+        b30.setText("3");
+        b30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b30ActionPerformed(evt);
+            }
+        });
+        add(b30, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         router.mostrarSeleccionDimension1();
     }//GEN-LAST:event_volverActionPerformed
+
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b4ActionPerformed
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b6ActionPerformed
+
+    private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b7ActionPerformed
+
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b8ActionPerformed
+
+    private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b9ActionPerformed
+
+    private void b10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b10ActionPerformed
+
+    private void b11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b11ActionPerformed
+
+    private void b12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b12ActionPerformed
+
+    private void b13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b13ActionPerformed
+
+    private void b14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b14ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b14ActionPerformed
+
+    private void b15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b15ActionPerformed
+
+    private void b16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b16ActionPerformed
+
+    private void b17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b17ActionPerformed
+
+    private void b18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b18ActionPerformed
+
+    private void b19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b19ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b19ActionPerformed
+
+    private void b20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b20ActionPerformed
+
+    private void b21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b21ActionPerformed
+
+    private void b22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b22ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b22ActionPerformed
+
+    private void b23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b23ActionPerformed
+
+    private void b24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b24ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b24ActionPerformed
+
+    private void b25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b25ActionPerformed
+
+    private void b26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b26ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b26ActionPerformed
+
+    private void b27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b27ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b27ActionPerformed
+
+    private void b28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b28ActionPerformed
+
+    private void b29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b29ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b29ActionPerformed
+
+    private void b30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b30ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_b30ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // Nivel 1 corresponde al índice 0
@@ -148,13 +524,49 @@ public class Dimension5Vista extends javax.swing.JPanel {
     public DimensionControlador getControlador() {
         return controlador;
     }
+    
+        private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        controlador.iniciarNivel(0);
+    }            
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        controlador.iniciarNivel(1);
+    }            
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        controlador.iniciarNivel(2);
+    }        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b1;
+    private javax.swing.JButton b10;
+    private javax.swing.JButton b11;
+    private javax.swing.JButton b12;
+    private javax.swing.JButton b13;
+    private javax.swing.JButton b14;
+    private javax.swing.JButton b15;
+    private javax.swing.JButton b16;
+    private javax.swing.JButton b17;
+    private javax.swing.JButton b18;
+    private javax.swing.JButton b19;
+    private javax.swing.JButton b2;
+    private javax.swing.JButton b20;
+    private javax.swing.JButton b21;
+    private javax.swing.JButton b22;
+    private javax.swing.JButton b23;
+    private javax.swing.JButton b24;
+    private javax.swing.JButton b25;
+    private javax.swing.JButton b26;
+    private javax.swing.JButton b27;
+    private javax.swing.JButton b28;
+    private javax.swing.JButton b29;
+    private javax.swing.JButton b3;
+    private javax.swing.JButton b30;
+    private javax.swing.JButton b4;
+    private javax.swing.JButton b5;
+    private javax.swing.JButton b6;
+    private javax.swing.JButton b7;
+    private javax.swing.JButton b8;
+    private javax.swing.JButton b9;
     private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

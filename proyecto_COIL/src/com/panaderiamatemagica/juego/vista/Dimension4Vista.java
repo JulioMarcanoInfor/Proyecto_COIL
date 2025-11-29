@@ -41,6 +41,41 @@ public class Dimension4Vista extends javax.swing.JPanel {
         remove(fondo);
     remove(volver);
     fondoPanel.add(volver, "pos 86% 84%, w 80:80:80, h 60:60:60");
+    
+    fondoPanel.add(b1, "pos 19% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b2, "pos 30% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b3, "pos 40% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b4, "pos 51% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b5, "pos 62% 26%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b6, "pos 72% 26%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b7, "pos 19% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b8, "pos 30% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b9, "pos 40% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b10, "pos 51% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b11, "pos 62% 39%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b12, "pos 72% 39%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b13, "pos 19% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b14, "pos 30% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b15, "pos 40% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b16, "pos 51% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b17, "pos 62% 52%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b18, "pos 72% 52%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b19, "pos 19% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b20, "pos 30% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b21, "pos 40% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b22, "pos 51% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b23, "pos 62% 65%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b24, "pos 72% 65%, w 100:100:100, h 80:80:80");
+    
+    fondoPanel.add(b25, "pos 19% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b26, "pos 30% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b27, "pos 40% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b28, "pos 51% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b29, "pos 62% 78%, w 100:100:100, h 80:80:80");
+    fondoPanel.add(b30, "pos 72% 78%, w 100:100:100, h 80:80:80");
     }
 
     /**
@@ -64,44 +99,42 @@ public class Dimension4Vista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         volver = new javax.swing.JButton();
+        b1 = new javax.swing.JButton();
+        b2 = new javax.swing.JButton();
+        b3 = new javax.swing.JButton();
+        b4 = new javax.swing.JButton();
         fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
+        b5 = new javax.swing.JButton();
+        b6 = new javax.swing.JButton();
+        b7 = new javax.swing.JButton();
+        b8 = new javax.swing.JButton();
+        b9 = new javax.swing.JButton();
+        b10 = new javax.swing.JButton();
+        b11 = new javax.swing.JButton();
+        b12 = new javax.swing.JButton();
+        b13 = new javax.swing.JButton();
+        b14 = new javax.swing.JButton();
+        b15 = new javax.swing.JButton();
+        b16 = new javax.swing.JButton();
+        b17 = new javax.swing.JButton();
+        b18 = new javax.swing.JButton();
+        b19 = new javax.swing.JButton();
+        b20 = new javax.swing.JButton();
+        b21 = new javax.swing.JButton();
+        b22 = new javax.swing.JButton();
+        b23 = new javax.swing.JButton();
+        b24 = new javax.swing.JButton();
+        b25 = new javax.swing.JButton();
+        b26 = new javax.swing.JButton();
+        b27 = new javax.swing.JButton();
+        b28 = new javax.swing.JButton();
+        b29 = new javax.swing.JButton();
+        b30 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 153, 51));
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setText("1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 62, -1));
-
-        jButton2.setText("2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 58, -1));
-
-        jButton3.setText("3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 67, -1));
-
-        jButton4.setBackground(new java.awt.Color(51, 255, 51));
-        jButton4.setText("JUGAR");
-        add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         volver.setBackground(new java.awt.Color(255, 0, 0));
         volver.setText("VOLVER");
@@ -112,28 +145,169 @@ public class Dimension4Vista extends javax.swing.JPanel {
         });
         add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 90, 80));
 
+        b1.setText("1");
+        b1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b1ActionPerformed(evt);
+            }
+        });
+        add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 62, -1));
+
+        b2.setText("2");
+        b2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b2ActionPerformed(evt);
+            }
+        });
+        add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 58, -1));
+
+        b3.setText("3");
+        b3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b3ActionPerformed(evt);
+            }
+        });
+        add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 67, -1));
+
+        b4.setBackground(new java.awt.Color(102, 102, 102));
+        b4.setText("JUGAR");
+        add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoD4.jpg"))); // NOI18N
         fondo.setText("jLabelReescalable1");
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 620));
+
+        b5.setBackground(new java.awt.Color(51, 255, 51));
+        b5.setText("JUGAR");
+        add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b6.setBackground(new java.awt.Color(51, 255, 51));
+        b6.setText("JUGAR");
+        add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b7.setBackground(new java.awt.Color(51, 255, 51));
+        b7.setText("JUGAR");
+        add(b7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b8.setBackground(new java.awt.Color(51, 255, 51));
+        b8.setText("JUGAR");
+        add(b8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b9.setBackground(new java.awt.Color(51, 255, 51));
+        b9.setText("JUGAR");
+        add(b9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b10.setBackground(new java.awt.Color(51, 255, 51));
+        b10.setText("JUGAR");
+        add(b10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b11.setBackground(new java.awt.Color(51, 255, 51));
+        b11.setText("JUGAR");
+        add(b11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b12.setBackground(new java.awt.Color(51, 255, 51));
+        b12.setText("JUGAR");
+        add(b12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b13.setBackground(new java.awt.Color(51, 255, 51));
+        b13.setText("JUGAR");
+        add(b13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b14.setBackground(new java.awt.Color(51, 255, 51));
+        b14.setText("JUGAR");
+        add(b14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b15.setBackground(new java.awt.Color(51, 255, 51));
+        b15.setText("JUGAR");
+        add(b15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b16.setBackground(new java.awt.Color(51, 255, 51));
+        b16.setText("JUGAR");
+        add(b16, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b17.setBackground(new java.awt.Color(51, 255, 51));
+        b17.setText("JUGAR");
+        add(b17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b18.setBackground(new java.awt.Color(51, 255, 51));
+        b18.setText("JUGAR");
+        add(b18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b19.setBackground(new java.awt.Color(51, 255, 51));
+        b19.setText("JUGAR");
+        add(b19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b20.setBackground(new java.awt.Color(51, 255, 51));
+        b20.setText("JUGAR");
+        add(b20, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b21.setBackground(new java.awt.Color(51, 255, 51));
+        b21.setText("JUGAR");
+        add(b21, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b22.setBackground(new java.awt.Color(51, 255, 51));
+        b22.setText("JUGAR");
+        add(b22, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b23.setBackground(new java.awt.Color(51, 255, 51));
+        b23.setText("JUGAR");
+        add(b23, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b24.setBackground(new java.awt.Color(51, 255, 51));
+        b24.setText("JUGAR");
+        add(b24, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b25.setBackground(new java.awt.Color(51, 255, 51));
+        b25.setText("JUGAR");
+        add(b25, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b26.setBackground(new java.awt.Color(51, 255, 51));
+        b26.setText("JUGAR");
+        add(b26, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b27.setBackground(new java.awt.Color(51, 255, 51));
+        b27.setText("JUGAR");
+        add(b27, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b28.setBackground(new java.awt.Color(51, 255, 51));
+        b28.setText("JUGAR");
+        add(b28, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b29.setBackground(new java.awt.Color(51, 255, 51));
+        b29.setText("JUGAR");
+        add(b29, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+
+        b30.setBackground(new java.awt.Color(51, 255, 51));
+        b30.setText("JUGAR");
+        add(b30, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
     }// </editor-fold>//GEN-END:initComponents
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
         router.mostrarSeleccionDimension1();
     }//GEN-LAST:event_volverActionPerformed
 
+    private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        controlador.iniciarNivel(0);
+    }            
+    private void b2ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        controlador.iniciarNivel(1);
+    }            
+    private void b3ActionPerformed(java.awt.event.ActionEvent evt) {                                   
+        controlador.iniciarNivel(2);
+    }            
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // Nivel 1 corresponde al índice 0
-        controlador.iniciarNivel(0);
+        
     }// GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton2ActionPerformed
         // Nivel 2 corresponde al índice 1
-        controlador.iniciarNivel(1);
+        
     }// GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton3ActionPerformed
         // Nivel 3 corresponde al índice 2
-        controlador.iniciarNivel(2);
+        
     }// GEN-LAST:event_jButton3ActionPerformed
 
     public DimensionControlador getControlador() {
@@ -141,11 +315,37 @@ public class Dimension4Vista extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton b1;
+    private javax.swing.JButton b10;
+    private javax.swing.JButton b11;
+    private javax.swing.JButton b12;
+    private javax.swing.JButton b13;
+    private javax.swing.JButton b14;
+    private javax.swing.JButton b15;
+    private javax.swing.JButton b16;
+    private javax.swing.JButton b17;
+    private javax.swing.JButton b18;
+    private javax.swing.JButton b19;
+    private javax.swing.JButton b2;
+    private javax.swing.JButton b20;
+    private javax.swing.JButton b21;
+    private javax.swing.JButton b22;
+    private javax.swing.JButton b23;
+    private javax.swing.JButton b24;
+    private javax.swing.JButton b25;
+    private javax.swing.JButton b26;
+    private javax.swing.JButton b27;
+    private javax.swing.JButton b28;
+    private javax.swing.JButton b29;
+    private javax.swing.JButton b3;
+    private javax.swing.JButton b30;
+    private javax.swing.JButton b4;
+    private javax.swing.JButton b5;
+    private javax.swing.JButton b6;
+    private javax.swing.JButton b7;
+    private javax.swing.JButton b8;
+    private javax.swing.JButton b9;
     private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }
