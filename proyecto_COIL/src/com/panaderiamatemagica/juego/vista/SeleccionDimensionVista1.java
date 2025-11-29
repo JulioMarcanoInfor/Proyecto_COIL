@@ -82,6 +82,7 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
         add(d5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 30, 30));
 
         boton.setText("CONTINUAR");
+        boton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 290, 70));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoSeleccionDimension.png"))); // NOI18N

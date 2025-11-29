@@ -74,7 +74,7 @@ public class PantallaInicioVista extends javax.swing.JPanel {
         botonJugar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         botonJugar.setForeground(new java.awt.Color(0, 0, 0));
         botonJugar.setText("JUGAR");
-        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonJugar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonJugarMouseEntered(evt);

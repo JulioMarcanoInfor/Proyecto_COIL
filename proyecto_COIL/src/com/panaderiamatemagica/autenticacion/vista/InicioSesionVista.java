@@ -73,7 +73,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
         responsivePanel.addScalable(cajaTexto, 100, 170, 450, 80);
         responsivePanel.addScalable(botonIniciarSesion, 130, 320, 370, 150);
         responsivePanel.addScalable(label1, 180, 500, 280, 30);
-        responsivePanel.addScalable(label2, 220, 530, 230, 30);
+        responsivePanel.addScalable(label2, 200, 525, 280, 30);
         responsivePanel.addScalable(label3, 180, 550, 280, 30);
 
         // Agregar listener para registro
@@ -106,7 +106,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
         botonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         botonIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         botonIniciarSesion.setText("INICIAR SESIÓN");
-        botonIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        botonIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonIniciarSesionMouseEntered(evt);
@@ -147,7 +147,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label3.setForeground(new java.awt.Color(133, 47, 27));
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setText("<html><u>Regístrate</u></html>");
-        label3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 280, 30));
 
         label2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
@@ -159,7 +159,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label1.setForeground(new java.awt.Color(133, 47, 27));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setText("<html><u>¿Olvidaste tu contraseña?</u></html>");
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 300, 50));
     }// </editor-fold>//GEN-END:initComponents
 

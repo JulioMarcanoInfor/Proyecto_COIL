@@ -39,7 +39,7 @@
         </Property>
         <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Hand Cursor"/>
         </Property>
       </Properties>
       <Events>
@@ -122,7 +122,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;Reg&#xed;strate&lt;/u&gt;&lt;/html&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Hand Cursor"/>
         </Property>
       </Properties>
       <Constraints>
@@ -158,7 +158,7 @@
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;u&gt;&#xbf;Olvidaste tu contrase&#xf1;a?&lt;/u&gt;&lt;/html&gt;"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-          <Color id="Default Cursor"/>
+          <Color id="Hand Cursor"/>
         </Property>
       </Properties>
       <Constraints>

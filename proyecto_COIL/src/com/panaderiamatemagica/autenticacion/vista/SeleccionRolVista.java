@@ -96,7 +96,7 @@ public class SeleccionRolVista extends JPanel {
         botonProfesor.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         botonProfesor.setForeground(new java.awt.Color(255, 255, 255));
         botonProfesor.setText("PROFESOR");
-        botonProfesor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        botonProfesor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonProfesor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonProfesorMouseEntered(evt);
@@ -116,7 +116,7 @@ public class SeleccionRolVista extends JPanel {
         botonEstudiante.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
         botonEstudiante.setForeground(new java.awt.Color(255, 255, 255));
         botonEstudiante.setText("ESTUDIANTE");
-        botonEstudiante.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        botonEstudiante.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonEstudiante.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonEstudianteMouseEntered(evt);
