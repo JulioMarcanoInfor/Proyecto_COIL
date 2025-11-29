@@ -58,27 +58,27 @@ public class PantallaInicioVista extends javax.swing.JPanel {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelReescalable1 = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
         botonJugar = new javax.swing.JButton();
+        jLabelReescalable1 = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
-        setBackground(new java.awt.Color(255, 228, 171));
+        setBackground(new java.awt.Color(0, 255, 204));
+        setMaximumSize(new java.awt.Dimension(833, 615));
+        setMinimumSize(new java.awt.Dimension(833, 615));
         setPreferredSize(new java.awt.Dimension(833, 615));
-
-        jLabelReescalable1.setText("jLabelReescalable1");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         botonJugar.setBackground(new java.awt.Color(117, 183, 168));
-        botonJugar.setFont(new java.awt.Font("Showcard Gothic", 0, 48)); // NOI18N
+        botonJugar.setFont(new java.awt.Font("Segoe UI Semibold", 1, 36)); // NOI18N
         botonJugar.setForeground(new java.awt.Color(0, 0, 0));
         botonJugar.setText("JUGAR");
-        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonJugar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         botonJugar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 botonJugarMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 botonJugarMouseExited(evt);
             }
@@ -88,37 +88,13 @@ public class PantallaInicioVista extends javax.swing.JPanel {
                 botonJugarActionPerformed(evt);
             }
         });
+        add(botonJugar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 510, 234, 50));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(330, 330, 330)
-                                .addComponent(botonJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 234,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(269, Short.MAX_VALUE))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jLabelReescalable1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))));
-        layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(395, Short.MAX_VALUE)
-                                .addComponent(botonJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 110,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(110, 110, 110))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jLabelReescalable1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))));
+        jLabelReescalable1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabelReescalable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FondoInicial.png"))); // NOI18N
+        jLabelReescalable1.setText("jLabelReescalable1");
+        jLabelReescalable1.setPreferredSize(new java.awt.Dimension(833, 615));
+        add(jLabelReescalable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 850, 630));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonJugarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonJugarActionPerformed
