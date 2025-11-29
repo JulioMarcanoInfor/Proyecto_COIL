@@ -119,27 +119,13 @@ public class Dimension1Vista extends javax.swing.JPanel {
         this.controlador = new DimensionControlador(router, modelo, this, niveles);
         this.controlador.setDimensionId(1); // Configurar como Dimensión 1
     }
-    private void iniciarNivelSeguro(int nivelIndex) {
-    if (controlador == null) {
-        System.err.println("Advertencia: DimensionControlador es nulo. Forzando re-inicialización.");
-        router.iniciarDimension1(); 
-    }
-    if (controlador != null) {
-        controlador.iniciarNivel(nivelIndex);
-    } else {
-
-        javax.swing.JOptionPane.showMessageDialog(this,
-                "Error fatal: El controlador de dimensión no pudo ser inicializado. Reinicie la aplicación.",
-                "Error de Inicialización",
-                javax.swing.JOptionPane.ERROR_MESSAGE);
-    }
-}
     /**
      * Obtiene el controlador de dimension
      */
     public DimensionControlador getControlador() {
         return controlador;
     }
+    
     private void iniciarNivelSeguro(int nivelIndex) {
         if (controlador == null) {
             // Esto fuerza la re-ejecución del flujo de inicialización 
@@ -550,39 +536,43 @@ public class Dimension1Vista extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b1ActionPerformed
-// Nivel 1 corresponde al indice 0 de la lista de niveles
+    // Nivel 1 corresponde al indice 0 de la lista de niveles
     iniciarNivelSeguro(0);
     }//GEN-LAST:event_b1ActionPerformed
 
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b2ActionPerformed
-    // nivel 2
-        controlador.iniciarNivel(1);
+// Nivel 2 (indice 1) - Corregido para usar iniciarNivelSeguro
+        iniciarNivelSeguro(1);
     }//GEN-LAST:event_b2ActionPerformed
 
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b3ActionPerformed
-        // nivel 3
-        controlador.iniciarNivel(2);
+// Nivel 3 (indice 2) - Corregido para usar iniciarNivelSeguro
+        iniciarNivelSeguro(2);
     }//GEN-LAST:event_b3ActionPerformed
 
     private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
-        // nivel4
-        controlador.iniciarNivel(4);
+// Nivel 4 (indice 3) - Corregido: El índice debe ser 3, no 4
+        iniciarNivelSeguro(3);
     }//GEN-LAST:event_b4ActionPerformed
 
     private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
-        // nivel7
+// Nivel 9 (indice 8)
+        iniciarNivelSeguro(8);
     }//GEN-LAST:event_b9ActionPerformed
 
     private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
-        // nivel6
+// Nivel 7 (indice 6)
+        iniciarNivelSeguro(6);
     }//GEN-LAST:event_b7ActionPerformed
 
     private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
-        // nivel5
+// Nivel 6 (indice 5)
+        iniciarNivelSeguro(5);
     }//GEN-LAST:event_b6ActionPerformed
 
     private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
-        // nivel8
+// Nivel 5 (indice 4)
+        iniciarNivelSeguro(4);
     }//GEN-LAST:event_b5ActionPerformed
 
     private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
@@ -590,91 +580,113 @@ public class Dimension1Vista extends javax.swing.JPanel {
     }//GEN-LAST:event_volverActionPerformed
 
     private void b10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b10ActionPerformed
-        // TODO add your handling code here:
+// Nivel 10 (indice 9)
+        iniciarNivelSeguro(9);
     }//GEN-LAST:event_b10ActionPerformed
 
     private void b11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b11ActionPerformed
-        // TODO add your handling code here:
+// Nivel 11 (indice 10)
+        iniciarNivelSeguro(10);
     }//GEN-LAST:event_b11ActionPerformed
 
     private void b12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b12ActionPerformed
-        // TODO add your handling code here:
+// Nivel 12 (indice 11)
+        iniciarNivelSeguro(11);
     }//GEN-LAST:event_b12ActionPerformed
 
     private void b13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b13ActionPerformed
-        // TODO add your handling code here:
+// Nivel 13 (indice 12)
+        iniciarNivelSeguro(12);
     }//GEN-LAST:event_b13ActionPerformed
 
     private void b14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b14ActionPerformed
-        // TODO add your handling code here:
+// Nivel 14 (indice 13)
+        iniciarNivelSeguro(13);
     }//GEN-LAST:event_b14ActionPerformed
 
     private void b15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b15ActionPerformed
-        // TODO add your handling code here:
+// Nivel 15 (indice 14)
+        iniciarNivelSeguro(14);
     }//GEN-LAST:event_b15ActionPerformed
 
     private void b16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b16ActionPerformed
-        // TODO add your handling code here:
+// Nivel 16 (indice 15)
+        iniciarNivelSeguro(15);
     }//GEN-LAST:event_b16ActionPerformed
 
     private void b17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b17ActionPerformed
-        // TODO add your handling code here:
+// Nivel 17 (indice 16)
+        iniciarNivelSeguro(16);
     }//GEN-LAST:event_b17ActionPerformed
 
     private void b18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b18ActionPerformed
-        // TODO add your handling code here:
+// Nivel 18 (indice 17)
+        iniciarNivelSeguro(17);
     }//GEN-LAST:event_b18ActionPerformed
 
     private void b19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b19ActionPerformed
-        // TODO add your handling code here:
+// Nivel 19 (indice 18)
+        iniciarNivelSeguro(18);
     }//GEN-LAST:event_b19ActionPerformed
 
     private void b20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b20ActionPerformed
-        // TODO add your handling code here:
+// Nivel 20 (indice 19)
+        iniciarNivelSeguro(19);
     }//GEN-LAST:event_b20ActionPerformed
 
     private void b21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b21ActionPerformed
-        // TODO add your handling code here:
+// Nivel 21 (indice 20)
+        iniciarNivelSeguro(20);
     }//GEN-LAST:event_b21ActionPerformed
 
     private void b22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b22ActionPerformed
-        // TODO add your handling code here:
+// Nivel 22 (indice 21)
+        iniciarNivelSeguro(21);
     }//GEN-LAST:event_b22ActionPerformed
 
     private void b23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b23ActionPerformed
-        // TODO add your handling code here:
+// Nivel 23 (indice 22)
+        iniciarNivelSeguro(22);
     }//GEN-LAST:event_b23ActionPerformed
 
     private void b24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b24ActionPerformed
-        // TODO add your handling code here:
+// Nivel 24 (indice 23)
+        iniciarNivelSeguro(23);
     }//GEN-LAST:event_b24ActionPerformed
 
     private void b25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b25ActionPerformed
-        // TODO add your handling code here:
+// Nivel 25 (indice 24)
+        iniciarNivelSeguro(24);
     }//GEN-LAST:event_b25ActionPerformed
 
     private void b26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b26ActionPerformed
-        // TODO add your handling code here:
+// Nivel 26 (indice 25)
+        iniciarNivelSeguro(25);
     }//GEN-LAST:event_b26ActionPerformed
 
     private void b27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b27ActionPerformed
-        // TODO add your handling code here:
+// Nivel 27 (indice 26)
+        iniciarNivelSeguro(26);
     }//GEN-LAST:event_b27ActionPerformed
 
     private void b28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b28ActionPerformed
-        // TODO add your handling code here:
+// Nivel 28 (indice 27)
+        iniciarNivelSeguro(27);
     }//GEN-LAST:event_b28ActionPerformed
 
     private void b29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b29ActionPerformed
-        // TODO add your handling code here:
+// Nivel 29 (indice 28)
+        iniciarNivelSeguro(28);
     }//GEN-LAST:event_b29ActionPerformed
 
     private void b30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b30ActionPerformed
-        // TODO add your handling code here:
+// Nivel 30 (indice 29)
+        iniciarNivelSeguro(29);
     }//GEN-LAST:event_b30ActionPerformed
 
     private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
-        // TODO add your handling code here:
+// Nivel 8 (indice 7)
+        iniciarNivelSeguro(7);
     }//GEN-LAST:event_b8ActionPerformed
 
     
