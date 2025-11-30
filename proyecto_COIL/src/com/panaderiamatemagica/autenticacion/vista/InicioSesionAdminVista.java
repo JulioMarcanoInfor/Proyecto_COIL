@@ -81,6 +81,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         });
         add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 326, 53));
 
+        txt2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
         txt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt2ActionPerformed(evt);
@@ -92,6 +93,8 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setText("CONTRASEÑA");
         add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 268, 250, 60));
+
+        txt1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
         add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 453, 37));
 
         label1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N

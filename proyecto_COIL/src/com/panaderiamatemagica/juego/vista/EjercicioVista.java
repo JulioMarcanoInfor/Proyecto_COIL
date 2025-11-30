@@ -50,8 +50,8 @@ public class EjercicioVista extends javax.swing.JPanel {
     fondoPanel.add(b2,"pos 4.8% 78%, w 301:301:301, h 100:100:100");
     fondoPanel.add(b3,"pos 75% 57%, w 301:301:301, h 100:100:100");
     fondoPanel.add(b4,"pos 75% 78%, w 301:301:301, h 100:100:100");
-    fondoPanel.add(label1,"pos 25% 12.68%, w 773:773:773, h 38:38:38");
-    fondoPanel.add(label2,"pos 25% 19.84%, w 773:773:773, h 38:38:38");
+    fondoPanel.add(label1,"pos 18.5% 12.68%, w 1100:1100:1100, h 60:60:60");
+    fondoPanel.add(label2,"pos 26% 19.84%, w 773:773:773, h 60:60:60");
     fondoPanel.add(barraProgreso, "pos 22% 4.5% , w 580:580:580, h 30:30:30");
     }
 
@@ -143,11 +143,11 @@ public class EjercicioVista extends javax.swing.JPanel {
         barraProgreso.setForeground(new java.awt.Color(51, 255, 0));
         add(barraProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 580, 30));
 
-        label1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setText("PREGUNTA");
-        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 78, 773, 38));
+        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 80, 820, 38));
 
         b3.setBackground(new java.awt.Color(0, 204, 0));
         b3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -194,11 +194,11 @@ public class EjercicioVista extends javax.swing.JPanel {
         add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 301, 100));
 
         label2.setBackground(new java.awt.Color(255, 255, 255));
-        label2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        label2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         label2.setForeground(new java.awt.Color(255, 255, 255));
         label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label2.setText("Descripción");
-        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 122, 773, 28));
+        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 122, 773, 40));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoAzulProfundo.png"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 670));

@@ -46,6 +46,7 @@ public class PantallaPrincipalVista extends javax.swing.JFrame {
         monitor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         monitor.setBackground(new java.awt.Color(255, 255, 255));
 
