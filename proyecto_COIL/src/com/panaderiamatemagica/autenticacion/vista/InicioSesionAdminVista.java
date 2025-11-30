@@ -5,7 +5,9 @@
 package com.panaderiamatemagica.autenticacion.vista;
 import com.panaderiamatemagica.autenticacion.controladores.administradores.AdministradorControladorInicioSesion;
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import javax.swing.JTextField;
+import net.miginfocom.swing.MigLayout;
 /**
  *
  * @author User
@@ -25,6 +27,28 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         
         this.router = router;
         initComponents();
+    FondoPanel fondoPanel = new FondoPanel("Panel Ovalado.jpg");
+    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    
+    // Remover componentes del diseño original
+    remove(label1);
+    remove(label2);
+    remove(txt1);
+    remove(txt2);
+    remove(boton);
+    
+    // Agregar componentes al fondoPanel con posiciones específicas
+    fondoPanel.add(label1, "pos 34.37% 9.09%, w 170:170:170, h 60:60:60");
+    fondoPanel.add(label2,"pos 28% 40%, w 250:250:250, h 60:60:60");
+    fondoPanel.add(txt1, "pos 12.5% 25.76%, w 453:453:453, h 37:37:37");
+    fondoPanel.add(txt2,"pos 12.5% 57.58%, w 453:453:453, h 37:37:37");
+    fondoPanel.add(boton, "pos 21.88% 77.27%, w 326:326:326, h 53:53:53");
     }
 
     /**
@@ -36,73 +60,73 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        txtcontrasenna = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtusuarioProfesor = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        boton = new javax.swing.JButton();
+        txt2 = new javax.swing.JTextField();
+        label2 = new javax.swing.JLabel();
+        txt1 = new javax.swing.JTextField();
+        label1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(640, 660));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(84, 180, 183));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("INGRESAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        boton.setBackground(new java.awt.Color(84, 180, 183));
+        boton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        boton.setForeground(new java.awt.Color(0, 0, 0));
+        boton.setText("INGRESAR");
+        boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 326, 53));
+        add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 326, 53));
 
-        txtcontrasenna.addActionListener(new java.awt.event.ActionListener() {
+        txt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcontrasennaActionPerformed(evt);
+                txt2ActionPerformed(evt);
             }
         });
-        add(txtcontrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 453, 37));
+        add(txt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 453, 37));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("CONTRASEÑA");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, -1, -1));
-        add(txtusuarioProfesor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 453, 37));
+        label2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        label2.setForeground(new java.awt.Color(0, 0, 0));
+        label2.setText("CONTRASEÑA");
+        add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 268, 250, 60));
+        add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 453, 37));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("USUARIO");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, -1, -1));
+        label1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        label1.setForeground(new java.awt.Color(0, 0, 0));
+        label1.setText("USUARIO");
+        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 170, 60));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
         // aqui va la loguica del inicio del profe.
         if (controlador.validarInicioSesion()) {
             router.mostrarAdminVista();
         }
         
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonActionPerformed
 
-    private void txtcontrasennaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontrasennaActionPerformed
+    private void txt2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtcontrasennaActionPerformed
+    }//GEN-LAST:event_txt2ActionPerformed
 
     
     // get
     public String getTxtcontrasenna() {
-        return txtcontrasenna.getText();
+        return txt2.getText();
     }
     
     public String getTxtusuarioProfesor() {
-        return txtusuarioProfesor.getText();
+        return txt1.getText();
     }    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtcontrasenna;
-    private javax.swing.JTextField txtusuarioProfesor;
+    private javax.swing.JButton boton;
+    private javax.swing.JLabel label1;
+    private javax.swing.JLabel label2;
+    private javax.swing.JTextField txt1;
+    private javax.swing.JTextField txt2;
     // End of variables declaration//GEN-END:variables
 }

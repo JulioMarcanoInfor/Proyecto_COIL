@@ -27,7 +27,7 @@ public class EjercicioVista extends javax.swing.JPanel {
         this.controlador = new EjercicioControladorVista(router, this);
         initComponents();
         
-        FondoPanel fondoPanel = new FondoPanel("fondoAzulProfundo.png");
+        FondoPanel fondoPanel = new FondoPanel("fondoAzulClaro.png");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
     
     // Configurar MigLayout en este panel principal
@@ -46,12 +46,13 @@ public class EjercicioVista extends javax.swing.JPanel {
     remove(label2);
     
     // Agregar componentes al fondoPanel con posiciones específicas
-    fondoPanel.add(b1, "pos 4.8% 56.91%, w 773:773:773, h 100:100:100");
-    fondoPanel.add(b2,"pos 4.8% 78%, w 773:773:773, h 100:100:100");
-    fondoPanel.add(b3,"pos 75% 57%, w 773:773:773, h 100:100:100");
-    fondoPanel.add(b4,"pos 75% 78%, w 773:773:773, h 100:100:100");
+    fondoPanel.add(b1, "pos 4.8% 56.91%, w 301:301:301, h 100:100:100");
+    fondoPanel.add(b2,"pos 4.8% 78%, w 301:301:301, h 100:100:100");
+    fondoPanel.add(b3,"pos 75% 57%, w 301:301:301, h 100:100:100");
+    fondoPanel.add(b4,"pos 75% 78%, w 301:301:301, h 100:100:100");
     fondoPanel.add(label1,"pos 25% 12.68%, w 773:773:773, h 38:38:38");
     fondoPanel.add(label2,"pos 25% 19.84%, w 773:773:773, h 38:38:38");
+    fondoPanel.add(barraProgreso, "pos 22% 4.5% , w 580:580:580, h 30:30:30");
     }
 
     // segun la metodoligia mvc esta bien colocar la funcion aqui.(tengo entendido).
@@ -93,20 +94,20 @@ public class EjercicioVista extends javax.swing.JPanel {
         // Actualizar la barra de progreso para mostrar vidas
         // 5 vidas = 100%, 0 vidas = 0%
         int porcentaje = (vidas * 100) / 5;
-        jProgressBar1.setValue(porcentaje);
+        barraProgreso.setValue(porcentaje);
 
         // Cambiar color según las vidas
         if (vidas >= 4) {
-            jProgressBar1.setForeground(new java.awt.Color(0, 200, 0)); // Verde
+            barraProgreso.setForeground(new java.awt.Color(0, 200, 0)); // Verde
         } else if (vidas >= 2) {
-            jProgressBar1.setForeground(new java.awt.Color(255, 200, 0)); // Amarillo
+            barraProgreso.setForeground(new java.awt.Color(255, 200, 0)); // Amarillo
         } else {
-            jProgressBar1.setForeground(new java.awt.Color(255, 0, 0)); // Rojo
+            barraProgreso.setForeground(new java.awt.Color(255, 0, 0)); // Rojo
         }
 
         // Opcional: Actualizar un label con el texto
-        jProgressBar1.setString("❤ Vidas: " + vidas + "/5");
-        jProgressBar1.setStringPainted(true);
+        barraProgreso.setString("❤ Vidas: " + vidas + "/5");
+        barraProgreso.setStringPainted(true);
     }
 
     /**
@@ -126,6 +127,7 @@ public class EjercicioVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        barraProgreso = new javax.swing.JProgressBar();
         label1 = new javax.swing.JLabel();
         b3 = new javax.swing.JButton();
         b2 = new javax.swing.JButton();
@@ -133,11 +135,13 @@ public class EjercicioVista extends javax.swing.JPanel {
         b1 = new javax.swing.JButton();
         label2 = new javax.swing.JLabel();
         fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
-        jProgressBar1 = new javax.swing.JProgressBar();
 
         setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        barraProgreso.setForeground(new java.awt.Color(51, 255, 0));
+        add(barraProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 580, 30));
 
         label1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
@@ -198,7 +202,6 @@ public class EjercicioVista extends javax.swing.JPanel {
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoAzulProfundo.png"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 670));
-        add(jProgressBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 580, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtrespuesta1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_txtrespuesta1ActionPerformed
@@ -265,8 +268,8 @@ public class EjercicioVista extends javax.swing.JPanel {
     private javax.swing.JButton b2;
     private javax.swing.JButton b3;
     private javax.swing.JButton b4;
+    private javax.swing.JProgressBar barraProgreso;
     private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
-    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label2;
     // End of variables declaration//GEN-END:variables
