@@ -145,6 +145,9 @@ public class Dimension4Vista extends javax.swing.JPanel {
         });
         add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 90, 80));
 
+        b1.setBackground(new java.awt.Color(255, 192, 0));
+        b1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b1.setForeground(new java.awt.Color(75, 50, 25));
         b1.setText("1");
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +156,9 @@ public class Dimension4Vista extends javax.swing.JPanel {
         });
         add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 62, -1));
 
+        b2.setBackground(new java.awt.Color(255, 192, 0));
+        b2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b2.setForeground(new java.awt.Color(75, 50, 25));
         b2.setText("2");
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +167,9 @@ public class Dimension4Vista extends javax.swing.JPanel {
         });
         add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 58, -1));
 
+        b3.setBackground(new java.awt.Color(255, 192, 0));
+        b3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b3.setForeground(new java.awt.Color(75, 50, 25));
         b3.setText("3");
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -169,116 +178,170 @@ public class Dimension4Vista extends javax.swing.JPanel {
         });
         add(b3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 67, -1));
 
-        b4.setBackground(new java.awt.Color(102, 102, 102));
-        b4.setText("JUGAR");
-        add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
+        b4.setBackground(new java.awt.Color(255, 192, 0));
+        b4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b4.setForeground(new java.awt.Color(75, 50, 25));
+        b4.setText("4");
+        add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 70, 20));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoD4.jpg"))); // NOI18N
         fondo.setText("jLabelReescalable1");
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 620));
 
-        b5.setBackground(new java.awt.Color(51, 255, 51));
-        b5.setText("JUGAR");
+        b5.setBackground(new java.awt.Color(255, 192, 0));
+        b5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b5.setForeground(new java.awt.Color(75, 50, 25));
+        b5.setText("5");
         add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b6.setBackground(new java.awt.Color(51, 255, 51));
-        b6.setText("JUGAR");
+        b6.setBackground(new java.awt.Color(255, 192, 0));
+        b6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b6.setForeground(new java.awt.Color(75, 50, 25));
+        b6.setText("6");
         add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b7.setBackground(new java.awt.Color(51, 255, 51));
-        b7.setText("JUGAR");
+        b7.setBackground(new java.awt.Color(255, 192, 0));
+        b7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b7.setForeground(new java.awt.Color(75, 50, 25));
+        b7.setText("7");
         add(b7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b8.setBackground(new java.awt.Color(51, 255, 51));
-        b8.setText("JUGAR");
+        b8.setBackground(new java.awt.Color(255, 192, 0));
+        b8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b8.setForeground(new java.awt.Color(75, 50, 25));
+        b8.setText("8");
         add(b8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b9.setBackground(new java.awt.Color(51, 255, 51));
-        b9.setText("JUGAR");
+        b9.setBackground(new java.awt.Color(255, 192, 0));
+        b9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b9.setForeground(new java.awt.Color(75, 50, 25));
+        b9.setText("9");
         add(b9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b10.setBackground(new java.awt.Color(51, 255, 51));
-        b10.setText("JUGAR");
+        b10.setBackground(new java.awt.Color(255, 192, 0));
+        b10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b10.setForeground(new java.awt.Color(75, 50, 25));
+        b10.setText("10");
         add(b10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b11.setBackground(new java.awt.Color(51, 255, 51));
-        b11.setText("JUGAR");
+        b11.setBackground(new java.awt.Color(255, 192, 0));
+        b11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b11.setForeground(new java.awt.Color(75, 50, 25));
+        b11.setText("11");
         add(b11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b12.setBackground(new java.awt.Color(51, 255, 51));
-        b12.setText("JUGAR");
+        b12.setBackground(new java.awt.Color(255, 192, 0));
+        b12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b12.setForeground(new java.awt.Color(75, 50, 25));
+        b12.setText("12");
         add(b12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b13.setBackground(new java.awt.Color(51, 255, 51));
-        b13.setText("JUGAR");
+        b13.setBackground(new java.awt.Color(255, 192, 0));
+        b13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b13.setForeground(new java.awt.Color(75, 50, 25));
+        b13.setText("13");
         add(b13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b14.setBackground(new java.awt.Color(51, 255, 51));
-        b14.setText("JUGAR");
+        b14.setBackground(new java.awt.Color(255, 192, 0));
+        b14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b14.setForeground(new java.awt.Color(75, 50, 25));
+        b14.setText("14");
         add(b14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b15.setBackground(new java.awt.Color(51, 255, 51));
-        b15.setText("JUGAR");
+        b15.setBackground(new java.awt.Color(255, 192, 0));
+        b15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b15.setForeground(new java.awt.Color(75, 50, 25));
+        b15.setText("15");
         add(b15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b16.setBackground(new java.awt.Color(51, 255, 51));
-        b16.setText("JUGAR");
+        b16.setBackground(new java.awt.Color(255, 192, 0));
+        b16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b16.setForeground(new java.awt.Color(75, 50, 25));
+        b16.setText("16");
         add(b16, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b17.setBackground(new java.awt.Color(51, 255, 51));
-        b17.setText("JUGAR");
+        b17.setBackground(new java.awt.Color(255, 192, 0));
+        b17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b17.setForeground(new java.awt.Color(75, 50, 25));
+        b17.setText("17");
         add(b17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b18.setBackground(new java.awt.Color(51, 255, 51));
-        b18.setText("JUGAR");
+        b18.setBackground(new java.awt.Color(255, 192, 0));
+        b18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b18.setForeground(new java.awt.Color(75, 50, 25));
+        b18.setText("18");
         add(b18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b19.setBackground(new java.awt.Color(51, 255, 51));
-        b19.setText("JUGAR");
+        b19.setBackground(new java.awt.Color(255, 192, 0));
+        b19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b19.setForeground(new java.awt.Color(75, 50, 25));
+        b19.setText("19");
         add(b19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b20.setBackground(new java.awt.Color(51, 255, 51));
-        b20.setText("JUGAR");
+        b20.setBackground(new java.awt.Color(255, 192, 0));
+        b20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b20.setForeground(new java.awt.Color(75, 50, 25));
+        b20.setText("20");
         add(b20, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b21.setBackground(new java.awt.Color(51, 255, 51));
-        b21.setText("JUGAR");
+        b21.setBackground(new java.awt.Color(255, 192, 0));
+        b21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b21.setForeground(new java.awt.Color(75, 50, 25));
+        b21.setText("21");
         add(b21, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b22.setBackground(new java.awt.Color(51, 255, 51));
-        b22.setText("JUGAR");
+        b22.setBackground(new java.awt.Color(255, 192, 0));
+        b22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b22.setForeground(new java.awt.Color(75, 50, 25));
+        b22.setText("22");
         add(b22, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b23.setBackground(new java.awt.Color(51, 255, 51));
-        b23.setText("JUGAR");
+        b23.setBackground(new java.awt.Color(255, 192, 0));
+        b23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b23.setForeground(new java.awt.Color(75, 50, 25));
+        b23.setText("23");
         add(b23, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b24.setBackground(new java.awt.Color(51, 255, 51));
-        b24.setText("JUGAR");
+        b24.setBackground(new java.awt.Color(255, 192, 0));
+        b24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b24.setForeground(new java.awt.Color(75, 50, 25));
+        b24.setText("24");
         add(b24, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b25.setBackground(new java.awt.Color(51, 255, 51));
-        b25.setText("JUGAR");
+        b25.setBackground(new java.awt.Color(255, 192, 0));
+        b25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b25.setForeground(new java.awt.Color(75, 50, 25));
+        b25.setText("25");
         add(b25, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b26.setBackground(new java.awt.Color(51, 255, 51));
-        b26.setText("JUGAR");
+        b26.setBackground(new java.awt.Color(255, 192, 0));
+        b26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b26.setForeground(new java.awt.Color(75, 50, 25));
+        b26.setText("26");
         add(b26, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b27.setBackground(new java.awt.Color(51, 255, 51));
-        b27.setText("JUGAR");
+        b27.setBackground(new java.awt.Color(255, 192, 0));
+        b27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b27.setForeground(new java.awt.Color(75, 50, 25));
+        b27.setText("27");
         add(b27, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b28.setBackground(new java.awt.Color(51, 255, 51));
-        b28.setText("JUGAR");
+        b28.setBackground(new java.awt.Color(255, 192, 0));
+        b28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b28.setForeground(new java.awt.Color(75, 50, 25));
+        b28.setText("28");
         add(b28, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b29.setBackground(new java.awt.Color(51, 255, 51));
-        b29.setText("JUGAR");
+        b29.setBackground(new java.awt.Color(255, 192, 0));
+        b29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b29.setForeground(new java.awt.Color(75, 50, 25));
+        b29.setText("29");
         add(b29, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
-        b30.setBackground(new java.awt.Color(51, 255, 51));
-        b30.setText("JUGAR");
+        b30.setBackground(new java.awt.Color(255, 192, 0));
+        b30.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b30.setForeground(new java.awt.Color(75, 50, 25));
+        b30.setText("30");
         add(b30, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
     }// </editor-fold>//GEN-END:initComponents
 

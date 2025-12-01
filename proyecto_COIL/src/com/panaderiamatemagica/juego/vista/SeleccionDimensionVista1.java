@@ -35,17 +35,54 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     remove(d3);
     remove(d4);
     remove(d5);
+    
     remove(boton);
-    remove(fondo);
     remove(volver);
     
-    fondoPanel.add(d1, "pos 25% 67.80% , w 20:20:20 , h 30:30:30");
-    fondoPanel.add(d2, "pos 39% 68.29% , w 20:20:20 , h 30:30:30");
-    fondoPanel.add(d3, "pos 50% 68.29% , w 20:20:20 , h 30:30:30");
-    fondoPanel.add(d4, "pos 61% 68.29% , w 20:20:20 , h 30:30:30");
-    fondoPanel.add(d5, "pos 71% 68.29% , w 20:20:20 , h 30:30:30");
+    remove(fondo);
+    
+    remove(arena);
+    remove(arepa);
+    
+    remove(rosca);
+    remove(rocosa);
+    
+    remove(torbellino);
+    remove(tequeño);
+    
+    remove(cancha);
+    remove(concha);
+    
+    remove(pradera);
+    remove(palmera);
+    
+    remove(titulo);
+    
+    fondoPanel.add(d1, "pos 25% 67.80% , w 40:40:40 , h 30:30:30");
+    fondoPanel.add(d2, "pos 39% 68.29% , w 40:40:40 , h 30:30:30");
+    fondoPanel.add(d3, "pos 50% 68.29% , w 40:40:40 , h 30:30:30");
+    fondoPanel.add(d4, "pos 61% 68.29% , w 40:40:40 , h 30:30:30");
+    fondoPanel.add(d5, "pos 71% 68.29% , w 40:40:40 , h 30:30:30");
+    
     fondoPanel.add(boton, "pos 40% 82.93%, w 290:290:290 , h 70:70:70");
     fondoPanel.add(volver, "pos 86% 84%, w 80:80:80, h 60:60:60");
+    
+    fondoPanel.add(arena , "pos  22.1% 68.29%, w 100:100:100 , h 60:60:60");
+    fondoPanel.add(arepa , "pos  22.1% 71.54% , w 100:100:100 , h 60:60:60");
+    
+    fondoPanel.add(rosca , "pos 34.81% 68.29% , w 100:100:100 , h 60:60:60");
+    fondoPanel.add(rocosa , "pos 36.3% 71.54% , w 100:100:100 , h 60:60:60");
+    
+    fondoPanel.add(torbellino , "pos 47% 68.29% , w 100:100:100 , h 60:60:60");
+    fondoPanel.add(tequeño , "pos 47.8% 71.54% , w 100:100:100 , h 60:60:60");
+    
+    fondoPanel.add(cancha , "pos 58.22% 68.29% , w 100:100:100 , h 60:60:60");
+    fondoPanel.add(concha , "pos 58.22% 71.54% , w 100:100:100 , h 60:60:60");
+    
+    fondoPanel.add(pradera , "pos 68.1% 68.29% , w 100:100:100 , h 60:60:60");
+    fondoPanel.add(palmera , "pos 68.1% 71.54% , w 100:100:100 , h 60:60:60");
+    
+    fondoPanel.add(titulo, "pos 30.80% 29.27%, w 590:590:590, h 60:60:60");
     }
     
     /**
@@ -58,16 +95,6 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
         d1 = new javax.swing.JRadioButton();
         d3 = new javax.swing.JRadioButton();
         d2 = new javax.swing.JRadioButton();
@@ -75,146 +102,67 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
         d5 = new javax.swing.JRadioButton();
         boton = new javax.swing.JButton();
         volver = new javax.swing.JButton();
+        cancha = new javax.swing.JLabel();
+        arepa = new javax.swing.JLabel();
+        arena = new javax.swing.JLabel();
+        rosca = new javax.swing.JLabel();
+        tequeño = new javax.swing.JLabel();
+        rocosa = new javax.swing.JLabel();
+        pradera = new javax.swing.JLabel();
+        torbellino = new javax.swing.JLabel();
+        palmera = new javax.swing.JLabel();
+        concha = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
         fondo = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField2.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField2.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField2.setText("Arena ");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, -1, -1));
-
-        jTextField1.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField1.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField1.setText("Torbellino");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 250, 110, 40));
-
-        jTextField9.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField9.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField9.setText("Palmera");
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
-            }
-        });
-        add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 90, 40));
-
-        jTextField4.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField4.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField4.setText("Rocosa");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, 40));
-
-        jTextField3.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField3.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField3.setText("Rosca ");
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 70, 40));
-
-        jTextField6.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField6.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField6.setText("Cancha");
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
-            }
-        });
-        add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 90, 40));
-
-        jTextField8.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField8.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField8.setText("Concha");
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
-            }
-        });
-        add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 90, 40));
-
-        jTextField5.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField5.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField5.setText("Arepa");
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
-            }
-        });
-        add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
-
-        jTextField10.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField10.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField10.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField10.setText("Pradera");
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-        add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 220, 90, 40));
-
-        jTextField7.setBackground(new java.awt.Color(255, 228, 196));
-        jTextField7.setFont(new java.awt.Font("Segoe UI Semibold", 1, 18)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(0, 0, 0));
-        jTextField7.setText("Tequeño  ");
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
-            }
-        });
-        add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 220, 110, 40));
-
         buttonGroup1.add(d1);
+        d1.setForeground(new java.awt.Color(255, 255, 255));
         d1.setActionCommand("d1");
+        d1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        d1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deseleccionado.png"))); // NOI18N
+        d1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seleccionado.png"))); // NOI18N
         add(d1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, 20, 30));
 
         buttonGroup1.add(d3);
         d3.setActionCommand("d3");
+        d3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deseleccionado.png"))); // NOI18N
+        d3.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seleccionado.png"))); // NOI18N
         add(d3, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 420, 20, 30));
 
         buttonGroup1.add(d2);
         d2.setActionCommand("d2");
+        d2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deseleccionado.png"))); // NOI18N
+        d2.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seleccionado.png"))); // NOI18N
         add(d2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 420, 20, 30));
 
         buttonGroup1.add(d4);
         d4.setActionCommand("d4");
+        d4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deseleccionado.png"))); // NOI18N
+        d4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seleccionado.png"))); // NOI18N
         add(d4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 420, 20, 30));
 
         buttonGroup1.add(d5);
         d5.setActionCommand("d5");
+        d5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/deseleccionado.png"))); // NOI18N
+        d5.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/seleccionado.png"))); // NOI18N
         add(d5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 420, 30, 30));
 
+        boton.setBackground(new java.awt.Color(51, 255, 51));
+        boton.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        boton.setForeground(new java.awt.Color(0, 0, 0));
         boton.setText("CONTINUAR");
         boton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         boton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonActionPerformed(evt);
+            }
+        });
+        boton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                botonKeyPressed(evt);
             }
         });
         add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 510, 290, 70));
@@ -227,6 +175,72 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
             }
         });
         add(volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 520, 80, 60));
+
+        cancha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        cancha.setForeground(new java.awt.Color(0, 0, 0));
+        cancha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        cancha.setText("Cancha");
+        add(cancha, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, 100, 60));
+
+        arepa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        arepa.setForeground(new java.awt.Color(0, 0, 0));
+        arepa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        arepa.setText("Arepa");
+        add(arepa, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, 60, 60));
+
+        arena.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        arena.setForeground(new java.awt.Color(0, 0, 0));
+        arena.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        arena.setText("Arena");
+        add(arena, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 60, 60));
+
+        rosca.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rosca.setForeground(new java.awt.Color(0, 0, 0));
+        rosca.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        rosca.setText("Rosca");
+        add(rosca, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 420, 60, 60));
+
+        tequeño.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        tequeño.setForeground(new java.awt.Color(0, 0, 0));
+        tequeño.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        tequeño.setText("Tequeño");
+        add(tequeño, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 440, 90, 60));
+
+        rocosa.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        rocosa.setForeground(new java.awt.Color(0, 0, 0));
+        rocosa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        rocosa.setText("Rocosa");
+        add(rocosa, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, 70, 60));
+
+        pradera.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        pradera.setForeground(new java.awt.Color(0, 0, 0));
+        pradera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        pradera.setText("Pradera");
+        add(pradera, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 100, 60));
+
+        torbellino.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        torbellino.setForeground(new java.awt.Color(0, 0, 0));
+        torbellino.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        torbellino.setText("Torbellino");
+        add(torbellino, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 100, 60));
+
+        palmera.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        palmera.setForeground(new java.awt.Color(0, 0, 0));
+        palmera.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        palmera.setText("Palmera");
+        add(palmera, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 440, 100, 60));
+
+        concha.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        concha.setForeground(new java.awt.Color(0, 0, 0));
+        concha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        concha.setText("Concha");
+        add(concha, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 440, 100, 60));
+
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        titulo.setForeground(new java.awt.Color(0, 0, 0));
+        titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titulo.setText("SELECCIONA TU DIMENSIÓN");
+        add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 180, 590, 40));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoSeleccionDimension.png"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 610));
@@ -275,66 +289,31 @@ public class SeleccionDimensionVista1 extends javax.swing.JPanel {
 
     }//GEN-LAST:event_botonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void botonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_botonKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
-
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
-
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
-
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
+    }//GEN-LAST:event_botonKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel arena;
+    private javax.swing.JLabel arepa;
     private javax.swing.JButton boton;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel cancha;
+    private javax.swing.JLabel concha;
     private javax.swing.JRadioButton d1;
     private javax.swing.JRadioButton d2;
     private javax.swing.JRadioButton d3;
     private javax.swing.JRadioButton d4;
     private javax.swing.JRadioButton d5;
     private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable fondo;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel palmera;
+    private javax.swing.JLabel pradera;
+    private javax.swing.JLabel rocosa;
+    private javax.swing.JLabel rosca;
+    private javax.swing.JLabel tequeño;
+    private javax.swing.JLabel titulo;
+    private javax.swing.JLabel torbellino;
     private javax.swing.JButton volver;
     // End of variables declaration//GEN-END:variables
 }

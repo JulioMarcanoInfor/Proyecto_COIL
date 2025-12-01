@@ -12,7 +12,8 @@ import java.util.ArrayList;
  */
 public class EjercicioModelo {
     private int id_Ejercicio;
-    private String pregunta;
+    private String pregunta1;
+    private String pregunta2;
     private int dificultad;
     private int grado;
     private String dimension;
@@ -26,7 +27,7 @@ public class EjercicioModelo {
     // constructor1
     public EjercicioModelo(String pregunta, int dificultad, int grado, String dimension, String pista, String tutorial,
             ArrayList<String> opcionesRespuestas, int numRespuesta, String descripcion) {
-        this.pregunta = pregunta;
+        this.pregunta1 = pregunta;
         this.dificultad = dificultad;
         this.grado = grado;
         this.dimension = dimension;
@@ -39,7 +40,7 @@ public class EjercicioModelo {
 
     // constructor2.
     public EjercicioModelo() {
-        this.pregunta = "";
+        this.pregunta1 = "";
         this.dificultad = 0;
         this.grado = 0;
         this.dimension = "";
@@ -53,11 +54,11 @@ public class EjercicioModelo {
     // get y set
 
     public String getPregunta() {
-        return pregunta;
+        return pregunta1;
     }
 
     public void setPregunta(String pregunta) {
-        this.pregunta = pregunta;
+        this.pregunta1 = pregunta;
     }
 
     public int getDificultad() {

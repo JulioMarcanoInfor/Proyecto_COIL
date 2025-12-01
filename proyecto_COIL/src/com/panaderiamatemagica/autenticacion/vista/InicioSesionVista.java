@@ -12,9 +12,16 @@ import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import javax.swing.JTextField;
 import javax.imageio.ImageIO;
 import java.io.IOException;
+import javax.swing.AbstractAction;
+import javax.swing.ActionMap;
+import javax.swing.InputMap;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -82,6 +89,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
                 routerA.mostrarRegistro();
             }
         });
+        configurarEnterKeyBinding();
     }
 
     @SuppressWarnings("unchecked")
@@ -164,7 +172,10 @@ public class InicioSesionVista extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cajaTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaTextoActionPerformed
-        // TODO add your handling code here:
+        if (objetoControlador.validarUsuario()) {
+            routerP.mostrarSeleccionDimension1();
+            vaciarTextField();
+        }
     }//GEN-LAST:event_cajaTextoActionPerformed
 
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonIniciarSesionActionPerformed
@@ -185,6 +196,36 @@ public class InicioSesionVista extends javax.swing.JPanel {
     private void botonIniciarSesionMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonIniciarSesionMouseExited
         botonIniciarSesion.setBackground(new Color(117, 183, 168));
     }// GEN-LAST:event_botonIniciarSesionMouseExited
+    
+    private void configurarEnterKeyBinding() {
+        
+        // Obtenemos los mapas de entrada y acción DE ESTE PANEL ('this').
+        // Usamos JComponent.WHEN_IN_FOCUSED_WINDOW para que se active cuando este panel esté visible
+        // Y dentro de una ventana enfocada.
+        InputMap inputMap = this.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
+        ActionMap actionMap = this.getActionMap();
+
+        // 1. Definir la tecla: ENTER sin modificadores.
+        KeyStroke teclaEnter = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0);
+        
+        // 2. Definir un nombre único para la acción.
+        String nombreAccionEnter = "ejecutarEnterEnLogin";
+        
+        // 3. Mapear la tecla al nombre de la acción.
+        inputMap.put(teclaEnter, nombreAccionEnter);
+
+        // 4. Mapear el nombre de la acción a la lógica.
+        actionMap.put(nombreAccionEnter, new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Llamamos a la función con la lógica de tu botón
+                if (objetoControlador.validarUsuario()) {
+            routerP.mostrarSeleccionDimension1();
+            vaciarTextField();
+        } 
+            }
+        });
+    }
 
     public String getTxtapodo() {
         return cajaTexto.getText();

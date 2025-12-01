@@ -135,6 +135,9 @@ public class Dimension5Vista extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        b1.setBackground(new java.awt.Color(153, 51, 255));
+        b1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b1.setForeground(new java.awt.Color(255, 255, 255));
         b1.setText("1");
         b1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +146,9 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 58, -1));
 
+        b2.setBackground(new java.awt.Color(153, 51, 255));
+        b2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b2.setForeground(new java.awt.Color(255, 255, 255));
         b2.setText("2");
         b2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +157,9 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 57, -1));
 
+        b3.setBackground(new java.awt.Color(153, 51, 255));
+        b3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b3.setForeground(new java.awt.Color(255, 255, 255));
         b3.setText("3");
         b3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -171,7 +180,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoD5.jpg"))); // NOI18N
         add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 620));
 
-        b4.setText("3");
+        b4.setBackground(new java.awt.Color(153, 51, 255));
+        b4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b4.setForeground(new java.awt.Color(255, 255, 255));
+        b4.setText("4");
         b4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b4ActionPerformed(evt);
@@ -179,7 +191,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b5.setText("3");
+        b5.setBackground(new java.awt.Color(153, 51, 255));
+        b5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b5.setForeground(new java.awt.Color(255, 255, 255));
+        b5.setText("5");
         b5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b5ActionPerformed(evt);
@@ -187,7 +202,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b6.setText("3");
+        b6.setBackground(new java.awt.Color(153, 51, 255));
+        b6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b6.setForeground(new java.awt.Color(255, 255, 255));
+        b6.setText("6");
         b6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b6ActionPerformed(evt);
@@ -195,7 +213,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b7.setText("3");
+        b7.setBackground(new java.awt.Color(153, 51, 255));
+        b7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b7.setForeground(new java.awt.Color(255, 255, 255));
+        b7.setText("7");
         b7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b7ActionPerformed(evt);
@@ -203,7 +224,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b7, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b8.setText("3");
+        b8.setBackground(new java.awt.Color(153, 51, 255));
+        b8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b8.setForeground(new java.awt.Color(255, 255, 255));
+        b8.setText("8");
         b8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b8ActionPerformed(evt);
@@ -211,7 +235,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b9.setText("3");
+        b9.setBackground(new java.awt.Color(153, 51, 255));
+        b9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b9.setForeground(new java.awt.Color(255, 255, 255));
+        b9.setText("9");
         b9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b9ActionPerformed(evt);
@@ -219,7 +246,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b10.setText("3");
+        b10.setBackground(new java.awt.Color(153, 51, 255));
+        b10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b10.setForeground(new java.awt.Color(255, 255, 255));
+        b10.setText("10");
         b10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b10ActionPerformed(evt);
@@ -227,7 +257,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b11.setText("3");
+        b11.setBackground(new java.awt.Color(153, 51, 255));
+        b11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b11.setForeground(new java.awt.Color(255, 255, 255));
+        b11.setText("11");
         b11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b11ActionPerformed(evt);
@@ -235,7 +268,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b12.setText("3");
+        b12.setBackground(new java.awt.Color(153, 51, 255));
+        b12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b12.setForeground(new java.awt.Color(255, 255, 255));
+        b12.setText("12");
         b12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b12ActionPerformed(evt);
@@ -243,7 +279,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b13.setText("3");
+        b13.setBackground(new java.awt.Color(153, 51, 255));
+        b13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b13.setForeground(new java.awt.Color(255, 255, 255));
+        b13.setText("13");
         b13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b13ActionPerformed(evt);
@@ -251,7 +290,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b14.setText("3");
+        b14.setBackground(new java.awt.Color(153, 51, 255));
+        b14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b14.setForeground(new java.awt.Color(255, 255, 255));
+        b14.setText("14");
         b14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b14ActionPerformed(evt);
@@ -259,7 +301,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b15.setText("3");
+        b15.setBackground(new java.awt.Color(153, 51, 255));
+        b15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b15.setForeground(new java.awt.Color(255, 255, 255));
+        b15.setText("15");
         b15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b15ActionPerformed(evt);
@@ -267,7 +312,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b16.setText("3");
+        b16.setBackground(new java.awt.Color(153, 51, 255));
+        b16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b16.setForeground(new java.awt.Color(255, 255, 255));
+        b16.setText("16");
         b16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b16ActionPerformed(evt);
@@ -275,7 +323,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b17.setText("3");
+        b17.setBackground(new java.awt.Color(153, 51, 255));
+        b17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b17.setForeground(new java.awt.Color(255, 255, 255));
+        b17.setText("17");
         b17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b17ActionPerformed(evt);
@@ -283,7 +334,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b17, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b18.setText("3");
+        b18.setBackground(new java.awt.Color(153, 51, 255));
+        b18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b18.setForeground(new java.awt.Color(255, 255, 255));
+        b18.setText("18");
         b18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b18ActionPerformed(evt);
@@ -291,7 +345,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b19.setText("3");
+        b19.setBackground(new java.awt.Color(153, 51, 255));
+        b19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b19.setForeground(new java.awt.Color(255, 255, 255));
+        b19.setText("19");
         b19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b19ActionPerformed(evt);
@@ -299,7 +356,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b19, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b20.setText("3");
+        b20.setBackground(new java.awt.Color(153, 51, 255));
+        b20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b20.setForeground(new java.awt.Color(255, 255, 255));
+        b20.setText("20");
         b20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b20ActionPerformed(evt);
@@ -307,7 +367,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b20, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b21.setText("3");
+        b21.setBackground(new java.awt.Color(153, 51, 255));
+        b21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b21.setForeground(new java.awt.Color(255, 255, 255));
+        b21.setText("21");
         b21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b21ActionPerformed(evt);
@@ -315,7 +378,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b22.setText("3");
+        b22.setBackground(new java.awt.Color(153, 51, 255));
+        b22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b22.setForeground(new java.awt.Color(255, 255, 255));
+        b22.setText("22");
         b22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b22ActionPerformed(evt);
@@ -323,7 +389,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b23.setText("3");
+        b23.setBackground(new java.awt.Color(153, 51, 255));
+        b23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b23.setForeground(new java.awt.Color(255, 255, 255));
+        b23.setText("23");
         b23.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b23ActionPerformed(evt);
@@ -331,7 +400,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b23, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b24.setText("3");
+        b24.setBackground(new java.awt.Color(153, 51, 255));
+        b24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b24.setForeground(new java.awt.Color(255, 255, 255));
+        b24.setText("24");
         b24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b24ActionPerformed(evt);
@@ -339,7 +411,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b24, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b25.setText("3");
+        b25.setBackground(new java.awt.Color(153, 51, 255));
+        b25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b25.setForeground(new java.awt.Color(255, 255, 255));
+        b25.setText("25");
         b25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b25ActionPerformed(evt);
@@ -347,7 +422,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b25, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b26.setText("3");
+        b26.setBackground(new java.awt.Color(153, 51, 255));
+        b26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b26.setForeground(new java.awt.Color(255, 255, 255));
+        b26.setText("26");
         b26.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b26ActionPerformed(evt);
@@ -355,7 +433,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b26, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b27.setText("3");
+        b27.setBackground(new java.awt.Color(153, 51, 255));
+        b27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b27.setForeground(new java.awt.Color(255, 255, 255));
+        b27.setText("27");
         b27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b27ActionPerformed(evt);
@@ -363,7 +444,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b27, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b28.setText("3");
+        b28.setBackground(new java.awt.Color(153, 51, 255));
+        b28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b28.setForeground(new java.awt.Color(255, 255, 255));
+        b28.setText("28");
         b28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b28ActionPerformed(evt);
@@ -371,7 +455,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b28, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b29.setText("3");
+        b29.setBackground(new java.awt.Color(153, 51, 255));
+        b29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b29.setForeground(new java.awt.Color(255, 255, 255));
+        b29.setText("29");
         b29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b29ActionPerformed(evt);
@@ -379,7 +466,10 @@ public class Dimension5Vista extends javax.swing.JPanel {
         });
         add(b29, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 57, -1));
 
-        b30.setText("3");
+        b30.setBackground(new java.awt.Color(153, 51, 255));
+        b30.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        b30.setForeground(new java.awt.Color(255, 255, 255));
+        b30.setText("30");
         b30.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 b30ActionPerformed(evt);
