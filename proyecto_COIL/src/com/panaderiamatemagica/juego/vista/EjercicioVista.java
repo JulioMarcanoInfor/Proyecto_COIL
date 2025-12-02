@@ -52,7 +52,7 @@ public class EjercicioVista extends javax.swing.JPanel {
     fondoPanel.add(b4,"pos 75% 78%, w 301:301:301, h 100:100:100");
     fondoPanel.add(label1,"pos 18.5% 12.68%, w 1100:1100:1100, h 60:60:60");
     fondoPanel.add(label2,"pos 26% 19.84%, w 773:773:773, h 60:60:60");
-    fondoPanel.add(barraProgreso, "pos 22% 4.5% , w 580:580:580, h 30:30:30");
+    fondoPanel.add(barraProgreso, "pos 18% 4.5% , w 1000:1000:1000, h 60:60:60");
     }
 
     // segun la metodoligia mvc esta bien colocar la funcion aqui.(tengo entendido).
@@ -97,12 +97,10 @@ public class EjercicioVista extends javax.swing.JPanel {
         barraProgreso.setValue(porcentaje);
 
         // Cambiar color según las vidas
-        if (vidas >= 4) {
+        if (vidas >= 3) {
             barraProgreso.setForeground(new java.awt.Color(0, 200, 0)); // Verde
-        } else if (vidas >= 2) {
-            barraProgreso.setForeground(new java.awt.Color(255, 200, 0)); // Amarillo
         } else {
-            barraProgreso.setForeground(new java.awt.Color(255, 0, 0)); // Rojo
+            barraProgreso.setForeground(new java.awt.Color(255, 200, 0)); // amarillo
         }
 
         // Opcional: Actualizar un label con el texto
@@ -140,10 +138,12 @@ public class EjercicioVista extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(833, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        barraProgreso.setBackground(new java.awt.Color(255, 0, 0));
+        barraProgreso.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         barraProgreso.setForeground(new java.awt.Color(51, 255, 0));
         add(barraProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 580, 30));
 
-        label1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        label1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setText("PREGUNTA");
@@ -194,7 +194,7 @@ public class EjercicioVista extends javax.swing.JPanel {
         add(b1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 301, 100));
 
         label2.setBackground(new java.awt.Color(255, 255, 255));
-        label2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        label2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         label2.setForeground(new java.awt.Color(255, 255, 255));
         label2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label2.setText("Descripción");

@@ -21,15 +21,22 @@ import net.miginfocom.swing.MigLayout;
  * @author User
  */
 public class FondoAutenticacionVista extends javax.swing.JPanel {
-    private RouterControlador routerP;
-    private RouterAutenticacionControlador routerA;
-    private CardLayout pantallasAutenticacion;
-
+    public RouterControlador routerP;
+    public RouterAutenticacionControlador routerA;
+    public CardLayout pantallasAutenticacion;
+    private RecuperarContraseñaVista pantallaRecuperarContraseña;
+    
     public FondoAutenticacionVista(RouterControlador routerP, RouterAutenticacionControlador routerA) {
         this.routerP = routerP;
         this.routerA = routerA;
+        
+        
         initComponents();
         inicializarPantallas();
+        
+        pantallaRecuperarContraseña = new RecuperarContraseñaVista(routerP);
+        monitor.add(pantallaRecuperarContraseña, "RECUPERAR");
+        
 
     FondoPanel fondoPanel = new FondoPanel("fondoAutenticacion.jpg");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
@@ -49,13 +56,13 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     fondoPanel.add(botonVolver,"pos 93% 90%, w 96:96:96, h 57:57:57");
 }
 
-    private void inicializarPantallas() {
-        pantallasAutenticacion = (CardLayout) monitor.getLayout();
-        
-    }
 
     public void mostrarSeleccionRol() {
         pantallasAutenticacion.show(monitor, "ROL");
+    }
+    private void inicializarPantallas() {
+        pantallasAutenticacion = (CardLayout) monitor.getLayout();
+        
     }
 
     public void mostrarIniciarSesion() {
@@ -77,8 +84,8 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
 }
     
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated
+    @SuppressWarnings("checked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -144,7 +151,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
                                 .addGap(470, 470, 470)));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {
+    public void botonVolverActionPerformed(java.awt.event.ActionEvent evt) {
         if (pantallaRegistro.isVisible()) {
             mostrarIniciarSesion();
         } else if (pantallaInicioSesion.isVisible()) {
@@ -155,19 +162,19 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         }
     }
 
-    private void botonVolverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonVolverMouseEntered
+    public void botonVolverMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonVolverMouseEntered
         botonVolver.setBackground(new Color(85, 208, 82));
     }// GEN-LAST:event_botonVolverMouseEntered
 
-    private void botonVolverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonVolverMouseExited
+    public void botonVolverMouseExited(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_botonVolverMouseExited
         botonVolver.setBackground(new Color(117, 183, 168));
     }// GEN-LAST:event_botonVolverMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonVolver;
-    private javax.swing.JPanel monitor;
-    private com.panaderiamatemagica.autenticacion.vista.InicioSesionVista pantallaInicioSesion;
-    private com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista pantallaSeleccionRol;
-    private com.panaderiamatemagica.autenticacion.vista.RegistroVista pantallaRegistro;
+    public javax.swing.JButton botonVolver;
+    public javax.swing.JPanel monitor;
+    public com.panaderiamatemagica.autenticacion.vista.InicioSesionVista pantallaInicioSesion;
+    public com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista pantallaSeleccionRol;
+    public com.panaderiamatemagica.autenticacion.vista.RegistroVista pantallaRegistro;
     // End of variables declaration//GEN-END:variables
 }

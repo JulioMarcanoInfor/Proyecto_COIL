@@ -156,6 +156,11 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label3.setText("<html><u>Regístrate</u></html>");
         label3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label3MouseClicked(evt);
+            }
+        });
         add(label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 580, 280, 30));
 
         label2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
@@ -168,6 +173,11 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setText("<html><u>¿Olvidaste tu contraseña?</u></html>");
         label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        label1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                label1MouseClicked(evt);
+            }
+        });
         add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 300, 50));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -177,6 +187,14 @@ public class InicioSesionVista extends javax.swing.JPanel {
             vaciarTextField();
         }
     }//GEN-LAST:event_cajaTextoActionPerformed
+
+    private void label1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label1MouseClicked
+        routerA.mostrarRecuperarContraseñaVista();
+    }//GEN-LAST:event_label1MouseClicked
+
+    private void label3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label3MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_label3MouseClicked
 
     private void botonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_botonIniciarSesionActionPerformed
         if (objetoControlador.validarUsuario()) {

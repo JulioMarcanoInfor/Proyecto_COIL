@@ -5,6 +5,7 @@
 package com.panaderiamatemagica.admin.vista;
 
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
+import com.panaderiamatemagica.core.dao.AlumnoDAO;
 
 /**
  *
@@ -12,12 +13,15 @@ import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
  */
 public class AdministracionCuentasVista extends javax.swing.JPanel {
     private RouterAdminControlador routerAdmin;
+    private AlumnoDAO configuracionTabla;
     /**
      * Creates new form AdministracionCuentasVista
      */
     public AdministracionCuentasVista(RouterAdminControlador routerAdmin) {
         this.routerAdmin = routerAdmin;
+        configuracionTabla = new AlumnoDAO();
         initComponents();
+        configuracionTabla.MostrarAlumnos(jTable1, "");
     }
 
     /**
@@ -29,77 +33,33 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(255, 228, 196));
         setForeground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(555, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jList1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jScrollPane1.setViewportView(jList1);
-
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 222, 147, 217));
-
-        jButton1.setBackground(new java.awt.Color(84, 180, 183));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("BUSCAR CUENTA");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 172, -1, -1));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("BUSCAR CUENTA POR NOMBRE");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 47, 280, 44));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 123, 367, 43));
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
-        jButton2.setBackground(new java.awt.Color(84, 180, 183));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("GESTIONAR INFORMACIÓN DE CUENTA");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 494, -1, 66));
-        add(jScrollBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(333, 222, -1, 217));
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 840, 390));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,17 +4,54 @@
  */
 package com.panaderiamatemagica.autenticacion.vista;
 
+import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import net.miginfocom.swing.MigLayout;
+
 /**
  *
  * @author User
  */
 public class RecuperarContraseñaVista extends javax.swing.JPanel {
-
+    private RouterControlador router;
     /**
      * Creates new form RecuperarContraseñaVista
      */
-    public RecuperarContraseñaVista() {
+    public RecuperarContraseñaVista(RouterControlador router) {
         initComponents();
+        this.router = router;
+        
+        FondoPanel fondoPanel = new FondoPanel("Panel Ovalado.jpg");
+    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    
+    // Remover componentes del diseño original
+    remove(titulo);
+    remove(nombre);
+    remove(apellido);
+    remove(fecha);
+    
+    remove(cajaNombre);
+    remove(cajaApellido);
+    remove(cajaFecha);
+    
+    remove(boton);
+    
+    fondoPanel.add(titulo , "pos 3.13% 4.55%, w 610:610:610 , h 50:50:50");
+    fondoPanel.add(nombre , "pos 4.69% 21.21% , w 190:190:190, h 40:40:40");
+    fondoPanel.add(apellido , "pos 56.25% 21.21%, w 190:190:190, h 40:40:40");
+    fondoPanel.add(fecha , "pos -3.13% 43.94% , w 690:690:690 , h 90:90:90");
+    
+    fondoPanel.add(cajaNombre , "pos 4.69% 28.79%, w 220:220:220 , h 40:40:40");
+    fondoPanel.add(cajaApellido , "pos 56.13% 28.79%, w 230:230:230, h 40:40:40");
+    fondoPanel.add(cajaFecha , "pos 4.69% 57.58%, w 580:580:580, h 50:50:50");
+    
+    fondoPanel.add(boton , "pos 17.19% 80.30%, w 430:430:430, h 80:80:80");
     }
 
     /**
@@ -26,17 +63,82 @@ public class RecuperarContraseñaVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
+        nombre = new javax.swing.JLabel();
+        apellido = new javax.swing.JLabel();
+        fecha = new javax.swing.JLabel();
+        cajaApellido = new javax.swing.JTextField();
+        cajaFecha = new javax.swing.JTextField();
+        cajaNombre = new javax.swing.JTextField();
+        boton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(640, 660));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("jLabel1");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 100, 50));
+        titulo.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
+        titulo.setForeground(new java.awt.Color(0, 0, 0));
+        titulo.setText("RECUPERAR CONTRASEÑA");
+        add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 610, 50));
+
+        nombre.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        nombre.setForeground(new java.awt.Color(0, 0, 0));
+        nombre.setText("NOMBRE");
+        add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 190, 40));
+
+        apellido.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        apellido.setForeground(new java.awt.Color(0, 0, 0));
+        apellido.setText("APELLIDO");
+        add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, 240, 60));
+
+        fecha.setFont(new java.awt.Font("Segoe UI", 1, 34)); // NOI18N
+        fecha.setForeground(new java.awt.Color(0, 0, 0));
+        fecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fecha.setText("FECHA DE NACIMIENTO(dd/mm/aaaa)");
+        add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 290, 690, 90));
+
+        cajaApellido.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
+        cajaApellido.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
+        add(cajaApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 230, 40));
+
+        cajaFecha.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
+        cajaFecha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
+        add(cajaFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 580, 50));
+
+        cajaNombre.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
+        cajaNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
+        add(cajaNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 220, 40));
+
+        boton.setBackground(new java.awt.Color(84, 180, 183));
+        boton.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        boton.setForeground(new java.awt.Color(255, 255, 255));
+        boton.setText("RECUPERAR CUENTA");
+        boton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonActionPerformed(evt);
+            }
+        });
+        add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 530, 430, 80));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActionPerformed
+        router.mostrarSeleccionDimension1();
+    }//GEN-LAST:event_botonActionPerformed
+    
+    private void limpiarTxtfields(){
+        cajaNombre.setText("");
+        cajaApellido.setText("");
+        cajaFecha.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel apellido;
+    private javax.swing.JButton boton;
+    private javax.swing.JTextField cajaApellido;
+    private javax.swing.JTextField cajaFecha;
+    private javax.swing.JTextField cajaNombre;
+    private javax.swing.JLabel fecha;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,23 @@
 package Utilidades;
 
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
+import com.panaderiamatemagica.autenticacion.vista.FondoAutenticacionVista;
+import com.panaderiamatemagica.autenticacion.vista.InicioSesionVista;
+import com.panaderiamatemagica.autenticacion.vista.RegistroVista;
+import com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
+import javax.swing.GroupLayout;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -96,5 +112,47 @@ public class CreadorPdf {
             System.err.println("Error al generar el PDF: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    @SuppressWarnings(value = "unchecked")
+    public void initComponents(FondoAutenticacionVista fondoAutenticacionVista) {
+        fondoAutenticacionVista.monitor = new JPanel();
+        fondoAutenticacionVista.pantallaSeleccionRol = new SeleccionRolVista(fondoAutenticacionVista.routerP, fondoAutenticacionVista.routerA);
+        fondoAutenticacionVista.pantallaInicioSesion = new InicioSesionVista(fondoAutenticacionVista.routerP, fondoAutenticacionVista.routerA);
+        fondoAutenticacionVista.pantallaRegistro = new RegistroVista(fondoAutenticacionVista.routerP);
+        fondoAutenticacionVista.botonVolver = new JButton();
+        fondoAutenticacionVista.setBackground(new Color(255, 228, 171));
+        fondoAutenticacionVista.setPreferredSize(new Dimension(1920, 1080));
+        fondoAutenticacionVista.monitor.setLayout(new CardLayout());
+        fondoAutenticacionVista.monitor.add(fondoAutenticacionVista.pantallaSeleccionRol, "ROL");
+        fondoAutenticacionVista.monitor.add(fondoAutenticacionVista.pantallaInicioSesion, "INICIO SESION");
+        fondoAutenticacionVista.monitor.add(fondoAutenticacionVista.pantallaRegistro, "REGISTRO");
+        fondoAutenticacionVista.botonVolver.setBackground(new Color(117, 183, 168));
+        fondoAutenticacionVista.botonVolver.setFont(new Font("Showcard Gothic", 0, 24)); // NOI18N
+        fondoAutenticacionVista.botonVolver.setForeground(new Color(0, 0, 0));
+        fondoAutenticacionVista.botonVolver.setText("<");
+        fondoAutenticacionVista.botonVolver.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        fondoAutenticacionVista.botonVolver.addMouseListener(new MouseAdapter() {
+            public void mouseEntered(MouseEvent evt) {
+                fondoAutenticacionVista.botonVolverMouseEntered(evt);
+            }
+
+            public void mouseExited(MouseEvent evt) {
+                fondoAutenticacionVista.botonVolverMouseExited(evt);
+            }
+        });
+        fondoAutenticacionVista.botonVolver.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                fondoAutenticacionVista.botonVolverActionPerformed(evt);
+            }
+        });
+        GroupLayout layout = new GroupLayout(fondoAutenticacionVista);
+        fondoAutenticacionVista.setLayout(layout);
+        layout.setHorizontalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(416, 416, 416).addComponent(fondoAutenticacionVista.monitor, GroupLayout.PREFERRED_SIZE, 640, GroupLayout.PREFERRED_SIZE).addContainerGap(864, Short.MAX_VALUE)).addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(fondoAutenticacionVista.botonVolver, GroupLayout.PREFERRED_SIZE, 96, GroupLayout.PREFERRED_SIZE).addGap(1050, 1050, 1050)));
+        layout.setVerticalGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(92, 92, 92).addComponent(fondoAutenticacionVista.monitor, GroupLayout.PREFERRED_SIZE, 660, GroupLayout.PREFERRED_SIZE).addContainerGap(328, Short.MAX_VALUE)).addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(fondoAutenticacionVista.botonVolver, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE).addGap(470, 470, 470)));
+    } // </editor-fold>
+
+    public void inicializarPantallas(FondoAutenticacionVista fondoAutenticacionVista) {
+        fondoAutenticacionVista.pantallasAutenticacion = (CardLayout) fondoAutenticacionVista.monitor.getLayout();
     }
 }

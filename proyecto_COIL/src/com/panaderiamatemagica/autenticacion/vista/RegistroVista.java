@@ -5,6 +5,7 @@
 package com.panaderiamatemagica.autenticacion.vista;
 
 import com.panaderiamatemagica.autenticacion.controladores.alumnos.AlumnoControladorRegistro;
+import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenticacionControlador;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
@@ -14,6 +15,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,16 +28,18 @@ public class RegistroVista extends javax.swing.JPanel {
     private JLabel lblErrorApodo;
     private JLabel lblErrorFechaNacimiento;
 
-    private RouterControlador router;
+    private RouterControlador routerP;
     private AlumnoModelo nuevoAlumno;
     private AlumnoControladorRegistro objetoControlador;
+    private RouterAutenticacionControlador routerA;
 
     /**
      * Creates new form RegistroVista
      */
-    public RegistroVista(RouterControlador router) {
-        this.router = router;
-
+    public RegistroVista(RouterControlador routerP) {
+        this.routerP = routerP;
+        this.routerA = routerA;
+        
         lblErrorNombre = crearLabelError();
         lblErrorApellido = crearLabelError();
         lblErrorApodo = crearLabelError();
@@ -245,7 +249,11 @@ public class RegistroVista extends javax.swing.JPanel {
         try {
             if (objetoControlador.validarDatos()) {
                 // Solo si la validacion es exitosa y el registro fue guardado:
-                router.mostrarSeleccionPanaderoVista();
+                JOptionPane.showMessageDialog(null, 
+                    "¡Te has Registrado!", 
+                    "Confirmación", 
+                    JOptionPane.INFORMATION_MESSAGE);
+                routerP.mostrarInicioVista();
             }
         } catch (java.sql.SQLException e) {
             System.err.println("ERROR: Fallo de base de datos durante el registro: " + e.getMessage());

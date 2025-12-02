@@ -51,6 +51,9 @@ public class RouterAutenticacionControlador {
     public FondoAutenticacionVista getFondoAutenticacion() {
         return fondoAutenticacion;
     }
+    public void mostrarRecuperarContraseñaVista(){
+        fondoAutenticacion.mostrarPanel("RECUPERAR");
+    }
 
     public InicioSesionVista getInicioSesion() {
         return pantallaInicioSesion;

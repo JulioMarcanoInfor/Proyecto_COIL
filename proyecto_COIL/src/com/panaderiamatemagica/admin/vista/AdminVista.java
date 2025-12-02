@@ -83,7 +83,7 @@ public class AdminVista extends javax.swing.JPanel {
         jButton3.setBackground(new java.awt.Color(38, 138, 117));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("ACCEDER A INFORME DE RESULTADOS");
+        jButton3.setText("DESCARGAR INFORME DE RESULTADOS");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

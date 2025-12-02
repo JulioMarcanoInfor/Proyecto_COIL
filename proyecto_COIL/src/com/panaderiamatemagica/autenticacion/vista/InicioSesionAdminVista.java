@@ -81,6 +81,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         });
         add(boton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 510, 326, 53));
 
+        txt2.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
         txt2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
         txt2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,6 +95,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         label2.setText("CONTRASEÑA");
         add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 268, 250, 60));
 
+        txt1.setFont(new java.awt.Font("Rockwell", 0, 36)); // NOI18N
         txt1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 0), 3));
         add(txt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 453, 37));
 
@@ -107,6 +109,7 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
         // aqui va la loguica del inicio del profe.
         if (controlador.validarInicioSesion()) {
             router.mostrarAdminVista();
+            vaciarTxtFields();
         }
         
     }//GEN-LAST:event_botonActionPerformed
@@ -124,7 +127,11 @@ public class InicioSesionAdminVista extends javax.swing.JPanel {
     public String getTxtusuarioProfesor() {
         return txt1.getText();
     }    
-
+    
+    private void vaciarTxtFields(){
+        txt1.setText("");
+        txt2.setText("");
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton boton;
     private javax.swing.JLabel label1;
