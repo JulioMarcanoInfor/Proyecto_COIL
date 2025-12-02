@@ -102,7 +102,8 @@ public class AlumnoDAO {
     }
 
     public boolean insertarAlumno(AlumnoModelo alumno) {
-        String sql = "INSERT INTO alumnos (nombre, apellido, apodo, fecha_nacimiento, genero) VALUES (?, ?, ?, ?, ?)";
+        
+        String sql = "INSERT INTO alumnos (nombre, apellido, apodo, fecha_nacimiento, genero, profesor, administrador_id) VALUES (?, ?, ?, ?, ?,?,?)";
         try (Connection conn = ConexionBDT.obtenerConexion();
                 PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, alumno.getNombre());
@@ -110,6 +111,12 @@ public class AlumnoDAO {
             ps.setString(3, alumno.getApodo());
             ps.setString(4, alumno.getFechaNacimiento());
             ps.setString(5, "O");
+            
+            //admin por defecto.
+            ps.setString(6, "Melanie");
+            // id del admin.
+            ps.setInt(7, 4);
+            
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("ERROR al insertar alumno: " + e.getMessage());
