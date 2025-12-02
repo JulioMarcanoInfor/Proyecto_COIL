@@ -17,12 +17,14 @@ public class RouterRolControlador {
     private PantallaAutenticacionVista pantallaAutenticacion;
     private RegistroVista registro;
     private InicioSesionVista inicioSesion;
-    private RouterControlador router;
+    private RouterControlador routerP;
+    private RouterAutenticacionControlador routerA;
     
-    public RouterRolControlador(RouterControlador router){
-        this.router = router;
-        pantallaAutenticacion = new PantallaAutenticacionVista(router, this);
-        registro = new RegistroVista(router);
+    public RouterRolControlador(RouterControlador routerP){
+        this.routerP = routerP;
+        this.routerA = routerA;
+        pantallaAutenticacion = new PantallaAutenticacionVista(routerP, this);
+        registro = new RegistroVista(routerP, routerA);
         inicializarPaneles();
         
     }

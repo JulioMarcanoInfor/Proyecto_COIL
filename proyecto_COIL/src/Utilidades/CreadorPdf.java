@@ -119,7 +119,7 @@ public class CreadorPdf {
         fondoAutenticacionVista.monitor = new JPanel();
         fondoAutenticacionVista.pantallaSeleccionRol = new SeleccionRolVista(fondoAutenticacionVista.routerP, fondoAutenticacionVista.routerA);
         fondoAutenticacionVista.pantallaInicioSesion = new InicioSesionVista(fondoAutenticacionVista.routerP, fondoAutenticacionVista.routerA);
-        fondoAutenticacionVista.pantallaRegistro = new RegistroVista(fondoAutenticacionVista.routerP);
+        fondoAutenticacionVista.pantallaRegistro = new RegistroVista(fondoAutenticacionVista.routerP, fondoAutenticacionVista.routerA);
         fondoAutenticacionVista.botonVolver = new JButton();
         fondoAutenticacionVista.setBackground(new Color(255, 228, 171));
         fondoAutenticacionVista.setPreferredSize(new Dimension(1920, 1080));

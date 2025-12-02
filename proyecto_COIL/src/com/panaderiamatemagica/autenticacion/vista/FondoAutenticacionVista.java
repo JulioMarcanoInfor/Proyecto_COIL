@@ -92,7 +92,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         monitor = new javax.swing.JPanel();
         pantallaSeleccionRol = new com.panaderiamatemagica.autenticacion.vista.SeleccionRolVista(routerP, routerA);
         pantallaInicioSesion = new com.panaderiamatemagica.autenticacion.vista.InicioSesionVista(routerP, routerA);
-        pantallaRegistro = new com.panaderiamatemagica.autenticacion.vista.RegistroVista(routerP);
+        pantallaRegistro = new com.panaderiamatemagica.autenticacion.vista.RegistroVista(routerP, routerA);
         botonVolver = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 228, 171));

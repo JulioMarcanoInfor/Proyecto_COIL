@@ -110,6 +110,7 @@ public class AlumnoDAO {
             ps.setString(3, alumno.getApodo());
             ps.setString(4, alumno.getFechaNacimiento());
             ps.setString(5, "O");
+            
             return ps.executeUpdate() > 0;
         } catch (SQLException e) {
             System.err.println("ERROR al insertar alumno: " + e.getMessage());

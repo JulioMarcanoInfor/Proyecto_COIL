@@ -36,7 +36,7 @@ public class RegistroVista extends javax.swing.JPanel {
     /**
      * Creates new form RegistroVista
      */
-    public RegistroVista(RouterControlador routerP) {
+    public RegistroVista(RouterControlador routerP, RouterAutenticacionControlador routerA) {
         this.routerP = routerP;
         this.routerA = routerA;
         
@@ -253,7 +253,7 @@ public class RegistroVista extends javax.swing.JPanel {
                     "¡Te has Registrado!", 
                     "Confirmación", 
                     JOptionPane.INFORMATION_MESSAGE);
-                routerP.mostrarInicioVista();
+                routerA.mostrarIniciarSesion();
             }
         } catch (java.sql.SQLException e) {
             System.err.println("ERROR: Fallo de base de datos durante el registro: " + e.getMessage());
