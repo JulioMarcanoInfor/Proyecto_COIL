@@ -21,7 +21,7 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
         this.routerAdmin = routerAdmin;
         configuracionTabla = new AlumnoDAO();
         initComponents();
-        configuracionTabla.MostrarAlumnos(jTable1, "");
+        configuracionTabla.MostrarAlumnos(jTable1, "Melanie");
     }
 
     /**
@@ -35,6 +35,7 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
 
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 228, 196));
         setForeground(new java.awt.Color(0, 0, 0));
@@ -55,10 +56,26 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
         jScrollPane2.setViewportView(jTable1);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 840, 390));
+
+        jButton1.setBackground(new java.awt.Color(51, 255, 51));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("REFRESCAR TABLA");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 110, 200, 50));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        configuracionTabla.MostrarAlumnos(jTable1, "Melanie");
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

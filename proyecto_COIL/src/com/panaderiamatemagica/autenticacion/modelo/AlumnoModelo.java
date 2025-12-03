@@ -23,6 +23,7 @@ public class AlumnoModelo extends UsuarioModelo{
     int numeroGalletas;
     int numeroEstrella;
     
+    
     //contructor1.
     public AlumnoModelo(String apodo, double promedioAciertos, double promedioDesaciertos, String profesor, int numeroGalletas, int numeroEstrella, String nombre, String apellido, String genero, String fechaNacimiento) {
         super(nombre, apellido, genero, fechaNacimiento);

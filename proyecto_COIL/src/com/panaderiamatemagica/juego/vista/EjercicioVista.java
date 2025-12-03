@@ -6,6 +6,7 @@ package com.panaderiamatemagica.juego.vista;
 
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import com.panaderiamatemagica.core.visual.componentes.GestorColorBotones;
 import com.panaderiamatemagica.ejercicios.controlador.EjercicioControladorVista;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
@@ -19,13 +20,16 @@ import net.miginfocom.swing.MigLayout;
 public class EjercicioVista extends javax.swing.JPanel {
     private RouterControlador router;
     private EjercicioControladorVista controlador;
+    private GestorColorBotones gestor;
 
     public EjercicioVista(RouterControlador router) {
         this.router = router;
+        
         // El controlador de ejercicios se inicializa con el router y una referencia a
         // esta vista.
         this.controlador = new EjercicioControladorVista(router, this);
         initComponents();
+        this.gestor = new GestorColorBotones(b1,b2,b3,b4);
         
         FondoPanel fondoPanel = new FondoPanel("fondoAzulClaro.png");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
@@ -50,7 +54,7 @@ public class EjercicioVista extends javax.swing.JPanel {
     fondoPanel.add(b2,"pos 4.8% 78%, w 301:301:301, h 100:100:100");
     fondoPanel.add(b3,"pos 75% 57%, w 301:301:301, h 100:100:100");
     fondoPanel.add(b4,"pos 75% 78%, w 301:301:301, h 100:100:100");
-    fondoPanel.add(label1,"pos 18.5% 12.68%, w 1100:1100:1100, h 60:60:60");
+    fondoPanel.add(label1,"pos 9.5% 12.68%, w 1300:1300:1300, h 60:60:60");
     fondoPanel.add(label2,"pos 26% 19.84%, w 773:773:773, h 60:60:60");
     fondoPanel.add(barraProgreso, "pos 18% 4.5% , w 1000:1000:1000, h 60:60:60");
     }
@@ -139,11 +143,11 @@ public class EjercicioVista extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         barraProgreso.setBackground(new java.awt.Color(255, 0, 0));
-        barraProgreso.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        barraProgreso.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
         barraProgreso.setForeground(new java.awt.Color(51, 255, 0));
         add(barraProgreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, 580, 30));
 
-        label1.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
+        label1.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         label1.setForeground(new java.awt.Color(255, 255, 255));
         label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         label1.setText("PREGUNTA");
@@ -208,6 +212,7 @@ public class EjercicioVista extends javax.swing.JPanel {
         String respuestaElegida = b1.getText(); // Obtener el texto del botón
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
+            
         }
     }// GEN-LAST:event_txtrespuesta1ActionPerformed
 
@@ -237,6 +242,7 @@ public class EjercicioVista extends javax.swing.JPanel {
     String respuestaElegida = b1.getText(); // Obtener el texto del botón
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
+            gestor.cambiarColoresAleatorios();
     }
     }
 
@@ -245,6 +251,7 @@ public class EjercicioVista extends javax.swing.JPanel {
         String respuestaElegida = b2.getText();
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
+            gestor.cambiarColoresAleatorios();
         }
     }                                  
 
@@ -253,6 +260,7 @@ public class EjercicioVista extends javax.swing.JPanel {
         String respuestaElegida = b3.getText();
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
+            gestor.cambiarColoresAleatorios();
         }
          
     }           
@@ -261,6 +269,7 @@ public class EjercicioVista extends javax.swing.JPanel {
         String respuestaElegida = b4.getText();
         if (controlador != null) {
             controlador.validarRespuesta(respuestaElegida);
+            gestor.cambiarColoresAleatorios();
         }
     }         
     // Variables declaration - do not modify//GEN-BEGIN:variables
