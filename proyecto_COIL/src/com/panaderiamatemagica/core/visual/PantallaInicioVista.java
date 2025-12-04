@@ -12,6 +12,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.imageio.ImageIO;
 
+
 /**
  *
  * @author userr
@@ -29,9 +30,10 @@ public class PantallaInicioVista extends javax.swing.JPanel {
 
             {
                 try {
-                    backgroundImage = ImageIO.read(getClass().getClassLoader().getResource("images/FondoInicial.png"));
+                    backgroundImage = ImageIO.read(getClass().getResource("/images/FondoInicial.png"));
                 } catch (Exception e) {
-                    System.err.println("Error cargando imagen de fondo: " + e.getMessage());
+                    // Registra el error internamente sin molestar al usuario
+                    
                 }
             }
 

@@ -26,12 +26,12 @@ public class FondoPanel extends JPanel {
             
             if (urlImagen != null) {
                 imagenFondo = new ImageIcon(urlImagen).getImage();
-                System.out.println("✅ Imagen cargada desde recursos: " + nombreArchivo);
+                System.out.println("Imagen cargada desde recursos: " + nombreArchivo);
             } else {
-                System.err.println("❌ No se encontró la imagen: " + nombreArchivo);
+                System.err.println("No se encontró la imagen: " + nombreArchivo);
             }
         } catch (Exception e) {
-            System.err.println("❌ Error cargando imagen: " + e.getMessage());
+            System.err.println("Error cargando imagen: " + e.getMessage());
         }
     }
     
