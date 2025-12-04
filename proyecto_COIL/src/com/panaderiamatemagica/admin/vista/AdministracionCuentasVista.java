@@ -6,6 +6,7 @@ package com.panaderiamatemagica.admin.vista;
 
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.core.dao.AlumnoDAO;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,16 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        apodo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        buscarPorApodo = new javax.swing.JButton();
+        apellido = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        buscarPorNombre = new javax.swing.JButton();
+        nombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 228, 196));
         setForeground(new java.awt.Color(0, 0, 0));
@@ -66,17 +77,120 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 110, 200, 50));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 110, 200, 50));
+
+        jButton3.setBackground(new java.awt.Color(153, 102, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("MOSTRAR ACIERTOS DE MAYOR A MENOR");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 180, 290, 50));
+        add(apodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 510, 640, 40));
+
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Buscar alumno por apodo:");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 520, 540, 30));
+
+        buscarPorApodo.setText("BUSCAR");
+        buscarPorApodo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarPorApodoActionPerformed(evt);
+            }
+        });
+        add(buscarPorApodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 510, 130, 40));
+
+        apellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                apellidoActionPerformed(evt);
+            }
+        });
+        add(apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 590, 290, 40));
+
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel2.setText("Buscar alumno por nomre y apellido");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 600, 540, 30));
+
+        buscarPorNombre.setText("BUSCAR");
+        buscarPorNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarPorNombreActionPerformed(evt);
+            }
+        });
+        add(buscarPorNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 590, 130, 40));
+        add(nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 590, 300, 40));
+
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("APELLIDO");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 570, -1, -1));
+
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("NOMBRE");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 570, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         configuracionTabla.MostrarAlumnos(jTable1, "Melanie");
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        configuracionTabla.MostrarAlumnosPorMayorEstrellas(jTable1, "Melanie");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void apellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_apellidoActionPerformed
+
+    private void buscarPorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPorNombreActionPerformed
+        String nombre1 = nombre.getText();
+        String apellido1 = apellido.getText();
+        
+        if (nombre1.isEmpty() && apellido1.isEmpty()){
+            JOptionPane.showMessageDialog(null, 
+                              "¡No inserto ningun nombre ni apellido!", 
+                              "", 
+                              JOptionPane.WARNING_MESSAGE);
+            
+        } else if (nombre1.isEmpty() && !apellido1.isEmpty()){
+                    configuracionTabla.MostrarAlumnosPorApellido(jTable1, "Melanie", apellido1);
+                    
+        } else if (apellido1.isEmpty() && !nombre1.isEmpty()){
+            configuracionTabla.MostrarAlumnosPorNombre(jTable1, "Melanie", nombre1);
+        } else {
+            configuracionTabla.MostrarAlumnosPorNombreCompleto(jTable1, "Melanie", nombre1, apellido1);
+        }
+    }//GEN-LAST:event_buscarPorNombreActionPerformed
+
+    private void buscarPorApodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarPorApodoActionPerformed
+        String apodo1 = apodo.getText();
+        if (apodo1.isEmpty()){
+            JOptionPane.showMessageDialog(null, 
+                              "¡No inserto un apodo!", 
+                              "", 
+                              JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            configuracionTabla.MostrarAlumnoPorApodo(jTable1, "Melanie", apodo1);
+        }
+    }//GEN-LAST:event_buscarPorApodoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apellido;
+    private javax.swing.JTextField apodo;
+    private javax.swing.JButton buscarPorApodo;
+    private javax.swing.JButton buscarPorNombre;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField nombre;
     // End of variables declaration//GEN-END:variables
 }

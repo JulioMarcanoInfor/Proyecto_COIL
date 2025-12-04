@@ -30,11 +30,9 @@ public class AlumnoDAO {
             modelo.addColumn("Nombre");
             modelo.addColumn("Apodo");
             modelo.addColumn("Apellido");
-            modelo.addColumn("Genero");
             modelo.addColumn("Fecha de nacimiento");
             modelo.addColumn("Promedio aciertos");
             modelo.addColumn("Promedio desaciertos");
-            modelo.addColumn("Numero de galletas");
             // modelo.addColumn("Numero de estellas"); // Eliminado porque no existe en la
             // tabla
 
@@ -48,11 +46,9 @@ public class AlumnoDAO {
                 datos[1] = rs.getString("nombre");
                 datos[2] = rs.getString("apodo");
                 datos[3] = rs.getString("apellido");
-                datos[4] = rs.getString("genero");
-                datos[5] = rs.getString("fecha_nacimiento");
-                datos[6] = rs.getString("promedio_aciertos");
-                datos[7] = rs.getString("promedio_desaciertos");
-                datos[8] = rs.getString("numero_galletas");
+                datos[4] = rs.getString("fecha_nacimiento");
+                datos[5] = rs.getString("promedio_aciertos");
+                datos[6] = rs.getString("promedio_desaciertos");
                 // datos[9] = rs.getString("numero_estrellas"); // Eliminado
 
                 modelo.addRow(datos);
@@ -77,6 +73,16 @@ public class AlumnoDAO {
     public void MostrarAlumnosPorNombreCompleto(JTable vista, String nombreAdministrador, String nombre,
             String apellido) {
         String filtro = " AND nombre = '" + nombre + "' AND apellido = '" + apellido + "'";
+        EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+    }
+    
+    public void MostrarAlumnosPorNombre(JTable vista, String nombreAdministrador, String nombre) {
+        String filtro = " AND nombre = '" + nombre + "'";
+        EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
+    }
+    
+    public void MostrarAlumnosPorApellido(JTable vista, String nombreAdministrador, String apellido) {
+        String filtro = " AND apellido = '" + apellido + "'";
         EjecutarYMostrarAlumnos(vista, nombreAdministrador, filtro);
     }
 
