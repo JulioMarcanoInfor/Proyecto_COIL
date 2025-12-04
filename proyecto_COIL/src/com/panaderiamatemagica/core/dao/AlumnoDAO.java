@@ -285,4 +285,29 @@ public class AlumnoDAO {
         }
         return alumno;
     }
+    public java.util.List<AlumnoModelo> obtenerTodosLosAlumnos() {
+        java.util.List<AlumnoModelo> lista = new java.util.ArrayList<>();
+        String sql = "SELECT * FROM alumnos"; 
+
+        try (Connection conn = ConexionBDT.obtenerConexion();
+             Statement st = conn.createStatement();
+             ResultSet rs = st.executeQuery(sql)) {
+
+            while (rs.next()) {
+                AlumnoModelo alumno = new AlumnoModelo();
+                alumno.setId_Alumno(rs.getInt("alumno_id"));
+                alumno.setNombre(rs.getString("nombre"));
+                alumno.setApellido(rs.getString("apellido"));
+                alumno.setApodo(rs.getString("apodo"));
+                alumno.setProfesor(rs.getString("profesor"));
+                alumno.setPromedioAciertos(rs.getDouble("promedio_aciertos"));
+                alumno.setPromedioDesaciertos(rs.getDouble("promedio_desaciertos"));
+                alumno.setNumeroGalletas(rs.getInt("numero_galletas"));
+                lista.add(alumno);
+            }
+        } catch (SQLException e) {
+            System.err.println("Error al obtener la lista de alumnos: " + e.getMessage());
+        }
+        return lista;
+    }
 }

@@ -8,11 +8,14 @@ import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.core.RouterControlador;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
+import Utilidades.CreadorPdf;
+import com.panaderiamatemagica.core.dao.AlumnoDAO;
+import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
+import java.io.File;
+import java.util.List;
+import javax.swing.JOptionPane;
+import java.awt.Cursor;
 
-/**
- *
- * @author User
- */
 public class AdminVista extends javax.swing.JPanel {
     private RouterControlador router;
     private RouterAdminControlador routerAdmin;
@@ -52,9 +55,7 @@ public class AdminVista extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         monitorAdmin = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(157, 211, 199));
@@ -100,38 +101,18 @@ public class AdminVista extends javax.swing.JPanel {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(38, 138, 117));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("CREAR NUEVO NIVEL");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         monitorAdmin.setPreferredSize(new java.awt.Dimension(555, 615));
 
         javax.swing.GroupLayout monitorAdminLayout = new javax.swing.GroupLayout(monitorAdmin);
         monitorAdmin.setLayout(monitorAdminLayout);
         monitorAdminLayout.setHorizontalGroup(
             monitorAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+            .addGap(0, 773, Short.MAX_VALUE)
         );
         monitorAdminLayout.setVerticalGroup(
             monitorAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-
-        jButton6.setBackground(new java.awt.Color(38, 138, 117));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jButton6.setText("MODIFICAR NIVEL");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,41 +125,35 @@ public class AdminVista extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(jLabel1))
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1)))
+                        .addGap(26, 26, 26)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(47, 47, 47)
-                .addComponent(monitorAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE))
+                .addComponent(monitorAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(52, 52, 52)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(68, 68, 68)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 484, Short.MAX_VALUE)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
-            .addComponent(monitorAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(48, 48, 48))
+            .addComponent(monitorAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 896, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -195,16 +170,54 @@ public class AdminVista extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        routerAdmin.mostrarInformeRapidoVista();
+        String textoOriginal = jButton3.getText();
+    jButton3.setText("GENERANDO PDF...");
+    jButton3.setEnabled(false);
+    jButton3.setCursor(new Cursor(Cursor.WAIT_CURSOR));
+
+    new Thread(() -> {
+        try {
+            AlumnoDAO dao = new AlumnoDAO();
+            List<AlumnoModelo> listaAlumnos = dao.obtenerTodosLosAlumnos();
+
+            if (listaAlumnos.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No hay datos para generar el reporte");
+                return;
+            }
+
+            String userHome = System.getProperty("user.home");
+            String rutaEscritorio = userHome + File.separator + "Desktop";
+            
+            File carpetaDesktop = new File(rutaEscritorio);
+            if (!carpetaDesktop.exists()) {
+                rutaEscritorio = userHome + File.separator + "Escritorio";
+            }
+
+            String nombreBase = "Reporte_Estudiantes";
+            String extension = ".pdf";
+            File archivoFinal = new File(rutaEscritorio + File.separator + nombreBase + extension);
+
+            int contador = 1;
+            while (archivoFinal.exists()) {
+                archivoFinal = new File(rutaEscritorio + File.separator + nombreBase + "(" + contador + ")" + extension);
+                contador++;
+            }
+
+            CreadorPdf generador = new CreadorPdf();
+            generador.generarReporteGlobal(listaAlumnos, archivoFinal.getAbsolutePath());
+
+            JOptionPane.showMessageDialog(this, "¡Informe generado!\nGuardado como: " + archivoFinal.getName() + "\nEn tu Escritorio");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally {
+            jButton3.setText(textoOriginal);
+            jButton3.setEnabled(true);
+            jButton3.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+        }
+    }).start();          
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        routerAdmin.mostrarCrearNuevoNivelVista();
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        routerAdmin.mostrarModificarNivelVista();
-    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -212,8 +225,6 @@ public class AdminVista extends javax.swing.JPanel {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel monitorAdmin;
     // End of variables declaration//GEN-END:variables

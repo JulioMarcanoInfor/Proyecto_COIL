@@ -46,7 +46,7 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 228, 196));
+        setBackground(new java.awt.Color(255, 204, 153));
         setPreferredSize(new java.awt.Dimension(555, 615));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,32 +59,35 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 316, 69));
-        add(txtcontrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, 388, 39));
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 540, 420, 170));
+
+        txtcontrasenna.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
+        add(txtcontrasenna, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 380, 470, 60));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("CONTRASEÑA");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 350, 150));
 
         txtusuario.setBackground(new java.awt.Color(255, 255, 255));
+        txtusuario.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
         txtusuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtusuarioActionPerformed(evt);
             }
         });
-        add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 389, -1));
+        add(txtusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 460, 60));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("USUARIO");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, 55));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 280, 150));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("CREAR NUEVO ADMINISTRADOR");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 388, 27));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 500, 130));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtusuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtusuarioActionPerformed

@@ -5,6 +5,8 @@
 package com.panaderiamatemagica.juego.vista;
 
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
@@ -19,6 +21,20 @@ public class ResultadoVista extends javax.swing.JPanel {
     public ResultadoVista(RouterControlador router) {
         this.router = router;
         initComponents();
+        
+         FondoPanel fondoPanel = new FondoPanel("resultados.jpg");
+    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+    
+    // Configurar MigLayout en este panel principal
+    setLayout(new java.awt.BorderLayout());
+    
+    // Agregar el fondo primero
+    add(fondoPanel, java.awt.BorderLayout.CENTER);
+    
+    // Remover componentes del diseño original
+    remove(jButton1);
+    
+    fondoPanel.add(jButton1, "pos 20% 83.50%, w 300:300:300, h 65:65:65");
     }
 
     /**
@@ -31,28 +47,14 @@ public class ResultadoVista extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabelReescalable1 = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setPreferredSize(new java.awt.Dimension(833, 615));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("* * *");
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("ESTRELLAS OBTENIDAS");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI Semibold", 0, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 51, 102));
-        jLabel3.setText("¡LO LOGRASTE!");
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setBackground(new java.awt.Color(204, 153, 0));
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
@@ -62,6 +64,7 @@ public class ResultadoVista extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 190, 40));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 51));
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
@@ -71,6 +74,7 @@ public class ResultadoVista extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 206, 65));
 
         jButton3.setBackground(new java.awt.Color(0, 255, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -80,50 +84,11 @@ public class ResultadoVista extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 20, 205, 65));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(63, 63, 63))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGap(66, 66, 66)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(57, 57, 57)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(61, 61, 61)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addGap(30, 30, 30)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 65, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(67, 67, 67))
-        );
+        jLabelReescalable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resultados.jpg"))); // NOI18N
+        jLabelReescalable1.setText("jLabelReescalable1");
+        add(jLabelReescalable1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 620));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
@@ -164,6 +129,7 @@ public class ResultadoVista extends javax.swing.JPanel {
                 estrellasTexto += "☆ ";
             }
         }
+        /*
         jLabel1.setText(estrellasTexto);
 
         // Actualizar mensaje según estrellas
@@ -200,13 +166,12 @@ public class ResultadoVista extends javax.swing.JPanel {
             jButton3.setText("SIGUIENTE NIVEL");
         }
     }
-
+*/
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable jLabelReescalable1;
     // End of variables declaration//GEN-END:variables
 }
