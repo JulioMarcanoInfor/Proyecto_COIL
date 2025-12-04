@@ -14,7 +14,7 @@ import net.miginfocom.swing.MigLayout;
  */
 public class ResultadoVista extends javax.swing.JPanel {
     private RouterControlador router;
-
+    private FondoPanel fondoPanel;
     /**
      * Creates new form ResultadoVista
      */
@@ -22,7 +22,7 @@ public class ResultadoVista extends javax.swing.JPanel {
         this.router = router;
         initComponents();
         
-         FondoPanel fondoPanel = new FondoPanel("resultados.jpg");
+         fondoPanel = new FondoPanel("resultados.jpg");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
     
     // Configurar MigLayout en este panel principal
@@ -35,6 +35,10 @@ public class ResultadoVista extends javax.swing.JPanel {
     remove(jButton1);
     
     fondoPanel.add(jButton1, "pos 20% 83.50%, w 300:300:300, h 65:65:65");
+    fondoPanel.add(jButton2, "pos 40% 83.50%, w 300:300:300, h 65:65:65");
+    fondoPanel.add(jButton3, "pos 60% 83.50%, w 300:300:300, h 65:65:65");
+    fondoPanel.add(jLabel1, "pos 40.42% 62.79%, w 600:600:600, h 50:50:50");
+    fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w 220:220:220, h 230:230:230");
     }
 
     /**
@@ -50,6 +54,8 @@ public class ResultadoVista extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabelReescalable1 = new com.panaderiamatemagica.core.visual.componentes.JLabelReescalable();
 
         setBackground(new java.awt.Color(255, 204, 204));
@@ -74,7 +80,7 @@ public class ResultadoVista extends javax.swing.JPanel {
                 jButton2ActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 206, 65));
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, 190, 40));
 
         jButton3.setBackground(new java.awt.Color(0, 255, 0));
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
@@ -84,7 +90,16 @@ public class ResultadoVista extends javax.swing.JPanel {
                 jButton3ActionPerformed(evt);
             }
         });
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(597, 20, 205, 65));
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 520, 170, 40));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 56)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("¡LO LOGRASTE!");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 380, 380, 50));
+
+        jPanel1.setBackground(new java.awt.Color(255, 228, 196));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 330, 130));
 
         jLabelReescalable1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/resultados.jpg"))); // NOI18N
         jLabelReescalable1.setText("jLabelReescalable1");
@@ -129,31 +144,40 @@ public class ResultadoVista extends javax.swing.JPanel {
                 estrellasTexto += "☆ ";
             }
         }
-        /*
+
         jLabel1.setText(estrellasTexto);
 
         // Actualizar mensaje según estrellas
         if (estrellas == 3) {
-            jLabel3.setText("¡PERFECTO! ¡MAESTRO PANADERO!");
-            jLabel3.setForeground(new java.awt.Color(255, 215, 0)); // Dorado
+            jLabel1.setText("¡PERFECTO! ¡MAESTRO PANADERO!");
+            jLabel1.setForeground(new java.awt.Color(0, 255, 0)); // Dorado
+            jLabel1.setFont(jLabel1.getFont().deriveFont(30f));
+            
+            remove(jPanel1);
+            fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w 0:0:0, h 230:230:230");
         } else if (estrellas == 2) {
-            jLabel3.setText("¡MUY BIEN! ¡Sigue así!");
-            jLabel3.setForeground(new java.awt.Color(192, 192, 192)); // Plateado
+            jLabel1.setText("¡MUY BIEN! ¡Sigue así!");
+            jLabel1.setForeground(new java.awt.Color(192, 192, 192)); // Plateado
+            jLabel1.setFont(jLabel1.getFont().deriveFont(30f));
+            
+            remove(jPanel1);
+            fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w 220:220:220, h 230:230:230");
+            
         } else if (estrellas == 1) {
-            jLabel3.setText("¡BUEN INTENTO! Puedes mejorar");
-            jLabel3.setForeground(new java.awt.Color(205, 127, 50)); // Bronce
+            jLabel1.setText("¡BUEN INTENTO! Puedes mejorar");
+            jLabel1.setForeground(new java.awt.Color(205, 127, 50)); // Bronce
+            jLabel1.setFont(jLabel1.getFont().deriveFont(30f));
+            
+            remove(jPanel1);
+            fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w 450:450:450, h 230:230:230");
         } else {
-            jLabel3.setText("INTÉNTALO DE NUEVO");
-            jLabel3.setForeground(new java.awt.Color(255, 0, 0)); // Rojo
+            jLabel1.setText("INTÉNTALO DE NUEVO");
+            jLabel1.setForeground(new java.awt.Color(255, 0, 0)); // Rojo
+            jLabel1.setFont(jLabel1.getFont().deriveFont(40f));
+            
+            remove(jPanel1);
+            fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w 650:650:650, h 230:230:230");
         }
-
-        // Actualizar label de título con estadísticas
-        jLabel2.setText(String.format(
-                "<html><center>NIVEL COMPLETADO<br/>" +
-                        "🍪 +%d Galletas<br/>" +
-                        "✓ %d Aciertos | ✗ %d Errores<br/>" +
-                        "❤ %d Vidas restantes</center></html>",
-                galletas, aciertos, desaciertos, vidasRestantes));
 
         // Deshabilitar botón "Siguiente Nivel" si no obtuvo al menos 1 estrella
         if (estrellas < 1) {
@@ -166,12 +190,14 @@ public class ResultadoVista extends javax.swing.JPanel {
             jButton3.setText("SIGUIENTE NIVEL");
         }
     }
-*/
-    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private com.panaderiamatemagica.core.visual.componentes.JLabelReescalable jLabelReescalable1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
