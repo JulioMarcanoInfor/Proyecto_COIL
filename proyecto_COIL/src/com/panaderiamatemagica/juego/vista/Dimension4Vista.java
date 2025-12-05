@@ -8,6 +8,7 @@ import com.panaderiamatemagica.Dimension.controlador.DimensionControlador;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 import net.miginfocom.swing.MigLayout;
@@ -29,7 +30,7 @@ public class Dimension4Vista extends javax.swing.JPanel {
     public Dimension4Vista(RouterControlador router) {
         this.router = router;
         initComponents();
-        
+        aplicarReescaladoInterno();
         FondoPanel fondoPanel = new FondoPanel("fondoD4.jpg");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
     
@@ -77,7 +78,17 @@ public class Dimension4Vista extends javax.swing.JPanel {
     fondoPanel.add(b29, "pos 62% 78%, w 100:100:100, h 80:80:80");
     fondoPanel.add(b30, "pos 72% 78%, w 100:100:100, h 80:80:80");
     }
-
+    
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
+    }
     /**
      * MÉTODO AGREGADO: Usado por RouterControlador para INYECTAR Y CREAR el
      * DimensionControlador.

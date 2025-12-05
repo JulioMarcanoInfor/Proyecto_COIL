@@ -6,6 +6,7 @@ package com.panaderiamatemagica.autenticacion.vista;
 
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -19,6 +20,7 @@ public class RecuperarContraseñaVista extends javax.swing.JPanel {
      */
     public RecuperarContraseñaVista(RouterControlador router) {
         initComponents();
+        aplicarReescaladoInterno();
         this.router = router;
         
         FondoPanel fondoPanel = new FondoPanel("Panel Ovalado.jpg");
@@ -52,6 +54,16 @@ public class RecuperarContraseñaVista extends javax.swing.JPanel {
     fondoPanel.add(cajaFecha , "pos 4.69% 57.58%, w 580:580:580, h 50:50:50");
     
     fondoPanel.add(boton , "pos 17.19% 80.30%, w 430:430:430, h 80:80:80");
+    }
+        private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     /**

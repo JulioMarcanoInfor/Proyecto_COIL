@@ -9,6 +9,7 @@ import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenti
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -40,6 +41,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
 
         initComponents();
 
+        aplicarReescaladoInterno();
         // Crear panel responsivo con dimensiones de diseño original
         ResponsivePanel responsivePanel = new ResponsivePanel(640, 660) {
             private Image backgroundImage;
@@ -90,6 +92,17 @@ public class InicioSesionVista extends javax.swing.JPanel {
             }
         });
         configurarEnterKeyBinding();
+    }
+    
+        private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     @SuppressWarnings("unchecked")

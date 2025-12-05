@@ -8,6 +8,7 @@ import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenti
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -33,6 +34,7 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         
         initComponents();
         inicializarPantallas();
+        aplicarReescaladoInterno();
         
         pantallaRecuperarContraseña = new RecuperarContraseñaVista(routerP);
         monitor.add(pantallaRecuperarContraseña, "RECUPERAR");
@@ -63,6 +65,17 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
     private void inicializarPantallas() {
         pantallasAutenticacion = (CardLayout) monitor.getLayout();
         
+    }
+    
+        private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     public void mostrarIniciarSesion() {

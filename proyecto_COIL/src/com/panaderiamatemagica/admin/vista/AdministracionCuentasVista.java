@@ -6,6 +6,7 @@ package com.panaderiamatemagica.admin.vista;
 
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.core.dao.AlumnoDAO;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,7 +23,19 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
         this.routerAdmin = routerAdmin;
         configuracionTabla = new AlumnoDAO();
         initComponents();
+        aplicarReescaladoInterno();
         configuracionTabla.MostrarAlumnos(jTable1, "Melanie");
+    }
+    
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     /**

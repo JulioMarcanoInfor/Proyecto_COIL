@@ -8,6 +8,7 @@ import com.panaderiamatemagica.Dimension.controlador.DimensionControlador;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 import net.miginfocom.swing.MigLayout;
@@ -29,6 +30,7 @@ public class Dimension2Vista extends javax.swing.JPanel {
     public Dimension2Vista(RouterControlador router) {
         this.router = router;
         initComponents();
+        aplicarReescaladoInterno();
         FondoPanel fondoPanel = new FondoPanel("fondoD2.jpg");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
     
@@ -107,6 +109,17 @@ public class Dimension2Vista extends javax.swing.JPanel {
                     "Error fatal: El controlador de dimensión no pudo ser inicializado. Reinicie la aplicación.",
                     "Error de Inicialización",
                     javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
+        
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
         }
     }
 

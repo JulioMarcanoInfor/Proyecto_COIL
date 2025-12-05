@@ -8,6 +8,7 @@ import com.panaderiamatemagica.Dimension.controlador.DimensionControlador;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 import net.miginfocom.swing.MigLayout;
@@ -27,6 +28,7 @@ public class Dimension1Vista extends javax.swing.JPanel {
      */
     public Dimension1Vista(RouterControlador router) {
         initComponents();
+        aplicarReescaladoInterno();
         this.router = router;
         
         FondoPanel fondoPanel = new FondoPanel("fondoD1.jpg");
@@ -107,6 +109,17 @@ public class Dimension1Vista extends javax.swing.JPanel {
     fondoPanel.add(b28, "pos 51% 78%, w 100:100:100, h 80:80:80");
     fondoPanel.add(b29, "pos 62% 78%, w 100:100:100, h 80:80:80");
     fondoPanel.add(b30, "pos 72% 78%, w 100:100:100, h 80:80:80");
+    }
+    
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     /**

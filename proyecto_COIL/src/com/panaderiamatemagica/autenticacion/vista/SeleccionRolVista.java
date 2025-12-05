@@ -9,6 +9,7 @@ import com.panaderiamatemagica.core.visual.componentes.PanelConFondoVista;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -27,6 +28,7 @@ public class SeleccionRolVista extends JPanel {
     public SeleccionRolVista(RouterControlador routerP, RouterAutenticacionControlador routerA) {
         super();
         initComponents();
+        aplicarReescaladoInterno();
         this.routerP = routerP;
         this.routerA = routerA;
 
@@ -64,6 +66,16 @@ public class SeleccionRolVista extends JPanel {
         responsivePanel.addScalable(titulo, 130, 40, 360, 100);
         responsivePanel.addScalable(botonEstudiante, 140, 150, 370, 220);
         responsivePanel.addScalable(botonProfesor, 140, 400, 370, 220);
+    }
+        private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     /**
