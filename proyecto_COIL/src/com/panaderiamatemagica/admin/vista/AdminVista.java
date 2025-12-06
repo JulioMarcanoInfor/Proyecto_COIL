@@ -18,40 +18,73 @@ import javax.swing.JOptionPane;
 import java.awt.Cursor;
 
 public class AdminVista extends javax.swing.JPanel {
+
     private RouterControlador router;
+
     private RouterAdminControlador routerAdmin;
+
     private CardLayout pantallasAdmin;
+
     /**
+
      * Creates new form AdminVista
+
      */
+
     public AdminVista(RouterControlador router, RouterAdminControlador routerAdmin) {
+
         this.router = router;
+
         this.routerAdmin = routerAdmin;
+
         initComponents();
-        aplicarReescaladoInterno();
+
         inicializarPantallas();
+
     }
+
     private void inicializarPantallas(){
+
         pantallasAdmin = new CardLayout();
+
         monitorAdmin.setLayout(pantallasAdmin);
+
         monitorAdmin.setVisible(true);
+
     }
+
     public void mostrarPanel(String nombrePanel) {
+
         pantallasAdmin.show(monitorAdmin, nombrePanel);
+
     }
+
     
+
     public void agregarPanel(JPanel panel, String nombre) {
+
         monitorAdmin.add(panel, nombre);
+
     }
+
     private void aplicarReescaladoInterno() {
+
         double scaleFactor = ScreenUtils.getScaleFactor();
+
         
+
         // Solo aplicar si el factor es significativamente diferente a 1
+
         if (Math.abs(scaleFactor - 1.0) > 0.01) {
+
             
+
             // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+
             ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+
         }
+
     }
 
     /**

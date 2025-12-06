@@ -7,7 +7,10 @@ package com.panaderiamatemagica.admin.vista;
 import com.panaderiamatemagica.admin.controlador.RouterAdminControlador;
 import com.panaderiamatemagica.core.dao.AlumnoDAO;
 import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
+import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import net.miginfocom.swing.MigLayout;
 
 /**
  *
@@ -22,10 +25,128 @@ public class AdministracionCuentasVista extends javax.swing.JPanel {
     public AdministracionCuentasVista(RouterAdminControlador routerAdmin) {
         this.routerAdmin = routerAdmin;
         configuracionTabla = new AlumnoDAO();
-        initComponents();
-        aplicarReescaladoInterno();
+
+        // 1. Inicializar componentes (Esto los agrega a 'this' con AbsoluteLayout)
+        initComponents(); 
+        
+        // 2. Configurar el contenedor intermedio (Tu "FondoPanel")
+        javax.swing.JPanel panelContenido = new javax.swing.JPanel();
+        panelContenido.setBackground(new java.awt.Color(255, 228, 196)); // Tu color original
+        // "insets 0" quita bordes, "fill" ocupa todo, "novisualpadding" ayuda con la precisión
+        panelContenido.setLayout(new net.miginfocom.swing.MigLayout("fill, insets 0, novisualpadding", "[grow]", "[grow]"));
+
+        // 3. Cambiar el layout de la vista principal para alojar el panelContenido
+        this.setLayout(new java.awt.BorderLayout());
+        this.add(panelContenido, java.awt.BorderLayout.CENTER);
+
         configuracionTabla.MostrarAlumnos(jTable1, "Melanie");
+
+        // 4. Obtener factor de escala
+        double scale = ScreenUtils.getScaleFactor();
+        
+        // =================================================================================
+        // MIGRACIÓN DE COMPONENTES AL PANEL CON MIGLAYOUT
+        // Fórmula: (ValorOriginal * scale)
+        // =================================================================================
+
+        // --- 1. TABLA (jScrollPane2) ---
+        // Original: 120, 110, 840, 390
+        configurarComponente(this, panelContenido, jScrollPane2, scale, 120, 110, 840, 390);
+
+        // --- 2. BOTÓN REFRESCAR (jButton1) ---
+        // Original: 1010, 110, 200, 50
+        configurarComponente(this, panelContenido, jButton1, scale, 1010, 110, 200, 50);
+
+        // --- 3. BOTÓN ACIERTOS (jButton3) ---
+        // Original: 970, 180, 290, 50
+        configurarComponente(this, panelContenido, jButton3, scale, 970, 180, 290, 50);
+
+        // --- 4. TEXTFIELD APODO (apodo) ---
+        // Original: 270, 510, 640, 40
+        configurarComponente(this, panelContenido, apodo, scale, 270, 510, 640, 40);
+
+        // --- 5. LABEL BUSCAR APODO (jLabel1) ---
+        // Original: 120, 520, 540, 30
+        configurarComponente(this, panelContenido, jLabel1, scale, 120, 520, 540, 30);
+
+        // --- 6. BOTÓN BUSCAR APODO (buscarPorApodo) ---
+        // Original: 950, 510, 130, 40
+        configurarComponente(this, panelContenido, buscarPorApodo, scale, 950, 510, 130, 40);
+
+        // --- 7. TEXTFIELD APELLIDO (apellido) ---
+        // Original: 640, 590, 290, 40
+        configurarComponente(this, panelContenido, apellido, scale, 640, 590, 290, 40);
+
+        // --- 8. LABEL BUSCAR NOMBRE/APELLIDO (jLabel2) ---
+        // Original: 90, 600, 540, 30
+        configurarComponente(this, panelContenido, jLabel2, scale, 90, 600, 540, 30);
+
+        // --- 9. BOTÓN BUSCAR NOMBRE (buscarPorNombre) ---
+        // Original: 960, 590, 130, 40
+        configurarComponente(this, panelContenido, buscarPorNombre, scale, 960, 590, 130, 40);
+
+        // --- 10. TEXTFIELD NOMBRE (nombre) ---
+        // Original: 320, 590, 300, 40
+        configurarComponente(this, panelContenido, nombre, scale, 320, 590, 300, 40);
+
+        // --- 11. LABEL TÍTULO APELLIDO (jLabel3) ---
+        // Original: 760, 570. (Sin ancho/alto definido en NetBeans, usaremos Preferred Size)
+        configurarComponente(this, panelContenido, jLabel3, scale, 760, 570, -1, -1);
+
+        // --- 12. LABEL TÍTULO NOMBRE (jLabel4) ---
+        // Original: 440, 570.
+        configurarComponente(this, panelContenido, jLabel4, scale, 440, 570, -1, -1);
+        
+        // Forzar repintado final
+        this.revalidate();
+        this.repaint();
     }
+
+    /**
+     * Método auxiliar para limpiar el código repetitivo.
+     * Mueve un componente del contenedor viejo al nuevo, reescala fuente, posición y tamaño.
+     * Si w o h son -1, se usa el tamaño preferido del componente (útil para JLabels simples).
+     */
+    private void configurarComponente(java.awt.Container oldParent, java.awt.Container newParent, 
+                                      javax.swing.JComponent comp, double scale, 
+                                      int x, int y, int w, int h) {
+        
+        // 1. Reescalar fuente si existe
+        if (comp.getFont() != null) {
+            float newSize = (float) (comp.getFont().getSize() * scale);
+            comp.setFont(comp.getFont().deriveFont(Math.max(newSize, 10.0f)));
+        }
+        
+        // 2. Calcular nuevas coordenadas
+        int newX = (int)(x * scale);
+        int newY = (int)(y * scale);
+        
+        // 3. Crear string de restricciones para MigLayout
+        String constraints;
+        if (w != -1 && h != -1) {
+            // Caso normal: tiene ancho y alto definidos
+            int newW = (int)(w * scale);
+            int newH = (int)(h * scale);
+            constraints = "pos " + newX + " " + newY + ", w " + newW + "!, h " + newH + "!";
+        } else {
+            // Caso Labels sin tamaño fijo: Usar "preferred size"
+            constraints = "pos " + newX + " " + newY + ", w min:pref, h min:pref";
+        }
+
+        // 4. Mover componente
+        oldParent.remove(comp);
+        newParent.add(comp, constraints);
+    }
+
+/**
+ * Método auxiliar para no repetir el código del "if font != null"
+ */
+private void reescalarFuente(java.awt.Component comp, double scale) {
+    if (comp.getFont() != null) {
+        float newSize = (float) (comp.getFont().getSize() * scale);
+        comp.setFont(comp.getFont().deriveFont(Math.max(newSize, 10.0f)));
+    }
+}
     
     private void aplicarReescaladoInterno() {
         double scaleFactor = ScreenUtils.getScaleFactor();

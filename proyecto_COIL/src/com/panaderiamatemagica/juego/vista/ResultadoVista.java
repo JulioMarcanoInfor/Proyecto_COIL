@@ -7,6 +7,7 @@ package com.panaderiamatemagica.juego.vista;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
+import java.awt.BorderLayout;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -21,27 +22,74 @@ public class ResultadoVista extends javax.swing.JPanel {
      */
     public ResultadoVista(RouterControlador router) {
         this.router = router;
+        
+        // 1. Obtener factor de escala
+        double scale = ScreenUtils.getScaleFactor();
+        
         initComponents();
-        aplicarReescaladoInterno();
-         fondoPanel = new FondoPanel("resultados.jpg");
-    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
-    
-    // Configurar MigLayout en este panel principal
-    setLayout(new java.awt.BorderLayout());
-    
-    // Agregar el fondo primero
-    add(fondoPanel, java.awt.BorderLayout.CENTER);
-    
-    // Remover componentes del diseño original
-    remove(jButton1);
-    
-    fondoPanel.add(jButton1, "pos 20% 83.50%, w 300:300:300, h 65:65:65");
-    fondoPanel.add(jButton2, "pos 40% 83.50%, w 300:300:300, h 65:65:65");
-    fondoPanel.add(jButton3, "pos 60% 83.50%, w 300:300:300, h 65:65:65");
-    fondoPanel.add(jLabel1, "pos 40.42% 62.79%, w 600:600:600, h 50:50:50");
-    fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w 220:220:220, h 230:230:230");
-    }
+        // aplicarReescaladoInterno(); // <-- ESTA LLAMADA DEBE SER ELIMINADA
+        
+        fondoPanel = new FondoPanel("resultados.jpg");
+        fondoPanel.setLayout(new net.miginfocom.swing.MigLayout("fill, insets 0, novisualpadding", "[grow]", "[grow]"));
+        
+        // Configurar MigLayout en este panel principal
+        setLayout(new BorderLayout());
+        
+        // Agregar el fondo primero
+        add(fondoPanel, BorderLayout.CENTER);
+        
+        // Remover componentes del diseño original
+        remove(jButton1);
+        remove(jButton2);
+        remove(jButton3);
+        remove(jLabel1);
+        remove(jPanel1);
+        remove(jLabelReescalable1); // Eliminar el fondo generado por NetBeans
 
+        // ---------------------------------------------------------------
+        // 2. AÑADIR COMPONENTES CON PORCENTAJES DE POSICIÓN Y TAMAÑOS ESCALADOS
+        // ---------------------------------------------------------------
+        
+        // Botón 1. (REGRESAR): pos 20% 83.50%, w 300, h 65
+        reescalarFuente(jButton1, scale);
+        int w1 = (int) (300 * scale);
+        int h1 = (int) (65 * scale);
+        fondoPanel.add(jButton1, "pos 20% 83.50%, w " + w1 + "!, h " + h1 + "!");
+
+        // Botón 2 (REPETIR): pos 40% 83.50%, w 300, h 65
+        reescalarFuente(jButton2, scale);
+        int w2 = (int) (300 * scale);
+        int h2 = (int) (65 * scale);
+        fondoPanel.add(jButton2, "pos 40% 83.50%, w " + w2 + "!, h " + h2 + "!");
+        
+        // Botón 3 (SIGUIENTE): pos 60% 83.50%, w 300, h 65
+        reescalarFuente(jButton3, scale);
+        int w3 = (int) (300 * scale);
+        int h3 = (int) (65 * scale);
+        fondoPanel.add(jButton3, "pos 60% 83.50%, w " + w3 + "!, h " + h3 + "!");
+        
+        // Etiqueta 1 (LO LOGRASTE/Texto de resultado): pos 40.42% 62.79%, w 600, h 50
+        reescalarFuente(jLabel1, scale);
+        int wLabel = (int) (600 * scale);
+        int hLabel = (int) (50 * scale);
+        fondoPanel.add(jLabel1, "pos 40.42% 62.79%, w " + wLabel + "!, h " + hLabel + "!");
+        
+        // Panel 1 (Bloque de resultados/Estrellas): pos 42.42% 25.02%, w 220, h 230
+        int wPanel = (int) (220 * scale);
+        int hPanel = (int) (230 * scale);
+        fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w " + wPanel + "!, h " + hPanel + "!");
+        
+        this.revalidate();
+        this.repaint();
+    }
+    
+    private void reescalarFuente(java.awt.Component comp, double scale) {
+        if (comp.getFont() != null) {
+            float newSize = (float) (comp.getFont().getSize() * scale);
+            comp.setFont(comp.getFont().deriveFont(Math.max(newSize, 10.0f)));
+        }
+    }
+    
     private void aplicarReescaladoInterno() {
         double scaleFactor = ScreenUtils.getScaleFactor();
         

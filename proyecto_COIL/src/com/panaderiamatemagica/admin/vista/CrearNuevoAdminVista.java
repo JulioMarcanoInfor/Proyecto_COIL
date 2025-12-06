@@ -29,7 +29,6 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
                 ,router.getListaProfesores());
         
         initComponents();
-        aplicarReescaladoInterno();
     }
 
     private void aplicarReescaladoInterno() {

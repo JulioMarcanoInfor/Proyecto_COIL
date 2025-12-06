@@ -34,28 +34,44 @@ public class FondoAutenticacionVista extends javax.swing.JPanel {
         
         initComponents();
         inicializarPantallas();
-        aplicarReescaladoInterno();
         
         pantallaRecuperarContraseña = new RecuperarContraseñaVista(routerP);
         monitor.add(pantallaRecuperarContraseña, "RECUPERAR");
+    // 1. Obtener factor de escala
+        double scale = ScreenUtils.getScaleFactor();
         
+        // 2. Calcular tamaños escalados para el MONITOR
+        int monitorW = (int)(640 * scale);
+        int monitorH = (int)(660 * scale);
+        
+        // 3. Calcular tamaños escalados para el BOTÓN
+        int btnW = (int)(96 * scale);
+        int btnH = (int)(57 * scale);
 
-    FondoPanel fondoPanel = new FondoPanel("fondoAutenticacion.jpg");
-    fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
-    
-    // Configurar MigLayout en este panel principal
-    setLayout(new java.awt.BorderLayout());
-    
-    // Agregar el fondo primero
-    add(fondoPanel, java.awt.BorderLayout.CENTER);
-    
-    // Remover componentes del diseño original
-    remove(monitor);
-    remove(botonVolver);
-    
-    // Agregar componentes al fondoPanel con posiciones específicas
-    fondoPanel.add(monitor, "pos 50% 15%, w 640:640:640, h 660:660:660");
-    fondoPanel.add(botonVolver,"pos 93% 90%, w 96:96:96, h 57:57:57");
+        FondoPanel fondoPanel = new FondoPanel("FondoAutenticacion.jpg");
+        // Usamos MigLayout pero inyectamos los tamaños YA CALCULADOS
+        fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
+
+        setLayout(new java.awt.BorderLayout());
+        add(fondoPanel, java.awt.BorderLayout.CENTER);
+
+        remove(monitor);
+        remove(botonVolver);
+        
+        // Reescalar la fuente del botón manualmente (ya que quitamos el recursivo)
+        if (botonVolver.getFont() != null) {
+            float newSize = (float) (botonVolver.getFont().getSize() * scale);
+            botonVolver.setFont(botonVolver.getFont().deriveFont(Math.max(newSize, 10.0f)));
+        }
+
+        // 4. Agregar componentes con las medidas dinámicas
+        // "pos 50% 15%" mantiene la posición proporcional automáticamente.
+        // "w " + monitorW + "!" fuerza el tamaño exacto escalado.
+        fondoPanel.add(monitor, "pos 50% 15%, w " + monitorW + "!, h " + monitorH + "!");
+        fondoPanel.add(botonVolver, "pos 93% 90%, w " + btnW + "!, h " + btnH + "!");
+        
+        // 5. IMPORTANTE: Forzar al CardLayout a mostrar la primera pantalla
+        pantallasAutenticacion.show(monitor, "ROL");
 }
 
 
