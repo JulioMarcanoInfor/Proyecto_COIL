@@ -7,6 +7,7 @@ package com.panaderiamatemagica.core.visual;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -23,6 +24,7 @@ public class PantallaInicioVista extends javax.swing.JPanel {
     public PantallaInicioVista(RouterControlador router) {
         this.router = router;
         initComponents();
+        aplicarReescaladoInterno();
 
         // Crear panel responsivo con dimensiones de diseño original
         ResponsivePanel responsivePanel = new ResponsivePanel(833, 615) {
@@ -56,6 +58,16 @@ public class PantallaInicioVista extends javax.swing.JPanel {
 
         // Agregar botón al panel responsivo
         responsivePanel.addScalable(botonJugar, 330, 410, 234, 110);
+    }
+        private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     @SuppressWarnings("unchecked")

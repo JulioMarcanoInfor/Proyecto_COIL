@@ -44,7 +44,7 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-              <Component id="monitorAdmin" pref="773" max="32767" attributes="0"/>
+              <Component id="monitorAdmin" pref="526" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,7 +63,7 @@
               <Component id="jButton4" min="-2" pref="44" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
           </Group>
-          <Component id="monitorAdmin" alignment="0" pref="896" max="32767" attributes="0"/>
+          <Component id="monitorAdmin" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

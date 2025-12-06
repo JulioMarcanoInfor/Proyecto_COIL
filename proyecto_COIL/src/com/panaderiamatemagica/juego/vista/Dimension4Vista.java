@@ -8,6 +8,7 @@ import com.panaderiamatemagica.Dimension.controlador.DimensionControlador;
 import com.panaderiamatemagica.Dimension.modelo.DimensionModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
 import net.miginfocom.swing.MigLayout;
@@ -29,7 +30,7 @@ public class Dimension4Vista extends javax.swing.JPanel {
     public Dimension4Vista(RouterControlador router) {
         this.router = router;
         initComponents();
-        
+        aplicarReescaladoInterno();
         FondoPanel fondoPanel = new FondoPanel("fondoD4.jpg");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
     
@@ -77,7 +78,38 @@ public class Dimension4Vista extends javax.swing.JPanel {
     fondoPanel.add(b29, "pos 62% 78%, w 100:100:100, h 80:80:80");
     fondoPanel.add(b30, "pos 72% 78%, w 100:100:100, h 80:80:80");
     }
+    
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
+    }
+    
+        private void iniciarNivelSeguro(int nivelIndex) {
 
+        if (controlador == null) {
+            // Esto fuerza la re-ejecución del flujo de inicialización 
+            // (RouterControlador.iniciarDimension1()), que establece 'this.controlador'.
+            System.err.println("Advertencia: DimensionControlador es nulo. Forzando re-inicialización.");
+            router.iniciarDimension4(); 
+        }
+
+        // Una vez inicializado (o si ya lo estaba), se llama al método real
+        if (controlador != null) {
+            controlador.iniciarNivel(nivelIndex);
+        } else {
+            // En caso de fallo de inicialización
+            javax.swing.JOptionPane.showMessageDialog(this,
+                    "Error fatal: El controlador de dimensión no pudo ser inicializado. Reinicie la aplicación.",
+                    "Error de Inicialización",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }
     /**
      * MÉTODO AGREGADO: Usado por RouterControlador para INYECTAR Y CREAR el
      * DimensionControlador.
@@ -182,6 +214,11 @@ public class Dimension4Vista extends javax.swing.JPanel {
         b4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b4.setForeground(new java.awt.Color(75, 50, 25));
         b4.setText("4");
+        b4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b4ActionPerformed(evt);
+            }
+        });
         add(b4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 180, 70, 20));
 
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondoD4.jpg"))); // NOI18N
@@ -192,156 +229,286 @@ public class Dimension4Vista extends javax.swing.JPanel {
         b5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b5.setForeground(new java.awt.Color(75, 50, 25));
         b5.setText("5");
+        b5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b5ActionPerformed(evt);
+            }
+        });
         add(b5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b6.setBackground(new java.awt.Color(255, 192, 0));
         b6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b6.setForeground(new java.awt.Color(75, 50, 25));
         b6.setText("6");
+        b6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b6ActionPerformed(evt);
+            }
+        });
         add(b6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b7.setBackground(new java.awt.Color(255, 192, 0));
         b7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b7.setForeground(new java.awt.Color(75, 50, 25));
         b7.setText("7");
+        b7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b7ActionPerformed(evt);
+            }
+        });
         add(b7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b8.setBackground(new java.awt.Color(255, 192, 0));
         b8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b8.setForeground(new java.awt.Color(75, 50, 25));
         b8.setText("8");
+        b8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b8ActionPerformed(evt);
+            }
+        });
         add(b8, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b9.setBackground(new java.awt.Color(255, 192, 0));
         b9.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b9.setForeground(new java.awt.Color(75, 50, 25));
         b9.setText("9");
+        b9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b9ActionPerformed(evt);
+            }
+        });
         add(b9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b10.setBackground(new java.awt.Color(255, 192, 0));
         b10.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b10.setForeground(new java.awt.Color(75, 50, 25));
         b10.setText("10");
+        b10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b10ActionPerformed(evt);
+            }
+        });
         add(b10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b11.setBackground(new java.awt.Color(255, 192, 0));
         b11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b11.setForeground(new java.awt.Color(75, 50, 25));
         b11.setText("11");
+        b11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b11ActionPerformed(evt);
+            }
+        });
         add(b11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b12.setBackground(new java.awt.Color(255, 192, 0));
         b12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b12.setForeground(new java.awt.Color(75, 50, 25));
         b12.setText("12");
+        b12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b12ActionPerformed(evt);
+            }
+        });
         add(b12, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b13.setBackground(new java.awt.Color(255, 192, 0));
         b13.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b13.setForeground(new java.awt.Color(75, 50, 25));
         b13.setText("13");
+        b13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b13ActionPerformed(evt);
+            }
+        });
         add(b13, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b14.setBackground(new java.awt.Color(255, 192, 0));
         b14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b14.setForeground(new java.awt.Color(75, 50, 25));
         b14.setText("14");
+        b14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b14ActionPerformed(evt);
+            }
+        });
         add(b14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b15.setBackground(new java.awt.Color(255, 192, 0));
         b15.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b15.setForeground(new java.awt.Color(75, 50, 25));
         b15.setText("15");
+        b15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b15ActionPerformed(evt);
+            }
+        });
         add(b15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b16.setBackground(new java.awt.Color(255, 192, 0));
         b16.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b16.setForeground(new java.awt.Color(75, 50, 25));
         b16.setText("16");
+        b16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b16ActionPerformed(evt);
+            }
+        });
         add(b16, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b17.setBackground(new java.awt.Color(255, 192, 0));
         b17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b17.setForeground(new java.awt.Color(75, 50, 25));
         b17.setText("17");
+        b17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b17ActionPerformed(evt);
+            }
+        });
         add(b17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b18.setBackground(new java.awt.Color(255, 192, 0));
         b18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b18.setForeground(new java.awt.Color(75, 50, 25));
         b18.setText("18");
+        b18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b18ActionPerformed(evt);
+            }
+        });
         add(b18, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b19.setBackground(new java.awt.Color(255, 192, 0));
         b19.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b19.setForeground(new java.awt.Color(75, 50, 25));
         b19.setText("19");
+        b19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b19ActionPerformed(evt);
+            }
+        });
         add(b19, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b20.setBackground(new java.awt.Color(255, 192, 0));
         b20.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b20.setForeground(new java.awt.Color(75, 50, 25));
         b20.setText("20");
+        b20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b20ActionPerformed(evt);
+            }
+        });
         add(b20, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b21.setBackground(new java.awt.Color(255, 192, 0));
         b21.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b21.setForeground(new java.awt.Color(75, 50, 25));
         b21.setText("21");
+        b21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b21ActionPerformed(evt);
+            }
+        });
         add(b21, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b22.setBackground(new java.awt.Color(255, 192, 0));
         b22.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b22.setForeground(new java.awt.Color(75, 50, 25));
         b22.setText("22");
+        b22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b22ActionPerformed(evt);
+            }
+        });
         add(b22, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b23.setBackground(new java.awt.Color(255, 192, 0));
         b23.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b23.setForeground(new java.awt.Color(75, 50, 25));
         b23.setText("23");
+        b23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b23ActionPerformed(evt);
+            }
+        });
         add(b23, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b24.setBackground(new java.awt.Color(255, 192, 0));
         b24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b24.setForeground(new java.awt.Color(75, 50, 25));
         b24.setText("24");
+        b24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b24ActionPerformed(evt);
+            }
+        });
         add(b24, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b25.setBackground(new java.awt.Color(255, 192, 0));
         b25.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b25.setForeground(new java.awt.Color(75, 50, 25));
         b25.setText("25");
+        b25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b25ActionPerformed(evt);
+            }
+        });
         add(b25, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b26.setBackground(new java.awt.Color(255, 192, 0));
         b26.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b26.setForeground(new java.awt.Color(75, 50, 25));
         b26.setText("26");
+        b26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b26ActionPerformed(evt);
+            }
+        });
         add(b26, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b27.setBackground(new java.awt.Color(255, 192, 0));
         b27.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b27.setForeground(new java.awt.Color(75, 50, 25));
         b27.setText("27");
+        b27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b27ActionPerformed(evt);
+            }
+        });
         add(b27, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b28.setBackground(new java.awt.Color(255, 192, 0));
         b28.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b28.setForeground(new java.awt.Color(75, 50, 25));
         b28.setText("28");
+        b28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b28ActionPerformed(evt);
+            }
+        });
         add(b28, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b29.setBackground(new java.awt.Color(255, 192, 0));
         b29.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b29.setForeground(new java.awt.Color(75, 50, 25));
         b29.setText("29");
+        b29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b29ActionPerformed(evt);
+            }
+        });
         add(b29, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
 
         b30.setBackground(new java.awt.Color(255, 192, 0));
         b30.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         b30.setForeground(new java.awt.Color(75, 50, 25));
         b30.setText("30");
+        b30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                b30ActionPerformed(evt);
+            }
+        });
         add(b30, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 147, 73));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -349,14 +516,122 @@ public class Dimension4Vista extends javax.swing.JPanel {
         router.mostrarSeleccionDimension1();
     }//GEN-LAST:event_volverActionPerformed
 
+    private void b4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b4ActionPerformed
+        iniciarNivelSeguro(3);
+    }//GEN-LAST:event_b4ActionPerformed
+
+    private void b5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b5ActionPerformed
+        iniciarNivelSeguro(4);
+    }//GEN-LAST:event_b5ActionPerformed
+
+    private void b6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b6ActionPerformed
+        iniciarNivelSeguro(5);
+    }//GEN-LAST:event_b6ActionPerformed
+
+    private void b7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b7ActionPerformed
+        iniciarNivelSeguro(6);
+    }//GEN-LAST:event_b7ActionPerformed
+
+    private void b8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b8ActionPerformed
+        iniciarNivelSeguro(7);
+    }//GEN-LAST:event_b8ActionPerformed
+
+    private void b9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b9ActionPerformed
+        iniciarNivelSeguro(8);
+    }//GEN-LAST:event_b9ActionPerformed
+
+    private void b10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b10ActionPerformed
+        iniciarNivelSeguro(9);
+    }//GEN-LAST:event_b10ActionPerformed
+
+    private void b11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b11ActionPerformed
+        iniciarNivelSeguro(10);
+    }//GEN-LAST:event_b11ActionPerformed
+
+    private void b12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b12ActionPerformed
+        iniciarNivelSeguro(11);
+    }//GEN-LAST:event_b12ActionPerformed
+
+    private void b13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b13ActionPerformed
+        iniciarNivelSeguro(12);
+    }//GEN-LAST:event_b13ActionPerformed
+
+    private void b14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b14ActionPerformed
+        iniciarNivelSeguro(13);
+    }//GEN-LAST:event_b14ActionPerformed
+
+    private void b15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b15ActionPerformed
+        iniciarNivelSeguro(14);
+    }//GEN-LAST:event_b15ActionPerformed
+
+    private void b16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b16ActionPerformed
+        iniciarNivelSeguro(15);
+    }//GEN-LAST:event_b16ActionPerformed
+
+    private void b17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b17ActionPerformed
+        iniciarNivelSeguro(16);
+    }//GEN-LAST:event_b17ActionPerformed
+
+    private void b18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b18ActionPerformed
+        iniciarNivelSeguro(17);
+    }//GEN-LAST:event_b18ActionPerformed
+
+    private void b19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b19ActionPerformed
+        iniciarNivelSeguro(18);
+    }//GEN-LAST:event_b19ActionPerformed
+
+    private void b20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b20ActionPerformed
+        iniciarNivelSeguro(19);
+    }//GEN-LAST:event_b20ActionPerformed
+
+    private void b21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b21ActionPerformed
+        iniciarNivelSeguro(20);
+    }//GEN-LAST:event_b21ActionPerformed
+
+    private void b22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b22ActionPerformed
+        iniciarNivelSeguro(21);
+    }//GEN-LAST:event_b22ActionPerformed
+
+    private void b23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b23ActionPerformed
+        iniciarNivelSeguro(22);
+    }//GEN-LAST:event_b23ActionPerformed
+
+    private void b24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b24ActionPerformed
+        iniciarNivelSeguro(23);
+    }//GEN-LAST:event_b24ActionPerformed
+
+    private void b25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b25ActionPerformed
+        iniciarNivelSeguro(24);
+    }//GEN-LAST:event_b25ActionPerformed
+
+    private void b26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b26ActionPerformed
+        iniciarNivelSeguro(25);
+    }//GEN-LAST:event_b26ActionPerformed
+
+    private void b27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b27ActionPerformed
+        iniciarNivelSeguro(26);
+    }//GEN-LAST:event_b27ActionPerformed
+
+    private void b28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b28ActionPerformed
+        iniciarNivelSeguro(27);
+    }//GEN-LAST:event_b28ActionPerformed
+
+    private void b29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b29ActionPerformed
+        iniciarNivelSeguro(28);
+    }//GEN-LAST:event_b29ActionPerformed
+
+    private void b30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b30ActionPerformed
+        iniciarNivelSeguro(29);
+    }//GEN-LAST:event_b30ActionPerformed
+
     private void b1ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        controlador.iniciarNivel(0);
+        iniciarNivelSeguro(0);
     }            
     private void b2ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        controlador.iniciarNivel(1);
+        iniciarNivelSeguro(1);
     }            
     private void b3ActionPerformed(java.awt.event.ActionEvent evt) {                                   
-        controlador.iniciarNivel(2);
+        iniciarNivelSeguro(2);
     }            
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
         // Nivel 1 corresponde al índice 0

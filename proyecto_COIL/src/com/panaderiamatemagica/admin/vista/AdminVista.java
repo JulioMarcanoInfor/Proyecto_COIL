@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import Utilidades.CreadorPdf;
 import com.panaderiamatemagica.core.dao.AlumnoDAO;
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import java.io.File;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -27,6 +28,7 @@ public class AdminVista extends javax.swing.JPanel {
         this.router = router;
         this.routerAdmin = routerAdmin;
         initComponents();
+        aplicarReescaladoInterno();
         inicializarPantallas();
     }
     private void inicializarPantallas(){
@@ -40,6 +42,16 @@ public class AdminVista extends javax.swing.JPanel {
     
     public void agregarPanel(JPanel panel, String nombre) {
         monitorAdmin.add(panel, nombre);
+    }
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     /**

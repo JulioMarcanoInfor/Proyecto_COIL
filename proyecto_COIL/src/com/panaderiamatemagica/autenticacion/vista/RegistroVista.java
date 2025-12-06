@@ -9,6 +9,7 @@ import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenti
 import com.panaderiamatemagica.autenticacion.modelo.AlumnoModelo;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
@@ -54,6 +55,8 @@ public class RegistroVista extends javax.swing.JPanel {
                 this);
 
         initComponents();
+        aplicarReescaladoInterno();
+        
 
         // Crear panel responsivo
         ResponsivePanel responsivePanel = new ResponsivePanel(640, 660) {
@@ -135,6 +138,17 @@ public class RegistroVista extends javax.swing.JPanel {
 
         // Botón
         responsivePanel.addScalable(jButton1, 130, 420, 370, 100);
+    }
+    
+        private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     private JLabel crearLabelError() {

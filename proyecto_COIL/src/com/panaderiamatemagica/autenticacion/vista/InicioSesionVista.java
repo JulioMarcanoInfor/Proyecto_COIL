@@ -9,6 +9,7 @@ import com.panaderiamatemagica.autenticacion.controladores.alumnos.RouterAutenti
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.core.visual.componentes.ResponsivePanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -40,6 +41,7 @@ public class InicioSesionVista extends javax.swing.JPanel {
 
         initComponents();
 
+        aplicarReescaladoInterno();
         // Crear panel responsivo con dimensiones de diseño original
         ResponsivePanel responsivePanel = new ResponsivePanel(640, 660) {
             private Image backgroundImage;
@@ -70,7 +72,6 @@ public class InicioSesionVista extends javax.swing.JPanel {
         remove(apodo);
         remove(cajaTexto);
         remove(botonIniciarSesion);
-        remove(label1);
         remove(label2);
         remove(label3);
 
@@ -79,7 +80,6 @@ public class InicioSesionVista extends javax.swing.JPanel {
         responsivePanel.addScalable(apodo, 80, 120, 230, 50);
         responsivePanel.addScalable(cajaTexto, 100, 170, 450, 80);
         responsivePanel.addScalable(botonIniciarSesion, 130, 320, 370, 150);
-        responsivePanel.addScalable(label1, 180, 500, 280, 30);
         responsivePanel.addScalable(label2, 200, 525, 280, 30);
         responsivePanel.addScalable(label3, 180, 550, 280, 30);
 
@@ -90,6 +90,17 @@ public class InicioSesionVista extends javax.swing.JPanel {
             }
         });
         configurarEnterKeyBinding();
+    }
+    
+        private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -104,7 +115,6 @@ public class InicioSesionVista extends javax.swing.JPanel {
         apodo = new javax.swing.JLabel();
         label3 = new javax.swing.JLabel();
         label2 = new javax.swing.JLabel();
-        label1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 228, 196));
         setPreferredSize(new java.awt.Dimension(640, 660));
@@ -167,18 +177,6 @@ public class InicioSesionVista extends javax.swing.JPanel {
         label2.setForeground(new java.awt.Color(0, 0, 0));
         label2.setText("¿No tienes una cuenta?");
         add(label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 540, 310, -1));
-
-        label1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 24)); // NOI18N
-        label1.setForeground(new java.awt.Color(133, 47, 27));
-        label1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        label1.setText("<html><u>¿Olvidaste tu contraseña?</u></html>");
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        label1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                label1MouseClicked(evt);
-            }
-        });
-        add(label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 300, 50));
     }// </editor-fold>//GEN-END:initComponents
 
     private void cajaTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaTextoActionPerformed
@@ -187,10 +185,6 @@ public class InicioSesionVista extends javax.swing.JPanel {
             vaciarTextField();
         }
     }//GEN-LAST:event_cajaTextoActionPerformed
-
-    private void label1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label1MouseClicked
-        routerA.mostrarRecuperarContraseñaVista();
-    }//GEN-LAST:event_label1MouseClicked
 
     private void label3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_label3MouseClicked
         // TODO add your handling code here:
@@ -253,7 +247,6 @@ public class InicioSesionVista extends javax.swing.JPanel {
     private javax.swing.JLabel apodo;
     private javax.swing.JButton botonIniciarSesion;
     private javax.swing.JTextField cajaTexto;
-    private javax.swing.JLabel label1;
     private javax.swing.JLabel label2;
     private javax.swing.JLabel label3;
     private javax.swing.JLabel titulo;

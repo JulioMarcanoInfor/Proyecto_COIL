@@ -7,6 +7,7 @@ package com.panaderiamatemagica.admin.vista;
 
 import com.panaderiamatemagica.autenticacion.controladores.administradores.AdministradorControladorCrearAdmin;
 import com.panaderiamatemagica.core.RouterControlador;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import javax.swing.JTextField;
 
 /**
@@ -28,8 +29,19 @@ public class CrearNuevoAdminVista extends javax.swing.JPanel {
                 ,router.getListaProfesores());
         
         initComponents();
+        aplicarReescaladoInterno();
     }
 
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

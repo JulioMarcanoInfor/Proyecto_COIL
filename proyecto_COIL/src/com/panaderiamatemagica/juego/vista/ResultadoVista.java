@@ -6,6 +6,7 @@ package com.panaderiamatemagica.juego.vista;
 
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import net.miginfocom.swing.MigLayout;
 
 /**
@@ -21,7 +22,7 @@ public class ResultadoVista extends javax.swing.JPanel {
     public ResultadoVista(RouterControlador router) {
         this.router = router;
         initComponents();
-        
+        aplicarReescaladoInterno();
          fondoPanel = new FondoPanel("resultados.jpg");
     fondoPanel.setLayout(new MigLayout("fill, insets 0", "[grow]", "[grow]"));
     
@@ -41,6 +42,16 @@ public class ResultadoVista extends javax.swing.JPanel {
     fondoPanel.add(jPanel1, "pos 42.42% 25.02%, w 220:220:220, h 230:230:230");
     }
 
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

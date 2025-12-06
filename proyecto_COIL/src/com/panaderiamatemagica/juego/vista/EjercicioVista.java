@@ -7,6 +7,7 @@ package com.panaderiamatemagica.juego.vista;
 import com.panaderiamatemagica.core.RouterControlador;
 import com.panaderiamatemagica.core.visual.componentes.FondoPanel;
 import com.panaderiamatemagica.core.visual.componentes.GestorColorBotones;
+import com.panaderiamatemagica.core.visual.componentes.ScreenUtils;
 import com.panaderiamatemagica.ejercicios.controlador.EjercicioControladorVista;
 import com.panaderiamatemagica.ejercicios.modelo.EjercicioModelo;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class EjercicioVista extends javax.swing.JPanel {
         // esta vista.
         this.controlador = new EjercicioControladorVista(router, this);
         initComponents();
+        aplicarReescaladoInterno();
         this.gestor = new GestorColorBotones(b1,b2,b3,b4);
         
         FondoPanel fondoPanel = new FondoPanel("fondoAzulClaro.png");
@@ -57,6 +59,17 @@ public class EjercicioVista extends javax.swing.JPanel {
     fondoPanel.add(label1,"pos 9.5% 12.68%, w 1300:1300:1300, h 60:60:60");
     fondoPanel.add(label2,"pos 26% 19.84%, w 773:773:773, h 60:60:60");
     fondoPanel.add(barraProgreso, "pos 18% 4.5% , w 1000:1000:1000, h 60:60:60");
+    }
+    
+    private void aplicarReescaladoInterno() {
+        double scaleFactor = ScreenUtils.getScaleFactor();
+        
+        // Solo aplicar si el factor es significativamente diferente a 1
+        if (Math.abs(scaleFactor - 1.0) > 0.01) {
+            
+            // Reescalar recursivamente a todos los elementos dentro de ESTE PANEL
+            ScreenUtils.scaleComponentRecursively(this, scaleFactor);
+        }
     }
 
     // segun la metodoligia mvc esta bien colocar la funcion aqui.(tengo entendido).
